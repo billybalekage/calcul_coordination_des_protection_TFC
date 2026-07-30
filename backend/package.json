@@ -4,7 +4,13 @@
   "description": "backend pour l'application de calcul des protections. il assure l'authentification, la comminication avec la base de donnees, la gestion de projets electriques  et l'echange des donnees avec le moteur de calcul python via API",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js",
+    "start": "node server.js",
+    "prisma": "prisma",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +23,7 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
-    "express": "^5.2.1",
+    "express": "^5.2.1",  
     "express-rate-limit": "^8.6.1",
     "express-session": "^1.19.0",
     "google-auth-library": "^10.9.1",
@@ -26,8 +32,8 @@
     "ioredis": "^5.11.1",
     "joi": "^18.2.3",
     "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.11.0",
     "nodemailer": "^9.0.3",
-    "nodemon": "^3.1.14",
     "otpauth": "^9.5.1",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
@@ -38,6 +44,7 @@
   },
   "devDependencies": {
     "autocannon": "^8.0.0",
+    "nodemon": "^3.1.14",
     "prisma": "^7.9.1"
   }
 }
