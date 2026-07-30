@@ -44,3 +44,9 @@ Thumbs.db
 .vscode/
 .idea/
 /generated/prisma
+
+.agents
+.claude
+.cache
+.windsurf
+skills-lock.json
