@@ -45,8 +45,8 @@ Thumbs.db
 .idea/
 /generated/prisma
 
-.agents
-.claude
-.cache
-.windsurf
+/agents
+/claude
+/cache
+/windsurf
 skills-lock.json
