@@ -8,31 +8,73 @@ const errorHandler = require("./common/middlewares/errorHandler")
 const notFound = require("./common/middlewares/notFound")
 
 const createApp = () => {
-    const app = express()
-    app.use(helmet())
-    app.use(cors({
-        origin : process.env.CLIENT_URL,
-        credentials : true
-    }))
+  const app = express();
 
-    app.use(compression())
-    app.use(express.json())
-    app.use(cookieParser())
-    app.use(express.urlencoded({ extended: true }))
+  app.use((req, _res, next) => {
+    req.id =
+      req.get("x-request-id") ||
+      `req-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    next();
+  });
 
-    app.use(notFound)
+  app.use(helmet());
 
-    Sentry.setupExpressErrorHandler(app, {
-        shouldHandleError(error) {
-            const status = error.status || error.statusCode || 500;
-            return error.isOperational === setupSentry.FastifyErrorHandler  && status >= 500;
-        }
-    })
+  const allowedOrigins = (
+    process.env.CORS_ORIGINS ||
+    process.env.CLIENT_URL ||
+    "http://localhost:3000"
+  )
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
 
-    app.use(errorHandler)
+  app.use(
+    cors({
+      origin: allowedOrigins,
+      credentials: true,
+      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+      allowedHeaders: [
+        "Content-Type",
+        "Authorization",
+        "X-Requested-With",
+        "x-request-id",
+      ],
+    }),
+  );
 
-    return app
+  app.use((req, res, next) => {
+    if (req.method === "OPTIONS") {
+      res.sendStatus(204);
+      return;
+    }
+    next();
+  });
+
+  app.use(compression());
+  app.use(express.json({ limit: "10mb" }));
+  app.use(cookieParser());
+  app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+
+  app.get("/health", (_req, res) => {
+    res.status(200).json({
+      status: "ok",
+      service: "electrique-api",
+      timestamp: new Date().toISOString(),
+    });
+  });
+
+  app.use(notFound);
+
+  Sentry.setupExpressErrorHandler(app, {
+    shouldHandleError(error) {
+      const status = error.status || error.statusCode || 500;
+      return status >= 500;
+    },
+  });
+
+  app.use(errorHandler);
+
+  return app;
 }
-
 
 module.exports = createApp
