@@ -1,12 +1,17 @@
-require("dotenv").config()
-const createApp = require("./src/app")
-const http = require("http")
+require("dotenv").config();
+const http = require("http");
+const { env } = require("./src/config");
+const createApp = require("./src/app");
+const { logger } = require("./src/logger");
 
-const PORT = process.env.PORT || 7000;
+const app = createApp();
+const server = http.createServer(app);
 
-const app = createApp()
-const httpServer = http.createServer(app)
+server.keepAliveTimeout = env.KEEP_ALIVE_TIMEOUT;
+server.headersTimeout = env.HEADERS_TIMEOUT;
+server.requestTimeout = env.REQUEST_TIMEOUT;
 
-httpServer.listen(PORT, () => {
-    console.log(`Electrique api is listening on port ${PORT}`)
-})
+const PORT = env.PORT || 8800;
+server.listen(PORT, () => {
+  logger.info({ port: PORT }, "Electrique API listening");
+});

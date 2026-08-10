@@ -1,43 +1,77 @@
-const express = require("express")
-const cookieParser = require("cookie-parser")
-const cors = require("cors")
-const helmet = require("helmet")
-const compression = require("compression")
-const Sentry = require("@sentry/node")
-const errorHandler = require("./common/middlewares/errorHandler")
-const notFound = require("./common/middlewares/notFound")
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const helmet = require("helmet");
+const compression = require("compression");
+const Sentry = require("@sentry/node");
+const { env, corsOrigins } = require("./config");
+const { loggerMiddleware } = require("./logger");
+const errorHandler = require("./common/middlewares/errorHandler");
+const notFound = require("./common/middlewares/notFound");
+const requestId = require("./common/middlewares/requestId");
+const secureHeaders = require("./common/middlewares/headers");
+const { globalSlowDown } = require("./common/middlewares/rateLimiter");
+const { checkDatabaseConnection } = require("./config/prisma");
 
 const createApp = () => {
   const app = express();
 
-  app.use((req, _res, next) => {
-    req.id =
-      req.get("x-request-id") ||
-      `req-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-    next();
+  app.set("trust proxy", env.TRUST_PROXY ? 1 : false);
+
+  app.use(requestId);
+  app.use(loggerMiddleware);
+  app.use(secureHeaders);
+
+  app.use(
+    helmet({
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          defaultSrc: ["'self'"],
+          scriptSrc: ["'self'"],
+          styleSrc: ["'self'", "'unsafe-inline'"],
+          imgSrc: ["'self'", "data:"],
+          objectSrc: ["'none'"],
+          frameAncestors: ["'none'"],
+          baseUri: ["'self'"],
+          formAction: ["'self'"],
+        },
+      },
+      hsts: {
+        maxAge: 63072000,
+        includeSubDomains: true,
+        preload: true,
+      },
+      referrerPolicy: { policy: "strict-origin-when-cross-origin" },
+      frameguard: { action: "deny" },
+      crossOriginEmbedderPolicy: true,
+      crossOriginResourcePolicy: { policy: "same-origin" },
+      dnsPrefetchControl: { allow: false },
+      originAgentCluster: true,
+      hidePoweredBy: true,
+    }),
+  );
+
+  // check connection database
+  app.get("/api/health", async (req, res) => {
+    const [db] = await Promise.all([checkDatabaseConnection()]);
+    const health = db.connected;
+    res.status(health ? 200 : 503).json({
+      status: health ? "ok" : "degraded",
+      database: db,
+    });
   });
-
-  app.use(helmet());
-
-  const allowedOrigins = (
-    process.env.CORS_ORIGINS ||
-    process.env.CLIENT_URL ||
-    "http://localhost:3000"
-  )
-    .split(",")
-    .map((origin) => origin.trim())
-    .filter(Boolean);
 
   app.use(
     cors({
-      origin: allowedOrigins,
+      origin: corsOrigins,
       credentials: true,
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
       allowedHeaders: [
         "Content-Type",
         "Authorization",
         "X-Requested-With",
-        "x-request-id",
+        "X-Request-ID",
       ],
     }),
   );
@@ -50,10 +84,22 @@ const createApp = () => {
     next();
   });
 
-  app.use(compression());
-  app.use(express.json({ limit: "10mb" }));
+  app.use(globalSlowDown);
+  app.use(compression({ threshold: 1024 }));
+  app.use(express.json({ limit: env.REQUEST_SIZE_LIMIT }));
   app.use(cookieParser());
-  app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+  app.use((req, res, next) => {
+    res.locals.cookieOptions = {
+      httpOnly: true,
+      secure: env.NODE_ENV === "production",
+      sameSite: "lax",
+      maxAge: env.COOKIE_MAX_AGE_MS,
+    };
+    next();
+  });
+  app.use(
+    express.urlencoded({ extended: true, limit: env.REQUEST_SIZE_LIMIT }),
+  );
 
   app.get("/health", (_req, res) => {
     res.status(200).json({
@@ -65,16 +111,14 @@ const createApp = () => {
 
   app.use(notFound);
 
-  Sentry.setupExpressErrorHandler(app, {
-    shouldHandleError(error) {
-      const status = error.status || error.statusCode || 500;
-      return status >= 500;
-    },
-  });
+  if (env.SENTRY_DSN) {
+    Sentry.init({ dsn: env.SENTRY_DSN, environment: env.NODE_ENV });
+    app.use(Sentry.Handlers.errorHandler());
+  }
 
   app.use(errorHandler);
 
   return app;
-}
+};
 
-module.exports = createApp
+module.exports = createApp;

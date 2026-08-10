@@ -20,7 +20,7 @@ router = APIRouter()
 def read_root():
     return {
         "project": "Algorithmes",
-        "message": "Bienvenue sur l'API Algorithmes",
+        "message": "Algothmes de calcul de protection electrique",
         "version": settings.app_version,
     }
 
