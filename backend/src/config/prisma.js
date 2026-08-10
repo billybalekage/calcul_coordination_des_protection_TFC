@@ -1,12 +1,33 @@
 const { env } = require("../config");
 const { PrismaClient } = require("../generated/prisma");
-const { PrismaNeon } = require("@prisma/adapter-neon");
 
 let prisma = null;
 
 function getPrismaClient() {
   if (!prisma) {
-    const adapter = new PrismaNeon({ connectionString: env.DB_URL });
+    const connectionString =
+      env.DB_URL || env.DATABASE_URL || process.env.DATABASE_URL;
+
+    if (!connectionString) {
+      throw new Error(
+        "Database connection string is missing. Set DATABASE_URL or DB_URL in your environment variables.",
+      );
+    }
+
+    let adapter;
+
+    if (/neon|neondatabase|db\.neon\.tech|neon\.tech/i.test(connectionString)) {
+      const { PrismaNeon } = require("@prisma/adapter-neon");
+      adapter = new PrismaNeon({ connectionString });
+    } else if (/^postgres(ql)?:\/\//i.test(connectionString)) {
+      const { PrismaPg } = require("@prisma/adapter-pg");
+      adapter = new PrismaPg({ connectionString });
+    } else {
+      throw new Error(
+        "Unsupported database URL format. Use a PostgreSQL or Neon connection string.",
+      );
+    }
+
     prisma = new PrismaClient({ adapter });
   }
 

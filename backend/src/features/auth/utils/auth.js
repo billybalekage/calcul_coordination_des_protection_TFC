@@ -16,13 +16,7 @@ function isValidEmail(email) {
 
 function isValidPassword(password) {
   if (typeof password !== "string") return false;
-  return (
-    password.length >= 8 &&
-    /[a-z]/.test(password) &&
-    /[A-Z]/.test(password) &&
-    /[0-9]/.test(password) &&
-    /[^A-Za-z0-9]/.test(password)
-  );
+  return password.length >= 8;
 }
 
 async function hashPassword(password) {
@@ -62,4 +56,5 @@ module.exports = {
   generateVerificationOtp,
   getOtpExpiry,
   isOtpExpired,
+  hashPassword,
 };

@@ -5,3 +5,7 @@ async function createAccount(req, res) {
   const user = await authService.createAccount({ name, email, password });
   res.status(201).json({ success: true, data: user });
 }
+
+module.exports = {
+  createAccount,
+};

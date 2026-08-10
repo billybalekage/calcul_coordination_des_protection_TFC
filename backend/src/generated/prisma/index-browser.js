@@ -161,6 +161,84 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
   expires: 'expires'
 };
 
+exports.Prisma.ProjectScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  reference: 'reference',
+  customerName: 'customerName',
+  siteAddress: 'siteAddress',
+  status: 'status',
+  objective: 'objective',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  ownerId: 'ownerId'
+};
+
+exports.Prisma.BuildingScalarFieldEnum = {
+  id: 'id',
+  projectId: 'projectId',
+  surfaceArea: 'surfaceArea',
+  numberOfRooms: 'numberOfRooms',
+  supplyVoltage: 'supplyVoltage',
+  phases: 'phases',
+  buildingType: 'buildingType',
+  usage: 'usage',
+  comment: 'comment'
+};
+
+exports.Prisma.CircuitScalarFieldEnum = {
+  id: 'id',
+  projectId: 'projectId',
+  protectionId: 'protectionId',
+  label: 'label',
+  type: 'type',
+  room: 'room',
+  quantity: 'quantity',
+  loadWatts: 'loadWatts',
+  loadAmps: 'loadAmps',
+  shortCircuitCurrentAmps: 'shortCircuitCurrentAmps',
+  operatingCurrentAmps: 'operatingCurrentAmps',
+  circuitTotalCurrentAmps: 'circuitTotalCurrentAmps',
+  cableLengthMeters: 'cableLengthMeters',
+  conductorSectionMm2: 'conductorSectionMm2',
+  recommendedSectionMm2: 'recommendedSectionMm2',
+  voltageDropPercent: 'voltageDropPercent',
+  numberOfPoles: 'numberOfPoles',
+  isDedicated: 'isDedicated',
+  comment: 'comment',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProtectionScalarFieldEnum = {
+  id: 'id',
+  projectId: 'projectId',
+  type: 'type',
+  ratingAmps: 'ratingAmps',
+  curve: 'curve',
+  poles: 'poles',
+  description: 'description',
+  equipmentName: 'equipmentName',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CalculationScalarFieldEnum = {
+  id: 'id',
+  projectId: 'projectId',
+  name: 'name',
+  totalInstalledPowerWatts: 'totalInstalledPowerWatts',
+  maximumShortCircuitAmps: 'maximumShortCircuitAmps',
+  totalOperatingCurrentAmps: 'totalOperatingCurrentAmps',
+  totalCircuitCurrentAmps: 'totalCircuitCurrentAmps',
+  recommendedSectionMm2: 'recommendedSectionMm2',
+  voltageDropPercent: 'voltageDropPercent',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -175,13 +253,49 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.ProjectStatus = exports.$Enums.ProjectStatus = {
+  DRAFT: 'DRAFT',
+  IN_PROGRESS: 'IN_PROGRESS',
+  REVIEW: 'REVIEW',
+  COMPLETED: 'COMPLETED',
+  ARCHIVED: 'ARCHIVED'
+};
 
+exports.BuildingType = exports.$Enums.BuildingType = {
+  RESIDENTIAL: 'RESIDENTIAL',
+  COMMERCIAL: 'COMMERCIAL',
+  INDUSTRIAL: 'INDUSTRIAL',
+  MIXED_USE: 'MIXED_USE'
+};
+
+exports.CircuitCategory = exports.$Enums.CircuitCategory = {
+  LIGHTING: 'LIGHTING',
+  SOCKETS: 'SOCKETS',
+  HVAC: 'HVAC',
+  WATER_HEATER: 'WATER_HEATER',
+  APPLIANCE: 'APPLIANCE',
+  OTHER: 'OTHER'
+};
+
+exports.ProtectionType = exports.$Enums.ProtectionType = {
+  MCB: 'MCB',
+  RCCB: 'RCCB',
+  RCBO: 'RCBO',
+  FUSE: 'FUSE',
+  MAIN_BREAKER: 'MAIN_BREAKER',
+  SPD: 'SPD'
+};
 
 exports.Prisma.ModelName = {
   User: 'User',
   Account: 'Account',
   Session: 'Session',
-  VerificationToken: 'VerificationToken'
+  VerificationToken: 'VerificationToken',
+  Project: 'Project',
+  Building: 'Building',
+  Circuit: 'Circuit',
+  Protection: 'Protection',
+  Calculation: 'Calculation'
 };
 
 /**

@@ -15,6 +15,7 @@ const { checkDatabaseConnection } = require("./config/prisma");
 
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
+const authRoute = require("./features/auth/routes/auth.route");
 
 const createApp = () => {
   const app = express();
@@ -128,6 +129,8 @@ const createApp = () => {
       timestamp: new Date().toISOString(),
     });
   });
+
+  app.use("/api/auth", authRoute);
 
   app.use(notFound);
 

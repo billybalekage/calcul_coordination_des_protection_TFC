@@ -5,27 +5,22 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  // url       = env("DATABASE_URL")
 }
 
-// exemple de model
-
 model User {
-  id            String    @id @default(uuid())
-  name          String?
-  email         String    @unique
-  emailVerified DateTime?
-  photo         String?
-  password      String?
-
-  isTwoFactorEnabled Boolean @default(false)
+  id                 String    @id @default(uuid())
+  name               String?
+  email              String    @unique
+  emailVerified      DateTime?
+  photo              String?
+  password           String?
+  isTwoFactorEnabled Boolean   @default(false)
   twofactorSecret    String?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  accounts Account[]
-  sessions Session[]
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+  accounts           Account[]
+  projects           Project[]
+  sessions           Session[]
 }
 
 model Account {
@@ -34,14 +29,13 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_Token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_Token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -61,4 +55,126 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Project {
+  id           String        @id @default(uuid())
+  name         String
+  description  String?
+  reference    String?       @unique
+  customerName String?
+  siteAddress  String?
+  status       ProjectStatus @default(DRAFT)
+  objective    String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  ownerId      String
+  building     Building?
+  calculations Calculation[]
+  circuits     Circuit[]
+  owner        User          @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  protections  Protection[]
+}
+
+model Building {
+  id            String       @id @default(uuid())
+  projectId     String       @unique
+  surfaceArea   Float
+  numberOfRooms Int
+  supplyVoltage String
+  phases        Int          @default(3)
+  buildingType  BuildingType @default(RESIDENTIAL)
+  usage         String?
+  comment       String?
+  project       Project      @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model Circuit {
+  id                      String          @id @default(uuid())
+  projectId               String
+  protectionId            String?
+  label                   String
+  type                    CircuitCategory
+  room                    String?
+  quantity                Int             @default(1)
+  loadWatts               Int?
+  loadAmps                Float?
+  shortCircuitCurrentAmps Float?
+  operatingCurrentAmps    Float?
+  circuitTotalCurrentAmps Float?
+  cableLengthMeters       Float?
+  conductorSectionMm2     Float?
+  recommendedSectionMm2   Float?
+  voltageDropPercent      Float?
+  numberOfPoles           Int             @default(1)
+  isDedicated             Boolean         @default(false)
+  comment                 String?
+  createdAt               DateTime        @default(now())
+  updatedAt               DateTime        @updatedAt
+  project                 Project         @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  protection              Protection?     @relation(fields: [protectionId], references: [id])
+}
+
+model Protection {
+  id            String         @id @default(uuid())
+  projectId     String
+  type          ProtectionType @default(MCB)
+  ratingAmps    Int
+  curve         String?        @default("C")
+  poles         Int            @default(1)
+  description   String?
+  equipmentName String?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  circuits      Circuit[]
+  project       Project        @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model Calculation {
+  id                        String   @id @default(uuid())
+  projectId                 String
+  name                      String
+  totalInstalledPowerWatts  Int?
+  maximumShortCircuitAmps   Float?
+  totalOperatingCurrentAmps Float?
+  totalCircuitCurrentAmps   Float?
+  recommendedSectionMm2     Float?
+  voltageDropPercent        Float?
+  notes                     String?
+  createdAt                 DateTime @default(now())
+  updatedAt                 DateTime @updatedAt
+  project                   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+enum ProjectStatus {
+  DRAFT
+  IN_PROGRESS
+  REVIEW
+  COMPLETED
+  ARCHIVED
+}
+
+enum BuildingType {
+  RESIDENTIAL
+  COMMERCIAL
+  INDUSTRIAL
+  MIXED_USE
+}
+
+enum CircuitCategory {
+  LIGHTING
+  SOCKETS
+  HVAC
+  WATER_HEATER
+  APPLIANCE
+  OTHER
+}
+
+enum ProtectionType {
+  MCB
+  RCCB
+  RCBO
+  FUSE
+  MAIN_BREAKER
+  SPD
 }

@@ -38,10 +38,12 @@ class ConflictError extends AppError {
   }
 }
 
-module.exports = {
-  ConflictError,
-  AppError,
-  NotFoundError,
-  ValidationError,
-  BadRequestError,
-};
+// Export the base class as the module export (so `require(...)` returns a constructor
+// that can be used with `instanceof`). Attach specific error types as properties
+// so existing destructuring imports continue to work: `const { ValidationError } = require(...)`.
+module.exports = AppError;
+module.exports.AppErrors = AppError;
+module.exports.ConflictError = ConflictError;
+module.exports.ValidationError = ValidationError;
+module.exports.NotFoundError = NotFoundError;
+module.exports.BadRequestError = BadRequestError;

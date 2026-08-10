@@ -1,15 +1,20 @@
 const Joi = require("joi");
 const Redis = require("ioredis"); // communication avec le serveur distant de redis
 
+// allow DATABASE_URL to be used in .env while code expects DB_URL
+if (!process.env.DB_URL && process.env.DATABASE_URL) {
+  process.env.DB_URL = process.env.DATABASE_URL;
+}
+
 // schema de validation
 const envSchema = Joi.object({
-  NODE_ENV: Joi.string() // la variable doit etre une chaine de caractere
+  NODE_ENV: Joi.string()
     .valid("development", "production", "test")
     .default("development"),
 
   PORT: Joi.number().integer().min(1).max(65535).default(7000), // lr port est comptrie entre 1 et 65545
 
-  DB_URL: Joi.string(),
+  DATABASE_URL: Joi.string(),
 
   CLIENT_URL: Joi.string().uri().default("http://localhost:5173"),
   CORS_ORIGINS: Joi.string().allow("", null).default(""),
@@ -42,35 +47,30 @@ const envSchema = Joi.object({
     .default("info"),
 }).unknown(true);
 
-// validation des variables d'environnememt
-// value contien les variables d'environnements vaidees et converties
 const { value: env, error } = envSchema.validate(process.env, {
-  // process.env possede toutes les variables d'environements
-  abortEarly: false, // si plusieurs variables sont incorecte, Joi les affiche tous
-  convert: true, // covertie automatiquement les types
+  abortEarly: false,
+  convert: true,
 });
 
-// si Erreur de validation d'environement
 if (error) {
   throw new Error(`Environment validation error: ${error.message}`);
 }
 
-// formatages des origines
 const corsOrigins = (env.CORS_ORIGINS || env.CLIENT_URL)
-  .split(",") // decoupe la chaine grace au virgules
-  .map((origin) => origin.trim()) // supprime les espaces
-  .filter(Boolean); // supprime les elements vides
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 const redisClient = env.REDIS_URL
   ? new Redis(env.REDIS_URL, {
-      maxRetriesPerRequest: null, // ne pas limiter le nombre des tentatives lorsqu'une requete echous
-      enableOfflineQueue: false, // Si redis est indisponible, ne pas mettre les requetes en attentes
+      maxRetriesPerRequest: null,
+      enableOfflineQueue: false,
     })
   : null;
 
 const cookieOptions = {
-  httpOnly: true, // Cokie inaccessible depuis javaScript
-  secure: env.NODE_ENV === "production", // le cookie ne sera envoyé que via https
+  httpOnly: true,
+  secure: env.NODE_ENV === "production",
   sameSite: "lax",
   maxAge: env.COOKIE_MAX_AGE_MS,
 };

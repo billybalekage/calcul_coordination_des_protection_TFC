@@ -1,19 +1,30 @@
 const pino = require("pino");
 const pinoHttp = require("pino-http");
+const path = require("path");
+const fs = require("fs");
 
 const { env } = require("./config");
 
+const logFile = path.join(__dirname, "../logs/app.log");
+
 // creation du logger
-const logger = pino({
-  level: env.LOG_LEVEL, // nouveau log, le niveau est lu dans le .env
-  timestamp: pino.stdTimeFunctions.isoTime, // chaque lodg a une date iso
-  base: { pid: false },
-});
+const logger = pino(
+  {
+    level: env.LOG_LEVEL, // nouveau log, le niveau est lu dans le .env
+    timestamp: pino.stdTimeFunctions.isoTime, // chaque log a une date iso
+    base: { pid: false },
+  },
+  pino.transport({
+    target: "pino-pretty",
+    options: {
+      colorize: true,
+    },
+  }),
+);
 
 const loggerMiddleware = pinoHttp({
   logger,
 
-  // generation du requestId
   genReqId: (req) =>
     req.id ||
     req.headers["x-request-id"] ||
