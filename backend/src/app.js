@@ -13,8 +13,28 @@ const secureHeaders = require("./common/middlewares/headers");
 const { globalSlowDown } = require("./common/middlewares/rateLimiter");
 const { checkDatabaseConnection } = require("./config/prisma");
 
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
+
 const createApp = () => {
   const app = express();
+
+  const swaggerOptions = {
+    definition: {
+      openapi: "3.0.0",
+      info: {
+        title: "Electrique API",
+        version: "1.0.0",
+        description: "Documentation automatique de l'API Express",
+      },
+    },
+    apis: ["./src/features/**/*.js", "./src/**/*.js"],
+  };
+
+  const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+  app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.get("/docs.json", (_req, res) => res.json(swaggerSpec));
 
   app.set("trust proxy", env.TRUST_PROXY ? 1 : false);
 

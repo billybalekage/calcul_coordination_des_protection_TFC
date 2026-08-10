@@ -17,9 +17,6 @@ env/
 !.yarn/releases
 !.yarn/versions
 
-# next.js
-.next/
-out/
 
 # production
 build/
@@ -32,12 +29,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# vercel
-.vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
 
 .DS_Store
 Thumbs.db
@@ -50,3 +42,27 @@ Thumbs.db
 /cache
 /windsurf
 skills-lock.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
