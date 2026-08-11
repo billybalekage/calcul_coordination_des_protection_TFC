@@ -2,8 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import TokenVerification from "./pages/auth/tokenVerfication";
 import CreateAccount from "./pages/auth/register";
 import NotFound from "./pages/notFound";
-import { Home } from "lucide-react";
 import Login from "./pages/auth/login";
+import Home from "./pages/Home";
 
 const App = () => {
   return (

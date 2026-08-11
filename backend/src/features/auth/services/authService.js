@@ -18,6 +18,7 @@ const {
   publicUserSelect,
 } = require("../utils/auth");
 const { sendPasswordResetOtpEmail } = require("../../../common/mails");
+const { uploadImage } = require("../../../services/cloudinary.upload");
 
 const EMAIL_VERIFICATION_OTP_TTL_MINUTES = 10;
 const RESET_PASSWORD_OTP_TTL_MINUTES = 10;
@@ -417,6 +418,56 @@ async function processGoogleAuth({ idToken } = {}) {
   );
 }
 
+async function getMe(userId) {
+  if (!userId) {
+    throw new UnauthorizedError("Authentification requise.");
+  }
+
+  const prisma = prismaModule.getPrismaClient();
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: publicUserSelect,
+  });
+
+  if (!user) {
+    throw new NotFoundError("Utilisateur introuvable.");
+  }
+
+  return user;
+}
+
+async function updateProfilePhoto(userId, file) {
+  if (!userId) {
+    throw new UnauthorizedError("Authentification requise.");
+  }
+
+  if (!file || !file.buffer) {
+    throw new ValidationError("Une image valide est requise.");
+  }
+
+  const prisma = prismaModule.getPrismaClient();
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: { id: true, photo: true },
+  });
+
+  if (!user) {
+    throw new NotFoundError("Utilisateur introuvable.");
+  }
+
+  const uploaded = await uploadImage(file.buffer, "avatars", {
+    transformation: [{ width: 512, height: 512, crop: "fill" }],
+  });
+
+  const updatedUser = await prisma.user.update({
+    where: { id: userId },
+    data: { photo: uploaded.url },
+    select: publicUserSelect,
+  });
+
+  return updatedUser;
+}
+
 async function logout({ userId } = {}) {
   const prisma = prismaModule.getPrismaClient();
   if (userId) {
@@ -434,6 +485,8 @@ module.exports = {
   forgotPassword,
   resetPassword,
   login,
+  getMe,
+  updateProfilePhoto,
   logout,
   processGoogleAuth,
 };

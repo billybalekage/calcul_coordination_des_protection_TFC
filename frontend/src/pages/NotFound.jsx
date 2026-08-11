@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Home, Search } from "lucide-react";
+// import { Input } from "@/components/ui/input";
+import { Home } from "lucide-react";
 
 const NotFound = () => {
   return (
@@ -28,11 +28,11 @@ const NotFound = () => {
           Page introuvable
         </h1>
         <p className="text-sm text-muted-foreground sm:text-base">
-          Retournez à l&apos;accueil, ou utilisez la recherche
+          Retournez à l&apos;accueil
         </p>
       </div>
 
-      <form action="/recherche" className="w-full max-w-md">
+      {/* <form action="/recherche" className="w-full max-w-md">
         <div className="relative">
           <Input
             type="search"
@@ -48,9 +48,9 @@ const NotFound = () => {
             <Search className="h-4 w-4" />
           </button>
         </div>
-      </form>
+      </form> */}
 
-      <Button size="lg">
+      <Button size="lg" href="/">
         <Home className="mr-2 h-4 w-4" />
         Retour à l&apos;accueil
       </Button>

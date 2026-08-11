@@ -7,6 +7,20 @@ const {
   clearRefreshTokenCookie,
 } = require("../utils/cookie");
 
+async function getMe(req, res) {
+  const user = await authService.getMe(req.user?.id);
+  res.status(200).json({ success: true, user });
+}
+
+async function uploadAvatar(req, res) {
+  const user = await authService.updateProfilePhoto(req.user?.id, req.file);
+  res.status(200).json({
+    success: true,
+    user,
+    message: "Photo de profil mise à jour.",
+  });
+}
+
 function issueAuthCookies(res, userId) {
   const accessToken = signAccessToken({ userId });
   const refreshToken = signRefreshToken({ userId });
@@ -96,6 +110,8 @@ async function logout(req, res) {
 module.exports = {
   register,
   login,
+  getMe,
+  uploadAvatar,
   verifyEmail,
   resendVerification,
   forgotPassword,
