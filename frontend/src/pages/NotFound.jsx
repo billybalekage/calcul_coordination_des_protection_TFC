@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 // import { Input } from "@/components/ui/input";
 import { Home } from "lucide-react";
 
 const NotFound = () => {
+  const navigate = useNavigate();
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-8 px-6 text-center">
       {/* <div className="absolute top-6">
@@ -50,7 +53,7 @@ const NotFound = () => {
         </div>
       </form> */}
 
-      <Button size="lg" href="/">
+      <Button size="lg" onClick={() => navigate("/")}>
         <Home className="mr-2 h-4 w-4" />
         Retour à l&apos;accueil
       </Button>
