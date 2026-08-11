@@ -130,7 +130,7 @@ const createApp = () => {
     });
   });
 
-  app.use("/api/auth", authRoute);
+  app.use("/api/v1/auth", authRoute);
 
   app.use(notFound);
 

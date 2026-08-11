@@ -1,10 +1,20 @@
-import Logo from "./assets/dome white.svg";
+import { Routes, Route } from "react-router-dom";
+import TokenVerification from "./pages/auth/tokenVerfication";
+import CreateAccount from "./pages/auth/register";
+import NotFound from "./pages/notFound";
+import { Home } from "lucide-react";
+import Login from "./pages/auth/login";
 
 const App = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-slate-950 text-white text-bold">
-      <img src="Logo" alt="" />
-      App
+    <div className="flex min-h-screen flex-col items-center justify-center gap-4 text-bold">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/create-account" element={<CreateAccount />} />
+        <Route path="/token-verification" element={<TokenVerification />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 };

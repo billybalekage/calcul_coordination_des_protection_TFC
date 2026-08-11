@@ -3,6 +3,17 @@ const crypto = require("crypto");
 const SALT_ROUNDS = 12;
 const OTP_CODE_LENGTH = 6;
 
+const publicUserSelect = {
+  id: true,
+  name: true,
+  email: true,
+  emailVerified: true,
+  photo: true,
+  isTwoFactorEnabled: true,
+  createdAt: true,
+  updatedAt: true,
+};
+
 function isValidName(name) {
   if (typeof name !== "string") return false;
   const trimed = name.trim();
@@ -21,6 +32,11 @@ function isValidPassword(password) {
 
 async function hashPassword(password) {
   return bcrypt.hash(password, SALT_ROUNDS);
+}
+
+async function comparePassword(password, hash) {
+  if (!password || !hash) return false;
+  return bcrypt.compare(password, hash);
 }
 
 function generateOtpCode() {
@@ -57,4 +73,6 @@ module.exports = {
   getOtpExpiry,
   isOtpExpired,
   hashPassword,
+  comparePassword,
+  publicUserSelect,
 };
