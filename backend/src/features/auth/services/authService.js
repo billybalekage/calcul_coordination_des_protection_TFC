@@ -15,13 +15,20 @@ const {
   comparePassword,
   getOtpExpiry,
   generateVerificationOtp,
+  generateAuthOtp,
   publicUserSelect,
 } = require("../utils/auth");
 const { sendPasswordResetOtpEmail } = require("../../../common/mails");
+const {
+  sendVerificationEmail,
+  sendPasswordChangedEmail,
+} = require("../../../common/mails");
+const { env } = require("../../../config");
 const { uploadImage } = require("../../../services/cloudinary.upload");
 
 const EMAIL_VERIFICATION_OTP_TTL_MINUTES = 10;
 const RESET_PASSWORD_OTP_TTL_MINUTES = 10;
+const AUTH_OTP_TTL_MINUTES = 10;
 
 function normalizeEmail(email) {
   return String(email || "")
@@ -149,6 +156,17 @@ async function createAccount({ name, email, password } = {}) {
     user = createdUser;
   }
 
+  // envoyer l'email de vérification (silencieux en cas d'erreur)
+  try {
+    await sendVerificationEmail(user.email, {
+      name: user.name || user.email,
+      verifyUrl: `${env.CLIENT_URL}/auth/verify?token=${verificationCode}`,
+      expiresInMinutes: EMAIL_VERIFICATION_OTP_TTL_MINUTES,
+    });
+  } catch (err) {
+    // ne pas bloquer la création si l'email échoue
+  }
+
   return user;
 }
 
@@ -178,9 +196,37 @@ async function login({ email, password } = {}) {
     );
   }
 
+  if (user.isTwoFactorEnabled) {
+    // générer OTP, stocker et envoyer par email
+    const authCode = generateAuthOtp();
+    const expiresAt = getOtpExpiry(AUTH_OTP_TTL_MINUTES);
+    const prisma = prismaModule.getPrismaClient();
+    await createVerificationToken(
+      prisma,
+      normalizeEmail(user.email),
+      authCode,
+      expiresAt,
+    );
+
+    try {
+      await require("../../../common/mails").sendOtpLoginEmail(user.email, {
+        code: authCode,
+        name: user.name || user.email,
+        expiresInMinutes: AUTH_OTP_TTL_MINUTES,
+      });
+    } catch (err) {
+      // silencieux
+    }
+
+    return {
+      user: buildPublicUser(user),
+      requiresTwoFactor: true,
+    };
+  }
+
   return {
     user: buildPublicUser(user),
-    requiresTwoFactor: Boolean(user.isTwoFactorEnabled),
+    requiresTwoFactor: false,
   };
 }
 
@@ -261,6 +307,17 @@ async function resendVerification(email) {
     expiresAt,
   );
 
+  // envoie email de vérification (silencieux en cas d'erreur)
+  try {
+    await sendVerificationEmail(normalizedEmail, {
+      name: user.name || normalizedEmail,
+      verifyUrl: `${env.CLIENT_URL}/auth/verify?token=${verificationCode}`,
+      expiresInMinutes: EMAIL_VERIFICATION_OTP_TTL_MINUTES,
+    });
+  } catch (err) {
+    // Ne pas bloquer le flux si l'email échoue
+  }
+
   return {
     success: true,
     message: "Un nouveau code de vérification a été envoyé.",
@@ -293,8 +350,9 @@ async function forgotPassword(email) {
 
   try {
     await sendPasswordResetOtpEmail(user.email, {
-      otp: token,
+      code: token,
       name: user.email,
+      expiresInMinutes: RESET_PASSWORD_OTP_TTL_MINUTES,
     });
   } catch (error) {
     // secrète côté serveur, aucun retour dans l'API
@@ -332,6 +390,17 @@ async function resetPassword({ token, password } = {}) {
   await prisma.verificationToken.delete({
     where: { id: verificationToken.id },
   });
+
+  // notifier l'utilisateur que le mot de passe a été modifié
+  try {
+    await sendPasswordChangedEmail(updatedUser.email, {
+      name: updatedUser.name || updatedUser.email,
+      action: "reset",
+      reviewActivityUrl: `${env.CLIENT_URL}/account/activity`,
+    });
+  } catch (err) {
+    // silencieux
+  }
 
   return updatedUser;
 }

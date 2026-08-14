@@ -136,7 +136,15 @@ const createApp = () => {
 
   if (env.SENTRY_DSN) {
     Sentry.init({ dsn: env.SENTRY_DSN, environment: env.NODE_ENV });
-    app.use(Sentry.Handlers.errorHandler());
+
+    if (typeof Sentry.setupExpressErrorHandler === "function") {
+      Sentry.setupExpressErrorHandler(app);
+    } else if (
+      Sentry.Handlers &&
+      typeof Sentry.Handlers.errorHandler === "function"
+    ) {
+      app.use(Sentry.Handlers.errorHandler());
+    }
   }
 
   app.use(errorHandler);

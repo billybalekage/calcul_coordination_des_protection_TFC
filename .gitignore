@@ -1,13 +1,6 @@
 node_modules/
-__pycache__/
 *.py[cod]
 *$py.class
-venv/
-env/
-.venv/
-
-.env
-.env.local
 
 /.pnp
 .pnp.*
@@ -37,11 +30,6 @@ Thumbs.db
 .idea/
 /generated/prisma
 
-/agents
-/claude
-/cache
-/windsurf
-skills-lock.json
 
 # Logs
 logs

@@ -1,6 +1,13 @@
 const Joi = require("joi");
 const Redis = require("ioredis"); // communication avec le serveur distant de redis
 
+const FALLBACK_JWT_ACCESS_SECRET =
+  process.env.JWT_ACCESS_SECRET ||
+  "dev-access-secret-key-change-me-please-123456";
+const FALLBACK_JWT_REFRESH_SECRET =
+  process.env.JWT_REFRESH_SECRET ||
+  "dev-refresh-secret-key-change-me-please-987654";
+
 // allow DATABASE_URL to be used in .env while code expects DB_URL
 if (!process.env.DB_URL && process.env.DATABASE_URL) {
   process.env.DB_URL = process.env.DATABASE_URL;
@@ -52,8 +59,12 @@ const envSchema = Joi.object({
     .default("info"),
 
   jwt: Joi.object({
-    accessSecret: Joi.string().default(process.env.JWT_ACCESS_SECRET || ""),
-    refreshSecret: Joi.string().default(process.env.JWT_REFRESH_SECRET || ""),
+    accessSecret: Joi.string()
+      .allow("")
+      .default(FALLBACK_JWT_ACCESS_SECRET),
+    refreshSecret: Joi.string()
+      .allow("")
+      .default(FALLBACK_JWT_REFRESH_SECRET),
     accessExpiresInMinutes: Joi.number().default(
       Number(process.env.JWT_ACCESS_EXPIRES_IN_MINUTES) || 15,
     ),
@@ -63,21 +74,31 @@ const envSchema = Joi.object({
   }).default({}),
 
   google: Joi.object({
-    clientId: Joi.string().default(process.env.GOOGLE_CLIENT_ID || ""),
-    clientSecret: Joi.string().default(process.env.GOOGLE_CLIENT_SECRET || ""),
+    clientId: Joi.string()
+      .allow("", null)
+      .default(process.env.GOOGLE_CLIENT_ID || ""),
+    clientSecret: Joi.string()
+      .allow("", null)
+      .default(process.env.GOOGLE_CLIENT_SECRET || ""),
   }).default({}),
 
   cloudinary: Joi.object({
-    cloudName: Joi.string().default(process.env.CLOUDINARY_CLOUD_NAME || ""),
-    apiKey: Joi.string().default(process.env.CLOUDINARY_API_KEY || ""),
-    apiSecret: Joi.string().default(process.env.CLOUDINARY_API_SECRET || ""),
+    cloudName: Joi.string()
+      .allow("", null)
+      .default(process.env.CLOUDINARY_CLOUD_NAME || ""),
+    apiKey: Joi.string()
+      .allow("", null)
+      .default(process.env.CLOUDINARY_API_KEY || ""),
+    apiSecret: Joi.string()
+      .allow("", null)
+      .default(process.env.CLOUDINARY_API_SECRET || ""),
   }).default({}),
 
   smtp: Joi.object({
-    host: Joi.string().default(process.env.SMTP_HOST || ""),
+    host: Joi.string().allow("", null).default(process.env.SMTP_HOST || ""),
     port: Joi.number().default(Number(process.env.SMTP_PORT) || 587),
-    user: Joi.string().default(process.env.SMTP_USER || ""),
-    pass: Joi.string().default(process.env.SMTP_PASS || ""),
+    user: Joi.string().allow("", null).default(process.env.SMTP_USER || ""),
+    pass: Joi.string().allow("", null).default(process.env.SMTP_PASS || ""),
     fromName: Joi.string().default(process.env.SMTP_FROM_NAME || "No Reply"),
     fromEmail: Joi.string().default(
       process.env.SMTP_FROM_EMAIL || "no-reply@example.com",
@@ -85,7 +106,35 @@ const envSchema = Joi.object({
   }).default({}),
 }).unknown(true);
 
-const { value: env, error } = envSchema.validate(process.env, {
+const normalizedEnv = {
+  ...process.env,
+  jwt: {
+    accessSecret: FALLBACK_JWT_ACCESS_SECRET,
+    refreshSecret: FALLBACK_JWT_REFRESH_SECRET,
+    accessExpiresInMinutes:
+      Number(process.env.JWT_ACCESS_EXPIRES_IN_MINUTES) || 15,
+    refreshExpiresInDays: Number(process.env.JWT_REFRESH_EXPIRES_IN_DAYS) || 30,
+  },
+  google: {
+    clientId: process.env.GOOGLE_CLIENT_ID || "",
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+  },
+  cloudinary: {
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME || "",
+    apiKey: process.env.CLOUDINARY_API_KEY || "",
+    apiSecret: process.env.CLOUDINARY_API_SECRET || "",
+  },
+  smtp: {
+    host: process.env.SMTP_HOST || "",
+    port: Number(process.env.SMTP_PORT) || 587,
+    user: process.env.SMTP_USER || "",
+    pass: process.env.SMTP_PASS || "",
+    fromName: process.env.SMTP_FROM_NAME || "No Reply",
+    fromEmail: process.env.SMTP_FROM_EMAIL || "no-reply@example.com",
+  },
+};
+
+const { value: env, error } = envSchema.validate(normalizedEnv, {
   abortEarly: false,
   convert: true,
 });
@@ -96,7 +145,7 @@ if (error) {
 
 const corsOrigins = (env.CORS_ORIGINS || env.CLIENT_URL)
   .split(",")
-  .map((origin) => origin.trim())
+  .map((origin) => origin.trim().replace(/\/+$/, ""))
   .filter(Boolean);
 
 const redisClient = env.REDIS_URL

@@ -1,6 +1,6 @@
 const multer = require("multer");
 
-const { BadRequestError } = require("../errors");
+const { BadRequestError } = require("../common/errors/AppErrors");
 
 const ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp"];
 const ALLOWED_DOCUMENT_TYPES = [...ALLOWED_IMAGE_TYPES, "application/pdf"];

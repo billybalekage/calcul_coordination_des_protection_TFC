@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
 import { Home } from "lucide-react";
 
 const NotFound = () => {
@@ -8,9 +7,9 @@ const NotFound = () => {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-8 px-6 text-center">
-      {/* <div className="absolute top-6">
-        <Logo />
-      </div> */}
+      <div>
+        <img src="/logo_3.svg" alt="" />
+      </div>
 
       <div className="flex items-center justify-center gap-2 sm:gap-4">
         <span className="font-sans text-[6rem] font-bold leading-none tracking-tight text-foreground sm:text-[8rem]">
@@ -34,24 +33,6 @@ const NotFound = () => {
           Retournez à l&apos;accueil
         </p>
       </div>
-
-      {/* <form action="/recherche" className="w-full max-w-md">
-        <div className="relative">
-          <Input
-            type="search"
-            name="q"
-            placeholder="Par exemple : chaussures, électronique..."
-            className="h-12 pl-5 pr-12"
-          />
-          <button
-            type="submit"
-            aria-label="Rechercher"
-            className="absolute right-1.5 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-lg bg-primary text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            <Search className="h-4 w-4" />
-          </button>
-        </div>
-      </form> */}
 
       <Button size="lg" onClick={() => navigate("/")}>
         <Home className="mr-2 h-4 w-4" />

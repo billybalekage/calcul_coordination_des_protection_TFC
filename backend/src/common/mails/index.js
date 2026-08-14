@@ -3,6 +3,7 @@ const { otpLoginEmail } = require("./templates/otpLogin");
 const { passwordChangedEmail } = require("./templates/passwordChanged");
 const { passwordResetOtpEmail } = require("./templates/passwordReset");
 const { twoFactorChangedEmail } = require("./templates/twoFactorieChanged");
+const { verifyEmailTemplate } = require("./templates/verifyEmail");
 
 async function sendOtpLoginEmail(to, data) {
   const { subject, html } = otpLoginEmail(data);
@@ -24,9 +25,15 @@ async function sendTwoFactorChangedEmail(to, data) {
   return sendMail({ to, subject, html });
 }
 
+async function sendVerificationEmail(to, data) {
+  const { subject, html } = verifyEmailTemplate(data);
+  return sendMail({ to, subject, html });
+}
+
 module.exports = {
   sendOtpLoginEmail,
   sendPasswordResetOtpEmail,
   sendPasswordChangedEmail,
   sendTwoFactorChangedEmail,
+  sendVerificationEmail,
 };
