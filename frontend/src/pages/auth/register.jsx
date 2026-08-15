@@ -1,10 +1,36 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, KeyRound, User } from "lucide-react";
-import { createUser } from "@/lib/auth/auth";
+import { createUser, googleAuth } from "@/lib/auth/auth";
+import { isValidEmail } from "@/lib/auth/validation";
+
+const loadGoogleScript = () =>
+  new Promise((resolve, reject) => {
+    if (window.google?.accounts?.id) {
+      resolve();
+      return;
+    }
+
+    const existingScript = document.querySelector(
+      "script[src*='accounts.google.com']",
+    );
+    if (existingScript) {
+      existingScript.addEventListener("load", resolve, { once: true });
+      existingScript.addEventListener("error", reject, { once: true });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://accounts.google.com/gsi/client";
+    script.async = true;
+    script.defer = true;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
 
 export default function CreateAccount() {
   const [formData, setFormData] = useState({
@@ -12,6 +38,7 @@ export default function CreateAccount() {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
 
@@ -27,9 +54,13 @@ export default function CreateAccount() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // verification cotes frontend
     if (!formData.name || !formData.email || !formData.password) {
-      toast.error("Veuillez remplir tout les champs");
+      toast.error("Veuillez remplir tous les champs.");
+      return;
+    }
+
+    if (!isValidEmail(formData.email)) {
+      toast.error("Veuillez saisir une adresse email valide.");
       return;
     }
 
@@ -42,14 +73,56 @@ export default function CreateAccount() {
       });
 
       toast.success(response.message || "Compte créé avec succès !");
+      navigate("/token-verification", {
+        replace: true,
+        state: { email: formData.email },
+      });
     } catch (error) {
       const message =
         error.response?.data?.message ||
-        "Une erreur est survenue, veuiller reesseyer";
+        "Une erreur est survenue, veuillez réessayer.";
       toast.error(message);
       console.log(error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+      if (!clientId) {
+        toast.error("La connexion Google n'est pas configurée.");
+        return;
+      }
+
+      await loadGoogleScript();
+
+      if (!window.google?.accounts?.id) {
+        toast.error("Le SDK Google n'est pas disponible pour le moment.");
+        return;
+      }
+
+      window.google.accounts.id.initialize({
+        client_id: clientId,
+        callback: async (response) => {
+          try {
+            const result = await googleAuth({ idToken: response.credential });
+            toast.success(result.message || "Connexion Google réussie.");
+            navigate("/", { replace: true });
+          } catch (error) {
+            const message =
+              error.response?.data?.message ||
+              "Connexion Google impossible pour le moment.";
+            toast.error(message);
+          }
+        },
+      });
+
+      window.google.accounts.id.prompt();
+    } catch (error) {
+      toast.error("Impossible d'initialiser la connexion Google.");
+      console.log(error);
     }
   };
 
@@ -139,7 +212,9 @@ export default function CreateAccount() {
           {/* Connexion avec google */}
           <div className="space-y-3">
             <Button
+              type="button"
               variant="outline"
+              onClick={handleGoogleSignIn}
               className="w-full h-11 border-[#cbd5e1] hover:bg-[#f1f5f9] text-[#0a192f] font-medium rounded-xl flex items-center justify-center gap-2"
             >
               {/* Icône Google personnalisée */}
@@ -168,13 +243,13 @@ export default function CreateAccount() {
           {/* Lien d'inscription */}
           <div className="text-center mt-8 text-sm text-[#64748b]">
             Vous avez déjà un compte ?{"    "}
-            <a
-              // href="/login"
-              onClick={() => Navigate("/login")}
+            <button
+              type="button"
+              onClick={() => navigate("/login")}
               className="text-[#0077b6] font-medium hover:underline"
             >
               Connectez-vous
-            </a>
+            </button>
           </div>
         </div>
       </div>

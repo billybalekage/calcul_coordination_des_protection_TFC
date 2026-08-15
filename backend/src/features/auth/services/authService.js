@@ -6,7 +6,7 @@ const {
   NotFoundError,
 } = require("../../../common/errors/AppErrors");
 const prismaModule = require("../../../config/prisma");
-const { verifyGoogleIdToken } = require("../../../config/google");
+const googleAuth = require("../../../config/google");
 const {
   isValidName,
   isValidEmail,
@@ -29,6 +29,9 @@ const { uploadImage } = require("../../../services/cloudinary.upload");
 const EMAIL_VERIFICATION_OTP_TTL_MINUTES = 10;
 const RESET_PASSWORD_OTP_TTL_MINUTES = 10;
 const AUTH_OTP_TTL_MINUTES = 10;
+const isLocalDevelopment = ["development", "test"].includes(
+  process.env.NODE_ENV,
+);
 
 function normalizeEmail(email) {
   return String(email || "")
@@ -190,10 +193,12 @@ async function login({ email, password } = {}) {
     throw new UnauthorizedError("Identifiants invalides.");
   }
 
-  if (!user.emailVerified) {
-    throw new ValidationError(
-      "Veuillez vérifier votre adresse email avant de vous connecter.",
-    );
+  if (!user.emailVerified && !isLocalDevelopment) {
+    return {
+      user: buildPublicUser(user),
+      requiresTwoFactor: false,
+      requiresVerification: true,
+    };
   }
 
   if (user.isTwoFactorEnabled) {
@@ -221,12 +226,14 @@ async function login({ email, password } = {}) {
     return {
       user: buildPublicUser(user),
       requiresTwoFactor: true,
+      requiresVerification: false,
     };
   }
 
   return {
     user: buildPublicUser(user),
     requiresTwoFactor: false,
+    requiresVerification: false,
   };
 }
 
@@ -406,7 +413,7 @@ async function resetPassword({ token, password } = {}) {
 }
 
 async function processGoogleAuth({ idToken } = {}) {
-  const googlePayload = await verifyGoogleIdToken(idToken);
+  const googlePayload = await googleAuth.verifyGoogleIdToken(idToken);
   const prisma = prismaModule.getPrismaClient();
 
   const account = await prisma.account.findUnique({
@@ -420,6 +427,15 @@ async function processGoogleAuth({ idToken } = {}) {
   });
 
   if (account) {
+    if (googlePayload.emailVerified && !account.user.emailVerified) {
+      const refreshedUser = await prisma.user.update({
+        where: { id: account.user.id },
+        data: { emailVerified: new Date() },
+        select: publicUserSelect,
+      });
+      return { user: refreshedUser };
+    }
+
     return { user: buildPublicUser(account.user) };
   }
 
@@ -475,8 +491,12 @@ async function processGoogleAuth({ idToken } = {}) {
         throw error;
       });
 
-    const refreshedUser = await prisma.user.findUnique({
+    const refreshedUser = await prisma.user.update({
       where: { id: user.id },
+      data: {
+        emailVerified: new Date(),
+        photo: googlePayload.avatarUrl || user.photo || null,
+      },
       select: publicUserSelect,
     });
     return { user: refreshedUser };

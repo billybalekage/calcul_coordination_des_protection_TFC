@@ -34,7 +34,7 @@ const NotFound = () => {
         </p>
       </div>
 
-      <Button size="lg" onClick={() => navigate("/")}>
+      <Button size="lg" onClick={() => navigate("/", { replace: true })}>
         <Home className="mr-2 h-4 w-4" />
         Retour à l&apos;accueil
       </Button>

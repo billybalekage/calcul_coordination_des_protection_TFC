@@ -1,16 +1,142 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-// import { Card, CardContent } from "@/components/ui/card";
+import { Login, googleAuth } from "@/lib/auth/auth";
+import { isValidEmail } from "@/lib/auth/validation";
 import { Mail, KeyRound } from "lucide-react";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
+const loadGoogleScript = () =>
+  new Promise((resolve, reject) => {
+    if (window.google?.accounts?.id) {
+      resolve();
+      return;
+    }
+
+    const existingScript = document.querySelector(
+      "script[src*='accounts.google.com']",
+    );
+    if (existingScript) {
+      existingScript.addEventListener("load", resolve, { once: true });
+      existingScript.addEventListener("error", reject, { once: true });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://accounts.google.com/gsi/client";
+    script.async = true;
+    script.defer = true;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
 
 export default function LoginPage() {
-  const [authMethod, setAuthMethod] = useState("code");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-  async function hundleLogin(e) {
-    e.preventDefault();
-  }
+    setFormData((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!formData.email || !formData.password) {
+      toast.error("Veuillez remplir tous les champs.");
+      return;
+    }
+
+    if (!isValidEmail(formData.email)) {
+      toast.error("Veuillez saisir une adresse email valide.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const response = await Login({
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (!response.success && response.status === 401) {
+        toast.error(response.message || "Identifiants invalides.");
+        return;
+      }
+
+      if (response.requiresVerification) {
+        toast.error(response.message || "Veuillez vérifier votre email.");
+        navigate("/token-verification", { state: { email: formData.email } });
+        return;
+      }
+
+      toast.success(response.message || "Connexion réussie");
+      navigate("/", { replace: true });
+    } catch (error) {
+      const message =
+        error.response?.data?.message ||
+        "Une erreur est survenue, veuillez réessayer.";
+      toast.error(message);
+
+      if (
+        message.toLowerCase().includes("vérifier") ||
+        message.toLowerCase().includes("verify") ||
+        message.toLowerCase().includes("email")
+      ) {
+        navigate("/token-verification", { state: { email: formData.email } });
+      }
+
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+      if (!clientId) {
+        toast.error("La connexion Google n'est pas configurée.");
+        return;
+      }
+
+      await loadGoogleScript();
+
+      if (!window.google?.accounts?.id) {
+        toast.error("Le SDK Google n'est pas disponible pour le moment.");
+        return;
+      }
+
+      window.google.accounts.id.initialize({
+        client_id: clientId,
+        callback: async (response) => {
+          try {
+            const result = await googleAuth({ idToken: response.credential });
+            toast.success(result.message || "Connexion Google réussie.");
+            navigate("/");
+          } catch (error) {
+            const message =
+              error.response?.data?.message ||
+              "Connexion Google impossible pour le moment.";
+            toast.error(message);
+          }
+        },
+      });
+
+      window.google.accounts.id.prompt();
+    } catch (error) {
+      toast.error("Impossible d'initialiser la connexion Google.");
+    }
+  };
 
   return (
     <div className="min-h-screen w-full flex bg-[#f8f9fa] text-[#0a192f]">
@@ -30,66 +156,43 @@ export default function LoginPage() {
               Connectez-vous à votre compte.
             </h1>
             <p className="text-sm text-[#64748b]">
-              {authMethod === "code"
-                ? "Entrez votre email pour recevoir un code de vérification."
-                : "Entrez votre email et votre mot de passe pour vous connecter."}
+              Entrez votre email et votre mot de passe pour vous connecter.
             </p>
           </div>
 
-          {/* Onglets de sélection (Code par email / Mot de passe) */}
-          <div className="grid grid-cols-2 p-1 bg-[#e2e8f0]/50 rounded-xl mb-6">
-            <button
-              onClick={() => setAuthMethod("code")}
-              className={`py-2 text-sm font-medium rounded-lg transition-all ${
-                authMethod === "code"
-                  ? "bg-[#0077b6] text-white shadow-sm"
-                  : "text-[#64748b] hover:text-[#0a192f]"
-              }`}
-            >
-              Code par email
-            </button>
-            <button
-              onClick={() => setAuthMethod("password")}
-              className={`py-2 text-sm font-medium rounded-lg transition-all ${
-                authMethod === "password"
-                  ? "bg-[#0077b6] text-white shadow-sm"
-                  : "text-[#64748b] hover:text-[#0a192f]"
-              }`}
-            >
-              Mot de passe
-            </button>
-          </div>
-
           {/* Formulaire */}
-          <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
-            {/* Champ Email */}
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="relative">
               <Mail className="absolute left-3 top-3 h-5 w-5 text-[#64748b]" />
               <Input
                 type="email"
+                name="email"
+                onChange={handleChange}
+                value={formData.email}
                 placeholder="Adresse email"
                 className="pl-10 h-11 bg-white border-[#cbd5e1] focus-visible:ring-[#0077b6]"
               />
             </div>
 
-            {/* Champ Mot de passe (S'affiche uniquement si authMethod === "password") */}
-            {authMethod === "password" && (
-              <div className="relative">
-                <KeyRound className="absolute left-3 top-3 h-5 w-5 text-[#64748b]" />
-                <Input
-                  type="password"
-                  placeholder="Mot de passe"
-                  className="pl-10 h-11 bg-white border-[#cbd5e1] focus-visible:ring-[#0077b6]"
-                />
-              </div>
-            )}
+            <div className="relative">
+              <KeyRound className="absolute left-3 top-3 h-5 w-5 text-[#64748b]" />
+              <Input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Mot de passe"
+                className="pl-10 h-11 bg-white border-[#cbd5e1] focus-visible:ring-[#0077b6]"
+              />
+            </div>
 
             {/* Bouton de soumission dynamique */}
             <Button
               type="submit"
+              disabled={loading}
               className="w-full h-11 bg-[#0077b6] hover:bg-[#005f92] text-white font-medium rounded-xl transition-all shadow-md"
             >
-              Se connecter
+              {loading ? "Connexion ..." : "Se connecter"}
             </Button>
           </form>
 
@@ -106,7 +209,9 @@ export default function LoginPage() {
           {/* Connexions alternatives */}
           <div className="space-y-3">
             <Button
+              type="button"
               variant="outline"
+              onClick={handleGoogleLogin}
               className="w-full h-11 border-[#cbd5e1] hover:bg-[#f1f5f9] text-[#0a192f] font-medium rounded-xl flex items-center justify-center gap-2"
             >
               {/* Icône Google personnalisée */}
@@ -132,16 +237,26 @@ export default function LoginPage() {
             </Button>
           </div>
 
+          <div className="mt-4 text-right text-sm">
+            <button
+              type="button"
+              onClick={() => navigate("/forgot-password")}
+              className="text-[#0077b6] font-medium hover:underline"
+            >
+              Mot de passe oublié ?
+            </button>
+          </div>
+
           {/* Lien d'inscription */}
           <div className="text-center mt-8 text-sm text-[#64748b]">
             Vous n'avez pas de compte ?{"    "}
-            <a
-              href="/create-account"
-              onClick={() => Navigate("/create-account")}
+            <button
+              type="button"
+              onClick={() => navigate("/create-account")}
               className="text-[#0077b6] font-medium hover:underline"
             >
               S'inscrire
-            </a>
+            </button>
           </div>
         </div>
       </div>

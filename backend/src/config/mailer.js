@@ -16,8 +16,36 @@ function getTransporter() {
   return transporter;
 }
 
+async function ensureMailerReady(timeoutMs = 5000) {
+  const transport = module.exports.getTransporter();
+
+  try {
+    await Promise.race([
+      transport.verify(),
+      new Promise((_resolve, reject) => {
+        setTimeout(
+          () => reject(new Error(`SMTP check timed out after ${timeoutMs}ms`)),
+          timeoutMs,
+        );
+      }),
+    ]);
+
+    return true;
+  } catch (error) {
+    const message =
+      error && error.message
+        ? error.message
+        : "Vérification de la connexion SMTP échouée.";
+    console.error("[mailer] SMTP connection check failed:", message);
+    throw new Error(`SMTP not available: ${message}`);
+  }
+}
+
 async function sendMail({ to, subject, html, attachments }) {
-  const transport = getTransporter();
+  const transport = module.exports.getTransporter();
+
+  await ensureMailerReady();
+
   return transport.sendMail({
     from: `"${env.smtp.fromName}" <${env.smtp.fromEmail}>`,
     to,
@@ -48,4 +76,9 @@ async function checkMailerConnection(timeoutMs = 5000) {
   }
 }
 
-module.exports = { getTransporter, sendMail, checkMailerConnection };
+module.exports = {
+  getTransporter,
+  ensureMailerReady,
+  sendMail,
+  checkMailerConnection,
+};

@@ -59,12 +59,8 @@ const envSchema = Joi.object({
     .default("info"),
 
   jwt: Joi.object({
-    accessSecret: Joi.string()
-      .allow("")
-      .default(FALLBACK_JWT_ACCESS_SECRET),
-    refreshSecret: Joi.string()
-      .allow("")
-      .default(FALLBACK_JWT_REFRESH_SECRET),
+    accessSecret: Joi.string().allow("").default(FALLBACK_JWT_ACCESS_SECRET),
+    refreshSecret: Joi.string().allow("").default(FALLBACK_JWT_REFRESH_SECRET),
     accessExpiresInMinutes: Joi.number().default(
       Number(process.env.JWT_ACCESS_EXPIRES_IN_MINUTES) || 15,
     ),
@@ -95,10 +91,16 @@ const envSchema = Joi.object({
   }).default({}),
 
   smtp: Joi.object({
-    host: Joi.string().allow("", null).default(process.env.SMTP_HOST || ""),
+    host: Joi.string()
+      .allow("", null)
+      .default(process.env.SMTP_HOST || ""),
     port: Joi.number().default(Number(process.env.SMTP_PORT) || 587),
-    user: Joi.string().allow("", null).default(process.env.SMTP_USER || ""),
-    pass: Joi.string().allow("", null).default(process.env.SMTP_PASS || ""),
+    user: Joi.string()
+      .allow("", null)
+      .default(process.env.SMTP_USER || ""),
+    pass: Joi.string()
+      .allow("", null)
+      .default(process.env.SMTP_PASS || ""),
     fromName: Joi.string().default(process.env.SMTP_FROM_NAME || "No Reply"),
     fromEmail: Joi.string().default(
       process.env.SMTP_FROM_EMAIL || "no-reply@example.com",

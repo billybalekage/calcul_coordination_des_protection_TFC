@@ -7,6 +7,7 @@ process.env.JWT_REFRESH_SECRET =
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
+const bcrypt = require("bcrypt");
 
 const {
   ValidationError,
@@ -192,6 +193,89 @@ test("register updates an unverified account and replaces the verification token
     assert.equal(user.name, "Alice Updated");
     assert.equal(user.emailVerified, null);
   } finally {
+    restore();
+  }
+});
+
+test("login requests verification when email is not yet verified", async () => {
+  const restore = mockDatabase({
+    user: {
+      findUnique: async () => ({
+        id: "user-1",
+        name: "Alice",
+        email: "alice@example.com",
+        emailVerified: null,
+        password: bcrypt.hashSync("secret123", 10),
+        isTwoFactorEnabled: false,
+      }),
+    },
+  });
+
+  try {
+    const result = await authService.login({
+      email: "alice@example.com",
+      password: "secret123",
+    });
+
+    assert.equal(result.requiresVerification, true);
+    assert.equal(result.user.email, "alice@example.com");
+  } finally {
+    restore();
+  }
+});
+
+test("google auth marks the user as verified when Google confirms the email", async () => {
+  const googleModule = require("../src/config/google");
+  const originalVerifyGoogleIdToken = googleModule.verifyGoogleIdToken;
+  const restore = mockDatabase({
+    user: {
+      findUnique: async ({ where }) => {
+        if (where.email === "alice@example.com") {
+          return {
+            id: "user-1",
+            name: "Alice",
+            email: "alice@example.com",
+            emailVerified: null,
+            photo: null,
+            isTwoFactorEnabled: false,
+          };
+        }
+        return null;
+      },
+      update: async ({ where, data, select }) => ({
+        id: where.id,
+        name: "Alice",
+        email: "alice@example.com",
+        emailVerified: data.emailVerified,
+        photo: data.photo ?? null,
+        isTwoFactorEnabled: false,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }),
+    },
+    account: {
+      findUnique: async () => null,
+      create: async () => ({ id: "ac-1" }),
+    },
+  });
+
+  try {
+    googleModule.verifyGoogleIdToken = async () => ({
+      googleId: "google-123",
+      email: "alice@example.com",
+      name: "Alice",
+      avatarUrl: null,
+      emailVerified: true,
+    });
+
+    const result = await authService.processGoogleAuth({ idToken: "token" });
+
+    assert.equal(result.user.email, "alice@example.com");
+    assert.ok(
+      result.user.emailVerified instanceof Date || result.user.emailVerified,
+    );
+  } finally {
+    googleModule.verifyGoogleIdToken = originalVerifyGoogleIdToken;
     restore();
   }
 });

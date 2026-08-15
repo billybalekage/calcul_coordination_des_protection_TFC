@@ -9,6 +9,38 @@ const mails = require("../src/common/mails");
 const prismaConfig = require("../src/config/prisma");
 const utilsAuth = require("../src/features/auth/utils/auth");
 
+test("sendMail verifies SMTP connection before sending", async () => {
+  const originalGetTransporter = mailerConfig.getTransporter;
+  const fakeTransport = {
+    verify: async () => {
+      return true;
+    },
+    sendMail: async (payload) => {
+      return { accepted: [payload.to] };
+    },
+  };
+
+  mailerConfig.getTransporter = () => fakeTransport;
+
+  try {
+    let verifyCalled = false;
+    fakeTransport.verify = async () => {
+      verifyCalled = true;
+      return true;
+    };
+
+    await mailerConfig.sendMail({
+      to: "test@example.com",
+      subject: "Test SMTP",
+      html: "<p>Bonjour</p>",
+    });
+
+    assert.equal(verifyCalled, true, "SMTP verification should be called");
+  } finally {
+    mailerConfig.getTransporter = originalGetTransporter;
+  }
+});
+
 test("sendVerificationEmail calls sendMail with verifyUrl and name", async () => {
   const originalSendMail = mailerConfig.sendMail;
   let captured = null;

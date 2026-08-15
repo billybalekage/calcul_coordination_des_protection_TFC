@@ -8,6 +8,7 @@
     "server": "nodemon server.js",
     "start": "node server.js",
     "fetch-users": "node scripts/fetchUsers.js",
+    "clear-db": "node scripts/clearDatabase.js",
     "prisma": "prisma",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",

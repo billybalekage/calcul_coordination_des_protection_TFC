@@ -32,7 +32,6 @@ function issueAuthCookies(res, userId) {
 async function register(req, res) {
   const { name, email, password } = req.body;
   const user = await authService.createAccount({ name, email, password });
-  issueAuthCookies(res, user.id);
   res.status(201).json({
     success: true,
     user,
@@ -43,6 +42,16 @@ async function register(req, res) {
 async function login(req, res) {
   const { email, password } = req.body;
   const result = await authService.login({ email, password });
+
+  if (result.requiresVerification) {
+    return res.status(200).json({
+      success: true,
+      requiresVerification: true,
+      user: result.user,
+      message: "Veuillez vérifier votre adresse email avant de continuer.",
+    });
+  }
+
   if (result.requiresTwoFactor) {
     return res.status(200).json({
       success: true,
@@ -50,6 +59,7 @@ async function login(req, res) {
       user: result.user,
     });
   }
+
   issueAuthCookies(res, result.user.id);
   res.status(200).json({
     success: true,
@@ -61,6 +71,7 @@ async function login(req, res) {
 async function verifyEmail(req, res) {
   const { token } = req.body;
   const user = await authService.verifyEmail(token);
+  issueAuthCookies(res, user.id);
   res.status(200).json({
     success: true,
     user,

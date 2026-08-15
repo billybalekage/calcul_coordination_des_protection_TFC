@@ -6,8 +6,25 @@ async function createUser(data) {
 }
 
 async function Login(data) {
-  const response = await api.post("/auth/login", data);
-  return response.data;
+  try {
+    const response = await api.post("/auth/login", data);
+    return response.data;
+  } catch (error) {
+    const status = error.response?.status ?? 500;
+    const payload = error.response?.data || {};
+
+    return {
+      success: false,
+      status,
+      message:
+        payload.message ||
+        (status === 401
+          ? "Identifiants invalides."
+          : "Impossible de se connecter pour le moment."),
+      requiresVerification: false,
+      requiresTwoFactor: false,
+    };
+  }
 }
 
 async function Logout(data) {
