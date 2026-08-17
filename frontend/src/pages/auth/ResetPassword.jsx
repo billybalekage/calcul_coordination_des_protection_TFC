@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { resetPassword } from "@/lib/auth/auth";
+import { isValidResetCode } from "@/lib/auth/validation";
 
 export default function ResetPassword() {
   const navigate = useNavigate();
@@ -16,14 +17,24 @@ export default function ResetPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!token || !password) {
+    const normalizedToken = token.trim();
+
+    if (!normalizedToken || !password) {
       toast.error("Le code et le nouveau mot de passe sont requis.");
+      return;
+    }
+
+    if (!isValidResetCode(normalizedToken)) {
+      toast.error("Le code de réinitialisation doit contenir 6 chiffres.");
       return;
     }
 
     try {
       setLoading(true);
-      const response = await resetPassword({ token, password });
+      const response = await resetPassword({
+        token: normalizedToken,
+        password,
+      });
       toast.success(response.message || "Mot de passe réinitialisé.");
       navigate("/login", { replace: true });
     } catch (error) {
@@ -53,8 +64,12 @@ export default function ResetPassword() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
             type="text"
+            inputMode="numeric"
+            maxLength={6}
             value={token}
-            onChange={(event) => setToken(event.target.value)}
+            onChange={(event) =>
+              setToken(event.target.value.replace(/\D/g, "").slice(0, 6))
+            }
             placeholder="Code de réinitialisation"
             className="h-12"
           />

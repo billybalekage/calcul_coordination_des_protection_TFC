@@ -1,4 +1,3 @@
-const crypto = require("crypto");
 const {
   ValidationError,
   ConflictError,
@@ -16,6 +15,7 @@ const {
   getOtpExpiry,
   generateVerificationOtp,
   generateAuthOtp,
+  generateOtpCode,
   publicUserSelect,
 } = require("../utils/auth");
 const { sendPasswordResetOtpEmail } = require("../../../common/mails");
@@ -44,7 +44,7 @@ function sanitizeName(name) {
 }
 
 function generateSecureToken() {
-  return crypto.randomBytes(32).toString("hex");
+  return generateOtpCode();
 }
 
 function buildPublicUser(user) {
