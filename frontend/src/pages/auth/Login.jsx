@@ -39,8 +39,8 @@ export default function LoginPage() {
     email: "",
     password: "",
   });
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
     setFormData((previous) => ({
       ...previous,
@@ -48,54 +48,93 @@ export default function LoginPage() {
     }));
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-    if (!formData.email || !formData.password) {
+    if (loading) return;
+
+    const email = formData.email.trim();
+    const password = formData.password;
+
+    if (!email || !password) {
       toast.error("Veuillez remplir tous les champs.");
       return;
     }
 
-    if (!isValidEmail(formData.email)) {
+    if (!isValidEmail(email)) {
       toast.error("Veuillez saisir une adresse email valide.");
       return;
     }
 
     try {
       setLoading(true);
+
       const response = await Login({
-        email: formData.email,
-        password: formData.password,
+        email,
+        password,
       });
 
-      if (!response.success && response.status === 401) {
-        toast.error(response.message || "Identifiants invalides.");
+      console.log("Réponse Login :", response);
+
+      // Échec d'authentification
+      if (!response?.success) {
+        if (response?.requiresVerification) {
+          toast.error(
+            response.message || "Veuillez vérifier votre adresse email.",
+          );
+
+          navigate("/token-verification", {
+            replace: true,
+            state: { email },
+          });
+
+          return;
+        }
+
+        toast.error(response?.message || "Identifiants invalides.");
         return;
       }
 
+      // Email non vérifié
       if (response.requiresVerification) {
-        toast.error(response.message || "Veuillez vérifier votre email.");
-        navigate("/token-verification", { state: { email: formData.email } });
+        toast.error(
+          response.message || "Veuillez vérifier votre adresse email.",
+        );
+
+        navigate("/token-verification", {
+          replace: true,
+          state: { email },
+        });
+
         return;
       }
 
+      // Connexion réussie
       toast.success(response.message || "Connexion réussie");
-      navigate("/", { replace: true });
+
+      navigate("/", {
+        replace: true,
+      });
     } catch (error) {
+      console.error("Erreur Login :", error);
+
       const message =
-        error.response?.data?.message ||
+        error?.response?.data?.message ||
+        error?.message ||
         "Une erreur est survenue, veuillez réessayer.";
+
       toast.error(message);
 
       if (
         message.toLowerCase().includes("vérifier") ||
-        message.toLowerCase().includes("verify") ||
-        message.toLowerCase().includes("email")
+        message.toLowerCase().includes("verify")
       ) {
-        navigate("/token-verification", { state: { email: formData.email } });
+        navigate("/token-verification", {
+          replace: true,
+          state: { email },
+        });
       }
-
-      console.log(error);
     } finally {
       setLoading(false);
     }
@@ -135,6 +174,7 @@ export default function LoginPage() {
       window.google.accounts.id.prompt();
     } catch (error) {
       toast.error("Impossible d'initialiser la connexion Google.");
+      console.log(error);
     }
   };
 

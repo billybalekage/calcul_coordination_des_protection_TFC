@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCurrentUser } from "@/lib/auth/auth";
 
-const hasAuthCookie = () =>
-  document.cookie
-    .split(";")
-    .some((cookie) => cookie.trim().startsWith("swg_access_token="));
-
 export const useAuthSession = () => {
   const [isChecking, setIsChecking] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -14,23 +9,25 @@ export const useAuthSession = () => {
     let mounted = true;
 
     const checkAuth = async () => {
-      if (!hasAuthCookie()) {
-        if (mounted) {
-          setIsAuthenticated(false);
-          setIsChecking(false);
-        }
-        return;
-      }
-
       try {
-        await getCurrentUser();
+        const response = await getCurrentUser();
+        const isLoggedIn = Boolean(response?.success && response?.user);
+
         if (mounted) {
-          setIsAuthenticated(true);
-          setIsChecking(false);
+          setIsAuthenticated(isLoggedIn);
         }
-      } catch {
+      } catch (error) {
+        const status = error?.response?.status;
+
+        if (status !== 401 && status !== 403) {
+          console.error("Vérification session :", error);
+        }
+
         if (mounted) {
           setIsAuthenticated(false);
+        }
+      } finally {
+        if (mounted) {
           setIsChecking(false);
         }
       }
@@ -43,5 +40,9 @@ export const useAuthSession = () => {
     };
   }, []);
 
-  return { isChecking, isAuthenticated, setIsAuthenticated };
+  return {
+    isChecking,
+    isAuthenticated,
+    setIsAuthenticated,
+  };
 };

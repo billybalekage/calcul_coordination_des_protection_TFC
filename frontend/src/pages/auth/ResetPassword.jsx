@@ -13,8 +13,8 @@ export default function ResetPassword() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     if (!token || !password) {
       toast.error("Le code et le nouveau mot de passe sont requis.");

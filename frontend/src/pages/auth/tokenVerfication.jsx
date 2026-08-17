@@ -34,8 +34,8 @@ const TokenVerification = () => {
     };
   }, [navigate]);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     if (!token || !/^\d{6}$/.test(token)) {
       toast.error("Le code de vérification contient 6 chiffres.");

@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 require("dotenv").config();
 
 const { getPrismaClient } = require("../src/config/prisma");

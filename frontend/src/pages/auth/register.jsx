@@ -42,8 +42,8 @@ export default function CreateAccount() {
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
     setFormData((previous) => ({
       ...previous,
@@ -51,8 +51,8 @@ export default function CreateAccount() {
     }));
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.password) {
       toast.error("Veuillez remplir tous les champs.");

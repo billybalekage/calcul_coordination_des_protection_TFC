@@ -49,9 +49,9 @@ const App = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4 text-bold">
       <Routes>
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        {/* <Route path="/" element={<Navigate to="/dashboard" replace />} /> */}
         <Route
-          path="/dashboard"
+          path="/"
           element={
             <ProtectedRoute>
               <Darshboard />

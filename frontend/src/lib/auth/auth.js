@@ -32,9 +32,16 @@ async function Logout(data) {
   return response.data;
 }
 
-async function getCurrentUser(data) {
-  const response = await api.get("/auth/me", data);
-  return response.data;
+async function getCurrentUser() {
+  try {
+    const response = await api.get("/auth/me");
+    return response.data;
+  } catch (error) {
+    if (error?.response?.status === 401 || error?.response?.status === 403) {
+      return null;
+    }
+    throw error;
+  }
 }
 
 async function UploadAvatar(data) {
