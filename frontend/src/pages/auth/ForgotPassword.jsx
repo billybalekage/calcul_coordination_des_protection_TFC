@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/input"; // Import du composant Input de shadcn
 import { forgotPassword } from "@/lib/auth/auth";
 import { isValidEmail } from "@/lib/auth/validation";
 
@@ -47,13 +47,18 @@ export default function ForgotPassword() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <Input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            placeholder="Adresse email"
-            className="h-12"
-          />
+          <div>
+            <label className="mb-2 block text-sm font-medium text-slate-700">
+              Adresse email
+            </label>
+            <Input
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              placeholder="nom@exemple.com"
+              className="h-12"
+            />
+          </div>
 
           <Button
             type="submit"

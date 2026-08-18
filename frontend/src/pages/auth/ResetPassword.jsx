@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { REGEXP_ONLY_DIGITS } from "input-otp";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
 import { resetPassword } from "@/lib/auth/auth";
 import { isValidResetCode } from "@/lib/auth/validation";
 
@@ -62,25 +68,41 @@ export default function ResetPassword() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <Input
-            type="text"
-            inputMode="numeric"
-            maxLength={6}
-            value={token}
-            onChange={(event) =>
-              setToken(event.target.value.replace(/\D/g, "").slice(0, 6))
-            }
-            placeholder="Code de réinitialisation"
-            className="h-12"
-          />
+          {/* Champ du code OTP à 6 chiffres */}
+          <div className="flex flex-col items-center">
+            <label className="mb-2 block text-sm font-medium text-slate-700 w-full text-left">
+              Code de réinitialisation
+            </label>
+            <InputOTP
+              maxLength={6}
+              value={token}
+              onChange={(value) => setToken(value)}
+              pattern={REGEXP_ONLY_DIGITS}
+            >
+              <InputOTPGroup>
+                <InputOTPSlot index={0} className="h-12 w-12 text-lg" />
+                <InputOTPSlot index={1} className="h-12 w-12 text-lg" />
+                <InputOTPSlot index={2} className="h-12 w-12 text-lg" />
+                <InputOTPSlot index={3} className="h-12 w-12 text-lg" />
+                <InputOTPSlot index={4} className="h-12 w-12 text-lg" />
+                <InputOTPSlot index={5} className="h-12 w-12 text-lg" />
+              </InputOTPGroup>
+            </InputOTP>
+          </div>
 
-          <Input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            placeholder="Nouveau mot de passe"
-            className="h-12"
-          />
+          {/* Champ du nouveau mot de passe */}
+          <div>
+            <label className="mb-2 block text-sm font-medium text-slate-700">
+              Nouveau mot de passe
+            </label>
+            <Input
+              type="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              placeholder="••••••••"
+              className="h-12"
+            />
+          </div>
 
           <Button
             type="submit"

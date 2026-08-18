@@ -18,8 +18,12 @@ export const useAuthSession = () => {
         }
       } catch (error) {
         const status = error?.response?.status;
+        const isNetworkError =
+          error?.code === "ERR_NETWORK" ||
+          error?.message === "Network Error" ||
+          !error?.response;
 
-        if (status !== 401 && status !== 403) {
+        if (status !== 401 && status !== 403 && !isNetworkError) {
           console.error("Vérification session :", error);
         }
 

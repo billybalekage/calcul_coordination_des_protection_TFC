@@ -20,6 +20,7 @@ const authRoute = require("./features/auth/routes/auth.route");
 const createApp = () => {
   const app = express();
 
+  // Documentation d'api
   const swaggerOptions = {
     definition: {
       openapi: "3.0.0",

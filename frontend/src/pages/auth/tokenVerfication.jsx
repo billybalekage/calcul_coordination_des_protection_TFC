@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import { REGEXP_ONLY_DIGITS } from "input-otp";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
 import {
   VerifyEmail,
   getCurrentUser,
@@ -88,26 +93,31 @@ const TokenVerification = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="mb-2 block text-sm font-medium text-slate-700">
+          <div className="flex flex-col items-center">
+            <label className="mb-2 block text-sm font-medium text-slate-700 w-full text-left">
               Code de vérification
             </label>
-            <Input
-              type="text"
-              inputMode="numeric"
+
+            {/* Utilisation du composant input-otp de shadcn */}
+            <InputOTP
               maxLength={6}
               value={token}
-              onChange={(event) =>
-                setToken(event.target.value.replace(/\D/g, "").slice(0, 6))
-              }
-              placeholder="123456"
-              className="h-12 text-center text-lg tracking-[0.5rem]"
-            />
+              onChange={(value) => setToken(value)}
+              pattern={REGEXP_ONLY_DIGITS}
+            >
+              <InputOTPGroup>
+                <InputOTPSlot index={0} className="h-12 w-12 text-lg" />
+                <InputOTPSlot index={1} className="h-12 w-12 text-lg" />
+                <InputOTPSlot index={2} className="h-12 w-12 text-lg" />
+                <InputOTPSlot index={3} className="h-12 w-12 text-lg" />
+                <InputOTPSlot index={4} className="h-12 w-12 text-lg" />
+                <InputOTPSlot index={5} className="h-12 w-12 text-lg" />
+              </InputOTPGroup>
+            </InputOTP>
           </div>
 
           <Button
             type="submit"
-            navigate={"/"}
             disabled={loading}
             className="w-full h-11 bg-[#0077b6] hover:bg-[#005f92] text-white"
           >

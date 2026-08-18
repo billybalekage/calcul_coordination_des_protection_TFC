@@ -37,9 +37,16 @@ async function getCurrentUser() {
     const response = await api.get("/auth/me");
     return response.data;
   } catch (error) {
-    if (error?.response?.status === 401 || error?.response?.status === 403) {
+    const status = error?.response?.status;
+    const isNetworkError =
+      error?.code === "ERR_NETWORK" ||
+      error?.message === "Network Error" ||
+      !error?.response;
+
+    if (status === 401 || status === 403 || isNetworkError) {
       return null;
     }
+
     throw error;
   }
 }

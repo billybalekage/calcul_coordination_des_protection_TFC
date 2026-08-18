@@ -32,6 +32,25 @@ const loadGoogleScript = () =>
     document.head.appendChild(script);
   });
 
+const getGoogleOneTapErrorMessage = (error) => {
+  const raw = String(error?.message || error || "");
+
+  if (
+    raw.includes("accounts list is empty") ||
+    raw.includes("Error retrieving a token") ||
+    raw.includes("NetworkError") ||
+    raw.includes("No credentials")
+  ) {
+    return "Aucun compte Google disponible sur ce navigateur. Essayez de vous connecter avec votre email et votre mot de passe.";
+  }
+
+  if (raw.includes("invalid_client") || raw.includes("client_id")) {
+    return "La configuration Google OAuth est invalide. Vérifiez l'ID client dans les variables d'environnement.";
+  }
+
+  return "La connexion Google est actuellement indisponible. Veuillez réessayer plus tard.";
+};
+
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -158,6 +177,11 @@ export default function LoginPage() {
       window.google.accounts.id.initialize({
         client_id: clientId,
         callback: async (response) => {
+          if (!response?.credential) {
+            toast.error("Aucune information Google reçue. Veuillez réessayer.");
+            return;
+          }
+
           try {
             const result = await googleAuth({ idToken: response.credential });
             toast.success(result.message || "Connexion Google réussie.");
@@ -171,10 +195,18 @@ export default function LoginPage() {
         },
       });
 
-      window.google.accounts.id.prompt();
+      try {
+        window.google.accounts.id.prompt((notification) => {
+          if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+            console.info("Google One Tap non affiché :", notification);
+          }
+        });
+      } catch (error) {
+        throw new Error(getGoogleOneTapErrorMessage(error));
+      }
     } catch (error) {
-      toast.error("Impossible d'initialiser la connexion Google.");
-      console.log(error);
+      toast.error(getGoogleOneTapErrorMessage(error));
+      console.warn("Google One Tap unavailable:", error);
     }
   };
 
