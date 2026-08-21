@@ -39,91 +39,162 @@ export type VerificationToken = $Result.DefaultSelection<Prisma.$VerificationTok
  */
 export type Project = $Result.DefaultSelection<Prisma.$ProjectPayload>
 /**
- * Model Building
+ * Model PowerSupply
  * 
  */
-export type Building = $Result.DefaultSelection<Prisma.$BuildingPayload>
+export type PowerSupply = $Result.DefaultSelection<Prisma.$PowerSupplyPayload>
 /**
  * Model Circuit
  * 
  */
 export type Circuit = $Result.DefaultSelection<Prisma.$CircuitPayload>
 /**
+ * Model FurthestLoadDistance
+ * 
+ */
+export type FurthestLoadDistance = $Result.DefaultSelection<Prisma.$FurthestLoadDistancePayload>
+/**
+ * Model CableData
+ * 
+ */
+export type CableData = $Result.DefaultSelection<Prisma.$CableDataPayload>
+/**
  * Model Protection
  * 
  */
 export type Protection = $Result.DefaultSelection<Prisma.$ProtectionPayload>
 /**
- * Model Calculation
+ * Model Result
  * 
  */
-export type Calculation = $Result.DefaultSelection<Prisma.$CalculationPayload>
+export type Result = $Result.DefaultSelection<Prisma.$ResultPayload>
 
 /**
  * Enums
  */
 export namespace $Enums {
-  export const ProjectStatus: {
-  DRAFT: 'DRAFT',
-  IN_PROGRESS: 'IN_PROGRESS',
-  REVIEW: 'REVIEW',
-  COMPLETED: 'COMPLETED',
-  ARCHIVED: 'ARCHIVED'
+  export const AlimentationType: {
+  MONOPHASE: 'MONOPHASE',
+  TRIPHASE: 'TRIPHASE'
 };
 
-export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus]
+export type AlimentationType = (typeof AlimentationType)[keyof typeof AlimentationType]
 
 
-export const BuildingType: {
-  RESIDENTIAL: 'RESIDENTIAL',
-  COMMERCIAL: 'COMMERCIAL',
-  INDUSTRIAL: 'INDUSTRIAL',
-  MIXED_USE: 'MIXED_USE'
+export const RegimeNeutre: {
+  TT: 'TT',
+  TN: 'TN',
+  IT: 'IT'
 };
 
-export type BuildingType = (typeof BuildingType)[keyof typeof BuildingType]
+export type RegimeNeutre = (typeof RegimeNeutre)[keyof typeof RegimeNeutre]
 
 
-export const CircuitCategory: {
-  LIGHTING: 'LIGHTING',
-  SOCKETS: 'SOCKETS',
-  HVAC: 'HVAC',
-  WATER_HEATER: 'WATER_HEATER',
-  APPLIANCE: 'APPLIANCE',
-  OTHER: 'OTHER'
+export const CircuitType: {
+  ECLAIRAGE: 'ECLAIRAGE',
+  PRISE_COURANT: 'PRISE_COURANT',
+  FORCE_MOTRICE: 'FORCE_MOTRICE',
+  CHAUFFAGE: 'CHAUFFAGE',
+  CLIMATISATION: 'CLIMATISATION',
+  AUTRE: 'AUTRE'
 };
 
-export type CircuitCategory = (typeof CircuitCategory)[keyof typeof CircuitCategory]
+export type CircuitType = (typeof CircuitType)[keyof typeof CircuitType]
+
+
+export const CableMaterial: {
+  CUIVRE: 'CUIVRE',
+  ALUMINIUM: 'ALUMINIUM'
+};
+
+export type CableMaterial = (typeof CableMaterial)[keyof typeof CableMaterial]
+
+
+export const CableIsolation: {
+  PVC: 'PVC',
+  XLPE: 'XLPE',
+  EPR: 'EPR'
+};
+
+export type CableIsolation = (typeof CableIsolation)[keyof typeof CableIsolation]
+
+
+export const ModePose: {
+  SOUS_CONDUIT_EN_SAILLIE: 'SOUS_CONDUIT_EN_SAILLIE',
+  ENCASTRE_DANS_MUR: 'ENCASTRE_DANS_MUR',
+  CHEMINEE_DE_CABLES: 'CHEMINEE_DE_CABLES',
+  ENTERRE: 'ENTERRE',
+  AIR_LIBRE: 'AIR_LIBRE'
+};
+
+export type ModePose = (typeof ModePose)[keyof typeof ModePose]
 
 
 export const ProtectionType: {
-  MCB: 'MCB',
-  RCCB: 'RCCB',
-  RCBO: 'RCBO',
-  FUSE: 'FUSE',
-  MAIN_BREAKER: 'MAIN_BREAKER',
-  SPD: 'SPD'
+  DISJONCTEUR: 'DISJONCTEUR',
+  FUSIBLE: 'FUSIBLE',
+  INTERRUPTEUR_SECTIONNEUR: 'INTERRUPTEUR_SECTIONNEUR'
 };
 
 export type ProtectionType = (typeof ProtectionType)[keyof typeof ProtectionType]
 
+
+export const CurveType: {
+  B: 'B',
+  C: 'C',
+  D: 'D',
+  K: 'K',
+  Z: 'Z'
+};
+
+export type CurveType = (typeof CurveType)[keyof typeof CurveType]
+
+
+export const CheckStatus: {
+  PASS: 'PASS',
+  FAIL: 'FAIL',
+  TO_VERIFY_WITH_MANUFACTURER: 'TO_VERIFY_WITH_MANUFACTURER'
+};
+
+export type CheckStatus = (typeof CheckStatus)[keyof typeof CheckStatus]
+
 }
 
-export type ProjectStatus = $Enums.ProjectStatus
+export type AlimentationType = $Enums.AlimentationType
 
-export const ProjectStatus: typeof $Enums.ProjectStatus
+export const AlimentationType: typeof $Enums.AlimentationType
 
-export type BuildingType = $Enums.BuildingType
+export type RegimeNeutre = $Enums.RegimeNeutre
 
-export const BuildingType: typeof $Enums.BuildingType
+export const RegimeNeutre: typeof $Enums.RegimeNeutre
 
-export type CircuitCategory = $Enums.CircuitCategory
+export type CircuitType = $Enums.CircuitType
 
-export const CircuitCategory: typeof $Enums.CircuitCategory
+export const CircuitType: typeof $Enums.CircuitType
+
+export type CableMaterial = $Enums.CableMaterial
+
+export const CableMaterial: typeof $Enums.CableMaterial
+
+export type CableIsolation = $Enums.CableIsolation
+
+export const CableIsolation: typeof $Enums.CableIsolation
+
+export type ModePose = $Enums.ModePose
+
+export const ModePose: typeof $Enums.ModePose
 
 export type ProtectionType = $Enums.ProtectionType
 
 export const ProtectionType: typeof $Enums.ProtectionType
+
+export type CurveType = $Enums.CurveType
+
+export const CurveType: typeof $Enums.CurveType
+
+export type CheckStatus = $Enums.CheckStatus
+
+export const CheckStatus: typeof $Enums.CheckStatus
 
 /**
  * ##  Prisma Client ʲˢ
@@ -297,14 +368,14 @@ export class PrismaClient<
   get project(): Prisma.ProjectDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.building`: Exposes CRUD operations for the **Building** model.
+   * `prisma.powerSupply`: Exposes CRUD operations for the **PowerSupply** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Buildings
-    * const buildings = await prisma.building.findMany()
+    * // Fetch zero or more PowerSupplies
+    * const powerSupplies = await prisma.powerSupply.findMany()
     * ```
     */
-  get building(): Prisma.BuildingDelegate<ExtArgs, ClientOptions>;
+  get powerSupply(): Prisma.PowerSupplyDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.circuit`: Exposes CRUD operations for the **Circuit** model.
@@ -317,6 +388,26 @@ export class PrismaClient<
   get circuit(): Prisma.CircuitDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.furthestLoadDistance`: Exposes CRUD operations for the **FurthestLoadDistance** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FurthestLoadDistances
+    * const furthestLoadDistances = await prisma.furthestLoadDistance.findMany()
+    * ```
+    */
+  get furthestLoadDistance(): Prisma.FurthestLoadDistanceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.cableData`: Exposes CRUD operations for the **CableData** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CableData
+    * const cableData = await prisma.cableData.findMany()
+    * ```
+    */
+  get cableData(): Prisma.CableDataDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.protection`: Exposes CRUD operations for the **Protection** model.
     * Example usage:
     * ```ts
@@ -327,14 +418,14 @@ export class PrismaClient<
   get protection(): Prisma.ProtectionDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.calculation`: Exposes CRUD operations for the **Calculation** model.
+   * `prisma.result`: Exposes CRUD operations for the **Result** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Calculations
-    * const calculations = await prisma.calculation.findMany()
+    * // Fetch zero or more Results
+    * const results = await prisma.result.findMany()
     * ```
     */
-  get calculation(): Prisma.CalculationDelegate<ExtArgs, ClientOptions>;
+  get result(): Prisma.ResultDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -787,10 +878,12 @@ export namespace Prisma {
     Session: 'Session',
     VerificationToken: 'VerificationToken',
     Project: 'Project',
-    Building: 'Building',
+    PowerSupply: 'PowerSupply',
     Circuit: 'Circuit',
+    FurthestLoadDistance: 'FurthestLoadDistance',
+    CableData: 'CableData',
     Protection: 'Protection',
-    Calculation: 'Calculation'
+    Result: 'Result'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -806,7 +899,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "account" | "session" | "verificationToken" | "project" | "building" | "circuit" | "protection" | "calculation"
+      modelProps: "user" | "account" | "session" | "verificationToken" | "project" | "powerSupply" | "circuit" | "furthestLoadDistance" | "cableData" | "protection" | "result"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1180,77 +1273,77 @@ export namespace Prisma {
           }
         }
       }
-      Building: {
-        payload: Prisma.$BuildingPayload<ExtArgs>
-        fields: Prisma.BuildingFieldRefs
+      PowerSupply: {
+        payload: Prisma.$PowerSupplyPayload<ExtArgs>
+        fields: Prisma.PowerSupplyFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.BuildingFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BuildingPayload> | null
+            args: Prisma.PowerSupplyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerSupplyPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.BuildingFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BuildingPayload>
+            args: Prisma.PowerSupplyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerSupplyPayload>
           }
           findFirst: {
-            args: Prisma.BuildingFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BuildingPayload> | null
+            args: Prisma.PowerSupplyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerSupplyPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.BuildingFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BuildingPayload>
+            args: Prisma.PowerSupplyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerSupplyPayload>
           }
           findMany: {
-            args: Prisma.BuildingFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BuildingPayload>[]
+            args: Prisma.PowerSupplyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerSupplyPayload>[]
           }
           create: {
-            args: Prisma.BuildingCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BuildingPayload>
+            args: Prisma.PowerSupplyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerSupplyPayload>
           }
           createMany: {
-            args: Prisma.BuildingCreateManyArgs<ExtArgs>
+            args: Prisma.PowerSupplyCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.BuildingCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BuildingPayload>[]
+            args: Prisma.PowerSupplyCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerSupplyPayload>[]
           }
           delete: {
-            args: Prisma.BuildingDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BuildingPayload>
+            args: Prisma.PowerSupplyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerSupplyPayload>
           }
           update: {
-            args: Prisma.BuildingUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BuildingPayload>
+            args: Prisma.PowerSupplyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerSupplyPayload>
           }
           deleteMany: {
-            args: Prisma.BuildingDeleteManyArgs<ExtArgs>
+            args: Prisma.PowerSupplyDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.BuildingUpdateManyArgs<ExtArgs>
+            args: Prisma.PowerSupplyUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.BuildingUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BuildingPayload>[]
+            args: Prisma.PowerSupplyUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerSupplyPayload>[]
           }
           upsert: {
-            args: Prisma.BuildingUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BuildingPayload>
+            args: Prisma.PowerSupplyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PowerSupplyPayload>
           }
           aggregate: {
-            args: Prisma.BuildingAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateBuilding>
+            args: Prisma.PowerSupplyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePowerSupply>
           }
           groupBy: {
-            args: Prisma.BuildingGroupByArgs<ExtArgs>
-            result: $Utils.Optional<BuildingGroupByOutputType>[]
+            args: Prisma.PowerSupplyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PowerSupplyGroupByOutputType>[]
           }
           count: {
-            args: Prisma.BuildingCountArgs<ExtArgs>
-            result: $Utils.Optional<BuildingCountAggregateOutputType> | number
+            args: Prisma.PowerSupplyCountArgs<ExtArgs>
+            result: $Utils.Optional<PowerSupplyCountAggregateOutputType> | number
           }
         }
       }
@@ -1328,6 +1421,154 @@ export namespace Prisma {
           }
         }
       }
+      FurthestLoadDistance: {
+        payload: Prisma.$FurthestLoadDistancePayload<ExtArgs>
+        fields: Prisma.FurthestLoadDistanceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FurthestLoadDistanceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FurthestLoadDistancePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FurthestLoadDistanceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FurthestLoadDistancePayload>
+          }
+          findFirst: {
+            args: Prisma.FurthestLoadDistanceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FurthestLoadDistancePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FurthestLoadDistanceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FurthestLoadDistancePayload>
+          }
+          findMany: {
+            args: Prisma.FurthestLoadDistanceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FurthestLoadDistancePayload>[]
+          }
+          create: {
+            args: Prisma.FurthestLoadDistanceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FurthestLoadDistancePayload>
+          }
+          createMany: {
+            args: Prisma.FurthestLoadDistanceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FurthestLoadDistanceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FurthestLoadDistancePayload>[]
+          }
+          delete: {
+            args: Prisma.FurthestLoadDistanceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FurthestLoadDistancePayload>
+          }
+          update: {
+            args: Prisma.FurthestLoadDistanceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FurthestLoadDistancePayload>
+          }
+          deleteMany: {
+            args: Prisma.FurthestLoadDistanceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FurthestLoadDistanceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FurthestLoadDistanceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FurthestLoadDistancePayload>[]
+          }
+          upsert: {
+            args: Prisma.FurthestLoadDistanceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FurthestLoadDistancePayload>
+          }
+          aggregate: {
+            args: Prisma.FurthestLoadDistanceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFurthestLoadDistance>
+          }
+          groupBy: {
+            args: Prisma.FurthestLoadDistanceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FurthestLoadDistanceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FurthestLoadDistanceCountArgs<ExtArgs>
+            result: $Utils.Optional<FurthestLoadDistanceCountAggregateOutputType> | number
+          }
+        }
+      }
+      CableData: {
+        payload: Prisma.$CableDataPayload<ExtArgs>
+        fields: Prisma.CableDataFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CableDataFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CableDataPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CableDataFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CableDataPayload>
+          }
+          findFirst: {
+            args: Prisma.CableDataFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CableDataPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CableDataFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CableDataPayload>
+          }
+          findMany: {
+            args: Prisma.CableDataFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CableDataPayload>[]
+          }
+          create: {
+            args: Prisma.CableDataCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CableDataPayload>
+          }
+          createMany: {
+            args: Prisma.CableDataCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CableDataCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CableDataPayload>[]
+          }
+          delete: {
+            args: Prisma.CableDataDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CableDataPayload>
+          }
+          update: {
+            args: Prisma.CableDataUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CableDataPayload>
+          }
+          deleteMany: {
+            args: Prisma.CableDataDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CableDataUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CableDataUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CableDataPayload>[]
+          }
+          upsert: {
+            args: Prisma.CableDataUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CableDataPayload>
+          }
+          aggregate: {
+            args: Prisma.CableDataAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCableData>
+          }
+          groupBy: {
+            args: Prisma.CableDataGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CableDataGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CableDataCountArgs<ExtArgs>
+            result: $Utils.Optional<CableDataCountAggregateOutputType> | number
+          }
+        }
+      }
       Protection: {
         payload: Prisma.$ProtectionPayload<ExtArgs>
         fields: Prisma.ProtectionFieldRefs
@@ -1402,77 +1643,77 @@ export namespace Prisma {
           }
         }
       }
-      Calculation: {
-        payload: Prisma.$CalculationPayload<ExtArgs>
-        fields: Prisma.CalculationFieldRefs
+      Result: {
+        payload: Prisma.$ResultPayload<ExtArgs>
+        fields: Prisma.ResultFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.CalculationFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalculationPayload> | null
+            args: Prisma.ResultFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResultPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.CalculationFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalculationPayload>
+            args: Prisma.ResultFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResultPayload>
           }
           findFirst: {
-            args: Prisma.CalculationFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalculationPayload> | null
+            args: Prisma.ResultFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResultPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.CalculationFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalculationPayload>
+            args: Prisma.ResultFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResultPayload>
           }
           findMany: {
-            args: Prisma.CalculationFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalculationPayload>[]
+            args: Prisma.ResultFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResultPayload>[]
           }
           create: {
-            args: Prisma.CalculationCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalculationPayload>
+            args: Prisma.ResultCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResultPayload>
           }
           createMany: {
-            args: Prisma.CalculationCreateManyArgs<ExtArgs>
+            args: Prisma.ResultCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.CalculationCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalculationPayload>[]
+            args: Prisma.ResultCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResultPayload>[]
           }
           delete: {
-            args: Prisma.CalculationDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalculationPayload>
+            args: Prisma.ResultDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResultPayload>
           }
           update: {
-            args: Prisma.CalculationUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalculationPayload>
+            args: Prisma.ResultUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResultPayload>
           }
           deleteMany: {
-            args: Prisma.CalculationDeleteManyArgs<ExtArgs>
+            args: Prisma.ResultDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.CalculationUpdateManyArgs<ExtArgs>
+            args: Prisma.ResultUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.CalculationUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalculationPayload>[]
+            args: Prisma.ResultUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResultPayload>[]
           }
           upsert: {
-            args: Prisma.CalculationUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalculationPayload>
+            args: Prisma.ResultUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResultPayload>
           }
           aggregate: {
-            args: Prisma.CalculationAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCalculation>
+            args: Prisma.ResultAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateResult>
           }
           groupBy: {
-            args: Prisma.CalculationGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CalculationGroupByOutputType>[]
+            args: Prisma.ResultGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ResultGroupByOutputType>[]
           }
           count: {
-            args: Prisma.CalculationCountArgs<ExtArgs>
-            result: $Utils.Optional<CalculationCountAggregateOutputType> | number
+            args: Prisma.ResultCountArgs<ExtArgs>
+            result: $Utils.Optional<ResultCountAggregateOutputType> | number
           }
         }
       }
@@ -1604,10 +1845,12 @@ export namespace Prisma {
     session?: SessionOmit
     verificationToken?: VerificationTokenOmit
     project?: ProjectOmit
-    building?: BuildingOmit
+    powerSupply?: PowerSupplyOmit
     circuit?: CircuitOmit
+    furthestLoadDistance?: FurthestLoadDistanceOmit
+    cableData?: CableDataOmit
     protection?: ProtectionOmit
-    calculation?: CalculationOmit
+    result?: ResultOmit
   }
 
   /* Types for Logging */
@@ -1737,15 +1980,11 @@ export namespace Prisma {
    */
 
   export type ProjectCountOutputType = {
-    calculations: number
     circuits: number
-    protections: number
   }
 
   export type ProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    calculations?: boolean | ProjectCountOutputTypeCountCalculationsArgs
     circuits?: boolean | ProjectCountOutputTypeCountCircuitsArgs
-    protections?: boolean | ProjectCountOutputTypeCountProtectionsArgs
   }
 
   // Custom InputTypes
@@ -1762,52 +2001,7 @@ export namespace Prisma {
   /**
    * ProjectCountOutputType without action
    */
-  export type ProjectCountOutputTypeCountCalculationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CalculationWhereInput
-  }
-
-  /**
-   * ProjectCountOutputType without action
-   */
   export type ProjectCountOutputTypeCountCircuitsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CircuitWhereInput
-  }
-
-  /**
-   * ProjectCountOutputType without action
-   */
-  export type ProjectCountOutputTypeCountProtectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ProtectionWhereInput
-  }
-
-
-  /**
-   * Count Type ProtectionCountOutputType
-   */
-
-  export type ProtectionCountOutputType = {
-    circuits: number
-  }
-
-  export type ProtectionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    circuits?: boolean | ProtectionCountOutputTypeCountCircuitsArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * ProtectionCountOutputType without action
-   */
-  export type ProtectionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProtectionCountOutputType
-     */
-    select?: ProtectionCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * ProtectionCountOutputType without action
-   */
-  export type ProtectionCountOutputTypeCountCircuitsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CircuitWhereInput
   }
 
@@ -1831,7 +2025,7 @@ export namespace Prisma {
     name: string | null
     email: string | null
     emailVerified: Date | null
-    photo: string | null
+    avatarUrl: string | null
     password: string | null
     isTwoFactorEnabled: boolean | null
     twofactorSecret: string | null
@@ -1844,7 +2038,7 @@ export namespace Prisma {
     name: string | null
     email: string | null
     emailVerified: Date | null
-    photo: string | null
+    avatarUrl: string | null
     password: string | null
     isTwoFactorEnabled: boolean | null
     twofactorSecret: string | null
@@ -1857,7 +2051,7 @@ export namespace Prisma {
     name: number
     email: number
     emailVerified: number
-    photo: number
+    avatarUrl: number
     password: number
     isTwoFactorEnabled: number
     twofactorSecret: number
@@ -1872,7 +2066,7 @@ export namespace Prisma {
     name?: true
     email?: true
     emailVerified?: true
-    photo?: true
+    avatarUrl?: true
     password?: true
     isTwoFactorEnabled?: true
     twofactorSecret?: true
@@ -1885,7 +2079,7 @@ export namespace Prisma {
     name?: true
     email?: true
     emailVerified?: true
-    photo?: true
+    avatarUrl?: true
     password?: true
     isTwoFactorEnabled?: true
     twofactorSecret?: true
@@ -1898,7 +2092,7 @@ export namespace Prisma {
     name?: true
     email?: true
     emailVerified?: true
-    photo?: true
+    avatarUrl?: true
     password?: true
     isTwoFactorEnabled?: true
     twofactorSecret?: true
@@ -1984,7 +2178,7 @@ export namespace Prisma {
     name: string | null
     email: string
     emailVerified: Date | null
-    photo: string | null
+    avatarUrl: string | null
     password: string | null
     isTwoFactorEnabled: boolean
     twofactorSecret: string | null
@@ -2014,7 +2208,7 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     emailVerified?: boolean
-    photo?: boolean
+    avatarUrl?: boolean
     password?: boolean
     isTwoFactorEnabled?: boolean
     twofactorSecret?: boolean
@@ -2031,7 +2225,7 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     emailVerified?: boolean
-    photo?: boolean
+    avatarUrl?: boolean
     password?: boolean
     isTwoFactorEnabled?: boolean
     twofactorSecret?: boolean
@@ -2044,7 +2238,7 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     emailVerified?: boolean
-    photo?: boolean
+    avatarUrl?: boolean
     password?: boolean
     isTwoFactorEnabled?: boolean
     twofactorSecret?: boolean
@@ -2057,7 +2251,7 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     emailVerified?: boolean
-    photo?: boolean
+    avatarUrl?: boolean
     password?: boolean
     isTwoFactorEnabled?: boolean
     twofactorSecret?: boolean
@@ -2065,7 +2259,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "photo" | "password" | "isTwoFactorEnabled" | "twofactorSecret" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "avatarUrl" | "password" | "isTwoFactorEnabled" | "twofactorSecret" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | User$accountsArgs<ExtArgs>
     projects?: boolean | User$projectsArgs<ExtArgs>
@@ -2087,7 +2281,7 @@ export namespace Prisma {
       name: string | null
       email: string
       emailVerified: Date | null
-      photo: string | null
+      avatarUrl: string | null
       password: string | null
       isTwoFactorEnabled: boolean
       twofactorSecret: string | null
@@ -2523,7 +2717,7 @@ export namespace Prisma {
     readonly name: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
     readonly emailVerified: FieldRef<"User", 'DateTime'>
-    readonly photo: FieldRef<"User", 'String'>
+    readonly avatarUrl: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly isTwoFactorEnabled: FieldRef<"User", 'Boolean'>
     readonly twofactorSecret: FieldRef<"User", 'String'>
@@ -6236,88 +6430,64 @@ export namespace Prisma {
 
   export type ProjectMinAggregateOutputType = {
     id: string | null
-    name: string | null
-    description: string | null
-    reference: string | null
-    customerName: string | null
-    siteAddress: string | null
-    status: $Enums.ProjectStatus | null
-    objective: string | null
+    userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    ownerId: string | null
+    name: string | null
+    client: string | null
+    location: string | null
   }
 
   export type ProjectMaxAggregateOutputType = {
     id: string | null
-    name: string | null
-    description: string | null
-    reference: string | null
-    customerName: string | null
-    siteAddress: string | null
-    status: $Enums.ProjectStatus | null
-    objective: string | null
+    userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    ownerId: string | null
+    name: string | null
+    client: string | null
+    location: string | null
   }
 
   export type ProjectCountAggregateOutputType = {
     id: number
-    name: number
-    description: number
-    reference: number
-    customerName: number
-    siteAddress: number
-    status: number
-    objective: number
+    userId: number
     createdAt: number
     updatedAt: number
-    ownerId: number
+    name: number
+    client: number
+    location: number
     _all: number
   }
 
 
   export type ProjectMinAggregateInputType = {
     id?: true
-    name?: true
-    description?: true
-    reference?: true
-    customerName?: true
-    siteAddress?: true
-    status?: true
-    objective?: true
+    userId?: true
     createdAt?: true
     updatedAt?: true
-    ownerId?: true
+    name?: true
+    client?: true
+    location?: true
   }
 
   export type ProjectMaxAggregateInputType = {
     id?: true
-    name?: true
-    description?: true
-    reference?: true
-    customerName?: true
-    siteAddress?: true
-    status?: true
-    objective?: true
+    userId?: true
     createdAt?: true
     updatedAt?: true
-    ownerId?: true
+    name?: true
+    client?: true
+    location?: true
   }
 
   export type ProjectCountAggregateInputType = {
     id?: true
-    name?: true
-    description?: true
-    reference?: true
-    customerName?: true
-    siteAddress?: true
-    status?: true
-    objective?: true
+    userId?: true
     createdAt?: true
     updatedAt?: true
-    ownerId?: true
+    name?: true
+    client?: true
+    location?: true
     _all?: true
   }
 
@@ -6395,16 +6565,12 @@ export namespace Prisma {
 
   export type ProjectGroupByOutputType = {
     id: string
-    name: string
-    description: string | null
-    reference: string | null
-    customerName: string | null
-    siteAddress: string | null
-    status: $Enums.ProjectStatus
-    objective: string | null
+    userId: string
     createdAt: Date
     updatedAt: Date
-    ownerId: string
+    name: string
+    client: string | null
+    location: string | null
     _count: ProjectCountAggregateOutputType | null
     _min: ProjectMinAggregateOutputType | null
     _max: ProjectMaxAggregateOutputType | null
@@ -6426,105 +6592,91 @@ export namespace Prisma {
 
   export type ProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    description?: boolean
-    reference?: boolean
-    customerName?: boolean
-    siteAddress?: boolean
-    status?: boolean
-    objective?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    ownerId?: boolean
-    building?: boolean | Project$buildingArgs<ExtArgs>
-    calculations?: boolean | Project$calculationsArgs<ExtArgs>
+    name?: boolean
+    client?: boolean
+    location?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    powerSupply?: boolean | Project$powerSupplyArgs<ExtArgs>
     circuits?: boolean | Project$circuitsArgs<ExtArgs>
-    owner?: boolean | UserDefaultArgs<ExtArgs>
-    protections?: boolean | Project$protectionsArgs<ExtArgs>
+    cableData?: boolean | Project$cableDataArgs<ExtArgs>
+    protection?: boolean | Project$protectionArgs<ExtArgs>
+    result?: boolean | Project$resultArgs<ExtArgs>
+    furthestLoadDistance?: boolean | Project$furthestLoadDistanceArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
   export type ProjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    description?: boolean
-    reference?: boolean
-    customerName?: boolean
-    siteAddress?: boolean
-    status?: boolean
-    objective?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    ownerId?: boolean
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    name?: boolean
+    client?: boolean
+    location?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
   export type ProjectSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    description?: boolean
-    reference?: boolean
-    customerName?: boolean
-    siteAddress?: boolean
-    status?: boolean
-    objective?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    ownerId?: boolean
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    name?: boolean
+    client?: boolean
+    location?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
   export type ProjectSelectScalar = {
     id?: boolean
-    name?: boolean
-    description?: boolean
-    reference?: boolean
-    customerName?: boolean
-    siteAddress?: boolean
-    status?: boolean
-    objective?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    ownerId?: boolean
+    name?: boolean
+    client?: boolean
+    location?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "reference" | "customerName" | "siteAddress" | "status" | "objective" | "createdAt" | "updatedAt" | "ownerId", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "createdAt" | "updatedAt" | "name" | "client" | "location", ExtArgs["result"]["project"]>
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    building?: boolean | Project$buildingArgs<ExtArgs>
-    calculations?: boolean | Project$calculationsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    powerSupply?: boolean | Project$powerSupplyArgs<ExtArgs>
     circuits?: boolean | Project$circuitsArgs<ExtArgs>
-    owner?: boolean | UserDefaultArgs<ExtArgs>
-    protections?: boolean | Project$protectionsArgs<ExtArgs>
+    cableData?: boolean | Project$cableDataArgs<ExtArgs>
+    protection?: boolean | Project$protectionArgs<ExtArgs>
+    result?: boolean | Project$resultArgs<ExtArgs>
+    furthestLoadDistance?: boolean | Project$furthestLoadDistanceArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type ProjectIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $ProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Project"
     objects: {
-      building: Prisma.$BuildingPayload<ExtArgs> | null
-      calculations: Prisma.$CalculationPayload<ExtArgs>[]
+      user: Prisma.$UserPayload<ExtArgs>
+      powerSupply: Prisma.$PowerSupplyPayload<ExtArgs> | null
       circuits: Prisma.$CircuitPayload<ExtArgs>[]
-      owner: Prisma.$UserPayload<ExtArgs>
-      protections: Prisma.$ProtectionPayload<ExtArgs>[]
+      cableData: Prisma.$CableDataPayload<ExtArgs> | null
+      protection: Prisma.$ProtectionPayload<ExtArgs> | null
+      result: Prisma.$ResultPayload<ExtArgs> | null
+      furthestLoadDistance: Prisma.$FurthestLoadDistancePayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      name: string
-      description: string | null
-      reference: string | null
-      customerName: string | null
-      siteAddress: string | null
-      status: $Enums.ProjectStatus
-      objective: string | null
+      userId: string
       createdAt: Date
       updatedAt: Date
-      ownerId: string
+      name: string
+      client: string | null
+      location: string | null
     }, ExtArgs["result"]["project"]>
     composites: {}
   }
@@ -6919,11 +7071,13 @@ export namespace Prisma {
    */
   export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    building<T extends Project$buildingArgs<ExtArgs> = {}>(args?: Subset<T, Project$buildingArgs<ExtArgs>>): Prisma__BuildingClient<$Result.GetResult<Prisma.$BuildingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    calculations<T extends Project$calculationsArgs<ExtArgs> = {}>(args?: Subset<T, Project$calculationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalculationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    powerSupply<T extends Project$powerSupplyArgs<ExtArgs> = {}>(args?: Subset<T, Project$powerSupplyArgs<ExtArgs>>): Prisma__PowerSupplyClient<$Result.GetResult<Prisma.$PowerSupplyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     circuits<T extends Project$circuitsArgs<ExtArgs> = {}>(args?: Subset<T, Project$circuitsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CircuitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    owner<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    protections<T extends Project$protectionsArgs<ExtArgs> = {}>(args?: Subset<T, Project$protectionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProtectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    cableData<T extends Project$cableDataArgs<ExtArgs> = {}>(args?: Subset<T, Project$cableDataArgs<ExtArgs>>): Prisma__CableDataClient<$Result.GetResult<Prisma.$CableDataPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    protection<T extends Project$protectionArgs<ExtArgs> = {}>(args?: Subset<T, Project$protectionArgs<ExtArgs>>): Prisma__ProtectionClient<$Result.GetResult<Prisma.$ProtectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    result<T extends Project$resultArgs<ExtArgs> = {}>(args?: Subset<T, Project$resultArgs<ExtArgs>>): Prisma__ResultClient<$Result.GetResult<Prisma.$ResultPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    furthestLoadDistance<T extends Project$furthestLoadDistanceArgs<ExtArgs> = {}>(args?: Subset<T, Project$furthestLoadDistanceArgs<ExtArgs>>): Prisma__FurthestLoadDistanceClient<$Result.GetResult<Prisma.$FurthestLoadDistancePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6954,16 +7108,12 @@ export namespace Prisma {
    */
   interface ProjectFieldRefs {
     readonly id: FieldRef<"Project", 'String'>
-    readonly name: FieldRef<"Project", 'String'>
-    readonly description: FieldRef<"Project", 'String'>
-    readonly reference: FieldRef<"Project", 'String'>
-    readonly customerName: FieldRef<"Project", 'String'>
-    readonly siteAddress: FieldRef<"Project", 'String'>
-    readonly status: FieldRef<"Project", 'ProjectStatus'>
-    readonly objective: FieldRef<"Project", 'String'>
+    readonly userId: FieldRef<"Project", 'String'>
     readonly createdAt: FieldRef<"Project", 'DateTime'>
     readonly updatedAt: FieldRef<"Project", 'DateTime'>
-    readonly ownerId: FieldRef<"Project", 'String'>
+    readonly name: FieldRef<"Project", 'String'>
+    readonly client: FieldRef<"Project", 'String'>
+    readonly location: FieldRef<"Project", 'String'>
   }
     
 
@@ -7365,46 +7515,22 @@ export namespace Prisma {
   }
 
   /**
-   * Project.building
+   * Project.powerSupply
    */
-  export type Project$buildingArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Project$powerSupplyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Building
+     * Select specific fields to fetch from the PowerSupply
      */
-    select?: BuildingSelect<ExtArgs> | null
+    select?: PowerSupplySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Building
+     * Omit specific fields from the PowerSupply
      */
-    omit?: BuildingOmit<ExtArgs> | null
+    omit?: PowerSupplyOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BuildingInclude<ExtArgs> | null
-    where?: BuildingWhereInput
-  }
-
-  /**
-   * Project.calculations
-   */
-  export type Project$calculationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Calculation
-     */
-    select?: CalculationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Calculation
-     */
-    omit?: CalculationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CalculationInclude<ExtArgs> | null
-    where?: CalculationWhereInput
-    orderBy?: CalculationOrderByWithRelationInput | CalculationOrderByWithRelationInput[]
-    cursor?: CalculationWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: CalculationScalarFieldEnum | CalculationScalarFieldEnum[]
+    include?: PowerSupplyInclude<ExtArgs> | null
+    where?: PowerSupplyWhereInput
   }
 
   /**
@@ -7432,9 +7558,28 @@ export namespace Prisma {
   }
 
   /**
-   * Project.protections
+   * Project.cableData
    */
-  export type Project$protectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Project$cableDataArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CableData
+     */
+    select?: CableDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CableData
+     */
+    omit?: CableDataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CableDataInclude<ExtArgs> | null
+    where?: CableDataWhereInput
+  }
+
+  /**
+   * Project.protection
+   */
+  export type Project$protectionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Protection
      */
@@ -7448,11 +7593,44 @@ export namespace Prisma {
      */
     include?: ProtectionInclude<ExtArgs> | null
     where?: ProtectionWhereInput
-    orderBy?: ProtectionOrderByWithRelationInput | ProtectionOrderByWithRelationInput[]
-    cursor?: ProtectionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ProtectionScalarFieldEnum | ProtectionScalarFieldEnum[]
+  }
+
+  /**
+   * Project.result
+   */
+  export type Project$resultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Result
+     */
+    select?: ResultSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Result
+     */
+    omit?: ResultOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResultInclude<ExtArgs> | null
+    where?: ResultWhereInput
+  }
+
+  /**
+   * Project.furthestLoadDistance
+   */
+  export type Project$furthestLoadDistanceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FurthestLoadDistance
+     */
+    select?: FurthestLoadDistanceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FurthestLoadDistance
+     */
+    omit?: FurthestLoadDistanceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FurthestLoadDistanceInclude<ExtArgs> | null
+    where?: FurthestLoadDistanceWhereInput
   }
 
   /**
@@ -7475,440 +7653,416 @@ export namespace Prisma {
 
 
   /**
-   * Model Building
+   * Model PowerSupply
    */
 
-  export type AggregateBuilding = {
-    _count: BuildingCountAggregateOutputType | null
-    _avg: BuildingAvgAggregateOutputType | null
-    _sum: BuildingSumAggregateOutputType | null
-    _min: BuildingMinAggregateOutputType | null
-    _max: BuildingMaxAggregateOutputType | null
+  export type AggregatePowerSupply = {
+    _count: PowerSupplyCountAggregateOutputType | null
+    _avg: PowerSupplyAvgAggregateOutputType | null
+    _sum: PowerSupplySumAggregateOutputType | null
+    _min: PowerSupplyMinAggregateOutputType | null
+    _max: PowerSupplyMaxAggregateOutputType | null
   }
 
-  export type BuildingAvgAggregateOutputType = {
-    surfaceArea: number | null
-    numberOfRooms: number | null
-    phases: number | null
+  export type PowerSupplyAvgAggregateOutputType = {
+    nominalVoltage: number | null
+    frequency: number | null
+    distanceSourceToTGBT: number | null
   }
 
-  export type BuildingSumAggregateOutputType = {
-    surfaceArea: number | null
-    numberOfRooms: number | null
-    phases: number | null
+  export type PowerSupplySumAggregateOutputType = {
+    nominalVoltage: number | null
+    frequency: number | null
+    distanceSourceToTGBT: number | null
   }
 
-  export type BuildingMinAggregateOutputType = {
+  export type PowerSupplyMinAggregateOutputType = {
     id: string | null
     projectId: string | null
-    surfaceArea: number | null
-    numberOfRooms: number | null
-    supplyVoltage: string | null
-    phases: number | null
-    buildingType: $Enums.BuildingType | null
-    usage: string | null
-    comment: string | null
+    type: $Enums.AlimentationType | null
+    nominalVoltage: number | null
+    frequency: number | null
+    regimeNeutre: $Enums.RegimeNeutre | null
+    distanceSourceToTGBT: number | null
   }
 
-  export type BuildingMaxAggregateOutputType = {
+  export type PowerSupplyMaxAggregateOutputType = {
     id: string | null
     projectId: string | null
-    surfaceArea: number | null
-    numberOfRooms: number | null
-    supplyVoltage: string | null
-    phases: number | null
-    buildingType: $Enums.BuildingType | null
-    usage: string | null
-    comment: string | null
+    type: $Enums.AlimentationType | null
+    nominalVoltage: number | null
+    frequency: number | null
+    regimeNeutre: $Enums.RegimeNeutre | null
+    distanceSourceToTGBT: number | null
   }
 
-  export type BuildingCountAggregateOutputType = {
+  export type PowerSupplyCountAggregateOutputType = {
     id: number
     projectId: number
-    surfaceArea: number
-    numberOfRooms: number
-    supplyVoltage: number
-    phases: number
-    buildingType: number
-    usage: number
-    comment: number
+    type: number
+    nominalVoltage: number
+    frequency: number
+    regimeNeutre: number
+    distanceSourceToTGBT: number
     _all: number
   }
 
 
-  export type BuildingAvgAggregateInputType = {
-    surfaceArea?: true
-    numberOfRooms?: true
-    phases?: true
+  export type PowerSupplyAvgAggregateInputType = {
+    nominalVoltage?: true
+    frequency?: true
+    distanceSourceToTGBT?: true
   }
 
-  export type BuildingSumAggregateInputType = {
-    surfaceArea?: true
-    numberOfRooms?: true
-    phases?: true
+  export type PowerSupplySumAggregateInputType = {
+    nominalVoltage?: true
+    frequency?: true
+    distanceSourceToTGBT?: true
   }
 
-  export type BuildingMinAggregateInputType = {
+  export type PowerSupplyMinAggregateInputType = {
     id?: true
     projectId?: true
-    surfaceArea?: true
-    numberOfRooms?: true
-    supplyVoltage?: true
-    phases?: true
-    buildingType?: true
-    usage?: true
-    comment?: true
+    type?: true
+    nominalVoltage?: true
+    frequency?: true
+    regimeNeutre?: true
+    distanceSourceToTGBT?: true
   }
 
-  export type BuildingMaxAggregateInputType = {
+  export type PowerSupplyMaxAggregateInputType = {
     id?: true
     projectId?: true
-    surfaceArea?: true
-    numberOfRooms?: true
-    supplyVoltage?: true
-    phases?: true
-    buildingType?: true
-    usage?: true
-    comment?: true
+    type?: true
+    nominalVoltage?: true
+    frequency?: true
+    regimeNeutre?: true
+    distanceSourceToTGBT?: true
   }
 
-  export type BuildingCountAggregateInputType = {
+  export type PowerSupplyCountAggregateInputType = {
     id?: true
     projectId?: true
-    surfaceArea?: true
-    numberOfRooms?: true
-    supplyVoltage?: true
-    phases?: true
-    buildingType?: true
-    usage?: true
-    comment?: true
+    type?: true
+    nominalVoltage?: true
+    frequency?: true
+    regimeNeutre?: true
+    distanceSourceToTGBT?: true
     _all?: true
   }
 
-  export type BuildingAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Building to aggregate.
+     * Filter which PowerSupply to aggregate.
      */
-    where?: BuildingWhereInput
+    where?: PowerSupplyWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Buildings to fetch.
+     * Determine the order of PowerSupplies to fetch.
      */
-    orderBy?: BuildingOrderByWithRelationInput | BuildingOrderByWithRelationInput[]
+    orderBy?: PowerSupplyOrderByWithRelationInput | PowerSupplyOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: BuildingWhereUniqueInput
+    cursor?: PowerSupplyWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Buildings from the position of the cursor.
+     * Take `±n` PowerSupplies from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Buildings.
+     * Skip the first `n` PowerSupplies.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Buildings
+     * Count returned PowerSupplies
     **/
-    _count?: true | BuildingCountAggregateInputType
+    _count?: true | PowerSupplyCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: BuildingAvgAggregateInputType
+    _avg?: PowerSupplyAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: BuildingSumAggregateInputType
+    _sum?: PowerSupplySumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: BuildingMinAggregateInputType
+    _min?: PowerSupplyMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: BuildingMaxAggregateInputType
+    _max?: PowerSupplyMaxAggregateInputType
   }
 
-  export type GetBuildingAggregateType<T extends BuildingAggregateArgs> = {
-        [P in keyof T & keyof AggregateBuilding]: P extends '_count' | 'count'
+  export type GetPowerSupplyAggregateType<T extends PowerSupplyAggregateArgs> = {
+        [P in keyof T & keyof AggregatePowerSupply]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateBuilding[P]>
-      : GetScalarType<T[P], AggregateBuilding[P]>
+        : GetScalarType<T[P], AggregatePowerSupply[P]>
+      : GetScalarType<T[P], AggregatePowerSupply[P]>
   }
 
 
 
 
-  export type BuildingGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: BuildingWhereInput
-    orderBy?: BuildingOrderByWithAggregationInput | BuildingOrderByWithAggregationInput[]
-    by: BuildingScalarFieldEnum[] | BuildingScalarFieldEnum
-    having?: BuildingScalarWhereWithAggregatesInput
+  export type PowerSupplyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PowerSupplyWhereInput
+    orderBy?: PowerSupplyOrderByWithAggregationInput | PowerSupplyOrderByWithAggregationInput[]
+    by: PowerSupplyScalarFieldEnum[] | PowerSupplyScalarFieldEnum
+    having?: PowerSupplyScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: BuildingCountAggregateInputType | true
-    _avg?: BuildingAvgAggregateInputType
-    _sum?: BuildingSumAggregateInputType
-    _min?: BuildingMinAggregateInputType
-    _max?: BuildingMaxAggregateInputType
+    _count?: PowerSupplyCountAggregateInputType | true
+    _avg?: PowerSupplyAvgAggregateInputType
+    _sum?: PowerSupplySumAggregateInputType
+    _min?: PowerSupplyMinAggregateInputType
+    _max?: PowerSupplyMaxAggregateInputType
   }
 
-  export type BuildingGroupByOutputType = {
+  export type PowerSupplyGroupByOutputType = {
     id: string
     projectId: string
-    surfaceArea: number
-    numberOfRooms: number
-    supplyVoltage: string
-    phases: number
-    buildingType: $Enums.BuildingType
-    usage: string | null
-    comment: string | null
-    _count: BuildingCountAggregateOutputType | null
-    _avg: BuildingAvgAggregateOutputType | null
-    _sum: BuildingSumAggregateOutputType | null
-    _min: BuildingMinAggregateOutputType | null
-    _max: BuildingMaxAggregateOutputType | null
+    type: $Enums.AlimentationType
+    nominalVoltage: number
+    frequency: number
+    regimeNeutre: $Enums.RegimeNeutre
+    distanceSourceToTGBT: number
+    _count: PowerSupplyCountAggregateOutputType | null
+    _avg: PowerSupplyAvgAggregateOutputType | null
+    _sum: PowerSupplySumAggregateOutputType | null
+    _min: PowerSupplyMinAggregateOutputType | null
+    _max: PowerSupplyMaxAggregateOutputType | null
   }
 
-  type GetBuildingGroupByPayload<T extends BuildingGroupByArgs> = Prisma.PrismaPromise<
+  type GetPowerSupplyGroupByPayload<T extends PowerSupplyGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<BuildingGroupByOutputType, T['by']> &
+      PickEnumerable<PowerSupplyGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof BuildingGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof PowerSupplyGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], BuildingGroupByOutputType[P]>
-            : GetScalarType<T[P], BuildingGroupByOutputType[P]>
+              : GetScalarType<T[P], PowerSupplyGroupByOutputType[P]>
+            : GetScalarType<T[P], PowerSupplyGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type BuildingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PowerSupplySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     projectId?: boolean
-    surfaceArea?: boolean
-    numberOfRooms?: boolean
-    supplyVoltage?: boolean
-    phases?: boolean
-    buildingType?: boolean
-    usage?: boolean
-    comment?: boolean
+    type?: boolean
+    nominalVoltage?: boolean
+    frequency?: boolean
+    regimeNeutre?: boolean
+    distanceSourceToTGBT?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["building"]>
+  }, ExtArgs["result"]["powerSupply"]>
 
-  export type BuildingSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PowerSupplySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     projectId?: boolean
-    surfaceArea?: boolean
-    numberOfRooms?: boolean
-    supplyVoltage?: boolean
-    phases?: boolean
-    buildingType?: boolean
-    usage?: boolean
-    comment?: boolean
+    type?: boolean
+    nominalVoltage?: boolean
+    frequency?: boolean
+    regimeNeutre?: boolean
+    distanceSourceToTGBT?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["building"]>
+  }, ExtArgs["result"]["powerSupply"]>
 
-  export type BuildingSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PowerSupplySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     projectId?: boolean
-    surfaceArea?: boolean
-    numberOfRooms?: boolean
-    supplyVoltage?: boolean
-    phases?: boolean
-    buildingType?: boolean
-    usage?: boolean
-    comment?: boolean
+    type?: boolean
+    nominalVoltage?: boolean
+    frequency?: boolean
+    regimeNeutre?: boolean
+    distanceSourceToTGBT?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["building"]>
+  }, ExtArgs["result"]["powerSupply"]>
 
-  export type BuildingSelectScalar = {
+  export type PowerSupplySelectScalar = {
     id?: boolean
     projectId?: boolean
-    surfaceArea?: boolean
-    numberOfRooms?: boolean
-    supplyVoltage?: boolean
-    phases?: boolean
-    buildingType?: boolean
-    usage?: boolean
-    comment?: boolean
+    type?: boolean
+    nominalVoltage?: boolean
+    frequency?: boolean
+    regimeNeutre?: boolean
+    distanceSourceToTGBT?: boolean
   }
 
-  export type BuildingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "surfaceArea" | "numberOfRooms" | "supplyVoltage" | "phases" | "buildingType" | "usage" | "comment", ExtArgs["result"]["building"]>
-  export type BuildingInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "type" | "nominalVoltage" | "frequency" | "regimeNeutre" | "distanceSourceToTGBT", ExtArgs["result"]["powerSupply"]>
+  export type PowerSupplyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
-  export type BuildingIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
-  export type BuildingIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
 
-  export type $BuildingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Building"
+  export type $PowerSupplyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PowerSupply"
     objects: {
       project: Prisma.$ProjectPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       projectId: string
-      surfaceArea: number
-      numberOfRooms: number
-      supplyVoltage: string
-      phases: number
-      buildingType: $Enums.BuildingType
-      usage: string | null
-      comment: string | null
-    }, ExtArgs["result"]["building"]>
+      type: $Enums.AlimentationType
+      nominalVoltage: number
+      frequency: number
+      regimeNeutre: $Enums.RegimeNeutre
+      distanceSourceToTGBT: number
+    }, ExtArgs["result"]["powerSupply"]>
     composites: {}
   }
 
-  type BuildingGetPayload<S extends boolean | null | undefined | BuildingDefaultArgs> = $Result.GetResult<Prisma.$BuildingPayload, S>
+  type PowerSupplyGetPayload<S extends boolean | null | undefined | PowerSupplyDefaultArgs> = $Result.GetResult<Prisma.$PowerSupplyPayload, S>
 
-  type BuildingCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<BuildingFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: BuildingCountAggregateInputType | true
+  type PowerSupplyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PowerSupplyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PowerSupplyCountAggregateInputType | true
     }
 
-  export interface BuildingDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Building'], meta: { name: 'Building' } }
+  export interface PowerSupplyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PowerSupply'], meta: { name: 'PowerSupply' } }
     /**
-     * Find zero or one Building that matches the filter.
-     * @param {BuildingFindUniqueArgs} args - Arguments to find a Building
+     * Find zero or one PowerSupply that matches the filter.
+     * @param {PowerSupplyFindUniqueArgs} args - Arguments to find a PowerSupply
      * @example
-     * // Get one Building
-     * const building = await prisma.building.findUnique({
+     * // Get one PowerSupply
+     * const powerSupply = await prisma.powerSupply.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends BuildingFindUniqueArgs>(args: SelectSubset<T, BuildingFindUniqueArgs<ExtArgs>>): Prisma__BuildingClient<$Result.GetResult<Prisma.$BuildingPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends PowerSupplyFindUniqueArgs>(args: SelectSubset<T, PowerSupplyFindUniqueArgs<ExtArgs>>): Prisma__PowerSupplyClient<$Result.GetResult<Prisma.$PowerSupplyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Building that matches the filter or throw an error with `error.code='P2025'`
+     * Find one PowerSupply that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {BuildingFindUniqueOrThrowArgs} args - Arguments to find a Building
+     * @param {PowerSupplyFindUniqueOrThrowArgs} args - Arguments to find a PowerSupply
      * @example
-     * // Get one Building
-     * const building = await prisma.building.findUniqueOrThrow({
+     * // Get one PowerSupply
+     * const powerSupply = await prisma.powerSupply.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends BuildingFindUniqueOrThrowArgs>(args: SelectSubset<T, BuildingFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BuildingClient<$Result.GetResult<Prisma.$BuildingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends PowerSupplyFindUniqueOrThrowArgs>(args: SelectSubset<T, PowerSupplyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PowerSupplyClient<$Result.GetResult<Prisma.$PowerSupplyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Building that matches the filter.
+     * Find the first PowerSupply that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BuildingFindFirstArgs} args - Arguments to find a Building
+     * @param {PowerSupplyFindFirstArgs} args - Arguments to find a PowerSupply
      * @example
-     * // Get one Building
-     * const building = await prisma.building.findFirst({
+     * // Get one PowerSupply
+     * const powerSupply = await prisma.powerSupply.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends BuildingFindFirstArgs>(args?: SelectSubset<T, BuildingFindFirstArgs<ExtArgs>>): Prisma__BuildingClient<$Result.GetResult<Prisma.$BuildingPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends PowerSupplyFindFirstArgs>(args?: SelectSubset<T, PowerSupplyFindFirstArgs<ExtArgs>>): Prisma__PowerSupplyClient<$Result.GetResult<Prisma.$PowerSupplyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Building that matches the filter or
+     * Find the first PowerSupply that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BuildingFindFirstOrThrowArgs} args - Arguments to find a Building
+     * @param {PowerSupplyFindFirstOrThrowArgs} args - Arguments to find a PowerSupply
      * @example
-     * // Get one Building
-     * const building = await prisma.building.findFirstOrThrow({
+     * // Get one PowerSupply
+     * const powerSupply = await prisma.powerSupply.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends BuildingFindFirstOrThrowArgs>(args?: SelectSubset<T, BuildingFindFirstOrThrowArgs<ExtArgs>>): Prisma__BuildingClient<$Result.GetResult<Prisma.$BuildingPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends PowerSupplyFindFirstOrThrowArgs>(args?: SelectSubset<T, PowerSupplyFindFirstOrThrowArgs<ExtArgs>>): Prisma__PowerSupplyClient<$Result.GetResult<Prisma.$PowerSupplyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Buildings that matches the filter.
+     * Find zero or more PowerSupplies that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BuildingFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {PowerSupplyFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Buildings
-     * const buildings = await prisma.building.findMany()
+     * // Get all PowerSupplies
+     * const powerSupplies = await prisma.powerSupply.findMany()
      * 
-     * // Get first 10 Buildings
-     * const buildings = await prisma.building.findMany({ take: 10 })
+     * // Get first 10 PowerSupplies
+     * const powerSupplies = await prisma.powerSupply.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const buildingWithIdOnly = await prisma.building.findMany({ select: { id: true } })
+     * const powerSupplyWithIdOnly = await prisma.powerSupply.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends BuildingFindManyArgs>(args?: SelectSubset<T, BuildingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BuildingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends PowerSupplyFindManyArgs>(args?: SelectSubset<T, PowerSupplyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PowerSupplyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Building.
-     * @param {BuildingCreateArgs} args - Arguments to create a Building.
+     * Create a PowerSupply.
+     * @param {PowerSupplyCreateArgs} args - Arguments to create a PowerSupply.
      * @example
-     * // Create one Building
-     * const Building = await prisma.building.create({
+     * // Create one PowerSupply
+     * const PowerSupply = await prisma.powerSupply.create({
      *   data: {
-     *     // ... data to create a Building
+     *     // ... data to create a PowerSupply
      *   }
      * })
      * 
      */
-    create<T extends BuildingCreateArgs>(args: SelectSubset<T, BuildingCreateArgs<ExtArgs>>): Prisma__BuildingClient<$Result.GetResult<Prisma.$BuildingPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends PowerSupplyCreateArgs>(args: SelectSubset<T, PowerSupplyCreateArgs<ExtArgs>>): Prisma__PowerSupplyClient<$Result.GetResult<Prisma.$PowerSupplyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Buildings.
-     * @param {BuildingCreateManyArgs} args - Arguments to create many Buildings.
+     * Create many PowerSupplies.
+     * @param {PowerSupplyCreateManyArgs} args - Arguments to create many PowerSupplies.
      * @example
-     * // Create many Buildings
-     * const building = await prisma.building.createMany({
+     * // Create many PowerSupplies
+     * const powerSupply = await prisma.powerSupply.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends BuildingCreateManyArgs>(args?: SelectSubset<T, BuildingCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends PowerSupplyCreateManyArgs>(args?: SelectSubset<T, PowerSupplyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Buildings and returns the data saved in the database.
-     * @param {BuildingCreateManyAndReturnArgs} args - Arguments to create many Buildings.
+     * Create many PowerSupplies and returns the data saved in the database.
+     * @param {PowerSupplyCreateManyAndReturnArgs} args - Arguments to create many PowerSupplies.
      * @example
-     * // Create many Buildings
-     * const building = await prisma.building.createManyAndReturn({
+     * // Create many PowerSupplies
+     * const powerSupply = await prisma.powerSupply.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Buildings and only return the `id`
-     * const buildingWithIdOnly = await prisma.building.createManyAndReturn({
+     * // Create many PowerSupplies and only return the `id`
+     * const powerSupplyWithIdOnly = await prisma.powerSupply.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -7918,28 +8072,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends BuildingCreateManyAndReturnArgs>(args?: SelectSubset<T, BuildingCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BuildingPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends PowerSupplyCreateManyAndReturnArgs>(args?: SelectSubset<T, PowerSupplyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PowerSupplyPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Building.
-     * @param {BuildingDeleteArgs} args - Arguments to delete one Building.
+     * Delete a PowerSupply.
+     * @param {PowerSupplyDeleteArgs} args - Arguments to delete one PowerSupply.
      * @example
-     * // Delete one Building
-     * const Building = await prisma.building.delete({
+     * // Delete one PowerSupply
+     * const PowerSupply = await prisma.powerSupply.delete({
      *   where: {
-     *     // ... filter to delete one Building
+     *     // ... filter to delete one PowerSupply
      *   }
      * })
      * 
      */
-    delete<T extends BuildingDeleteArgs>(args: SelectSubset<T, BuildingDeleteArgs<ExtArgs>>): Prisma__BuildingClient<$Result.GetResult<Prisma.$BuildingPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends PowerSupplyDeleteArgs>(args: SelectSubset<T, PowerSupplyDeleteArgs<ExtArgs>>): Prisma__PowerSupplyClient<$Result.GetResult<Prisma.$PowerSupplyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Building.
-     * @param {BuildingUpdateArgs} args - Arguments to update one Building.
+     * Update one PowerSupply.
+     * @param {PowerSupplyUpdateArgs} args - Arguments to update one PowerSupply.
      * @example
-     * // Update one Building
-     * const building = await prisma.building.update({
+     * // Update one PowerSupply
+     * const powerSupply = await prisma.powerSupply.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -7949,30 +8103,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends BuildingUpdateArgs>(args: SelectSubset<T, BuildingUpdateArgs<ExtArgs>>): Prisma__BuildingClient<$Result.GetResult<Prisma.$BuildingPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends PowerSupplyUpdateArgs>(args: SelectSubset<T, PowerSupplyUpdateArgs<ExtArgs>>): Prisma__PowerSupplyClient<$Result.GetResult<Prisma.$PowerSupplyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Buildings.
-     * @param {BuildingDeleteManyArgs} args - Arguments to filter Buildings to delete.
+     * Delete zero or more PowerSupplies.
+     * @param {PowerSupplyDeleteManyArgs} args - Arguments to filter PowerSupplies to delete.
      * @example
-     * // Delete a few Buildings
-     * const { count } = await prisma.building.deleteMany({
+     * // Delete a few PowerSupplies
+     * const { count } = await prisma.powerSupply.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends BuildingDeleteManyArgs>(args?: SelectSubset<T, BuildingDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends PowerSupplyDeleteManyArgs>(args?: SelectSubset<T, PowerSupplyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Buildings.
+     * Update zero or more PowerSupplies.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BuildingUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {PowerSupplyUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Buildings
-     * const building = await prisma.building.updateMany({
+     * // Update many PowerSupplies
+     * const powerSupply = await prisma.powerSupply.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -7982,14 +8136,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends BuildingUpdateManyArgs>(args: SelectSubset<T, BuildingUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends PowerSupplyUpdateManyArgs>(args: SelectSubset<T, PowerSupplyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Buildings and returns the data updated in the database.
-     * @param {BuildingUpdateManyAndReturnArgs} args - Arguments to update many Buildings.
+     * Update zero or more PowerSupplies and returns the data updated in the database.
+     * @param {PowerSupplyUpdateManyAndReturnArgs} args - Arguments to update many PowerSupplies.
      * @example
-     * // Update many Buildings
-     * const building = await prisma.building.updateManyAndReturn({
+     * // Update many PowerSupplies
+     * const powerSupply = await prisma.powerSupply.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -7998,8 +8152,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Buildings and only return the `id`
-     * const buildingWithIdOnly = await prisma.building.updateManyAndReturn({
+     * // Update zero or more PowerSupplies and only return the `id`
+     * const powerSupplyWithIdOnly = await prisma.powerSupply.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -8012,56 +8166,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends BuildingUpdateManyAndReturnArgs>(args: SelectSubset<T, BuildingUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BuildingPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends PowerSupplyUpdateManyAndReturnArgs>(args: SelectSubset<T, PowerSupplyUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PowerSupplyPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Building.
-     * @param {BuildingUpsertArgs} args - Arguments to update or create a Building.
+     * Create or update one PowerSupply.
+     * @param {PowerSupplyUpsertArgs} args - Arguments to update or create a PowerSupply.
      * @example
-     * // Update or create a Building
-     * const building = await prisma.building.upsert({
+     * // Update or create a PowerSupply
+     * const powerSupply = await prisma.powerSupply.upsert({
      *   create: {
-     *     // ... data to create a Building
+     *     // ... data to create a PowerSupply
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Building we want to update
+     *     // ... the filter for the PowerSupply we want to update
      *   }
      * })
      */
-    upsert<T extends BuildingUpsertArgs>(args: SelectSubset<T, BuildingUpsertArgs<ExtArgs>>): Prisma__BuildingClient<$Result.GetResult<Prisma.$BuildingPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends PowerSupplyUpsertArgs>(args: SelectSubset<T, PowerSupplyUpsertArgs<ExtArgs>>): Prisma__PowerSupplyClient<$Result.GetResult<Prisma.$PowerSupplyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Buildings.
+     * Count the number of PowerSupplies.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BuildingCountArgs} args - Arguments to filter Buildings to count.
+     * @param {PowerSupplyCountArgs} args - Arguments to filter PowerSupplies to count.
      * @example
-     * // Count the number of Buildings
-     * const count = await prisma.building.count({
+     * // Count the number of PowerSupplies
+     * const count = await prisma.powerSupply.count({
      *   where: {
-     *     // ... the filter for the Buildings we want to count
+     *     // ... the filter for the PowerSupplies we want to count
      *   }
      * })
     **/
-    count<T extends BuildingCountArgs>(
-      args?: Subset<T, BuildingCountArgs>,
+    count<T extends PowerSupplyCountArgs>(
+      args?: Subset<T, PowerSupplyCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], BuildingCountAggregateOutputType>
+          : GetScalarType<T['select'], PowerSupplyCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Building.
+     * Allows you to perform aggregations operations on a PowerSupply.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BuildingAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {PowerSupplyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -8081,13 +8235,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends BuildingAggregateArgs>(args: Subset<T, BuildingAggregateArgs>): Prisma.PrismaPromise<GetBuildingAggregateType<T>>
+    aggregate<T extends PowerSupplyAggregateArgs>(args: Subset<T, PowerSupplyAggregateArgs>): Prisma.PrismaPromise<GetPowerSupplyAggregateType<T>>
 
     /**
-     * Group by Building.
+     * Group by PowerSupply.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BuildingGroupByArgs} args - Group by arguments.
+     * @param {PowerSupplyGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -8102,14 +8256,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends BuildingGroupByArgs,
+      T extends PowerSupplyGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: BuildingGroupByArgs['orderBy'] }
-        : { orderBy?: BuildingGroupByArgs['orderBy'] },
+        ? { orderBy: PowerSupplyGroupByArgs['orderBy'] }
+        : { orderBy?: PowerSupplyGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -8158,20 +8312,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, BuildingGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBuildingGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, PowerSupplyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPowerSupplyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Building model
+   * Fields of the PowerSupply model
    */
-  readonly fields: BuildingFieldRefs;
+  readonly fields: PowerSupplyFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Building.
+   * The delegate class that acts as a "Promise-like" for PowerSupply.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__BuildingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__PowerSupplyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -8200,434 +8354,432 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Building model
+   * Fields of the PowerSupply model
    */
-  interface BuildingFieldRefs {
-    readonly id: FieldRef<"Building", 'String'>
-    readonly projectId: FieldRef<"Building", 'String'>
-    readonly surfaceArea: FieldRef<"Building", 'Float'>
-    readonly numberOfRooms: FieldRef<"Building", 'Int'>
-    readonly supplyVoltage: FieldRef<"Building", 'String'>
-    readonly phases: FieldRef<"Building", 'Int'>
-    readonly buildingType: FieldRef<"Building", 'BuildingType'>
-    readonly usage: FieldRef<"Building", 'String'>
-    readonly comment: FieldRef<"Building", 'String'>
+  interface PowerSupplyFieldRefs {
+    readonly id: FieldRef<"PowerSupply", 'String'>
+    readonly projectId: FieldRef<"PowerSupply", 'String'>
+    readonly type: FieldRef<"PowerSupply", 'AlimentationType'>
+    readonly nominalVoltage: FieldRef<"PowerSupply", 'Float'>
+    readonly frequency: FieldRef<"PowerSupply", 'Float'>
+    readonly regimeNeutre: FieldRef<"PowerSupply", 'RegimeNeutre'>
+    readonly distanceSourceToTGBT: FieldRef<"PowerSupply", 'Float'>
   }
     
 
   // Custom InputTypes
   /**
-   * Building findUnique
+   * PowerSupply findUnique
    */
-  export type BuildingFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Building
+     * Select specific fields to fetch from the PowerSupply
      */
-    select?: BuildingSelect<ExtArgs> | null
+    select?: PowerSupplySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Building
+     * Omit specific fields from the PowerSupply
      */
-    omit?: BuildingOmit<ExtArgs> | null
+    omit?: PowerSupplyOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BuildingInclude<ExtArgs> | null
+    include?: PowerSupplyInclude<ExtArgs> | null
     /**
-     * Filter, which Building to fetch.
+     * Filter, which PowerSupply to fetch.
      */
-    where: BuildingWhereUniqueInput
+    where: PowerSupplyWhereUniqueInput
   }
 
   /**
-   * Building findUniqueOrThrow
+   * PowerSupply findUniqueOrThrow
    */
-  export type BuildingFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Building
+     * Select specific fields to fetch from the PowerSupply
      */
-    select?: BuildingSelect<ExtArgs> | null
+    select?: PowerSupplySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Building
+     * Omit specific fields from the PowerSupply
      */
-    omit?: BuildingOmit<ExtArgs> | null
+    omit?: PowerSupplyOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BuildingInclude<ExtArgs> | null
+    include?: PowerSupplyInclude<ExtArgs> | null
     /**
-     * Filter, which Building to fetch.
+     * Filter, which PowerSupply to fetch.
      */
-    where: BuildingWhereUniqueInput
+    where: PowerSupplyWhereUniqueInput
   }
 
   /**
-   * Building findFirst
+   * PowerSupply findFirst
    */
-  export type BuildingFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Building
+     * Select specific fields to fetch from the PowerSupply
      */
-    select?: BuildingSelect<ExtArgs> | null
+    select?: PowerSupplySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Building
+     * Omit specific fields from the PowerSupply
      */
-    omit?: BuildingOmit<ExtArgs> | null
+    omit?: PowerSupplyOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BuildingInclude<ExtArgs> | null
+    include?: PowerSupplyInclude<ExtArgs> | null
     /**
-     * Filter, which Building to fetch.
+     * Filter, which PowerSupply to fetch.
      */
-    where?: BuildingWhereInput
+    where?: PowerSupplyWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Buildings to fetch.
+     * Determine the order of PowerSupplies to fetch.
      */
-    orderBy?: BuildingOrderByWithRelationInput | BuildingOrderByWithRelationInput[]
+    orderBy?: PowerSupplyOrderByWithRelationInput | PowerSupplyOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Buildings.
+     * Sets the position for searching for PowerSupplies.
      */
-    cursor?: BuildingWhereUniqueInput
+    cursor?: PowerSupplyWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Buildings from the position of the cursor.
+     * Take `±n` PowerSupplies from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Buildings.
+     * Skip the first `n` PowerSupplies.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Buildings.
+     * Filter by unique combinations of PowerSupplies.
      */
-    distinct?: BuildingScalarFieldEnum | BuildingScalarFieldEnum[]
+    distinct?: PowerSupplyScalarFieldEnum | PowerSupplyScalarFieldEnum[]
   }
 
   /**
-   * Building findFirstOrThrow
+   * PowerSupply findFirstOrThrow
    */
-  export type BuildingFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Building
+     * Select specific fields to fetch from the PowerSupply
      */
-    select?: BuildingSelect<ExtArgs> | null
+    select?: PowerSupplySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Building
+     * Omit specific fields from the PowerSupply
      */
-    omit?: BuildingOmit<ExtArgs> | null
+    omit?: PowerSupplyOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BuildingInclude<ExtArgs> | null
+    include?: PowerSupplyInclude<ExtArgs> | null
     /**
-     * Filter, which Building to fetch.
+     * Filter, which PowerSupply to fetch.
      */
-    where?: BuildingWhereInput
+    where?: PowerSupplyWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Buildings to fetch.
+     * Determine the order of PowerSupplies to fetch.
      */
-    orderBy?: BuildingOrderByWithRelationInput | BuildingOrderByWithRelationInput[]
+    orderBy?: PowerSupplyOrderByWithRelationInput | PowerSupplyOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Buildings.
+     * Sets the position for searching for PowerSupplies.
      */
-    cursor?: BuildingWhereUniqueInput
+    cursor?: PowerSupplyWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Buildings from the position of the cursor.
+     * Take `±n` PowerSupplies from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Buildings.
+     * Skip the first `n` PowerSupplies.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Buildings.
+     * Filter by unique combinations of PowerSupplies.
      */
-    distinct?: BuildingScalarFieldEnum | BuildingScalarFieldEnum[]
+    distinct?: PowerSupplyScalarFieldEnum | PowerSupplyScalarFieldEnum[]
   }
 
   /**
-   * Building findMany
+   * PowerSupply findMany
    */
-  export type BuildingFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Building
+     * Select specific fields to fetch from the PowerSupply
      */
-    select?: BuildingSelect<ExtArgs> | null
+    select?: PowerSupplySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Building
+     * Omit specific fields from the PowerSupply
      */
-    omit?: BuildingOmit<ExtArgs> | null
+    omit?: PowerSupplyOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BuildingInclude<ExtArgs> | null
+    include?: PowerSupplyInclude<ExtArgs> | null
     /**
-     * Filter, which Buildings to fetch.
+     * Filter, which PowerSupplies to fetch.
      */
-    where?: BuildingWhereInput
+    where?: PowerSupplyWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Buildings to fetch.
+     * Determine the order of PowerSupplies to fetch.
      */
-    orderBy?: BuildingOrderByWithRelationInput | BuildingOrderByWithRelationInput[]
+    orderBy?: PowerSupplyOrderByWithRelationInput | PowerSupplyOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Buildings.
+     * Sets the position for listing PowerSupplies.
      */
-    cursor?: BuildingWhereUniqueInput
+    cursor?: PowerSupplyWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Buildings from the position of the cursor.
+     * Take `±n` PowerSupplies from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Buildings.
+     * Skip the first `n` PowerSupplies.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Buildings.
+     * Filter by unique combinations of PowerSupplies.
      */
-    distinct?: BuildingScalarFieldEnum | BuildingScalarFieldEnum[]
+    distinct?: PowerSupplyScalarFieldEnum | PowerSupplyScalarFieldEnum[]
   }
 
   /**
-   * Building create
+   * PowerSupply create
    */
-  export type BuildingCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Building
+     * Select specific fields to fetch from the PowerSupply
      */
-    select?: BuildingSelect<ExtArgs> | null
+    select?: PowerSupplySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Building
+     * Omit specific fields from the PowerSupply
      */
-    omit?: BuildingOmit<ExtArgs> | null
+    omit?: PowerSupplyOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BuildingInclude<ExtArgs> | null
+    include?: PowerSupplyInclude<ExtArgs> | null
     /**
-     * The data needed to create a Building.
+     * The data needed to create a PowerSupply.
      */
-    data: XOR<BuildingCreateInput, BuildingUncheckedCreateInput>
+    data: XOR<PowerSupplyCreateInput, PowerSupplyUncheckedCreateInput>
   }
 
   /**
-   * Building createMany
+   * PowerSupply createMany
    */
-  export type BuildingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Buildings.
+     * The data used to create many PowerSupplies.
      */
-    data: BuildingCreateManyInput | BuildingCreateManyInput[]
+    data: PowerSupplyCreateManyInput | PowerSupplyCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Building createManyAndReturn
+   * PowerSupply createManyAndReturn
    */
-  export type BuildingCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Building
+     * Select specific fields to fetch from the PowerSupply
      */
-    select?: BuildingSelectCreateManyAndReturn<ExtArgs> | null
+    select?: PowerSupplySelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Building
+     * Omit specific fields from the PowerSupply
      */
-    omit?: BuildingOmit<ExtArgs> | null
+    omit?: PowerSupplyOmit<ExtArgs> | null
     /**
-     * The data used to create many Buildings.
+     * The data used to create many PowerSupplies.
      */
-    data: BuildingCreateManyInput | BuildingCreateManyInput[]
+    data: PowerSupplyCreateManyInput | PowerSupplyCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BuildingIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: PowerSupplyIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Building update
+   * PowerSupply update
    */
-  export type BuildingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Building
+     * Select specific fields to fetch from the PowerSupply
      */
-    select?: BuildingSelect<ExtArgs> | null
+    select?: PowerSupplySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Building
+     * Omit specific fields from the PowerSupply
      */
-    omit?: BuildingOmit<ExtArgs> | null
+    omit?: PowerSupplyOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BuildingInclude<ExtArgs> | null
+    include?: PowerSupplyInclude<ExtArgs> | null
     /**
-     * The data needed to update a Building.
+     * The data needed to update a PowerSupply.
      */
-    data: XOR<BuildingUpdateInput, BuildingUncheckedUpdateInput>
+    data: XOR<PowerSupplyUpdateInput, PowerSupplyUncheckedUpdateInput>
     /**
-     * Choose, which Building to update.
+     * Choose, which PowerSupply to update.
      */
-    where: BuildingWhereUniqueInput
+    where: PowerSupplyWhereUniqueInput
   }
 
   /**
-   * Building updateMany
+   * PowerSupply updateMany
    */
-  export type BuildingUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Buildings.
+     * The data used to update PowerSupplies.
      */
-    data: XOR<BuildingUpdateManyMutationInput, BuildingUncheckedUpdateManyInput>
+    data: XOR<PowerSupplyUpdateManyMutationInput, PowerSupplyUncheckedUpdateManyInput>
     /**
-     * Filter which Buildings to update
+     * Filter which PowerSupplies to update
      */
-    where?: BuildingWhereInput
+    where?: PowerSupplyWhereInput
     /**
-     * Limit how many Buildings to update.
+     * Limit how many PowerSupplies to update.
      */
     limit?: number
   }
 
   /**
-   * Building updateManyAndReturn
+   * PowerSupply updateManyAndReturn
    */
-  export type BuildingUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Building
+     * Select specific fields to fetch from the PowerSupply
      */
-    select?: BuildingSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: PowerSupplySelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Building
+     * Omit specific fields from the PowerSupply
      */
-    omit?: BuildingOmit<ExtArgs> | null
+    omit?: PowerSupplyOmit<ExtArgs> | null
     /**
-     * The data used to update Buildings.
+     * The data used to update PowerSupplies.
      */
-    data: XOR<BuildingUpdateManyMutationInput, BuildingUncheckedUpdateManyInput>
+    data: XOR<PowerSupplyUpdateManyMutationInput, PowerSupplyUncheckedUpdateManyInput>
     /**
-     * Filter which Buildings to update
+     * Filter which PowerSupplies to update
      */
-    where?: BuildingWhereInput
+    where?: PowerSupplyWhereInput
     /**
-     * Limit how many Buildings to update.
+     * Limit how many PowerSupplies to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BuildingIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: PowerSupplyIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Building upsert
+   * PowerSupply upsert
    */
-  export type BuildingUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Building
+     * Select specific fields to fetch from the PowerSupply
      */
-    select?: BuildingSelect<ExtArgs> | null
+    select?: PowerSupplySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Building
+     * Omit specific fields from the PowerSupply
      */
-    omit?: BuildingOmit<ExtArgs> | null
+    omit?: PowerSupplyOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BuildingInclude<ExtArgs> | null
+    include?: PowerSupplyInclude<ExtArgs> | null
     /**
-     * The filter to search for the Building to update in case it exists.
+     * The filter to search for the PowerSupply to update in case it exists.
      */
-    where: BuildingWhereUniqueInput
+    where: PowerSupplyWhereUniqueInput
     /**
-     * In case the Building found by the `where` argument doesn't exist, create a new Building with this data.
+     * In case the PowerSupply found by the `where` argument doesn't exist, create a new PowerSupply with this data.
      */
-    create: XOR<BuildingCreateInput, BuildingUncheckedCreateInput>
+    create: XOR<PowerSupplyCreateInput, PowerSupplyUncheckedCreateInput>
     /**
-     * In case the Building was found with the provided `where` argument, update it with this data.
+     * In case the PowerSupply was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<BuildingUpdateInput, BuildingUncheckedUpdateInput>
+    update: XOR<PowerSupplyUpdateInput, PowerSupplyUncheckedUpdateInput>
   }
 
   /**
-   * Building delete
+   * PowerSupply delete
    */
-  export type BuildingDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Building
+     * Select specific fields to fetch from the PowerSupply
      */
-    select?: BuildingSelect<ExtArgs> | null
+    select?: PowerSupplySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Building
+     * Omit specific fields from the PowerSupply
      */
-    omit?: BuildingOmit<ExtArgs> | null
+    omit?: PowerSupplyOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BuildingInclude<ExtArgs> | null
+    include?: PowerSupplyInclude<ExtArgs> | null
     /**
-     * Filter which Building to delete.
+     * Filter which PowerSupply to delete.
      */
-    where: BuildingWhereUniqueInput
+    where: PowerSupplyWhereUniqueInput
   }
 
   /**
-   * Building deleteMany
+   * PowerSupply deleteMany
    */
-  export type BuildingDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Buildings to delete
+     * Filter which PowerSupplies to delete
      */
-    where?: BuildingWhereInput
+    where?: PowerSupplyWhereInput
     /**
-     * Limit how many Buildings to delete.
+     * Limit how many PowerSupplies to delete.
      */
     limit?: number
   }
 
   /**
-   * Building without action
+   * PowerSupply without action
    */
-  export type BuildingDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PowerSupplyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Building
+     * Select specific fields to fetch from the PowerSupply
      */
-    select?: BuildingSelect<ExtArgs> | null
+    select?: PowerSupplySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Building
+     * Omit specific fields from the PowerSupply
      */
-    omit?: BuildingOmit<ExtArgs> | null
+    omit?: PowerSupplyOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: BuildingInclude<ExtArgs> | null
+    include?: PowerSupplyInclude<ExtArgs> | null
   }
 
 
@@ -8644,205 +8796,79 @@ export namespace Prisma {
   }
 
   export type CircuitAvgAggregateOutputType = {
-    quantity: number | null
-    loadWatts: number | null
-    loadAmps: number | null
-    shortCircuitCurrentAmps: number | null
-    operatingCurrentAmps: number | null
-    circuitTotalCurrentAmps: number | null
-    cableLengthMeters: number | null
-    conductorSectionMm2: number | null
-    recommendedSectionMm2: number | null
-    voltageDropPercent: number | null
-    numberOfPoles: number | null
+    circuitCount: number | null
+    totalPower: number | null
   }
 
   export type CircuitSumAggregateOutputType = {
-    quantity: number | null
-    loadWatts: number | null
-    loadAmps: number | null
-    shortCircuitCurrentAmps: number | null
-    operatingCurrentAmps: number | null
-    circuitTotalCurrentAmps: number | null
-    cableLengthMeters: number | null
-    conductorSectionMm2: number | null
-    recommendedSectionMm2: number | null
-    voltageDropPercent: number | null
-    numberOfPoles: number | null
+    circuitCount: number | null
+    totalPower: number | null
   }
 
   export type CircuitMinAggregateOutputType = {
     id: string | null
     projectId: string | null
-    protectionId: string | null
-    label: string | null
-    type: $Enums.CircuitCategory | null
-    room: string | null
-    quantity: number | null
-    loadWatts: number | null
-    loadAmps: number | null
-    shortCircuitCurrentAmps: number | null
-    operatingCurrentAmps: number | null
-    circuitTotalCurrentAmps: number | null
-    cableLengthMeters: number | null
-    conductorSectionMm2: number | null
-    recommendedSectionMm2: number | null
-    voltageDropPercent: number | null
-    numberOfPoles: number | null
-    isDedicated: boolean | null
-    comment: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    name: string | null
+    circuitCount: number | null
+    type: $Enums.CircuitType | null
+    totalPower: number | null
   }
 
   export type CircuitMaxAggregateOutputType = {
     id: string | null
     projectId: string | null
-    protectionId: string | null
-    label: string | null
-    type: $Enums.CircuitCategory | null
-    room: string | null
-    quantity: number | null
-    loadWatts: number | null
-    loadAmps: number | null
-    shortCircuitCurrentAmps: number | null
-    operatingCurrentAmps: number | null
-    circuitTotalCurrentAmps: number | null
-    cableLengthMeters: number | null
-    conductorSectionMm2: number | null
-    recommendedSectionMm2: number | null
-    voltageDropPercent: number | null
-    numberOfPoles: number | null
-    isDedicated: boolean | null
-    comment: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    name: string | null
+    circuitCount: number | null
+    type: $Enums.CircuitType | null
+    totalPower: number | null
   }
 
   export type CircuitCountAggregateOutputType = {
     id: number
     projectId: number
-    protectionId: number
-    label: number
+    name: number
+    circuitCount: number
     type: number
-    room: number
-    quantity: number
-    loadWatts: number
-    loadAmps: number
-    shortCircuitCurrentAmps: number
-    operatingCurrentAmps: number
-    circuitTotalCurrentAmps: number
-    cableLengthMeters: number
-    conductorSectionMm2: number
-    recommendedSectionMm2: number
-    voltageDropPercent: number
-    numberOfPoles: number
-    isDedicated: number
-    comment: number
-    createdAt: number
-    updatedAt: number
+    totalPower: number
     _all: number
   }
 
 
   export type CircuitAvgAggregateInputType = {
-    quantity?: true
-    loadWatts?: true
-    loadAmps?: true
-    shortCircuitCurrentAmps?: true
-    operatingCurrentAmps?: true
-    circuitTotalCurrentAmps?: true
-    cableLengthMeters?: true
-    conductorSectionMm2?: true
-    recommendedSectionMm2?: true
-    voltageDropPercent?: true
-    numberOfPoles?: true
+    circuitCount?: true
+    totalPower?: true
   }
 
   export type CircuitSumAggregateInputType = {
-    quantity?: true
-    loadWatts?: true
-    loadAmps?: true
-    shortCircuitCurrentAmps?: true
-    operatingCurrentAmps?: true
-    circuitTotalCurrentAmps?: true
-    cableLengthMeters?: true
-    conductorSectionMm2?: true
-    recommendedSectionMm2?: true
-    voltageDropPercent?: true
-    numberOfPoles?: true
+    circuitCount?: true
+    totalPower?: true
   }
 
   export type CircuitMinAggregateInputType = {
     id?: true
     projectId?: true
-    protectionId?: true
-    label?: true
+    name?: true
+    circuitCount?: true
     type?: true
-    room?: true
-    quantity?: true
-    loadWatts?: true
-    loadAmps?: true
-    shortCircuitCurrentAmps?: true
-    operatingCurrentAmps?: true
-    circuitTotalCurrentAmps?: true
-    cableLengthMeters?: true
-    conductorSectionMm2?: true
-    recommendedSectionMm2?: true
-    voltageDropPercent?: true
-    numberOfPoles?: true
-    isDedicated?: true
-    comment?: true
-    createdAt?: true
-    updatedAt?: true
+    totalPower?: true
   }
 
   export type CircuitMaxAggregateInputType = {
     id?: true
     projectId?: true
-    protectionId?: true
-    label?: true
+    name?: true
+    circuitCount?: true
     type?: true
-    room?: true
-    quantity?: true
-    loadWatts?: true
-    loadAmps?: true
-    shortCircuitCurrentAmps?: true
-    operatingCurrentAmps?: true
-    circuitTotalCurrentAmps?: true
-    cableLengthMeters?: true
-    conductorSectionMm2?: true
-    recommendedSectionMm2?: true
-    voltageDropPercent?: true
-    numberOfPoles?: true
-    isDedicated?: true
-    comment?: true
-    createdAt?: true
-    updatedAt?: true
+    totalPower?: true
   }
 
   export type CircuitCountAggregateInputType = {
     id?: true
     projectId?: true
-    protectionId?: true
-    label?: true
+    name?: true
+    circuitCount?: true
     type?: true
-    room?: true
-    quantity?: true
-    loadWatts?: true
-    loadAmps?: true
-    shortCircuitCurrentAmps?: true
-    operatingCurrentAmps?: true
-    circuitTotalCurrentAmps?: true
-    cableLengthMeters?: true
-    conductorSectionMm2?: true
-    recommendedSectionMm2?: true
-    voltageDropPercent?: true
-    numberOfPoles?: true
-    isDedicated?: true
-    comment?: true
-    createdAt?: true
-    updatedAt?: true
+    totalPower?: true
     _all?: true
   }
 
@@ -8935,25 +8961,10 @@ export namespace Prisma {
   export type CircuitGroupByOutputType = {
     id: string
     projectId: string
-    protectionId: string | null
-    label: string
-    type: $Enums.CircuitCategory
-    room: string | null
-    quantity: number
-    loadWatts: number | null
-    loadAmps: number | null
-    shortCircuitCurrentAmps: number | null
-    operatingCurrentAmps: number | null
-    circuitTotalCurrentAmps: number | null
-    cableLengthMeters: number | null
-    conductorSectionMm2: number | null
-    recommendedSectionMm2: number | null
-    voltageDropPercent: number | null
-    numberOfPoles: number
-    isDedicated: boolean
-    comment: string | null
-    createdAt: Date
-    updatedAt: Date
+    name: string
+    circuitCount: number
+    type: $Enums.CircuitType
+    totalPower: number
     _count: CircuitCountAggregateOutputType | null
     _avg: CircuitAvgAggregateOutputType | null
     _sum: CircuitSumAggregateOutputType | null
@@ -8978,147 +8989,65 @@ export namespace Prisma {
   export type CircuitSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     projectId?: boolean
-    protectionId?: boolean
-    label?: boolean
+    name?: boolean
+    circuitCount?: boolean
     type?: boolean
-    room?: boolean
-    quantity?: boolean
-    loadWatts?: boolean
-    loadAmps?: boolean
-    shortCircuitCurrentAmps?: boolean
-    operatingCurrentAmps?: boolean
-    circuitTotalCurrentAmps?: boolean
-    cableLengthMeters?: boolean
-    conductorSectionMm2?: boolean
-    recommendedSectionMm2?: boolean
-    voltageDropPercent?: boolean
-    numberOfPoles?: boolean
-    isDedicated?: boolean
-    comment?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    totalPower?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-    protection?: boolean | Circuit$protectionArgs<ExtArgs>
   }, ExtArgs["result"]["circuit"]>
 
   export type CircuitSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     projectId?: boolean
-    protectionId?: boolean
-    label?: boolean
+    name?: boolean
+    circuitCount?: boolean
     type?: boolean
-    room?: boolean
-    quantity?: boolean
-    loadWatts?: boolean
-    loadAmps?: boolean
-    shortCircuitCurrentAmps?: boolean
-    operatingCurrentAmps?: boolean
-    circuitTotalCurrentAmps?: boolean
-    cableLengthMeters?: boolean
-    conductorSectionMm2?: boolean
-    recommendedSectionMm2?: boolean
-    voltageDropPercent?: boolean
-    numberOfPoles?: boolean
-    isDedicated?: boolean
-    comment?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    totalPower?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-    protection?: boolean | Circuit$protectionArgs<ExtArgs>
   }, ExtArgs["result"]["circuit"]>
 
   export type CircuitSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     projectId?: boolean
-    protectionId?: boolean
-    label?: boolean
+    name?: boolean
+    circuitCount?: boolean
     type?: boolean
-    room?: boolean
-    quantity?: boolean
-    loadWatts?: boolean
-    loadAmps?: boolean
-    shortCircuitCurrentAmps?: boolean
-    operatingCurrentAmps?: boolean
-    circuitTotalCurrentAmps?: boolean
-    cableLengthMeters?: boolean
-    conductorSectionMm2?: boolean
-    recommendedSectionMm2?: boolean
-    voltageDropPercent?: boolean
-    numberOfPoles?: boolean
-    isDedicated?: boolean
-    comment?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    totalPower?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-    protection?: boolean | Circuit$protectionArgs<ExtArgs>
   }, ExtArgs["result"]["circuit"]>
 
   export type CircuitSelectScalar = {
     id?: boolean
     projectId?: boolean
-    protectionId?: boolean
-    label?: boolean
+    name?: boolean
+    circuitCount?: boolean
     type?: boolean
-    room?: boolean
-    quantity?: boolean
-    loadWatts?: boolean
-    loadAmps?: boolean
-    shortCircuitCurrentAmps?: boolean
-    operatingCurrentAmps?: boolean
-    circuitTotalCurrentAmps?: boolean
-    cableLengthMeters?: boolean
-    conductorSectionMm2?: boolean
-    recommendedSectionMm2?: boolean
-    voltageDropPercent?: boolean
-    numberOfPoles?: boolean
-    isDedicated?: boolean
-    comment?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    totalPower?: boolean
   }
 
-  export type CircuitOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "protectionId" | "label" | "type" | "room" | "quantity" | "loadWatts" | "loadAmps" | "shortCircuitCurrentAmps" | "operatingCurrentAmps" | "circuitTotalCurrentAmps" | "cableLengthMeters" | "conductorSectionMm2" | "recommendedSectionMm2" | "voltageDropPercent" | "numberOfPoles" | "isDedicated" | "comment" | "createdAt" | "updatedAt", ExtArgs["result"]["circuit"]>
+  export type CircuitOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "name" | "circuitCount" | "type" | "totalPower", ExtArgs["result"]["circuit"]>
   export type CircuitInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-    protection?: boolean | Circuit$protectionArgs<ExtArgs>
   }
   export type CircuitIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-    protection?: boolean | Circuit$protectionArgs<ExtArgs>
   }
   export type CircuitIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-    protection?: boolean | Circuit$protectionArgs<ExtArgs>
   }
 
   export type $CircuitPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Circuit"
     objects: {
       project: Prisma.$ProjectPayload<ExtArgs>
-      protection: Prisma.$ProtectionPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       projectId: string
-      protectionId: string | null
-      label: string
-      type: $Enums.CircuitCategory
-      room: string | null
-      quantity: number
-      loadWatts: number | null
-      loadAmps: number | null
-      shortCircuitCurrentAmps: number | null
-      operatingCurrentAmps: number | null
-      circuitTotalCurrentAmps: number | null
-      cableLengthMeters: number | null
-      conductorSectionMm2: number | null
-      recommendedSectionMm2: number | null
-      voltageDropPercent: number | null
-      numberOfPoles: number
-      isDedicated: boolean
-      comment: string | null
-      createdAt: Date
-      updatedAt: Date
+      name: string
+      circuitCount: number
+      type: $Enums.CircuitType
+      totalPower: number
     }, ExtArgs["result"]["circuit"]>
     composites: {}
   }
@@ -9514,7 +9443,6 @@ export namespace Prisma {
   export interface Prisma__CircuitClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    protection<T extends Circuit$protectionArgs<ExtArgs> = {}>(args?: Subset<T, Circuit$protectionArgs<ExtArgs>>): Prisma__ProtectionClient<$Result.GetResult<Prisma.$ProtectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9546,25 +9474,10 @@ export namespace Prisma {
   interface CircuitFieldRefs {
     readonly id: FieldRef<"Circuit", 'String'>
     readonly projectId: FieldRef<"Circuit", 'String'>
-    readonly protectionId: FieldRef<"Circuit", 'String'>
-    readonly label: FieldRef<"Circuit", 'String'>
-    readonly type: FieldRef<"Circuit", 'CircuitCategory'>
-    readonly room: FieldRef<"Circuit", 'String'>
-    readonly quantity: FieldRef<"Circuit", 'Int'>
-    readonly loadWatts: FieldRef<"Circuit", 'Int'>
-    readonly loadAmps: FieldRef<"Circuit", 'Float'>
-    readonly shortCircuitCurrentAmps: FieldRef<"Circuit", 'Float'>
-    readonly operatingCurrentAmps: FieldRef<"Circuit", 'Float'>
-    readonly circuitTotalCurrentAmps: FieldRef<"Circuit", 'Float'>
-    readonly cableLengthMeters: FieldRef<"Circuit", 'Float'>
-    readonly conductorSectionMm2: FieldRef<"Circuit", 'Float'>
-    readonly recommendedSectionMm2: FieldRef<"Circuit", 'Float'>
-    readonly voltageDropPercent: FieldRef<"Circuit", 'Float'>
-    readonly numberOfPoles: FieldRef<"Circuit", 'Int'>
-    readonly isDedicated: FieldRef<"Circuit", 'Boolean'>
-    readonly comment: FieldRef<"Circuit", 'String'>
-    readonly createdAt: FieldRef<"Circuit", 'DateTime'>
-    readonly updatedAt: FieldRef<"Circuit", 'DateTime'>
+    readonly name: FieldRef<"Circuit", 'String'>
+    readonly circuitCount: FieldRef<"Circuit", 'Int'>
+    readonly type: FieldRef<"Circuit", 'CircuitType'>
+    readonly totalPower: FieldRef<"Circuit", 'Float'>
   }
     
 
@@ -9966,25 +9879,6 @@ export namespace Prisma {
   }
 
   /**
-   * Circuit.protection
-   */
-  export type Circuit$protectionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Protection
-     */
-    select?: ProtectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Protection
-     */
-    omit?: ProtectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ProtectionInclude<ExtArgs> | null
-    where?: ProtectionWhereInput
-  }
-
-  /**
    * Circuit without action
    */
   export type CircuitDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10004,6 +9898,2153 @@ export namespace Prisma {
 
 
   /**
+   * Model FurthestLoadDistance
+   */
+
+  export type AggregateFurthestLoadDistance = {
+    _count: FurthestLoadDistanceCountAggregateOutputType | null
+    _avg: FurthestLoadDistanceAvgAggregateOutputType | null
+    _sum: FurthestLoadDistanceSumAggregateOutputType | null
+    _min: FurthestLoadDistanceMinAggregateOutputType | null
+    _max: FurthestLoadDistanceMaxAggregateOutputType | null
+  }
+
+  export type FurthestLoadDistanceAvgAggregateOutputType = {
+    distance: number | null
+  }
+
+  export type FurthestLoadDistanceSumAggregateOutputType = {
+    distance: number | null
+  }
+
+  export type FurthestLoadDistanceMinAggregateOutputType = {
+    id: string | null
+    projectId: string | null
+    circuitName: string | null
+    distance: number | null
+  }
+
+  export type FurthestLoadDistanceMaxAggregateOutputType = {
+    id: string | null
+    projectId: string | null
+    circuitName: string | null
+    distance: number | null
+  }
+
+  export type FurthestLoadDistanceCountAggregateOutputType = {
+    id: number
+    projectId: number
+    circuitName: number
+    distance: number
+    _all: number
+  }
+
+
+  export type FurthestLoadDistanceAvgAggregateInputType = {
+    distance?: true
+  }
+
+  export type FurthestLoadDistanceSumAggregateInputType = {
+    distance?: true
+  }
+
+  export type FurthestLoadDistanceMinAggregateInputType = {
+    id?: true
+    projectId?: true
+    circuitName?: true
+    distance?: true
+  }
+
+  export type FurthestLoadDistanceMaxAggregateInputType = {
+    id?: true
+    projectId?: true
+    circuitName?: true
+    distance?: true
+  }
+
+  export type FurthestLoadDistanceCountAggregateInputType = {
+    id?: true
+    projectId?: true
+    circuitName?: true
+    distance?: true
+    _all?: true
+  }
+
+  export type FurthestLoadDistanceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FurthestLoadDistance to aggregate.
+     */
+    where?: FurthestLoadDistanceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FurthestLoadDistances to fetch.
+     */
+    orderBy?: FurthestLoadDistanceOrderByWithRelationInput | FurthestLoadDistanceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FurthestLoadDistanceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FurthestLoadDistances from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FurthestLoadDistances.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FurthestLoadDistances
+    **/
+    _count?: true | FurthestLoadDistanceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FurthestLoadDistanceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FurthestLoadDistanceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FurthestLoadDistanceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FurthestLoadDistanceMaxAggregateInputType
+  }
+
+  export type GetFurthestLoadDistanceAggregateType<T extends FurthestLoadDistanceAggregateArgs> = {
+        [P in keyof T & keyof AggregateFurthestLoadDistance]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFurthestLoadDistance[P]>
+      : GetScalarType<T[P], AggregateFurthestLoadDistance[P]>
+  }
+
+
+
+
+  export type FurthestLoadDistanceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FurthestLoadDistanceWhereInput
+    orderBy?: FurthestLoadDistanceOrderByWithAggregationInput | FurthestLoadDistanceOrderByWithAggregationInput[]
+    by: FurthestLoadDistanceScalarFieldEnum[] | FurthestLoadDistanceScalarFieldEnum
+    having?: FurthestLoadDistanceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FurthestLoadDistanceCountAggregateInputType | true
+    _avg?: FurthestLoadDistanceAvgAggregateInputType
+    _sum?: FurthestLoadDistanceSumAggregateInputType
+    _min?: FurthestLoadDistanceMinAggregateInputType
+    _max?: FurthestLoadDistanceMaxAggregateInputType
+  }
+
+  export type FurthestLoadDistanceGroupByOutputType = {
+    id: string
+    projectId: string
+    circuitName: string
+    distance: number
+    _count: FurthestLoadDistanceCountAggregateOutputType | null
+    _avg: FurthestLoadDistanceAvgAggregateOutputType | null
+    _sum: FurthestLoadDistanceSumAggregateOutputType | null
+    _min: FurthestLoadDistanceMinAggregateOutputType | null
+    _max: FurthestLoadDistanceMaxAggregateOutputType | null
+  }
+
+  type GetFurthestLoadDistanceGroupByPayload<T extends FurthestLoadDistanceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FurthestLoadDistanceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FurthestLoadDistanceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FurthestLoadDistanceGroupByOutputType[P]>
+            : GetScalarType<T[P], FurthestLoadDistanceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FurthestLoadDistanceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    circuitName?: boolean
+    distance?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["furthestLoadDistance"]>
+
+  export type FurthestLoadDistanceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    circuitName?: boolean
+    distance?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["furthestLoadDistance"]>
+
+  export type FurthestLoadDistanceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    circuitName?: boolean
+    distance?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["furthestLoadDistance"]>
+
+  export type FurthestLoadDistanceSelectScalar = {
+    id?: boolean
+    projectId?: boolean
+    circuitName?: boolean
+    distance?: boolean
+  }
+
+  export type FurthestLoadDistanceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "circuitName" | "distance", ExtArgs["result"]["furthestLoadDistance"]>
+  export type FurthestLoadDistanceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type FurthestLoadDistanceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type FurthestLoadDistanceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+
+  export type $FurthestLoadDistancePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FurthestLoadDistance"
+    objects: {
+      project: Prisma.$ProjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      projectId: string
+      circuitName: string
+      distance: number
+    }, ExtArgs["result"]["furthestLoadDistance"]>
+    composites: {}
+  }
+
+  type FurthestLoadDistanceGetPayload<S extends boolean | null | undefined | FurthestLoadDistanceDefaultArgs> = $Result.GetResult<Prisma.$FurthestLoadDistancePayload, S>
+
+  type FurthestLoadDistanceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FurthestLoadDistanceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FurthestLoadDistanceCountAggregateInputType | true
+    }
+
+  export interface FurthestLoadDistanceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FurthestLoadDistance'], meta: { name: 'FurthestLoadDistance' } }
+    /**
+     * Find zero or one FurthestLoadDistance that matches the filter.
+     * @param {FurthestLoadDistanceFindUniqueArgs} args - Arguments to find a FurthestLoadDistance
+     * @example
+     * // Get one FurthestLoadDistance
+     * const furthestLoadDistance = await prisma.furthestLoadDistance.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FurthestLoadDistanceFindUniqueArgs>(args: SelectSubset<T, FurthestLoadDistanceFindUniqueArgs<ExtArgs>>): Prisma__FurthestLoadDistanceClient<$Result.GetResult<Prisma.$FurthestLoadDistancePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one FurthestLoadDistance that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FurthestLoadDistanceFindUniqueOrThrowArgs} args - Arguments to find a FurthestLoadDistance
+     * @example
+     * // Get one FurthestLoadDistance
+     * const furthestLoadDistance = await prisma.furthestLoadDistance.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FurthestLoadDistanceFindUniqueOrThrowArgs>(args: SelectSubset<T, FurthestLoadDistanceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FurthestLoadDistanceClient<$Result.GetResult<Prisma.$FurthestLoadDistancePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FurthestLoadDistance that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FurthestLoadDistanceFindFirstArgs} args - Arguments to find a FurthestLoadDistance
+     * @example
+     * // Get one FurthestLoadDistance
+     * const furthestLoadDistance = await prisma.furthestLoadDistance.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FurthestLoadDistanceFindFirstArgs>(args?: SelectSubset<T, FurthestLoadDistanceFindFirstArgs<ExtArgs>>): Prisma__FurthestLoadDistanceClient<$Result.GetResult<Prisma.$FurthestLoadDistancePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FurthestLoadDistance that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FurthestLoadDistanceFindFirstOrThrowArgs} args - Arguments to find a FurthestLoadDistance
+     * @example
+     * // Get one FurthestLoadDistance
+     * const furthestLoadDistance = await prisma.furthestLoadDistance.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FurthestLoadDistanceFindFirstOrThrowArgs>(args?: SelectSubset<T, FurthestLoadDistanceFindFirstOrThrowArgs<ExtArgs>>): Prisma__FurthestLoadDistanceClient<$Result.GetResult<Prisma.$FurthestLoadDistancePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more FurthestLoadDistances that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FurthestLoadDistanceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FurthestLoadDistances
+     * const furthestLoadDistances = await prisma.furthestLoadDistance.findMany()
+     * 
+     * // Get first 10 FurthestLoadDistances
+     * const furthestLoadDistances = await prisma.furthestLoadDistance.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const furthestLoadDistanceWithIdOnly = await prisma.furthestLoadDistance.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FurthestLoadDistanceFindManyArgs>(args?: SelectSubset<T, FurthestLoadDistanceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FurthestLoadDistancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a FurthestLoadDistance.
+     * @param {FurthestLoadDistanceCreateArgs} args - Arguments to create a FurthestLoadDistance.
+     * @example
+     * // Create one FurthestLoadDistance
+     * const FurthestLoadDistance = await prisma.furthestLoadDistance.create({
+     *   data: {
+     *     // ... data to create a FurthestLoadDistance
+     *   }
+     * })
+     * 
+     */
+    create<T extends FurthestLoadDistanceCreateArgs>(args: SelectSubset<T, FurthestLoadDistanceCreateArgs<ExtArgs>>): Prisma__FurthestLoadDistanceClient<$Result.GetResult<Prisma.$FurthestLoadDistancePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many FurthestLoadDistances.
+     * @param {FurthestLoadDistanceCreateManyArgs} args - Arguments to create many FurthestLoadDistances.
+     * @example
+     * // Create many FurthestLoadDistances
+     * const furthestLoadDistance = await prisma.furthestLoadDistance.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FurthestLoadDistanceCreateManyArgs>(args?: SelectSubset<T, FurthestLoadDistanceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FurthestLoadDistances and returns the data saved in the database.
+     * @param {FurthestLoadDistanceCreateManyAndReturnArgs} args - Arguments to create many FurthestLoadDistances.
+     * @example
+     * // Create many FurthestLoadDistances
+     * const furthestLoadDistance = await prisma.furthestLoadDistance.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FurthestLoadDistances and only return the `id`
+     * const furthestLoadDistanceWithIdOnly = await prisma.furthestLoadDistance.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FurthestLoadDistanceCreateManyAndReturnArgs>(args?: SelectSubset<T, FurthestLoadDistanceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FurthestLoadDistancePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a FurthestLoadDistance.
+     * @param {FurthestLoadDistanceDeleteArgs} args - Arguments to delete one FurthestLoadDistance.
+     * @example
+     * // Delete one FurthestLoadDistance
+     * const FurthestLoadDistance = await prisma.furthestLoadDistance.delete({
+     *   where: {
+     *     // ... filter to delete one FurthestLoadDistance
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FurthestLoadDistanceDeleteArgs>(args: SelectSubset<T, FurthestLoadDistanceDeleteArgs<ExtArgs>>): Prisma__FurthestLoadDistanceClient<$Result.GetResult<Prisma.$FurthestLoadDistancePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one FurthestLoadDistance.
+     * @param {FurthestLoadDistanceUpdateArgs} args - Arguments to update one FurthestLoadDistance.
+     * @example
+     * // Update one FurthestLoadDistance
+     * const furthestLoadDistance = await prisma.furthestLoadDistance.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FurthestLoadDistanceUpdateArgs>(args: SelectSubset<T, FurthestLoadDistanceUpdateArgs<ExtArgs>>): Prisma__FurthestLoadDistanceClient<$Result.GetResult<Prisma.$FurthestLoadDistancePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more FurthestLoadDistances.
+     * @param {FurthestLoadDistanceDeleteManyArgs} args - Arguments to filter FurthestLoadDistances to delete.
+     * @example
+     * // Delete a few FurthestLoadDistances
+     * const { count } = await prisma.furthestLoadDistance.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FurthestLoadDistanceDeleteManyArgs>(args?: SelectSubset<T, FurthestLoadDistanceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FurthestLoadDistances.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FurthestLoadDistanceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FurthestLoadDistances
+     * const furthestLoadDistance = await prisma.furthestLoadDistance.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FurthestLoadDistanceUpdateManyArgs>(args: SelectSubset<T, FurthestLoadDistanceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FurthestLoadDistances and returns the data updated in the database.
+     * @param {FurthestLoadDistanceUpdateManyAndReturnArgs} args - Arguments to update many FurthestLoadDistances.
+     * @example
+     * // Update many FurthestLoadDistances
+     * const furthestLoadDistance = await prisma.furthestLoadDistance.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more FurthestLoadDistances and only return the `id`
+     * const furthestLoadDistanceWithIdOnly = await prisma.furthestLoadDistance.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FurthestLoadDistanceUpdateManyAndReturnArgs>(args: SelectSubset<T, FurthestLoadDistanceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FurthestLoadDistancePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one FurthestLoadDistance.
+     * @param {FurthestLoadDistanceUpsertArgs} args - Arguments to update or create a FurthestLoadDistance.
+     * @example
+     * // Update or create a FurthestLoadDistance
+     * const furthestLoadDistance = await prisma.furthestLoadDistance.upsert({
+     *   create: {
+     *     // ... data to create a FurthestLoadDistance
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FurthestLoadDistance we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FurthestLoadDistanceUpsertArgs>(args: SelectSubset<T, FurthestLoadDistanceUpsertArgs<ExtArgs>>): Prisma__FurthestLoadDistanceClient<$Result.GetResult<Prisma.$FurthestLoadDistancePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of FurthestLoadDistances.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FurthestLoadDistanceCountArgs} args - Arguments to filter FurthestLoadDistances to count.
+     * @example
+     * // Count the number of FurthestLoadDistances
+     * const count = await prisma.furthestLoadDistance.count({
+     *   where: {
+     *     // ... the filter for the FurthestLoadDistances we want to count
+     *   }
+     * })
+    **/
+    count<T extends FurthestLoadDistanceCountArgs>(
+      args?: Subset<T, FurthestLoadDistanceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FurthestLoadDistanceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FurthestLoadDistance.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FurthestLoadDistanceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FurthestLoadDistanceAggregateArgs>(args: Subset<T, FurthestLoadDistanceAggregateArgs>): Prisma.PrismaPromise<GetFurthestLoadDistanceAggregateType<T>>
+
+    /**
+     * Group by FurthestLoadDistance.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FurthestLoadDistanceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FurthestLoadDistanceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FurthestLoadDistanceGroupByArgs['orderBy'] }
+        : { orderBy?: FurthestLoadDistanceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FurthestLoadDistanceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFurthestLoadDistanceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FurthestLoadDistance model
+   */
+  readonly fields: FurthestLoadDistanceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FurthestLoadDistance.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FurthestLoadDistanceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FurthestLoadDistance model
+   */
+  interface FurthestLoadDistanceFieldRefs {
+    readonly id: FieldRef<"FurthestLoadDistance", 'String'>
+    readonly projectId: FieldRef<"FurthestLoadDistance", 'String'>
+    readonly circuitName: FieldRef<"FurthestLoadDistance", 'String'>
+    readonly distance: FieldRef<"FurthestLoadDistance", 'Float'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FurthestLoadDistance findUnique
+   */
+  export type FurthestLoadDistanceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FurthestLoadDistance
+     */
+    select?: FurthestLoadDistanceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FurthestLoadDistance
+     */
+    omit?: FurthestLoadDistanceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FurthestLoadDistanceInclude<ExtArgs> | null
+    /**
+     * Filter, which FurthestLoadDistance to fetch.
+     */
+    where: FurthestLoadDistanceWhereUniqueInput
+  }
+
+  /**
+   * FurthestLoadDistance findUniqueOrThrow
+   */
+  export type FurthestLoadDistanceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FurthestLoadDistance
+     */
+    select?: FurthestLoadDistanceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FurthestLoadDistance
+     */
+    omit?: FurthestLoadDistanceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FurthestLoadDistanceInclude<ExtArgs> | null
+    /**
+     * Filter, which FurthestLoadDistance to fetch.
+     */
+    where: FurthestLoadDistanceWhereUniqueInput
+  }
+
+  /**
+   * FurthestLoadDistance findFirst
+   */
+  export type FurthestLoadDistanceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FurthestLoadDistance
+     */
+    select?: FurthestLoadDistanceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FurthestLoadDistance
+     */
+    omit?: FurthestLoadDistanceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FurthestLoadDistanceInclude<ExtArgs> | null
+    /**
+     * Filter, which FurthestLoadDistance to fetch.
+     */
+    where?: FurthestLoadDistanceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FurthestLoadDistances to fetch.
+     */
+    orderBy?: FurthestLoadDistanceOrderByWithRelationInput | FurthestLoadDistanceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FurthestLoadDistances.
+     */
+    cursor?: FurthestLoadDistanceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FurthestLoadDistances from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FurthestLoadDistances.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FurthestLoadDistances.
+     */
+    distinct?: FurthestLoadDistanceScalarFieldEnum | FurthestLoadDistanceScalarFieldEnum[]
+  }
+
+  /**
+   * FurthestLoadDistance findFirstOrThrow
+   */
+  export type FurthestLoadDistanceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FurthestLoadDistance
+     */
+    select?: FurthestLoadDistanceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FurthestLoadDistance
+     */
+    omit?: FurthestLoadDistanceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FurthestLoadDistanceInclude<ExtArgs> | null
+    /**
+     * Filter, which FurthestLoadDistance to fetch.
+     */
+    where?: FurthestLoadDistanceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FurthestLoadDistances to fetch.
+     */
+    orderBy?: FurthestLoadDistanceOrderByWithRelationInput | FurthestLoadDistanceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FurthestLoadDistances.
+     */
+    cursor?: FurthestLoadDistanceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FurthestLoadDistances from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FurthestLoadDistances.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FurthestLoadDistances.
+     */
+    distinct?: FurthestLoadDistanceScalarFieldEnum | FurthestLoadDistanceScalarFieldEnum[]
+  }
+
+  /**
+   * FurthestLoadDistance findMany
+   */
+  export type FurthestLoadDistanceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FurthestLoadDistance
+     */
+    select?: FurthestLoadDistanceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FurthestLoadDistance
+     */
+    omit?: FurthestLoadDistanceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FurthestLoadDistanceInclude<ExtArgs> | null
+    /**
+     * Filter, which FurthestLoadDistances to fetch.
+     */
+    where?: FurthestLoadDistanceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FurthestLoadDistances to fetch.
+     */
+    orderBy?: FurthestLoadDistanceOrderByWithRelationInput | FurthestLoadDistanceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FurthestLoadDistances.
+     */
+    cursor?: FurthestLoadDistanceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FurthestLoadDistances from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FurthestLoadDistances.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FurthestLoadDistances.
+     */
+    distinct?: FurthestLoadDistanceScalarFieldEnum | FurthestLoadDistanceScalarFieldEnum[]
+  }
+
+  /**
+   * FurthestLoadDistance create
+   */
+  export type FurthestLoadDistanceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FurthestLoadDistance
+     */
+    select?: FurthestLoadDistanceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FurthestLoadDistance
+     */
+    omit?: FurthestLoadDistanceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FurthestLoadDistanceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FurthestLoadDistance.
+     */
+    data: XOR<FurthestLoadDistanceCreateInput, FurthestLoadDistanceUncheckedCreateInput>
+  }
+
+  /**
+   * FurthestLoadDistance createMany
+   */
+  export type FurthestLoadDistanceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FurthestLoadDistances.
+     */
+    data: FurthestLoadDistanceCreateManyInput | FurthestLoadDistanceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FurthestLoadDistance createManyAndReturn
+   */
+  export type FurthestLoadDistanceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FurthestLoadDistance
+     */
+    select?: FurthestLoadDistanceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FurthestLoadDistance
+     */
+    omit?: FurthestLoadDistanceOmit<ExtArgs> | null
+    /**
+     * The data used to create many FurthestLoadDistances.
+     */
+    data: FurthestLoadDistanceCreateManyInput | FurthestLoadDistanceCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FurthestLoadDistanceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FurthestLoadDistance update
+   */
+  export type FurthestLoadDistanceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FurthestLoadDistance
+     */
+    select?: FurthestLoadDistanceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FurthestLoadDistance
+     */
+    omit?: FurthestLoadDistanceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FurthestLoadDistanceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FurthestLoadDistance.
+     */
+    data: XOR<FurthestLoadDistanceUpdateInput, FurthestLoadDistanceUncheckedUpdateInput>
+    /**
+     * Choose, which FurthestLoadDistance to update.
+     */
+    where: FurthestLoadDistanceWhereUniqueInput
+  }
+
+  /**
+   * FurthestLoadDistance updateMany
+   */
+  export type FurthestLoadDistanceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FurthestLoadDistances.
+     */
+    data: XOR<FurthestLoadDistanceUpdateManyMutationInput, FurthestLoadDistanceUncheckedUpdateManyInput>
+    /**
+     * Filter which FurthestLoadDistances to update
+     */
+    where?: FurthestLoadDistanceWhereInput
+    /**
+     * Limit how many FurthestLoadDistances to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FurthestLoadDistance updateManyAndReturn
+   */
+  export type FurthestLoadDistanceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FurthestLoadDistance
+     */
+    select?: FurthestLoadDistanceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FurthestLoadDistance
+     */
+    omit?: FurthestLoadDistanceOmit<ExtArgs> | null
+    /**
+     * The data used to update FurthestLoadDistances.
+     */
+    data: XOR<FurthestLoadDistanceUpdateManyMutationInput, FurthestLoadDistanceUncheckedUpdateManyInput>
+    /**
+     * Filter which FurthestLoadDistances to update
+     */
+    where?: FurthestLoadDistanceWhereInput
+    /**
+     * Limit how many FurthestLoadDistances to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FurthestLoadDistanceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FurthestLoadDistance upsert
+   */
+  export type FurthestLoadDistanceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FurthestLoadDistance
+     */
+    select?: FurthestLoadDistanceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FurthestLoadDistance
+     */
+    omit?: FurthestLoadDistanceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FurthestLoadDistanceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FurthestLoadDistance to update in case it exists.
+     */
+    where: FurthestLoadDistanceWhereUniqueInput
+    /**
+     * In case the FurthestLoadDistance found by the `where` argument doesn't exist, create a new FurthestLoadDistance with this data.
+     */
+    create: XOR<FurthestLoadDistanceCreateInput, FurthestLoadDistanceUncheckedCreateInput>
+    /**
+     * In case the FurthestLoadDistance was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FurthestLoadDistanceUpdateInput, FurthestLoadDistanceUncheckedUpdateInput>
+  }
+
+  /**
+   * FurthestLoadDistance delete
+   */
+  export type FurthestLoadDistanceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FurthestLoadDistance
+     */
+    select?: FurthestLoadDistanceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FurthestLoadDistance
+     */
+    omit?: FurthestLoadDistanceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FurthestLoadDistanceInclude<ExtArgs> | null
+    /**
+     * Filter which FurthestLoadDistance to delete.
+     */
+    where: FurthestLoadDistanceWhereUniqueInput
+  }
+
+  /**
+   * FurthestLoadDistance deleteMany
+   */
+  export type FurthestLoadDistanceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FurthestLoadDistances to delete
+     */
+    where?: FurthestLoadDistanceWhereInput
+    /**
+     * Limit how many FurthestLoadDistances to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * FurthestLoadDistance without action
+   */
+  export type FurthestLoadDistanceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FurthestLoadDistance
+     */
+    select?: FurthestLoadDistanceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FurthestLoadDistance
+     */
+    omit?: FurthestLoadDistanceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FurthestLoadDistanceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CableData
+   */
+
+  export type AggregateCableData = {
+    _count: CableDataCountAggregateOutputType | null
+    _min: CableDataMinAggregateOutputType | null
+    _max: CableDataMaxAggregateOutputType | null
+  }
+
+  export type CableDataMinAggregateOutputType = {
+    id: string | null
+    projectId: string | null
+    material: $Enums.CableMaterial | null
+    isolation: $Enums.CableIsolation | null
+    modePose: $Enums.ModePose | null
+  }
+
+  export type CableDataMaxAggregateOutputType = {
+    id: string | null
+    projectId: string | null
+    material: $Enums.CableMaterial | null
+    isolation: $Enums.CableIsolation | null
+    modePose: $Enums.ModePose | null
+  }
+
+  export type CableDataCountAggregateOutputType = {
+    id: number
+    projectId: number
+    material: number
+    isolation: number
+    modePose: number
+    _all: number
+  }
+
+
+  export type CableDataMinAggregateInputType = {
+    id?: true
+    projectId?: true
+    material?: true
+    isolation?: true
+    modePose?: true
+  }
+
+  export type CableDataMaxAggregateInputType = {
+    id?: true
+    projectId?: true
+    material?: true
+    isolation?: true
+    modePose?: true
+  }
+
+  export type CableDataCountAggregateInputType = {
+    id?: true
+    projectId?: true
+    material?: true
+    isolation?: true
+    modePose?: true
+    _all?: true
+  }
+
+  export type CableDataAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CableData to aggregate.
+     */
+    where?: CableDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CableData to fetch.
+     */
+    orderBy?: CableDataOrderByWithRelationInput | CableDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CableDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CableData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CableData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CableData
+    **/
+    _count?: true | CableDataCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CableDataMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CableDataMaxAggregateInputType
+  }
+
+  export type GetCableDataAggregateType<T extends CableDataAggregateArgs> = {
+        [P in keyof T & keyof AggregateCableData]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCableData[P]>
+      : GetScalarType<T[P], AggregateCableData[P]>
+  }
+
+
+
+
+  export type CableDataGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CableDataWhereInput
+    orderBy?: CableDataOrderByWithAggregationInput | CableDataOrderByWithAggregationInput[]
+    by: CableDataScalarFieldEnum[] | CableDataScalarFieldEnum
+    having?: CableDataScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CableDataCountAggregateInputType | true
+    _min?: CableDataMinAggregateInputType
+    _max?: CableDataMaxAggregateInputType
+  }
+
+  export type CableDataGroupByOutputType = {
+    id: string
+    projectId: string
+    material: $Enums.CableMaterial
+    isolation: $Enums.CableIsolation
+    modePose: $Enums.ModePose
+    _count: CableDataCountAggregateOutputType | null
+    _min: CableDataMinAggregateOutputType | null
+    _max: CableDataMaxAggregateOutputType | null
+  }
+
+  type GetCableDataGroupByPayload<T extends CableDataGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CableDataGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CableDataGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CableDataGroupByOutputType[P]>
+            : GetScalarType<T[P], CableDataGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CableDataSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    material?: boolean
+    isolation?: boolean
+    modePose?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cableData"]>
+
+  export type CableDataSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    material?: boolean
+    isolation?: boolean
+    modePose?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cableData"]>
+
+  export type CableDataSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    material?: boolean
+    isolation?: boolean
+    modePose?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cableData"]>
+
+  export type CableDataSelectScalar = {
+    id?: boolean
+    projectId?: boolean
+    material?: boolean
+    isolation?: boolean
+    modePose?: boolean
+  }
+
+  export type CableDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "material" | "isolation" | "modePose", ExtArgs["result"]["cableData"]>
+  export type CableDataInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type CableDataIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type CableDataIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+
+  export type $CableDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CableData"
+    objects: {
+      project: Prisma.$ProjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      projectId: string
+      material: $Enums.CableMaterial
+      isolation: $Enums.CableIsolation
+      modePose: $Enums.ModePose
+    }, ExtArgs["result"]["cableData"]>
+    composites: {}
+  }
+
+  type CableDataGetPayload<S extends boolean | null | undefined | CableDataDefaultArgs> = $Result.GetResult<Prisma.$CableDataPayload, S>
+
+  type CableDataCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CableDataFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CableDataCountAggregateInputType | true
+    }
+
+  export interface CableDataDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CableData'], meta: { name: 'CableData' } }
+    /**
+     * Find zero or one CableData that matches the filter.
+     * @param {CableDataFindUniqueArgs} args - Arguments to find a CableData
+     * @example
+     * // Get one CableData
+     * const cableData = await prisma.cableData.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CableDataFindUniqueArgs>(args: SelectSubset<T, CableDataFindUniqueArgs<ExtArgs>>): Prisma__CableDataClient<$Result.GetResult<Prisma.$CableDataPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CableData that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CableDataFindUniqueOrThrowArgs} args - Arguments to find a CableData
+     * @example
+     * // Get one CableData
+     * const cableData = await prisma.cableData.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CableDataFindUniqueOrThrowArgs>(args: SelectSubset<T, CableDataFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CableDataClient<$Result.GetResult<Prisma.$CableDataPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CableData that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CableDataFindFirstArgs} args - Arguments to find a CableData
+     * @example
+     * // Get one CableData
+     * const cableData = await prisma.cableData.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CableDataFindFirstArgs>(args?: SelectSubset<T, CableDataFindFirstArgs<ExtArgs>>): Prisma__CableDataClient<$Result.GetResult<Prisma.$CableDataPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CableData that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CableDataFindFirstOrThrowArgs} args - Arguments to find a CableData
+     * @example
+     * // Get one CableData
+     * const cableData = await prisma.cableData.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CableDataFindFirstOrThrowArgs>(args?: SelectSubset<T, CableDataFindFirstOrThrowArgs<ExtArgs>>): Prisma__CableDataClient<$Result.GetResult<Prisma.$CableDataPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CableData that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CableDataFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CableData
+     * const cableData = await prisma.cableData.findMany()
+     * 
+     * // Get first 10 CableData
+     * const cableData = await prisma.cableData.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const cableDataWithIdOnly = await prisma.cableData.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CableDataFindManyArgs>(args?: SelectSubset<T, CableDataFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CableDataPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CableData.
+     * @param {CableDataCreateArgs} args - Arguments to create a CableData.
+     * @example
+     * // Create one CableData
+     * const CableData = await prisma.cableData.create({
+     *   data: {
+     *     // ... data to create a CableData
+     *   }
+     * })
+     * 
+     */
+    create<T extends CableDataCreateArgs>(args: SelectSubset<T, CableDataCreateArgs<ExtArgs>>): Prisma__CableDataClient<$Result.GetResult<Prisma.$CableDataPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CableData.
+     * @param {CableDataCreateManyArgs} args - Arguments to create many CableData.
+     * @example
+     * // Create many CableData
+     * const cableData = await prisma.cableData.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CableDataCreateManyArgs>(args?: SelectSubset<T, CableDataCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CableData and returns the data saved in the database.
+     * @param {CableDataCreateManyAndReturnArgs} args - Arguments to create many CableData.
+     * @example
+     * // Create many CableData
+     * const cableData = await prisma.cableData.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CableData and only return the `id`
+     * const cableDataWithIdOnly = await prisma.cableData.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CableDataCreateManyAndReturnArgs>(args?: SelectSubset<T, CableDataCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CableDataPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CableData.
+     * @param {CableDataDeleteArgs} args - Arguments to delete one CableData.
+     * @example
+     * // Delete one CableData
+     * const CableData = await prisma.cableData.delete({
+     *   where: {
+     *     // ... filter to delete one CableData
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CableDataDeleteArgs>(args: SelectSubset<T, CableDataDeleteArgs<ExtArgs>>): Prisma__CableDataClient<$Result.GetResult<Prisma.$CableDataPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CableData.
+     * @param {CableDataUpdateArgs} args - Arguments to update one CableData.
+     * @example
+     * // Update one CableData
+     * const cableData = await prisma.cableData.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CableDataUpdateArgs>(args: SelectSubset<T, CableDataUpdateArgs<ExtArgs>>): Prisma__CableDataClient<$Result.GetResult<Prisma.$CableDataPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CableData.
+     * @param {CableDataDeleteManyArgs} args - Arguments to filter CableData to delete.
+     * @example
+     * // Delete a few CableData
+     * const { count } = await prisma.cableData.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CableDataDeleteManyArgs>(args?: SelectSubset<T, CableDataDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CableData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CableDataUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CableData
+     * const cableData = await prisma.cableData.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CableDataUpdateManyArgs>(args: SelectSubset<T, CableDataUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CableData and returns the data updated in the database.
+     * @param {CableDataUpdateManyAndReturnArgs} args - Arguments to update many CableData.
+     * @example
+     * // Update many CableData
+     * const cableData = await prisma.cableData.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CableData and only return the `id`
+     * const cableDataWithIdOnly = await prisma.cableData.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CableDataUpdateManyAndReturnArgs>(args: SelectSubset<T, CableDataUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CableDataPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CableData.
+     * @param {CableDataUpsertArgs} args - Arguments to update or create a CableData.
+     * @example
+     * // Update or create a CableData
+     * const cableData = await prisma.cableData.upsert({
+     *   create: {
+     *     // ... data to create a CableData
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CableData we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CableDataUpsertArgs>(args: SelectSubset<T, CableDataUpsertArgs<ExtArgs>>): Prisma__CableDataClient<$Result.GetResult<Prisma.$CableDataPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CableData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CableDataCountArgs} args - Arguments to filter CableData to count.
+     * @example
+     * // Count the number of CableData
+     * const count = await prisma.cableData.count({
+     *   where: {
+     *     // ... the filter for the CableData we want to count
+     *   }
+     * })
+    **/
+    count<T extends CableDataCountArgs>(
+      args?: Subset<T, CableDataCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CableDataCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CableData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CableDataAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CableDataAggregateArgs>(args: Subset<T, CableDataAggregateArgs>): Prisma.PrismaPromise<GetCableDataAggregateType<T>>
+
+    /**
+     * Group by CableData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CableDataGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CableDataGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CableDataGroupByArgs['orderBy'] }
+        : { orderBy?: CableDataGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CableDataGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCableDataGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CableData model
+   */
+  readonly fields: CableDataFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CableData.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CableDataClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CableData model
+   */
+  interface CableDataFieldRefs {
+    readonly id: FieldRef<"CableData", 'String'>
+    readonly projectId: FieldRef<"CableData", 'String'>
+    readonly material: FieldRef<"CableData", 'CableMaterial'>
+    readonly isolation: FieldRef<"CableData", 'CableIsolation'>
+    readonly modePose: FieldRef<"CableData", 'ModePose'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CableData findUnique
+   */
+  export type CableDataFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CableData
+     */
+    select?: CableDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CableData
+     */
+    omit?: CableDataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CableDataInclude<ExtArgs> | null
+    /**
+     * Filter, which CableData to fetch.
+     */
+    where: CableDataWhereUniqueInput
+  }
+
+  /**
+   * CableData findUniqueOrThrow
+   */
+  export type CableDataFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CableData
+     */
+    select?: CableDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CableData
+     */
+    omit?: CableDataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CableDataInclude<ExtArgs> | null
+    /**
+     * Filter, which CableData to fetch.
+     */
+    where: CableDataWhereUniqueInput
+  }
+
+  /**
+   * CableData findFirst
+   */
+  export type CableDataFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CableData
+     */
+    select?: CableDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CableData
+     */
+    omit?: CableDataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CableDataInclude<ExtArgs> | null
+    /**
+     * Filter, which CableData to fetch.
+     */
+    where?: CableDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CableData to fetch.
+     */
+    orderBy?: CableDataOrderByWithRelationInput | CableDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CableData.
+     */
+    cursor?: CableDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CableData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CableData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CableData.
+     */
+    distinct?: CableDataScalarFieldEnum | CableDataScalarFieldEnum[]
+  }
+
+  /**
+   * CableData findFirstOrThrow
+   */
+  export type CableDataFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CableData
+     */
+    select?: CableDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CableData
+     */
+    omit?: CableDataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CableDataInclude<ExtArgs> | null
+    /**
+     * Filter, which CableData to fetch.
+     */
+    where?: CableDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CableData to fetch.
+     */
+    orderBy?: CableDataOrderByWithRelationInput | CableDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CableData.
+     */
+    cursor?: CableDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CableData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CableData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CableData.
+     */
+    distinct?: CableDataScalarFieldEnum | CableDataScalarFieldEnum[]
+  }
+
+  /**
+   * CableData findMany
+   */
+  export type CableDataFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CableData
+     */
+    select?: CableDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CableData
+     */
+    omit?: CableDataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CableDataInclude<ExtArgs> | null
+    /**
+     * Filter, which CableData to fetch.
+     */
+    where?: CableDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CableData to fetch.
+     */
+    orderBy?: CableDataOrderByWithRelationInput | CableDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CableData.
+     */
+    cursor?: CableDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CableData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CableData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CableData.
+     */
+    distinct?: CableDataScalarFieldEnum | CableDataScalarFieldEnum[]
+  }
+
+  /**
+   * CableData create
+   */
+  export type CableDataCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CableData
+     */
+    select?: CableDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CableData
+     */
+    omit?: CableDataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CableDataInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CableData.
+     */
+    data: XOR<CableDataCreateInput, CableDataUncheckedCreateInput>
+  }
+
+  /**
+   * CableData createMany
+   */
+  export type CableDataCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CableData.
+     */
+    data: CableDataCreateManyInput | CableDataCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CableData createManyAndReturn
+   */
+  export type CableDataCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CableData
+     */
+    select?: CableDataSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CableData
+     */
+    omit?: CableDataOmit<ExtArgs> | null
+    /**
+     * The data used to create many CableData.
+     */
+    data: CableDataCreateManyInput | CableDataCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CableDataIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CableData update
+   */
+  export type CableDataUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CableData
+     */
+    select?: CableDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CableData
+     */
+    omit?: CableDataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CableDataInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CableData.
+     */
+    data: XOR<CableDataUpdateInput, CableDataUncheckedUpdateInput>
+    /**
+     * Choose, which CableData to update.
+     */
+    where: CableDataWhereUniqueInput
+  }
+
+  /**
+   * CableData updateMany
+   */
+  export type CableDataUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CableData.
+     */
+    data: XOR<CableDataUpdateManyMutationInput, CableDataUncheckedUpdateManyInput>
+    /**
+     * Filter which CableData to update
+     */
+    where?: CableDataWhereInput
+    /**
+     * Limit how many CableData to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CableData updateManyAndReturn
+   */
+  export type CableDataUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CableData
+     */
+    select?: CableDataSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CableData
+     */
+    omit?: CableDataOmit<ExtArgs> | null
+    /**
+     * The data used to update CableData.
+     */
+    data: XOR<CableDataUpdateManyMutationInput, CableDataUncheckedUpdateManyInput>
+    /**
+     * Filter which CableData to update
+     */
+    where?: CableDataWhereInput
+    /**
+     * Limit how many CableData to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CableDataIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CableData upsert
+   */
+  export type CableDataUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CableData
+     */
+    select?: CableDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CableData
+     */
+    omit?: CableDataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CableDataInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CableData to update in case it exists.
+     */
+    where: CableDataWhereUniqueInput
+    /**
+     * In case the CableData found by the `where` argument doesn't exist, create a new CableData with this data.
+     */
+    create: XOR<CableDataCreateInput, CableDataUncheckedCreateInput>
+    /**
+     * In case the CableData was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CableDataUpdateInput, CableDataUncheckedUpdateInput>
+  }
+
+  /**
+   * CableData delete
+   */
+  export type CableDataDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CableData
+     */
+    select?: CableDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CableData
+     */
+    omit?: CableDataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CableDataInclude<ExtArgs> | null
+    /**
+     * Filter which CableData to delete.
+     */
+    where: CableDataWhereUniqueInput
+  }
+
+  /**
+   * CableData deleteMany
+   */
+  export type CableDataDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CableData to delete
+     */
+    where?: CableDataWhereInput
+    /**
+     * Limit how many CableData to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CableData without action
+   */
+  export type CableDataDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CableData
+     */
+    select?: CableDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CableData
+     */
+    omit?: CableDataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CableDataInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model Protection
    */
 
@@ -10016,103 +12057,89 @@ export namespace Prisma {
   }
 
   export type ProtectionAvgAggregateOutputType = {
-    ratingAmps: number | null
-    poles: number | null
+    ratedCurrent: number | null
+    numberOfPoles: number | null
+    breakingCapacity: number | null
   }
 
   export type ProtectionSumAggregateOutputType = {
-    ratingAmps: number | null
-    poles: number | null
+    ratedCurrent: number | null
+    numberOfPoles: number | null
+    breakingCapacity: number | null
   }
 
   export type ProtectionMinAggregateOutputType = {
     id: string | null
     projectId: string | null
     type: $Enums.ProtectionType | null
-    ratingAmps: number | null
-    curve: string | null
-    poles: number | null
-    description: string | null
-    equipmentName: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    ratedCurrent: number | null
+    numberOfPoles: number | null
+    curveType: $Enums.CurveType | null
+    breakingCapacity: number | null
   }
 
   export type ProtectionMaxAggregateOutputType = {
     id: string | null
     projectId: string | null
     type: $Enums.ProtectionType | null
-    ratingAmps: number | null
-    curve: string | null
-    poles: number | null
-    description: string | null
-    equipmentName: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    ratedCurrent: number | null
+    numberOfPoles: number | null
+    curveType: $Enums.CurveType | null
+    breakingCapacity: number | null
   }
 
   export type ProtectionCountAggregateOutputType = {
     id: number
     projectId: number
     type: number
-    ratingAmps: number
-    curve: number
-    poles: number
-    description: number
-    equipmentName: number
-    createdAt: number
-    updatedAt: number
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: number
+    breakingCapacity: number
     _all: number
   }
 
 
   export type ProtectionAvgAggregateInputType = {
-    ratingAmps?: true
-    poles?: true
+    ratedCurrent?: true
+    numberOfPoles?: true
+    breakingCapacity?: true
   }
 
   export type ProtectionSumAggregateInputType = {
-    ratingAmps?: true
-    poles?: true
+    ratedCurrent?: true
+    numberOfPoles?: true
+    breakingCapacity?: true
   }
 
   export type ProtectionMinAggregateInputType = {
     id?: true
     projectId?: true
     type?: true
-    ratingAmps?: true
-    curve?: true
-    poles?: true
-    description?: true
-    equipmentName?: true
-    createdAt?: true
-    updatedAt?: true
+    ratedCurrent?: true
+    numberOfPoles?: true
+    curveType?: true
+    breakingCapacity?: true
   }
 
   export type ProtectionMaxAggregateInputType = {
     id?: true
     projectId?: true
     type?: true
-    ratingAmps?: true
-    curve?: true
-    poles?: true
-    description?: true
-    equipmentName?: true
-    createdAt?: true
-    updatedAt?: true
+    ratedCurrent?: true
+    numberOfPoles?: true
+    curveType?: true
+    breakingCapacity?: true
   }
 
   export type ProtectionCountAggregateInputType = {
     id?: true
     projectId?: true
     type?: true
-    ratingAmps?: true
-    curve?: true
-    poles?: true
-    description?: true
-    equipmentName?: true
-    createdAt?: true
-    updatedAt?: true
+    ratedCurrent?: true
+    numberOfPoles?: true
+    curveType?: true
+    breakingCapacity?: true
     _all?: true
   }
 
@@ -10206,13 +12233,10 @@ export namespace Prisma {
     id: string
     projectId: string
     type: $Enums.ProtectionType
-    ratingAmps: number
-    curve: string | null
-    poles: number
-    description: string | null
-    equipmentName: string | null
-    createdAt: Date
-    updatedAt: Date
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: $Enums.CurveType
+    breakingCapacity: number
     _count: ProtectionCountAggregateOutputType | null
     _avg: ProtectionAvgAggregateOutputType | null
     _sum: ProtectionSumAggregateOutputType | null
@@ -10238,29 +12262,21 @@ export namespace Prisma {
     id?: boolean
     projectId?: boolean
     type?: boolean
-    ratingAmps?: boolean
-    curve?: boolean
-    poles?: boolean
-    description?: boolean
-    equipmentName?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    circuits?: boolean | Protection$circuitsArgs<ExtArgs>
+    ratedCurrent?: boolean
+    numberOfPoles?: boolean
+    curveType?: boolean
+    breakingCapacity?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-    _count?: boolean | ProtectionCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["protection"]>
 
   export type ProtectionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     projectId?: boolean
     type?: boolean
-    ratingAmps?: boolean
-    curve?: boolean
-    poles?: boolean
-    description?: boolean
-    equipmentName?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    ratedCurrent?: boolean
+    numberOfPoles?: boolean
+    curveType?: boolean
+    breakingCapacity?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["protection"]>
 
@@ -10268,13 +12284,10 @@ export namespace Prisma {
     id?: boolean
     projectId?: boolean
     type?: boolean
-    ratingAmps?: boolean
-    curve?: boolean
-    poles?: boolean
-    description?: boolean
-    equipmentName?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    ratedCurrent?: boolean
+    numberOfPoles?: boolean
+    curveType?: boolean
+    breakingCapacity?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["protection"]>
 
@@ -10282,20 +12295,15 @@ export namespace Prisma {
     id?: boolean
     projectId?: boolean
     type?: boolean
-    ratingAmps?: boolean
-    curve?: boolean
-    poles?: boolean
-    description?: boolean
-    equipmentName?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    ratedCurrent?: boolean
+    numberOfPoles?: boolean
+    curveType?: boolean
+    breakingCapacity?: boolean
   }
 
-  export type ProtectionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "type" | "ratingAmps" | "curve" | "poles" | "description" | "equipmentName" | "createdAt" | "updatedAt", ExtArgs["result"]["protection"]>
+  export type ProtectionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "type" | "ratedCurrent" | "numberOfPoles" | "curveType" | "breakingCapacity", ExtArgs["result"]["protection"]>
   export type ProtectionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    circuits?: boolean | Protection$circuitsArgs<ExtArgs>
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-    _count?: boolean | ProtectionCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProtectionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
@@ -10307,20 +12315,16 @@ export namespace Prisma {
   export type $ProtectionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Protection"
     objects: {
-      circuits: Prisma.$CircuitPayload<ExtArgs>[]
       project: Prisma.$ProjectPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       projectId: string
       type: $Enums.ProtectionType
-      ratingAmps: number
-      curve: string | null
-      poles: number
-      description: string | null
-      equipmentName: string | null
-      createdAt: Date
-      updatedAt: Date
+      ratedCurrent: number
+      numberOfPoles: number
+      curveType: $Enums.CurveType
+      breakingCapacity: number
     }, ExtArgs["result"]["protection"]>
     composites: {}
   }
@@ -10715,7 +12719,6 @@ export namespace Prisma {
    */
   export interface Prisma__ProtectionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    circuits<T extends Protection$circuitsArgs<ExtArgs> = {}>(args?: Subset<T, Protection$circuitsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CircuitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -10749,13 +12752,10 @@ export namespace Prisma {
     readonly id: FieldRef<"Protection", 'String'>
     readonly projectId: FieldRef<"Protection", 'String'>
     readonly type: FieldRef<"Protection", 'ProtectionType'>
-    readonly ratingAmps: FieldRef<"Protection", 'Int'>
-    readonly curve: FieldRef<"Protection", 'String'>
-    readonly poles: FieldRef<"Protection", 'Int'>
-    readonly description: FieldRef<"Protection", 'String'>
-    readonly equipmentName: FieldRef<"Protection", 'String'>
-    readonly createdAt: FieldRef<"Protection", 'DateTime'>
-    readonly updatedAt: FieldRef<"Protection", 'DateTime'>
+    readonly ratedCurrent: FieldRef<"Protection", 'Float'>
+    readonly numberOfPoles: FieldRef<"Protection", 'Int'>
+    readonly curveType: FieldRef<"Protection", 'CurveType'>
+    readonly breakingCapacity: FieldRef<"Protection", 'Float'>
   }
     
 
@@ -11157,30 +13157,6 @@ export namespace Prisma {
   }
 
   /**
-   * Protection.circuits
-   */
-  export type Protection$circuitsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Circuit
-     */
-    select?: CircuitSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Circuit
-     */
-    omit?: CircuitOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CircuitInclude<ExtArgs> | null
-    where?: CircuitWhereInput
-    orderBy?: CircuitOrderByWithRelationInput | CircuitOrderByWithRelationInput[]
-    cursor?: CircuitWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: CircuitScalarFieldEnum | CircuitScalarFieldEnum[]
-  }
-
-  /**
    * Protection without action
    */
   export type ProtectionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11200,488 +13176,536 @@ export namespace Prisma {
 
 
   /**
-   * Model Calculation
+   * Model Result
    */
 
-  export type AggregateCalculation = {
-    _count: CalculationCountAggregateOutputType | null
-    _avg: CalculationAvgAggregateOutputType | null
-    _sum: CalculationSumAggregateOutputType | null
-    _min: CalculationMinAggregateOutputType | null
-    _max: CalculationMaxAggregateOutputType | null
+  export type AggregateResult = {
+    _count: ResultCountAggregateOutputType | null
+    _avg: ResultAvgAggregateOutputType | null
+    _sum: ResultSumAggregateOutputType | null
+    _min: ResultMinAggregateOutputType | null
+    _max: ResultMaxAggregateOutputType | null
   }
 
-  export type CalculationAvgAggregateOutputType = {
-    totalInstalledPowerWatts: number | null
-    maximumShortCircuitAmps: number | null
-    totalOperatingCurrentAmps: number | null
-    totalCircuitCurrentAmps: number | null
-    recommendedSectionMm2: number | null
+  export type ResultAvgAggregateOutputType = {
+    currentNominal: number | null
+    currentDesign: number | null
+    recommendedCableSection: number | null
+    correctedCableCapacity: number | null
+    recommendedBreaker: number | null
+    voltageDropVolts: number | null
     voltageDropPercent: number | null
+    shortCircuitCurrentAtEnd: number | null
+    breakerBreakingCapacity: number | null
   }
 
-  export type CalculationSumAggregateOutputType = {
-    totalInstalledPowerWatts: number | null
-    maximumShortCircuitAmps: number | null
-    totalOperatingCurrentAmps: number | null
-    totalCircuitCurrentAmps: number | null
-    recommendedSectionMm2: number | null
+  export type ResultSumAggregateOutputType = {
+    currentNominal: number | null
+    currentDesign: number | null
+    recommendedCableSection: number | null
+    correctedCableCapacity: number | null
+    recommendedBreaker: number | null
+    voltageDropVolts: number | null
     voltageDropPercent: number | null
+    shortCircuitCurrentAtEnd: number | null
+    breakerBreakingCapacity: number | null
   }
 
-  export type CalculationMinAggregateOutputType = {
+  export type ResultMinAggregateOutputType = {
     id: string | null
     projectId: string | null
-    name: string | null
-    totalInstalledPowerWatts: number | null
-    maximumShortCircuitAmps: number | null
-    totalOperatingCurrentAmps: number | null
-    totalCircuitCurrentAmps: number | null
-    recommendedSectionMm2: number | null
+    currentNominal: number | null
+    currentDesign: number | null
+    recommendedCableSection: number | null
+    correctedCableCapacity: number | null
+    recommendedBreaker: number | null
+    voltageDropVolts: number | null
     voltageDropPercent: number | null
-    notes: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    shortCircuitCurrentAtEnd: number | null
+    breakerBreakingCapacity: number | null
+    overloadCheck: $Enums.CheckStatus | null
+    voltageDropCheck: $Enums.CheckStatus | null
+    breakingCapacityCheck: $Enums.CheckStatus | null
+    coordinationCheck: $Enums.CheckStatus | null
   }
 
-  export type CalculationMaxAggregateOutputType = {
+  export type ResultMaxAggregateOutputType = {
     id: string | null
     projectId: string | null
-    name: string | null
-    totalInstalledPowerWatts: number | null
-    maximumShortCircuitAmps: number | null
-    totalOperatingCurrentAmps: number | null
-    totalCircuitCurrentAmps: number | null
-    recommendedSectionMm2: number | null
+    currentNominal: number | null
+    currentDesign: number | null
+    recommendedCableSection: number | null
+    correctedCableCapacity: number | null
+    recommendedBreaker: number | null
+    voltageDropVolts: number | null
     voltageDropPercent: number | null
-    notes: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    shortCircuitCurrentAtEnd: number | null
+    breakerBreakingCapacity: number | null
+    overloadCheck: $Enums.CheckStatus | null
+    voltageDropCheck: $Enums.CheckStatus | null
+    breakingCapacityCheck: $Enums.CheckStatus | null
+    coordinationCheck: $Enums.CheckStatus | null
   }
 
-  export type CalculationCountAggregateOutputType = {
+  export type ResultCountAggregateOutputType = {
     id: number
     projectId: number
-    name: number
-    totalInstalledPowerWatts: number
-    maximumShortCircuitAmps: number
-    totalOperatingCurrentAmps: number
-    totalCircuitCurrentAmps: number
-    recommendedSectionMm2: number
+    currentNominal: number
+    currentDesign: number
+    recommendedCableSection: number
+    correctedCableCapacity: number
+    recommendedBreaker: number
+    voltageDropVolts: number
     voltageDropPercent: number
-    notes: number
-    createdAt: number
-    updatedAt: number
+    shortCircuitCurrentAtEnd: number
+    breakerBreakingCapacity: number
+    overloadCheck: number
+    voltageDropCheck: number
+    breakingCapacityCheck: number
+    coordinationCheck: number
     _all: number
   }
 
 
-  export type CalculationAvgAggregateInputType = {
-    totalInstalledPowerWatts?: true
-    maximumShortCircuitAmps?: true
-    totalOperatingCurrentAmps?: true
-    totalCircuitCurrentAmps?: true
-    recommendedSectionMm2?: true
+  export type ResultAvgAggregateInputType = {
+    currentNominal?: true
+    currentDesign?: true
+    recommendedCableSection?: true
+    correctedCableCapacity?: true
+    recommendedBreaker?: true
+    voltageDropVolts?: true
     voltageDropPercent?: true
+    shortCircuitCurrentAtEnd?: true
+    breakerBreakingCapacity?: true
   }
 
-  export type CalculationSumAggregateInputType = {
-    totalInstalledPowerWatts?: true
-    maximumShortCircuitAmps?: true
-    totalOperatingCurrentAmps?: true
-    totalCircuitCurrentAmps?: true
-    recommendedSectionMm2?: true
+  export type ResultSumAggregateInputType = {
+    currentNominal?: true
+    currentDesign?: true
+    recommendedCableSection?: true
+    correctedCableCapacity?: true
+    recommendedBreaker?: true
+    voltageDropVolts?: true
     voltageDropPercent?: true
+    shortCircuitCurrentAtEnd?: true
+    breakerBreakingCapacity?: true
   }
 
-  export type CalculationMinAggregateInputType = {
+  export type ResultMinAggregateInputType = {
     id?: true
     projectId?: true
-    name?: true
-    totalInstalledPowerWatts?: true
-    maximumShortCircuitAmps?: true
-    totalOperatingCurrentAmps?: true
-    totalCircuitCurrentAmps?: true
-    recommendedSectionMm2?: true
+    currentNominal?: true
+    currentDesign?: true
+    recommendedCableSection?: true
+    correctedCableCapacity?: true
+    recommendedBreaker?: true
+    voltageDropVolts?: true
     voltageDropPercent?: true
-    notes?: true
-    createdAt?: true
-    updatedAt?: true
+    shortCircuitCurrentAtEnd?: true
+    breakerBreakingCapacity?: true
+    overloadCheck?: true
+    voltageDropCheck?: true
+    breakingCapacityCheck?: true
+    coordinationCheck?: true
   }
 
-  export type CalculationMaxAggregateInputType = {
+  export type ResultMaxAggregateInputType = {
     id?: true
     projectId?: true
-    name?: true
-    totalInstalledPowerWatts?: true
-    maximumShortCircuitAmps?: true
-    totalOperatingCurrentAmps?: true
-    totalCircuitCurrentAmps?: true
-    recommendedSectionMm2?: true
+    currentNominal?: true
+    currentDesign?: true
+    recommendedCableSection?: true
+    correctedCableCapacity?: true
+    recommendedBreaker?: true
+    voltageDropVolts?: true
     voltageDropPercent?: true
-    notes?: true
-    createdAt?: true
-    updatedAt?: true
+    shortCircuitCurrentAtEnd?: true
+    breakerBreakingCapacity?: true
+    overloadCheck?: true
+    voltageDropCheck?: true
+    breakingCapacityCheck?: true
+    coordinationCheck?: true
   }
 
-  export type CalculationCountAggregateInputType = {
+  export type ResultCountAggregateInputType = {
     id?: true
     projectId?: true
-    name?: true
-    totalInstalledPowerWatts?: true
-    maximumShortCircuitAmps?: true
-    totalOperatingCurrentAmps?: true
-    totalCircuitCurrentAmps?: true
-    recommendedSectionMm2?: true
+    currentNominal?: true
+    currentDesign?: true
+    recommendedCableSection?: true
+    correctedCableCapacity?: true
+    recommendedBreaker?: true
+    voltageDropVolts?: true
     voltageDropPercent?: true
-    notes?: true
-    createdAt?: true
-    updatedAt?: true
+    shortCircuitCurrentAtEnd?: true
+    breakerBreakingCapacity?: true
+    overloadCheck?: true
+    voltageDropCheck?: true
+    breakingCapacityCheck?: true
+    coordinationCheck?: true
     _all?: true
   }
 
-  export type CalculationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Calculation to aggregate.
+     * Filter which Result to aggregate.
      */
-    where?: CalculationWhereInput
+    where?: ResultWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Calculations to fetch.
+     * Determine the order of Results to fetch.
      */
-    orderBy?: CalculationOrderByWithRelationInput | CalculationOrderByWithRelationInput[]
+    orderBy?: ResultOrderByWithRelationInput | ResultOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: CalculationWhereUniqueInput
+    cursor?: ResultWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Calculations from the position of the cursor.
+     * Take `±n` Results from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Calculations.
+     * Skip the first `n` Results.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Calculations
+     * Count returned Results
     **/
-    _count?: true | CalculationCountAggregateInputType
+    _count?: true | ResultCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: CalculationAvgAggregateInputType
+    _avg?: ResultAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: CalculationSumAggregateInputType
+    _sum?: ResultSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CalculationMinAggregateInputType
+    _min?: ResultMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CalculationMaxAggregateInputType
+    _max?: ResultMaxAggregateInputType
   }
 
-  export type GetCalculationAggregateType<T extends CalculationAggregateArgs> = {
-        [P in keyof T & keyof AggregateCalculation]: P extends '_count' | 'count'
+  export type GetResultAggregateType<T extends ResultAggregateArgs> = {
+        [P in keyof T & keyof AggregateResult]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCalculation[P]>
-      : GetScalarType<T[P], AggregateCalculation[P]>
+        : GetScalarType<T[P], AggregateResult[P]>
+      : GetScalarType<T[P], AggregateResult[P]>
   }
 
 
 
 
-  export type CalculationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CalculationWhereInput
-    orderBy?: CalculationOrderByWithAggregationInput | CalculationOrderByWithAggregationInput[]
-    by: CalculationScalarFieldEnum[] | CalculationScalarFieldEnum
-    having?: CalculationScalarWhereWithAggregatesInput
+  export type ResultGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ResultWhereInput
+    orderBy?: ResultOrderByWithAggregationInput | ResultOrderByWithAggregationInput[]
+    by: ResultScalarFieldEnum[] | ResultScalarFieldEnum
+    having?: ResultScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CalculationCountAggregateInputType | true
-    _avg?: CalculationAvgAggregateInputType
-    _sum?: CalculationSumAggregateInputType
-    _min?: CalculationMinAggregateInputType
-    _max?: CalculationMaxAggregateInputType
+    _count?: ResultCountAggregateInputType | true
+    _avg?: ResultAvgAggregateInputType
+    _sum?: ResultSumAggregateInputType
+    _min?: ResultMinAggregateInputType
+    _max?: ResultMaxAggregateInputType
   }
 
-  export type CalculationGroupByOutputType = {
+  export type ResultGroupByOutputType = {
     id: string
     projectId: string
-    name: string
-    totalInstalledPowerWatts: number | null
-    maximumShortCircuitAmps: number | null
-    totalOperatingCurrentAmps: number | null
-    totalCircuitCurrentAmps: number | null
-    recommendedSectionMm2: number | null
-    voltageDropPercent: number | null
-    notes: string | null
-    createdAt: Date
-    updatedAt: Date
-    _count: CalculationCountAggregateOutputType | null
-    _avg: CalculationAvgAggregateOutputType | null
-    _sum: CalculationSumAggregateOutputType | null
-    _min: CalculationMinAggregateOutputType | null
-    _max: CalculationMaxAggregateOutputType | null
+    currentNominal: number
+    currentDesign: number
+    recommendedCableSection: number
+    correctedCableCapacity: number
+    recommendedBreaker: number
+    voltageDropVolts: number
+    voltageDropPercent: number
+    shortCircuitCurrentAtEnd: number
+    breakerBreakingCapacity: number
+    overloadCheck: $Enums.CheckStatus
+    voltageDropCheck: $Enums.CheckStatus
+    breakingCapacityCheck: $Enums.CheckStatus
+    coordinationCheck: $Enums.CheckStatus
+    _count: ResultCountAggregateOutputType | null
+    _avg: ResultAvgAggregateOutputType | null
+    _sum: ResultSumAggregateOutputType | null
+    _min: ResultMinAggregateOutputType | null
+    _max: ResultMaxAggregateOutputType | null
   }
 
-  type GetCalculationGroupByPayload<T extends CalculationGroupByArgs> = Prisma.PrismaPromise<
+  type GetResultGroupByPayload<T extends ResultGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CalculationGroupByOutputType, T['by']> &
+      PickEnumerable<ResultGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CalculationGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof ResultGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CalculationGroupByOutputType[P]>
-            : GetScalarType<T[P], CalculationGroupByOutputType[P]>
+              : GetScalarType<T[P], ResultGroupByOutputType[P]>
+            : GetScalarType<T[P], ResultGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type CalculationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ResultSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     projectId?: boolean
-    name?: boolean
-    totalInstalledPowerWatts?: boolean
-    maximumShortCircuitAmps?: boolean
-    totalOperatingCurrentAmps?: boolean
-    totalCircuitCurrentAmps?: boolean
-    recommendedSectionMm2?: boolean
+    currentNominal?: boolean
+    currentDesign?: boolean
+    recommendedCableSection?: boolean
+    correctedCableCapacity?: boolean
+    recommendedBreaker?: boolean
+    voltageDropVolts?: boolean
     voltageDropPercent?: boolean
-    notes?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    shortCircuitCurrentAtEnd?: boolean
+    breakerBreakingCapacity?: boolean
+    overloadCheck?: boolean
+    voltageDropCheck?: boolean
+    breakingCapacityCheck?: boolean
+    coordinationCheck?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["calculation"]>
+  }, ExtArgs["result"]["result"]>
 
-  export type CalculationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ResultSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     projectId?: boolean
-    name?: boolean
-    totalInstalledPowerWatts?: boolean
-    maximumShortCircuitAmps?: boolean
-    totalOperatingCurrentAmps?: boolean
-    totalCircuitCurrentAmps?: boolean
-    recommendedSectionMm2?: boolean
+    currentNominal?: boolean
+    currentDesign?: boolean
+    recommendedCableSection?: boolean
+    correctedCableCapacity?: boolean
+    recommendedBreaker?: boolean
+    voltageDropVolts?: boolean
     voltageDropPercent?: boolean
-    notes?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    shortCircuitCurrentAtEnd?: boolean
+    breakerBreakingCapacity?: boolean
+    overloadCheck?: boolean
+    voltageDropCheck?: boolean
+    breakingCapacityCheck?: boolean
+    coordinationCheck?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["calculation"]>
+  }, ExtArgs["result"]["result"]>
 
-  export type CalculationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ResultSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     projectId?: boolean
-    name?: boolean
-    totalInstalledPowerWatts?: boolean
-    maximumShortCircuitAmps?: boolean
-    totalOperatingCurrentAmps?: boolean
-    totalCircuitCurrentAmps?: boolean
-    recommendedSectionMm2?: boolean
+    currentNominal?: boolean
+    currentDesign?: boolean
+    recommendedCableSection?: boolean
+    correctedCableCapacity?: boolean
+    recommendedBreaker?: boolean
+    voltageDropVolts?: boolean
     voltageDropPercent?: boolean
-    notes?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    shortCircuitCurrentAtEnd?: boolean
+    breakerBreakingCapacity?: boolean
+    overloadCheck?: boolean
+    voltageDropCheck?: boolean
+    breakingCapacityCheck?: boolean
+    coordinationCheck?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["calculation"]>
+  }, ExtArgs["result"]["result"]>
 
-  export type CalculationSelectScalar = {
+  export type ResultSelectScalar = {
     id?: boolean
     projectId?: boolean
-    name?: boolean
-    totalInstalledPowerWatts?: boolean
-    maximumShortCircuitAmps?: boolean
-    totalOperatingCurrentAmps?: boolean
-    totalCircuitCurrentAmps?: boolean
-    recommendedSectionMm2?: boolean
+    currentNominal?: boolean
+    currentDesign?: boolean
+    recommendedCableSection?: boolean
+    correctedCableCapacity?: boolean
+    recommendedBreaker?: boolean
+    voltageDropVolts?: boolean
     voltageDropPercent?: boolean
-    notes?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    shortCircuitCurrentAtEnd?: boolean
+    breakerBreakingCapacity?: boolean
+    overloadCheck?: boolean
+    voltageDropCheck?: boolean
+    breakingCapacityCheck?: boolean
+    coordinationCheck?: boolean
   }
 
-  export type CalculationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "name" | "totalInstalledPowerWatts" | "maximumShortCircuitAmps" | "totalOperatingCurrentAmps" | "totalCircuitCurrentAmps" | "recommendedSectionMm2" | "voltageDropPercent" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["calculation"]>
-  export type CalculationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "currentNominal" | "currentDesign" | "recommendedCableSection" | "correctedCableCapacity" | "recommendedBreaker" | "voltageDropVolts" | "voltageDropPercent" | "shortCircuitCurrentAtEnd" | "breakerBreakingCapacity" | "overloadCheck" | "voltageDropCheck" | "breakingCapacityCheck" | "coordinationCheck", ExtArgs["result"]["result"]>
+  export type ResultInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
-  export type CalculationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
-  export type CalculationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
 
-  export type $CalculationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Calculation"
+  export type $ResultPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Result"
     objects: {
       project: Prisma.$ProjectPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       projectId: string
-      name: string
-      totalInstalledPowerWatts: number | null
-      maximumShortCircuitAmps: number | null
-      totalOperatingCurrentAmps: number | null
-      totalCircuitCurrentAmps: number | null
-      recommendedSectionMm2: number | null
-      voltageDropPercent: number | null
-      notes: string | null
-      createdAt: Date
-      updatedAt: Date
-    }, ExtArgs["result"]["calculation"]>
+      currentNominal: number
+      currentDesign: number
+      recommendedCableSection: number
+      correctedCableCapacity: number
+      recommendedBreaker: number
+      voltageDropVolts: number
+      voltageDropPercent: number
+      shortCircuitCurrentAtEnd: number
+      breakerBreakingCapacity: number
+      overloadCheck: $Enums.CheckStatus
+      voltageDropCheck: $Enums.CheckStatus
+      breakingCapacityCheck: $Enums.CheckStatus
+      coordinationCheck: $Enums.CheckStatus
+    }, ExtArgs["result"]["result"]>
     composites: {}
   }
 
-  type CalculationGetPayload<S extends boolean | null | undefined | CalculationDefaultArgs> = $Result.GetResult<Prisma.$CalculationPayload, S>
+  type ResultGetPayload<S extends boolean | null | undefined | ResultDefaultArgs> = $Result.GetResult<Prisma.$ResultPayload, S>
 
-  type CalculationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<CalculationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: CalculationCountAggregateInputType | true
+  type ResultCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ResultFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ResultCountAggregateInputType | true
     }
 
-  export interface CalculationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Calculation'], meta: { name: 'Calculation' } }
+  export interface ResultDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Result'], meta: { name: 'Result' } }
     /**
-     * Find zero or one Calculation that matches the filter.
-     * @param {CalculationFindUniqueArgs} args - Arguments to find a Calculation
+     * Find zero or one Result that matches the filter.
+     * @param {ResultFindUniqueArgs} args - Arguments to find a Result
      * @example
-     * // Get one Calculation
-     * const calculation = await prisma.calculation.findUnique({
+     * // Get one Result
+     * const result = await prisma.result.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends CalculationFindUniqueArgs>(args: SelectSubset<T, CalculationFindUniqueArgs<ExtArgs>>): Prisma__CalculationClient<$Result.GetResult<Prisma.$CalculationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends ResultFindUniqueArgs>(args: SelectSubset<T, ResultFindUniqueArgs<ExtArgs>>): Prisma__ResultClient<$Result.GetResult<Prisma.$ResultPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Calculation that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Result that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {CalculationFindUniqueOrThrowArgs} args - Arguments to find a Calculation
+     * @param {ResultFindUniqueOrThrowArgs} args - Arguments to find a Result
      * @example
-     * // Get one Calculation
-     * const calculation = await prisma.calculation.findUniqueOrThrow({
+     * // Get one Result
+     * const result = await prisma.result.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends CalculationFindUniqueOrThrowArgs>(args: SelectSubset<T, CalculationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CalculationClient<$Result.GetResult<Prisma.$CalculationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends ResultFindUniqueOrThrowArgs>(args: SelectSubset<T, ResultFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ResultClient<$Result.GetResult<Prisma.$ResultPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Calculation that matches the filter.
+     * Find the first Result that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalculationFindFirstArgs} args - Arguments to find a Calculation
+     * @param {ResultFindFirstArgs} args - Arguments to find a Result
      * @example
-     * // Get one Calculation
-     * const calculation = await prisma.calculation.findFirst({
+     * // Get one Result
+     * const result = await prisma.result.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends CalculationFindFirstArgs>(args?: SelectSubset<T, CalculationFindFirstArgs<ExtArgs>>): Prisma__CalculationClient<$Result.GetResult<Prisma.$CalculationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends ResultFindFirstArgs>(args?: SelectSubset<T, ResultFindFirstArgs<ExtArgs>>): Prisma__ResultClient<$Result.GetResult<Prisma.$ResultPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Calculation that matches the filter or
+     * Find the first Result that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalculationFindFirstOrThrowArgs} args - Arguments to find a Calculation
+     * @param {ResultFindFirstOrThrowArgs} args - Arguments to find a Result
      * @example
-     * // Get one Calculation
-     * const calculation = await prisma.calculation.findFirstOrThrow({
+     * // Get one Result
+     * const result = await prisma.result.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends CalculationFindFirstOrThrowArgs>(args?: SelectSubset<T, CalculationFindFirstOrThrowArgs<ExtArgs>>): Prisma__CalculationClient<$Result.GetResult<Prisma.$CalculationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends ResultFindFirstOrThrowArgs>(args?: SelectSubset<T, ResultFindFirstOrThrowArgs<ExtArgs>>): Prisma__ResultClient<$Result.GetResult<Prisma.$ResultPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Calculations that matches the filter.
+     * Find zero or more Results that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalculationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {ResultFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Calculations
-     * const calculations = await prisma.calculation.findMany()
+     * // Get all Results
+     * const results = await prisma.result.findMany()
      * 
-     * // Get first 10 Calculations
-     * const calculations = await prisma.calculation.findMany({ take: 10 })
+     * // Get first 10 Results
+     * const results = await prisma.result.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const calculationWithIdOnly = await prisma.calculation.findMany({ select: { id: true } })
+     * const resultWithIdOnly = await prisma.result.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends CalculationFindManyArgs>(args?: SelectSubset<T, CalculationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalculationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends ResultFindManyArgs>(args?: SelectSubset<T, ResultFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResultPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Calculation.
-     * @param {CalculationCreateArgs} args - Arguments to create a Calculation.
+     * Create a Result.
+     * @param {ResultCreateArgs} args - Arguments to create a Result.
      * @example
-     * // Create one Calculation
-     * const Calculation = await prisma.calculation.create({
+     * // Create one Result
+     * const Result = await prisma.result.create({
      *   data: {
-     *     // ... data to create a Calculation
+     *     // ... data to create a Result
      *   }
      * })
      * 
      */
-    create<T extends CalculationCreateArgs>(args: SelectSubset<T, CalculationCreateArgs<ExtArgs>>): Prisma__CalculationClient<$Result.GetResult<Prisma.$CalculationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends ResultCreateArgs>(args: SelectSubset<T, ResultCreateArgs<ExtArgs>>): Prisma__ResultClient<$Result.GetResult<Prisma.$ResultPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Calculations.
-     * @param {CalculationCreateManyArgs} args - Arguments to create many Calculations.
+     * Create many Results.
+     * @param {ResultCreateManyArgs} args - Arguments to create many Results.
      * @example
-     * // Create many Calculations
-     * const calculation = await prisma.calculation.createMany({
+     * // Create many Results
+     * const result = await prisma.result.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends CalculationCreateManyArgs>(args?: SelectSubset<T, CalculationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends ResultCreateManyArgs>(args?: SelectSubset<T, ResultCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Calculations and returns the data saved in the database.
-     * @param {CalculationCreateManyAndReturnArgs} args - Arguments to create many Calculations.
+     * Create many Results and returns the data saved in the database.
+     * @param {ResultCreateManyAndReturnArgs} args - Arguments to create many Results.
      * @example
-     * // Create many Calculations
-     * const calculation = await prisma.calculation.createManyAndReturn({
+     * // Create many Results
+     * const result = await prisma.result.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Calculations and only return the `id`
-     * const calculationWithIdOnly = await prisma.calculation.createManyAndReturn({
+     * // Create many Results and only return the `id`
+     * const resultWithIdOnly = await prisma.result.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -11691,28 +13715,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends CalculationCreateManyAndReturnArgs>(args?: SelectSubset<T, CalculationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalculationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends ResultCreateManyAndReturnArgs>(args?: SelectSubset<T, ResultCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResultPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Calculation.
-     * @param {CalculationDeleteArgs} args - Arguments to delete one Calculation.
+     * Delete a Result.
+     * @param {ResultDeleteArgs} args - Arguments to delete one Result.
      * @example
-     * // Delete one Calculation
-     * const Calculation = await prisma.calculation.delete({
+     * // Delete one Result
+     * const Result = await prisma.result.delete({
      *   where: {
-     *     // ... filter to delete one Calculation
+     *     // ... filter to delete one Result
      *   }
      * })
      * 
      */
-    delete<T extends CalculationDeleteArgs>(args: SelectSubset<T, CalculationDeleteArgs<ExtArgs>>): Prisma__CalculationClient<$Result.GetResult<Prisma.$CalculationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends ResultDeleteArgs>(args: SelectSubset<T, ResultDeleteArgs<ExtArgs>>): Prisma__ResultClient<$Result.GetResult<Prisma.$ResultPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Calculation.
-     * @param {CalculationUpdateArgs} args - Arguments to update one Calculation.
+     * Update one Result.
+     * @param {ResultUpdateArgs} args - Arguments to update one Result.
      * @example
-     * // Update one Calculation
-     * const calculation = await prisma.calculation.update({
+     * // Update one Result
+     * const result = await prisma.result.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -11722,30 +13746,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends CalculationUpdateArgs>(args: SelectSubset<T, CalculationUpdateArgs<ExtArgs>>): Prisma__CalculationClient<$Result.GetResult<Prisma.$CalculationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends ResultUpdateArgs>(args: SelectSubset<T, ResultUpdateArgs<ExtArgs>>): Prisma__ResultClient<$Result.GetResult<Prisma.$ResultPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Calculations.
-     * @param {CalculationDeleteManyArgs} args - Arguments to filter Calculations to delete.
+     * Delete zero or more Results.
+     * @param {ResultDeleteManyArgs} args - Arguments to filter Results to delete.
      * @example
-     * // Delete a few Calculations
-     * const { count } = await prisma.calculation.deleteMany({
+     * // Delete a few Results
+     * const { count } = await prisma.result.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends CalculationDeleteManyArgs>(args?: SelectSubset<T, CalculationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends ResultDeleteManyArgs>(args?: SelectSubset<T, ResultDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Calculations.
+     * Update zero or more Results.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalculationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {ResultUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Calculations
-     * const calculation = await prisma.calculation.updateMany({
+     * // Update many Results
+     * const result = await prisma.result.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -11755,14 +13779,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends CalculationUpdateManyArgs>(args: SelectSubset<T, CalculationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends ResultUpdateManyArgs>(args: SelectSubset<T, ResultUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Calculations and returns the data updated in the database.
-     * @param {CalculationUpdateManyAndReturnArgs} args - Arguments to update many Calculations.
+     * Update zero or more Results and returns the data updated in the database.
+     * @param {ResultUpdateManyAndReturnArgs} args - Arguments to update many Results.
      * @example
-     * // Update many Calculations
-     * const calculation = await prisma.calculation.updateManyAndReturn({
+     * // Update many Results
+     * const result = await prisma.result.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -11771,8 +13795,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Calculations and only return the `id`
-     * const calculationWithIdOnly = await prisma.calculation.updateManyAndReturn({
+     * // Update zero or more Results and only return the `id`
+     * const resultWithIdOnly = await prisma.result.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -11785,56 +13809,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends CalculationUpdateManyAndReturnArgs>(args: SelectSubset<T, CalculationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalculationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends ResultUpdateManyAndReturnArgs>(args: SelectSubset<T, ResultUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResultPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Calculation.
-     * @param {CalculationUpsertArgs} args - Arguments to update or create a Calculation.
+     * Create or update one Result.
+     * @param {ResultUpsertArgs} args - Arguments to update or create a Result.
      * @example
-     * // Update or create a Calculation
-     * const calculation = await prisma.calculation.upsert({
+     * // Update or create a Result
+     * const result = await prisma.result.upsert({
      *   create: {
-     *     // ... data to create a Calculation
+     *     // ... data to create a Result
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Calculation we want to update
+     *     // ... the filter for the Result we want to update
      *   }
      * })
      */
-    upsert<T extends CalculationUpsertArgs>(args: SelectSubset<T, CalculationUpsertArgs<ExtArgs>>): Prisma__CalculationClient<$Result.GetResult<Prisma.$CalculationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends ResultUpsertArgs>(args: SelectSubset<T, ResultUpsertArgs<ExtArgs>>): Prisma__ResultClient<$Result.GetResult<Prisma.$ResultPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Calculations.
+     * Count the number of Results.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalculationCountArgs} args - Arguments to filter Calculations to count.
+     * @param {ResultCountArgs} args - Arguments to filter Results to count.
      * @example
-     * // Count the number of Calculations
-     * const count = await prisma.calculation.count({
+     * // Count the number of Results
+     * const count = await prisma.result.count({
      *   where: {
-     *     // ... the filter for the Calculations we want to count
+     *     // ... the filter for the Results we want to count
      *   }
      * })
     **/
-    count<T extends CalculationCountArgs>(
-      args?: Subset<T, CalculationCountArgs>,
+    count<T extends ResultCountArgs>(
+      args?: Subset<T, ResultCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CalculationCountAggregateOutputType>
+          : GetScalarType<T['select'], ResultCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Calculation.
+     * Allows you to perform aggregations operations on a Result.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalculationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {ResultAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -11854,13 +13878,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CalculationAggregateArgs>(args: Subset<T, CalculationAggregateArgs>): Prisma.PrismaPromise<GetCalculationAggregateType<T>>
+    aggregate<T extends ResultAggregateArgs>(args: Subset<T, ResultAggregateArgs>): Prisma.PrismaPromise<GetResultAggregateType<T>>
 
     /**
-     * Group by Calculation.
+     * Group by Result.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalculationGroupByArgs} args - Group by arguments.
+     * @param {ResultGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -11875,14 +13899,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends CalculationGroupByArgs,
+      T extends ResultGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CalculationGroupByArgs['orderBy'] }
-        : { orderBy?: CalculationGroupByArgs['orderBy'] },
+        ? { orderBy: ResultGroupByArgs['orderBy'] }
+        : { orderBy?: ResultGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -11931,20 +13955,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, CalculationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCalculationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, ResultGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetResultGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Calculation model
+   * Fields of the Result model
    */
-  readonly fields: CalculationFieldRefs;
+  readonly fields: ResultFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Calculation.
+   * The delegate class that acts as a "Promise-like" for Result.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__CalculationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__ResultClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -11973,437 +13997,440 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Calculation model
+   * Fields of the Result model
    */
-  interface CalculationFieldRefs {
-    readonly id: FieldRef<"Calculation", 'String'>
-    readonly projectId: FieldRef<"Calculation", 'String'>
-    readonly name: FieldRef<"Calculation", 'String'>
-    readonly totalInstalledPowerWatts: FieldRef<"Calculation", 'Int'>
-    readonly maximumShortCircuitAmps: FieldRef<"Calculation", 'Float'>
-    readonly totalOperatingCurrentAmps: FieldRef<"Calculation", 'Float'>
-    readonly totalCircuitCurrentAmps: FieldRef<"Calculation", 'Float'>
-    readonly recommendedSectionMm2: FieldRef<"Calculation", 'Float'>
-    readonly voltageDropPercent: FieldRef<"Calculation", 'Float'>
-    readonly notes: FieldRef<"Calculation", 'String'>
-    readonly createdAt: FieldRef<"Calculation", 'DateTime'>
-    readonly updatedAt: FieldRef<"Calculation", 'DateTime'>
+  interface ResultFieldRefs {
+    readonly id: FieldRef<"Result", 'String'>
+    readonly projectId: FieldRef<"Result", 'String'>
+    readonly currentNominal: FieldRef<"Result", 'Float'>
+    readonly currentDesign: FieldRef<"Result", 'Float'>
+    readonly recommendedCableSection: FieldRef<"Result", 'Float'>
+    readonly correctedCableCapacity: FieldRef<"Result", 'Float'>
+    readonly recommendedBreaker: FieldRef<"Result", 'Float'>
+    readonly voltageDropVolts: FieldRef<"Result", 'Float'>
+    readonly voltageDropPercent: FieldRef<"Result", 'Float'>
+    readonly shortCircuitCurrentAtEnd: FieldRef<"Result", 'Float'>
+    readonly breakerBreakingCapacity: FieldRef<"Result", 'Float'>
+    readonly overloadCheck: FieldRef<"Result", 'CheckStatus'>
+    readonly voltageDropCheck: FieldRef<"Result", 'CheckStatus'>
+    readonly breakingCapacityCheck: FieldRef<"Result", 'CheckStatus'>
+    readonly coordinationCheck: FieldRef<"Result", 'CheckStatus'>
   }
     
 
   // Custom InputTypes
   /**
-   * Calculation findUnique
+   * Result findUnique
    */
-  export type CalculationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calculation
+     * Select specific fields to fetch from the Result
      */
-    select?: CalculationSelect<ExtArgs> | null
+    select?: ResultSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calculation
+     * Omit specific fields from the Result
      */
-    omit?: CalculationOmit<ExtArgs> | null
+    omit?: ResultOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CalculationInclude<ExtArgs> | null
+    include?: ResultInclude<ExtArgs> | null
     /**
-     * Filter, which Calculation to fetch.
+     * Filter, which Result to fetch.
      */
-    where: CalculationWhereUniqueInput
+    where: ResultWhereUniqueInput
   }
 
   /**
-   * Calculation findUniqueOrThrow
+   * Result findUniqueOrThrow
    */
-  export type CalculationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calculation
+     * Select specific fields to fetch from the Result
      */
-    select?: CalculationSelect<ExtArgs> | null
+    select?: ResultSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calculation
+     * Omit specific fields from the Result
      */
-    omit?: CalculationOmit<ExtArgs> | null
+    omit?: ResultOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CalculationInclude<ExtArgs> | null
+    include?: ResultInclude<ExtArgs> | null
     /**
-     * Filter, which Calculation to fetch.
+     * Filter, which Result to fetch.
      */
-    where: CalculationWhereUniqueInput
+    where: ResultWhereUniqueInput
   }
 
   /**
-   * Calculation findFirst
+   * Result findFirst
    */
-  export type CalculationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calculation
+     * Select specific fields to fetch from the Result
      */
-    select?: CalculationSelect<ExtArgs> | null
+    select?: ResultSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calculation
+     * Omit specific fields from the Result
      */
-    omit?: CalculationOmit<ExtArgs> | null
+    omit?: ResultOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CalculationInclude<ExtArgs> | null
+    include?: ResultInclude<ExtArgs> | null
     /**
-     * Filter, which Calculation to fetch.
+     * Filter, which Result to fetch.
      */
-    where?: CalculationWhereInput
+    where?: ResultWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Calculations to fetch.
+     * Determine the order of Results to fetch.
      */
-    orderBy?: CalculationOrderByWithRelationInput | CalculationOrderByWithRelationInput[]
+    orderBy?: ResultOrderByWithRelationInput | ResultOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Calculations.
+     * Sets the position for searching for Results.
      */
-    cursor?: CalculationWhereUniqueInput
+    cursor?: ResultWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Calculations from the position of the cursor.
+     * Take `±n` Results from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Calculations.
+     * Skip the first `n` Results.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Calculations.
+     * Filter by unique combinations of Results.
      */
-    distinct?: CalculationScalarFieldEnum | CalculationScalarFieldEnum[]
+    distinct?: ResultScalarFieldEnum | ResultScalarFieldEnum[]
   }
 
   /**
-   * Calculation findFirstOrThrow
+   * Result findFirstOrThrow
    */
-  export type CalculationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calculation
+     * Select specific fields to fetch from the Result
      */
-    select?: CalculationSelect<ExtArgs> | null
+    select?: ResultSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calculation
+     * Omit specific fields from the Result
      */
-    omit?: CalculationOmit<ExtArgs> | null
+    omit?: ResultOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CalculationInclude<ExtArgs> | null
+    include?: ResultInclude<ExtArgs> | null
     /**
-     * Filter, which Calculation to fetch.
+     * Filter, which Result to fetch.
      */
-    where?: CalculationWhereInput
+    where?: ResultWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Calculations to fetch.
+     * Determine the order of Results to fetch.
      */
-    orderBy?: CalculationOrderByWithRelationInput | CalculationOrderByWithRelationInput[]
+    orderBy?: ResultOrderByWithRelationInput | ResultOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Calculations.
+     * Sets the position for searching for Results.
      */
-    cursor?: CalculationWhereUniqueInput
+    cursor?: ResultWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Calculations from the position of the cursor.
+     * Take `±n` Results from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Calculations.
+     * Skip the first `n` Results.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Calculations.
+     * Filter by unique combinations of Results.
      */
-    distinct?: CalculationScalarFieldEnum | CalculationScalarFieldEnum[]
+    distinct?: ResultScalarFieldEnum | ResultScalarFieldEnum[]
   }
 
   /**
-   * Calculation findMany
+   * Result findMany
    */
-  export type CalculationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calculation
+     * Select specific fields to fetch from the Result
      */
-    select?: CalculationSelect<ExtArgs> | null
+    select?: ResultSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calculation
+     * Omit specific fields from the Result
      */
-    omit?: CalculationOmit<ExtArgs> | null
+    omit?: ResultOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CalculationInclude<ExtArgs> | null
+    include?: ResultInclude<ExtArgs> | null
     /**
-     * Filter, which Calculations to fetch.
+     * Filter, which Results to fetch.
      */
-    where?: CalculationWhereInput
+    where?: ResultWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Calculations to fetch.
+     * Determine the order of Results to fetch.
      */
-    orderBy?: CalculationOrderByWithRelationInput | CalculationOrderByWithRelationInput[]
+    orderBy?: ResultOrderByWithRelationInput | ResultOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Calculations.
+     * Sets the position for listing Results.
      */
-    cursor?: CalculationWhereUniqueInput
+    cursor?: ResultWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Calculations from the position of the cursor.
+     * Take `±n` Results from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Calculations.
+     * Skip the first `n` Results.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Calculations.
+     * Filter by unique combinations of Results.
      */
-    distinct?: CalculationScalarFieldEnum | CalculationScalarFieldEnum[]
+    distinct?: ResultScalarFieldEnum | ResultScalarFieldEnum[]
   }
 
   /**
-   * Calculation create
+   * Result create
    */
-  export type CalculationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calculation
+     * Select specific fields to fetch from the Result
      */
-    select?: CalculationSelect<ExtArgs> | null
+    select?: ResultSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calculation
+     * Omit specific fields from the Result
      */
-    omit?: CalculationOmit<ExtArgs> | null
+    omit?: ResultOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CalculationInclude<ExtArgs> | null
+    include?: ResultInclude<ExtArgs> | null
     /**
-     * The data needed to create a Calculation.
+     * The data needed to create a Result.
      */
-    data: XOR<CalculationCreateInput, CalculationUncheckedCreateInput>
+    data: XOR<ResultCreateInput, ResultUncheckedCreateInput>
   }
 
   /**
-   * Calculation createMany
+   * Result createMany
    */
-  export type CalculationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Calculations.
+     * The data used to create many Results.
      */
-    data: CalculationCreateManyInput | CalculationCreateManyInput[]
+    data: ResultCreateManyInput | ResultCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Calculation createManyAndReturn
+   * Result createManyAndReturn
    */
-  export type CalculationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calculation
+     * Select specific fields to fetch from the Result
      */
-    select?: CalculationSelectCreateManyAndReturn<ExtArgs> | null
+    select?: ResultSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Calculation
+     * Omit specific fields from the Result
      */
-    omit?: CalculationOmit<ExtArgs> | null
+    omit?: ResultOmit<ExtArgs> | null
     /**
-     * The data used to create many Calculations.
+     * The data used to create many Results.
      */
-    data: CalculationCreateManyInput | CalculationCreateManyInput[]
+    data: ResultCreateManyInput | ResultCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CalculationIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: ResultIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Calculation update
+   * Result update
    */
-  export type CalculationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calculation
+     * Select specific fields to fetch from the Result
      */
-    select?: CalculationSelect<ExtArgs> | null
+    select?: ResultSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calculation
+     * Omit specific fields from the Result
      */
-    omit?: CalculationOmit<ExtArgs> | null
+    omit?: ResultOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CalculationInclude<ExtArgs> | null
+    include?: ResultInclude<ExtArgs> | null
     /**
-     * The data needed to update a Calculation.
+     * The data needed to update a Result.
      */
-    data: XOR<CalculationUpdateInput, CalculationUncheckedUpdateInput>
+    data: XOR<ResultUpdateInput, ResultUncheckedUpdateInput>
     /**
-     * Choose, which Calculation to update.
+     * Choose, which Result to update.
      */
-    where: CalculationWhereUniqueInput
+    where: ResultWhereUniqueInput
   }
 
   /**
-   * Calculation updateMany
+   * Result updateMany
    */
-  export type CalculationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Calculations.
+     * The data used to update Results.
      */
-    data: XOR<CalculationUpdateManyMutationInput, CalculationUncheckedUpdateManyInput>
+    data: XOR<ResultUpdateManyMutationInput, ResultUncheckedUpdateManyInput>
     /**
-     * Filter which Calculations to update
+     * Filter which Results to update
      */
-    where?: CalculationWhereInput
+    where?: ResultWhereInput
     /**
-     * Limit how many Calculations to update.
+     * Limit how many Results to update.
      */
     limit?: number
   }
 
   /**
-   * Calculation updateManyAndReturn
+   * Result updateManyAndReturn
    */
-  export type CalculationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calculation
+     * Select specific fields to fetch from the Result
      */
-    select?: CalculationSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: ResultSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Calculation
+     * Omit specific fields from the Result
      */
-    omit?: CalculationOmit<ExtArgs> | null
+    omit?: ResultOmit<ExtArgs> | null
     /**
-     * The data used to update Calculations.
+     * The data used to update Results.
      */
-    data: XOR<CalculationUpdateManyMutationInput, CalculationUncheckedUpdateManyInput>
+    data: XOR<ResultUpdateManyMutationInput, ResultUncheckedUpdateManyInput>
     /**
-     * Filter which Calculations to update
+     * Filter which Results to update
      */
-    where?: CalculationWhereInput
+    where?: ResultWhereInput
     /**
-     * Limit how many Calculations to update.
+     * Limit how many Results to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CalculationIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: ResultIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Calculation upsert
+   * Result upsert
    */
-  export type CalculationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calculation
+     * Select specific fields to fetch from the Result
      */
-    select?: CalculationSelect<ExtArgs> | null
+    select?: ResultSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calculation
+     * Omit specific fields from the Result
      */
-    omit?: CalculationOmit<ExtArgs> | null
+    omit?: ResultOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CalculationInclude<ExtArgs> | null
+    include?: ResultInclude<ExtArgs> | null
     /**
-     * The filter to search for the Calculation to update in case it exists.
+     * The filter to search for the Result to update in case it exists.
      */
-    where: CalculationWhereUniqueInput
+    where: ResultWhereUniqueInput
     /**
-     * In case the Calculation found by the `where` argument doesn't exist, create a new Calculation with this data.
+     * In case the Result found by the `where` argument doesn't exist, create a new Result with this data.
      */
-    create: XOR<CalculationCreateInput, CalculationUncheckedCreateInput>
+    create: XOR<ResultCreateInput, ResultUncheckedCreateInput>
     /**
-     * In case the Calculation was found with the provided `where` argument, update it with this data.
+     * In case the Result was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<CalculationUpdateInput, CalculationUncheckedUpdateInput>
+    update: XOR<ResultUpdateInput, ResultUncheckedUpdateInput>
   }
 
   /**
-   * Calculation delete
+   * Result delete
    */
-  export type CalculationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calculation
+     * Select specific fields to fetch from the Result
      */
-    select?: CalculationSelect<ExtArgs> | null
+    select?: ResultSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calculation
+     * Omit specific fields from the Result
      */
-    omit?: CalculationOmit<ExtArgs> | null
+    omit?: ResultOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CalculationInclude<ExtArgs> | null
+    include?: ResultInclude<ExtArgs> | null
     /**
-     * Filter which Calculation to delete.
+     * Filter which Result to delete.
      */
-    where: CalculationWhereUniqueInput
+    where: ResultWhereUniqueInput
   }
 
   /**
-   * Calculation deleteMany
+   * Result deleteMany
    */
-  export type CalculationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Calculations to delete
+     * Filter which Results to delete
      */
-    where?: CalculationWhereInput
+    where?: ResultWhereInput
     /**
-     * Limit how many Calculations to delete.
+     * Limit how many Results to delete.
      */
     limit?: number
   }
 
   /**
-   * Calculation without action
+   * Result without action
    */
-  export type CalculationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ResultDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calculation
+     * Select specific fields to fetch from the Result
      */
-    select?: CalculationSelect<ExtArgs> | null
+    select?: ResultSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calculation
+     * Omit specific fields from the Result
      */
-    omit?: CalculationOmit<ExtArgs> | null
+    omit?: ResultOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CalculationInclude<ExtArgs> | null
+    include?: ResultInclude<ExtArgs> | null
   }
 
 
@@ -12426,7 +14453,7 @@ export namespace Prisma {
     name: 'name',
     email: 'email',
     emailVerified: 'emailVerified',
-    photo: 'photo',
+    avatarUrl: 'avatarUrl',
     password: 'password',
     isTwoFactorEnabled: 'isTwoFactorEnabled',
     twofactorSecret: 'twofactorSecret',
@@ -12476,95 +14503,95 @@ export namespace Prisma {
 
   export const ProjectScalarFieldEnum: {
     id: 'id',
-    name: 'name',
-    description: 'description',
-    reference: 'reference',
-    customerName: 'customerName',
-    siteAddress: 'siteAddress',
-    status: 'status',
-    objective: 'objective',
+    userId: 'userId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    ownerId: 'ownerId'
+    name: 'name',
+    client: 'client',
+    location: 'location'
   };
 
   export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
 
 
-  export const BuildingScalarFieldEnum: {
+  export const PowerSupplyScalarFieldEnum: {
     id: 'id',
     projectId: 'projectId',
-    surfaceArea: 'surfaceArea',
-    numberOfRooms: 'numberOfRooms',
-    supplyVoltage: 'supplyVoltage',
-    phases: 'phases',
-    buildingType: 'buildingType',
-    usage: 'usage',
-    comment: 'comment'
+    type: 'type',
+    nominalVoltage: 'nominalVoltage',
+    frequency: 'frequency',
+    regimeNeutre: 'regimeNeutre',
+    distanceSourceToTGBT: 'distanceSourceToTGBT'
   };
 
-  export type BuildingScalarFieldEnum = (typeof BuildingScalarFieldEnum)[keyof typeof BuildingScalarFieldEnum]
+  export type PowerSupplyScalarFieldEnum = (typeof PowerSupplyScalarFieldEnum)[keyof typeof PowerSupplyScalarFieldEnum]
 
 
   export const CircuitScalarFieldEnum: {
     id: 'id',
     projectId: 'projectId',
-    protectionId: 'protectionId',
-    label: 'label',
+    name: 'name',
+    circuitCount: 'circuitCount',
     type: 'type',
-    room: 'room',
-    quantity: 'quantity',
-    loadWatts: 'loadWatts',
-    loadAmps: 'loadAmps',
-    shortCircuitCurrentAmps: 'shortCircuitCurrentAmps',
-    operatingCurrentAmps: 'operatingCurrentAmps',
-    circuitTotalCurrentAmps: 'circuitTotalCurrentAmps',
-    cableLengthMeters: 'cableLengthMeters',
-    conductorSectionMm2: 'conductorSectionMm2',
-    recommendedSectionMm2: 'recommendedSectionMm2',
-    voltageDropPercent: 'voltageDropPercent',
-    numberOfPoles: 'numberOfPoles',
-    isDedicated: 'isDedicated',
-    comment: 'comment',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    totalPower: 'totalPower'
   };
 
   export type CircuitScalarFieldEnum = (typeof CircuitScalarFieldEnum)[keyof typeof CircuitScalarFieldEnum]
+
+
+  export const FurthestLoadDistanceScalarFieldEnum: {
+    id: 'id',
+    projectId: 'projectId',
+    circuitName: 'circuitName',
+    distance: 'distance'
+  };
+
+  export type FurthestLoadDistanceScalarFieldEnum = (typeof FurthestLoadDistanceScalarFieldEnum)[keyof typeof FurthestLoadDistanceScalarFieldEnum]
+
+
+  export const CableDataScalarFieldEnum: {
+    id: 'id',
+    projectId: 'projectId',
+    material: 'material',
+    isolation: 'isolation',
+    modePose: 'modePose'
+  };
+
+  export type CableDataScalarFieldEnum = (typeof CableDataScalarFieldEnum)[keyof typeof CableDataScalarFieldEnum]
 
 
   export const ProtectionScalarFieldEnum: {
     id: 'id',
     projectId: 'projectId',
     type: 'type',
-    ratingAmps: 'ratingAmps',
-    curve: 'curve',
-    poles: 'poles',
-    description: 'description',
-    equipmentName: 'equipmentName',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    ratedCurrent: 'ratedCurrent',
+    numberOfPoles: 'numberOfPoles',
+    curveType: 'curveType',
+    breakingCapacity: 'breakingCapacity'
   };
 
   export type ProtectionScalarFieldEnum = (typeof ProtectionScalarFieldEnum)[keyof typeof ProtectionScalarFieldEnum]
 
 
-  export const CalculationScalarFieldEnum: {
+  export const ResultScalarFieldEnum: {
     id: 'id',
     projectId: 'projectId',
-    name: 'name',
-    totalInstalledPowerWatts: 'totalInstalledPowerWatts',
-    maximumShortCircuitAmps: 'maximumShortCircuitAmps',
-    totalOperatingCurrentAmps: 'totalOperatingCurrentAmps',
-    totalCircuitCurrentAmps: 'totalCircuitCurrentAmps',
-    recommendedSectionMm2: 'recommendedSectionMm2',
+    currentNominal: 'currentNominal',
+    currentDesign: 'currentDesign',
+    recommendedCableSection: 'recommendedCableSection',
+    correctedCableCapacity: 'correctedCableCapacity',
+    recommendedBreaker: 'recommendedBreaker',
+    voltageDropVolts: 'voltageDropVolts',
     voltageDropPercent: 'voltageDropPercent',
-    notes: 'notes',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    shortCircuitCurrentAtEnd: 'shortCircuitCurrentAtEnd',
+    breakerBreakingCapacity: 'breakerBreakingCapacity',
+    overloadCheck: 'overloadCheck',
+    voltageDropCheck: 'voltageDropCheck',
+    breakingCapacityCheck: 'breakingCapacityCheck',
+    coordinationCheck: 'coordinationCheck'
   };
 
-  export type CalculationScalarFieldEnum = (typeof CalculationScalarFieldEnum)[keyof typeof CalculationScalarFieldEnum]
+  export type ResultScalarFieldEnum = (typeof ResultScalarFieldEnum)[keyof typeof ResultScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -12646,16 +14673,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'ProjectStatus'
+   * Reference to a field of type 'AlimentationType'
    */
-  export type EnumProjectStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProjectStatus'>
+  export type EnumAlimentationTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AlimentationType'>
     
 
 
   /**
-   * Reference to a field of type 'ProjectStatus[]'
+   * Reference to a field of type 'AlimentationType[]'
    */
-  export type ListEnumProjectStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProjectStatus[]'>
+  export type ListEnumAlimentationTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AlimentationType[]'>
     
 
 
@@ -12674,30 +14701,72 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'BuildingType'
+   * Reference to a field of type 'RegimeNeutre'
    */
-  export type EnumBuildingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BuildingType'>
+  export type EnumRegimeNeutreFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RegimeNeutre'>
     
 
 
   /**
-   * Reference to a field of type 'BuildingType[]'
+   * Reference to a field of type 'RegimeNeutre[]'
    */
-  export type ListEnumBuildingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BuildingType[]'>
+  export type ListEnumRegimeNeutreFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RegimeNeutre[]'>
     
 
 
   /**
-   * Reference to a field of type 'CircuitCategory'
+   * Reference to a field of type 'CircuitType'
    */
-  export type EnumCircuitCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CircuitCategory'>
+  export type EnumCircuitTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CircuitType'>
     
 
 
   /**
-   * Reference to a field of type 'CircuitCategory[]'
+   * Reference to a field of type 'CircuitType[]'
    */
-  export type ListEnumCircuitCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CircuitCategory[]'>
+  export type ListEnumCircuitTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CircuitType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'CableMaterial'
+   */
+  export type EnumCableMaterialFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CableMaterial'>
+    
+
+
+  /**
+   * Reference to a field of type 'CableMaterial[]'
+   */
+  export type ListEnumCableMaterialFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CableMaterial[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'CableIsolation'
+   */
+  export type EnumCableIsolationFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CableIsolation'>
+    
+
+
+  /**
+   * Reference to a field of type 'CableIsolation[]'
+   */
+  export type ListEnumCableIsolationFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CableIsolation[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'ModePose'
+   */
+  export type EnumModePoseFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ModePose'>
+    
+
+
+  /**
+   * Reference to a field of type 'ModePose[]'
+   */
+  export type ListEnumModePoseFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ModePose[]'>
     
 
 
@@ -12713,6 +14782,34 @@ export namespace Prisma {
    */
   export type ListEnumProtectionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProtectionType[]'>
     
+
+
+  /**
+   * Reference to a field of type 'CurveType'
+   */
+  export type EnumCurveTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CurveType'>
+    
+
+
+  /**
+   * Reference to a field of type 'CurveType[]'
+   */
+  export type ListEnumCurveTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CurveType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'CheckStatus'
+   */
+  export type EnumCheckStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CheckStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'CheckStatus[]'
+   */
+  export type ListEnumCheckStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CheckStatus[]'>
+    
   /**
    * Deep Input Types
    */
@@ -12726,7 +14823,7 @@ export namespace Prisma {
     name?: StringNullableFilter<"User"> | string | null
     email?: StringFilter<"User"> | string
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
-    photo?: StringNullableFilter<"User"> | string | null
+    avatarUrl?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
     isTwoFactorEnabled?: BoolFilter<"User"> | boolean
     twofactorSecret?: StringNullableFilter<"User"> | string | null
@@ -12742,7 +14839,7 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     email?: SortOrder
     emailVerified?: SortOrderInput | SortOrder
-    photo?: SortOrderInput | SortOrder
+    avatarUrl?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
     isTwoFactorEnabled?: SortOrder
     twofactorSecret?: SortOrderInput | SortOrder
@@ -12761,7 +14858,7 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringNullableFilter<"User"> | string | null
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
-    photo?: StringNullableFilter<"User"> | string | null
+    avatarUrl?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
     isTwoFactorEnabled?: BoolFilter<"User"> | boolean
     twofactorSecret?: StringNullableFilter<"User"> | string | null
@@ -12777,7 +14874,7 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     email?: SortOrder
     emailVerified?: SortOrderInput | SortOrder
-    photo?: SortOrderInput | SortOrder
+    avatarUrl?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
     isTwoFactorEnabled?: SortOrder
     twofactorSecret?: SortOrderInput | SortOrder
@@ -12796,7 +14893,7 @@ export namespace Prisma {
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
     email?: StringWithAggregatesFilter<"User"> | string
     emailVerified?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
-    photo?: StringNullableWithAggregatesFilter<"User"> | string | null
+    avatarUrl?: StringNullableWithAggregatesFilter<"User"> | string | null
     password?: StringNullableWithAggregatesFilter<"User"> | string | null
     isTwoFactorEnabled?: BoolWithAggregatesFilter<"User"> | boolean
     twofactorSecret?: StringNullableWithAggregatesFilter<"User"> | string | null
@@ -12995,76 +15092,66 @@ export namespace Prisma {
     OR?: ProjectWhereInput[]
     NOT?: ProjectWhereInput | ProjectWhereInput[]
     id?: StringFilter<"Project"> | string
-    name?: StringFilter<"Project"> | string
-    description?: StringNullableFilter<"Project"> | string | null
-    reference?: StringNullableFilter<"Project"> | string | null
-    customerName?: StringNullableFilter<"Project"> | string | null
-    siteAddress?: StringNullableFilter<"Project"> | string | null
-    status?: EnumProjectStatusFilter<"Project"> | $Enums.ProjectStatus
-    objective?: StringNullableFilter<"Project"> | string | null
+    userId?: StringFilter<"Project"> | string
     createdAt?: DateTimeFilter<"Project"> | Date | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
-    ownerId?: StringFilter<"Project"> | string
-    building?: XOR<BuildingNullableScalarRelationFilter, BuildingWhereInput> | null
-    calculations?: CalculationListRelationFilter
+    name?: StringFilter<"Project"> | string
+    client?: StringNullableFilter<"Project"> | string | null
+    location?: StringNullableFilter<"Project"> | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    powerSupply?: XOR<PowerSupplyNullableScalarRelationFilter, PowerSupplyWhereInput> | null
     circuits?: CircuitListRelationFilter
-    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
-    protections?: ProtectionListRelationFilter
+    cableData?: XOR<CableDataNullableScalarRelationFilter, CableDataWhereInput> | null
+    protection?: XOR<ProtectionNullableScalarRelationFilter, ProtectionWhereInput> | null
+    result?: XOR<ResultNullableScalarRelationFilter, ResultWhereInput> | null
+    furthestLoadDistance?: XOR<FurthestLoadDistanceNullableScalarRelationFilter, FurthestLoadDistanceWhereInput> | null
   }
 
   export type ProjectOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrder
-    description?: SortOrderInput | SortOrder
-    reference?: SortOrderInput | SortOrder
-    customerName?: SortOrderInput | SortOrder
-    siteAddress?: SortOrderInput | SortOrder
-    status?: SortOrder
-    objective?: SortOrderInput | SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    ownerId?: SortOrder
-    building?: BuildingOrderByWithRelationInput
-    calculations?: CalculationOrderByRelationAggregateInput
+    name?: SortOrder
+    client?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    user?: UserOrderByWithRelationInput
+    powerSupply?: PowerSupplyOrderByWithRelationInput
     circuits?: CircuitOrderByRelationAggregateInput
-    owner?: UserOrderByWithRelationInput
-    protections?: ProtectionOrderByRelationAggregateInput
+    cableData?: CableDataOrderByWithRelationInput
+    protection?: ProtectionOrderByWithRelationInput
+    result?: ResultOrderByWithRelationInput
+    furthestLoadDistance?: FurthestLoadDistanceOrderByWithRelationInput
   }
 
   export type ProjectWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    reference?: string
     AND?: ProjectWhereInput | ProjectWhereInput[]
     OR?: ProjectWhereInput[]
     NOT?: ProjectWhereInput | ProjectWhereInput[]
-    name?: StringFilter<"Project"> | string
-    description?: StringNullableFilter<"Project"> | string | null
-    customerName?: StringNullableFilter<"Project"> | string | null
-    siteAddress?: StringNullableFilter<"Project"> | string | null
-    status?: EnumProjectStatusFilter<"Project"> | $Enums.ProjectStatus
-    objective?: StringNullableFilter<"Project"> | string | null
+    userId?: StringFilter<"Project"> | string
     createdAt?: DateTimeFilter<"Project"> | Date | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
-    ownerId?: StringFilter<"Project"> | string
-    building?: XOR<BuildingNullableScalarRelationFilter, BuildingWhereInput> | null
-    calculations?: CalculationListRelationFilter
+    name?: StringFilter<"Project"> | string
+    client?: StringNullableFilter<"Project"> | string | null
+    location?: StringNullableFilter<"Project"> | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    powerSupply?: XOR<PowerSupplyNullableScalarRelationFilter, PowerSupplyWhereInput> | null
     circuits?: CircuitListRelationFilter
-    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
-    protections?: ProtectionListRelationFilter
-  }, "id" | "reference">
+    cableData?: XOR<CableDataNullableScalarRelationFilter, CableDataWhereInput> | null
+    protection?: XOR<ProtectionNullableScalarRelationFilter, ProtectionWhereInput> | null
+    result?: XOR<ResultNullableScalarRelationFilter, ResultWhereInput> | null
+    furthestLoadDistance?: XOR<FurthestLoadDistanceNullableScalarRelationFilter, FurthestLoadDistanceWhereInput> | null
+  }, "id">
 
   export type ProjectOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrder
-    description?: SortOrderInput | SortOrder
-    reference?: SortOrderInput | SortOrder
-    customerName?: SortOrderInput | SortOrder
-    siteAddress?: SortOrderInput | SortOrder
-    status?: SortOrder
-    objective?: SortOrderInput | SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    ownerId?: SortOrder
+    name?: SortOrder
+    client?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
     _count?: ProjectCountOrderByAggregateInput
     _max?: ProjectMaxOrderByAggregateInput
     _min?: ProjectMinOrderByAggregateInput
@@ -13075,93 +15162,79 @@ export namespace Prisma {
     OR?: ProjectScalarWhereWithAggregatesInput[]
     NOT?: ProjectScalarWhereWithAggregatesInput | ProjectScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Project"> | string
-    name?: StringWithAggregatesFilter<"Project"> | string
-    description?: StringNullableWithAggregatesFilter<"Project"> | string | null
-    reference?: StringNullableWithAggregatesFilter<"Project"> | string | null
-    customerName?: StringNullableWithAggregatesFilter<"Project"> | string | null
-    siteAddress?: StringNullableWithAggregatesFilter<"Project"> | string | null
-    status?: EnumProjectStatusWithAggregatesFilter<"Project"> | $Enums.ProjectStatus
-    objective?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    userId?: StringWithAggregatesFilter<"Project"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
-    ownerId?: StringWithAggregatesFilter<"Project"> | string
+    name?: StringWithAggregatesFilter<"Project"> | string
+    client?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    location?: StringNullableWithAggregatesFilter<"Project"> | string | null
   }
 
-  export type BuildingWhereInput = {
-    AND?: BuildingWhereInput | BuildingWhereInput[]
-    OR?: BuildingWhereInput[]
-    NOT?: BuildingWhereInput | BuildingWhereInput[]
-    id?: StringFilter<"Building"> | string
-    projectId?: StringFilter<"Building"> | string
-    surfaceArea?: FloatFilter<"Building"> | number
-    numberOfRooms?: IntFilter<"Building"> | number
-    supplyVoltage?: StringFilter<"Building"> | string
-    phases?: IntFilter<"Building"> | number
-    buildingType?: EnumBuildingTypeFilter<"Building"> | $Enums.BuildingType
-    usage?: StringNullableFilter<"Building"> | string | null
-    comment?: StringNullableFilter<"Building"> | string | null
+  export type PowerSupplyWhereInput = {
+    AND?: PowerSupplyWhereInput | PowerSupplyWhereInput[]
+    OR?: PowerSupplyWhereInput[]
+    NOT?: PowerSupplyWhereInput | PowerSupplyWhereInput[]
+    id?: StringFilter<"PowerSupply"> | string
+    projectId?: StringFilter<"PowerSupply"> | string
+    type?: EnumAlimentationTypeFilter<"PowerSupply"> | $Enums.AlimentationType
+    nominalVoltage?: FloatFilter<"PowerSupply"> | number
+    frequency?: FloatFilter<"PowerSupply"> | number
+    regimeNeutre?: EnumRegimeNeutreFilter<"PowerSupply"> | $Enums.RegimeNeutre
+    distanceSourceToTGBT?: FloatFilter<"PowerSupply"> | number
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }
 
-  export type BuildingOrderByWithRelationInput = {
+  export type PowerSupplyOrderByWithRelationInput = {
     id?: SortOrder
     projectId?: SortOrder
-    surfaceArea?: SortOrder
-    numberOfRooms?: SortOrder
-    supplyVoltage?: SortOrder
-    phases?: SortOrder
-    buildingType?: SortOrder
-    usage?: SortOrderInput | SortOrder
-    comment?: SortOrderInput | SortOrder
+    type?: SortOrder
+    nominalVoltage?: SortOrder
+    frequency?: SortOrder
+    regimeNeutre?: SortOrder
+    distanceSourceToTGBT?: SortOrder
     project?: ProjectOrderByWithRelationInput
   }
 
-  export type BuildingWhereUniqueInput = Prisma.AtLeast<{
+  export type PowerSupplyWhereUniqueInput = Prisma.AtLeast<{
     id?: string
     projectId?: string
-    AND?: BuildingWhereInput | BuildingWhereInput[]
-    OR?: BuildingWhereInput[]
-    NOT?: BuildingWhereInput | BuildingWhereInput[]
-    surfaceArea?: FloatFilter<"Building"> | number
-    numberOfRooms?: IntFilter<"Building"> | number
-    supplyVoltage?: StringFilter<"Building"> | string
-    phases?: IntFilter<"Building"> | number
-    buildingType?: EnumBuildingTypeFilter<"Building"> | $Enums.BuildingType
-    usage?: StringNullableFilter<"Building"> | string | null
-    comment?: StringNullableFilter<"Building"> | string | null
+    AND?: PowerSupplyWhereInput | PowerSupplyWhereInput[]
+    OR?: PowerSupplyWhereInput[]
+    NOT?: PowerSupplyWhereInput | PowerSupplyWhereInput[]
+    type?: EnumAlimentationTypeFilter<"PowerSupply"> | $Enums.AlimentationType
+    nominalVoltage?: FloatFilter<"PowerSupply"> | number
+    frequency?: FloatFilter<"PowerSupply"> | number
+    regimeNeutre?: EnumRegimeNeutreFilter<"PowerSupply"> | $Enums.RegimeNeutre
+    distanceSourceToTGBT?: FloatFilter<"PowerSupply"> | number
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }, "id" | "projectId">
 
-  export type BuildingOrderByWithAggregationInput = {
+  export type PowerSupplyOrderByWithAggregationInput = {
     id?: SortOrder
     projectId?: SortOrder
-    surfaceArea?: SortOrder
-    numberOfRooms?: SortOrder
-    supplyVoltage?: SortOrder
-    phases?: SortOrder
-    buildingType?: SortOrder
-    usage?: SortOrderInput | SortOrder
-    comment?: SortOrderInput | SortOrder
-    _count?: BuildingCountOrderByAggregateInput
-    _avg?: BuildingAvgOrderByAggregateInput
-    _max?: BuildingMaxOrderByAggregateInput
-    _min?: BuildingMinOrderByAggregateInput
-    _sum?: BuildingSumOrderByAggregateInput
+    type?: SortOrder
+    nominalVoltage?: SortOrder
+    frequency?: SortOrder
+    regimeNeutre?: SortOrder
+    distanceSourceToTGBT?: SortOrder
+    _count?: PowerSupplyCountOrderByAggregateInput
+    _avg?: PowerSupplyAvgOrderByAggregateInput
+    _max?: PowerSupplyMaxOrderByAggregateInput
+    _min?: PowerSupplyMinOrderByAggregateInput
+    _sum?: PowerSupplySumOrderByAggregateInput
   }
 
-  export type BuildingScalarWhereWithAggregatesInput = {
-    AND?: BuildingScalarWhereWithAggregatesInput | BuildingScalarWhereWithAggregatesInput[]
-    OR?: BuildingScalarWhereWithAggregatesInput[]
-    NOT?: BuildingScalarWhereWithAggregatesInput | BuildingScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Building"> | string
-    projectId?: StringWithAggregatesFilter<"Building"> | string
-    surfaceArea?: FloatWithAggregatesFilter<"Building"> | number
-    numberOfRooms?: IntWithAggregatesFilter<"Building"> | number
-    supplyVoltage?: StringWithAggregatesFilter<"Building"> | string
-    phases?: IntWithAggregatesFilter<"Building"> | number
-    buildingType?: EnumBuildingTypeWithAggregatesFilter<"Building"> | $Enums.BuildingType
-    usage?: StringNullableWithAggregatesFilter<"Building"> | string | null
-    comment?: StringNullableWithAggregatesFilter<"Building"> | string | null
+  export type PowerSupplyScalarWhereWithAggregatesInput = {
+    AND?: PowerSupplyScalarWhereWithAggregatesInput | PowerSupplyScalarWhereWithAggregatesInput[]
+    OR?: PowerSupplyScalarWhereWithAggregatesInput[]
+    NOT?: PowerSupplyScalarWhereWithAggregatesInput | PowerSupplyScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PowerSupply"> | string
+    projectId?: StringWithAggregatesFilter<"PowerSupply"> | string
+    type?: EnumAlimentationTypeWithAggregatesFilter<"PowerSupply"> | $Enums.AlimentationType
+    nominalVoltage?: FloatWithAggregatesFilter<"PowerSupply"> | number
+    frequency?: FloatWithAggregatesFilter<"PowerSupply"> | number
+    regimeNeutre?: EnumRegimeNeutreWithAggregatesFilter<"PowerSupply"> | $Enums.RegimeNeutre
+    distanceSourceToTGBT?: FloatWithAggregatesFilter<"PowerSupply"> | number
   }
 
   export type CircuitWhereInput = {
@@ -13170,53 +15243,21 @@ export namespace Prisma {
     NOT?: CircuitWhereInput | CircuitWhereInput[]
     id?: StringFilter<"Circuit"> | string
     projectId?: StringFilter<"Circuit"> | string
-    protectionId?: StringNullableFilter<"Circuit"> | string | null
-    label?: StringFilter<"Circuit"> | string
-    type?: EnumCircuitCategoryFilter<"Circuit"> | $Enums.CircuitCategory
-    room?: StringNullableFilter<"Circuit"> | string | null
-    quantity?: IntFilter<"Circuit"> | number
-    loadWatts?: IntNullableFilter<"Circuit"> | number | null
-    loadAmps?: FloatNullableFilter<"Circuit"> | number | null
-    shortCircuitCurrentAmps?: FloatNullableFilter<"Circuit"> | number | null
-    operatingCurrentAmps?: FloatNullableFilter<"Circuit"> | number | null
-    circuitTotalCurrentAmps?: FloatNullableFilter<"Circuit"> | number | null
-    cableLengthMeters?: FloatNullableFilter<"Circuit"> | number | null
-    conductorSectionMm2?: FloatNullableFilter<"Circuit"> | number | null
-    recommendedSectionMm2?: FloatNullableFilter<"Circuit"> | number | null
-    voltageDropPercent?: FloatNullableFilter<"Circuit"> | number | null
-    numberOfPoles?: IntFilter<"Circuit"> | number
-    isDedicated?: BoolFilter<"Circuit"> | boolean
-    comment?: StringNullableFilter<"Circuit"> | string | null
-    createdAt?: DateTimeFilter<"Circuit"> | Date | string
-    updatedAt?: DateTimeFilter<"Circuit"> | Date | string
+    name?: StringFilter<"Circuit"> | string
+    circuitCount?: IntFilter<"Circuit"> | number
+    type?: EnumCircuitTypeFilter<"Circuit"> | $Enums.CircuitType
+    totalPower?: FloatFilter<"Circuit"> | number
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
-    protection?: XOR<ProtectionNullableScalarRelationFilter, ProtectionWhereInput> | null
   }
 
   export type CircuitOrderByWithRelationInput = {
     id?: SortOrder
     projectId?: SortOrder
-    protectionId?: SortOrderInput | SortOrder
-    label?: SortOrder
+    name?: SortOrder
+    circuitCount?: SortOrder
     type?: SortOrder
-    room?: SortOrderInput | SortOrder
-    quantity?: SortOrder
-    loadWatts?: SortOrderInput | SortOrder
-    loadAmps?: SortOrderInput | SortOrder
-    shortCircuitCurrentAmps?: SortOrderInput | SortOrder
-    operatingCurrentAmps?: SortOrderInput | SortOrder
-    circuitTotalCurrentAmps?: SortOrderInput | SortOrder
-    cableLengthMeters?: SortOrderInput | SortOrder
-    conductorSectionMm2?: SortOrderInput | SortOrder
-    recommendedSectionMm2?: SortOrderInput | SortOrder
-    voltageDropPercent?: SortOrderInput | SortOrder
-    numberOfPoles?: SortOrder
-    isDedicated?: SortOrder
-    comment?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    totalPower?: SortOrder
     project?: ProjectOrderByWithRelationInput
-    protection?: ProtectionOrderByWithRelationInput
   }
 
   export type CircuitWhereUniqueInput = Prisma.AtLeast<{
@@ -13225,51 +15266,20 @@ export namespace Prisma {
     OR?: CircuitWhereInput[]
     NOT?: CircuitWhereInput | CircuitWhereInput[]
     projectId?: StringFilter<"Circuit"> | string
-    protectionId?: StringNullableFilter<"Circuit"> | string | null
-    label?: StringFilter<"Circuit"> | string
-    type?: EnumCircuitCategoryFilter<"Circuit"> | $Enums.CircuitCategory
-    room?: StringNullableFilter<"Circuit"> | string | null
-    quantity?: IntFilter<"Circuit"> | number
-    loadWatts?: IntNullableFilter<"Circuit"> | number | null
-    loadAmps?: FloatNullableFilter<"Circuit"> | number | null
-    shortCircuitCurrentAmps?: FloatNullableFilter<"Circuit"> | number | null
-    operatingCurrentAmps?: FloatNullableFilter<"Circuit"> | number | null
-    circuitTotalCurrentAmps?: FloatNullableFilter<"Circuit"> | number | null
-    cableLengthMeters?: FloatNullableFilter<"Circuit"> | number | null
-    conductorSectionMm2?: FloatNullableFilter<"Circuit"> | number | null
-    recommendedSectionMm2?: FloatNullableFilter<"Circuit"> | number | null
-    voltageDropPercent?: FloatNullableFilter<"Circuit"> | number | null
-    numberOfPoles?: IntFilter<"Circuit"> | number
-    isDedicated?: BoolFilter<"Circuit"> | boolean
-    comment?: StringNullableFilter<"Circuit"> | string | null
-    createdAt?: DateTimeFilter<"Circuit"> | Date | string
-    updatedAt?: DateTimeFilter<"Circuit"> | Date | string
+    name?: StringFilter<"Circuit"> | string
+    circuitCount?: IntFilter<"Circuit"> | number
+    type?: EnumCircuitTypeFilter<"Circuit"> | $Enums.CircuitType
+    totalPower?: FloatFilter<"Circuit"> | number
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
-    protection?: XOR<ProtectionNullableScalarRelationFilter, ProtectionWhereInput> | null
   }, "id">
 
   export type CircuitOrderByWithAggregationInput = {
     id?: SortOrder
     projectId?: SortOrder
-    protectionId?: SortOrderInput | SortOrder
-    label?: SortOrder
+    name?: SortOrder
+    circuitCount?: SortOrder
     type?: SortOrder
-    room?: SortOrderInput | SortOrder
-    quantity?: SortOrder
-    loadWatts?: SortOrderInput | SortOrder
-    loadAmps?: SortOrderInput | SortOrder
-    shortCircuitCurrentAmps?: SortOrderInput | SortOrder
-    operatingCurrentAmps?: SortOrderInput | SortOrder
-    circuitTotalCurrentAmps?: SortOrderInput | SortOrder
-    cableLengthMeters?: SortOrderInput | SortOrder
-    conductorSectionMm2?: SortOrderInput | SortOrder
-    recommendedSectionMm2?: SortOrderInput | SortOrder
-    voltageDropPercent?: SortOrderInput | SortOrder
-    numberOfPoles?: SortOrder
-    isDedicated?: SortOrder
-    comment?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    totalPower?: SortOrder
     _count?: CircuitCountOrderByAggregateInput
     _avg?: CircuitAvgOrderByAggregateInput
     _max?: CircuitMaxOrderByAggregateInput
@@ -13283,25 +15293,117 @@ export namespace Prisma {
     NOT?: CircuitScalarWhereWithAggregatesInput | CircuitScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Circuit"> | string
     projectId?: StringWithAggregatesFilter<"Circuit"> | string
-    protectionId?: StringNullableWithAggregatesFilter<"Circuit"> | string | null
-    label?: StringWithAggregatesFilter<"Circuit"> | string
-    type?: EnumCircuitCategoryWithAggregatesFilter<"Circuit"> | $Enums.CircuitCategory
-    room?: StringNullableWithAggregatesFilter<"Circuit"> | string | null
-    quantity?: IntWithAggregatesFilter<"Circuit"> | number
-    loadWatts?: IntNullableWithAggregatesFilter<"Circuit"> | number | null
-    loadAmps?: FloatNullableWithAggregatesFilter<"Circuit"> | number | null
-    shortCircuitCurrentAmps?: FloatNullableWithAggregatesFilter<"Circuit"> | number | null
-    operatingCurrentAmps?: FloatNullableWithAggregatesFilter<"Circuit"> | number | null
-    circuitTotalCurrentAmps?: FloatNullableWithAggregatesFilter<"Circuit"> | number | null
-    cableLengthMeters?: FloatNullableWithAggregatesFilter<"Circuit"> | number | null
-    conductorSectionMm2?: FloatNullableWithAggregatesFilter<"Circuit"> | number | null
-    recommendedSectionMm2?: FloatNullableWithAggregatesFilter<"Circuit"> | number | null
-    voltageDropPercent?: FloatNullableWithAggregatesFilter<"Circuit"> | number | null
-    numberOfPoles?: IntWithAggregatesFilter<"Circuit"> | number
-    isDedicated?: BoolWithAggregatesFilter<"Circuit"> | boolean
-    comment?: StringNullableWithAggregatesFilter<"Circuit"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"Circuit"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Circuit"> | Date | string
+    name?: StringWithAggregatesFilter<"Circuit"> | string
+    circuitCount?: IntWithAggregatesFilter<"Circuit"> | number
+    type?: EnumCircuitTypeWithAggregatesFilter<"Circuit"> | $Enums.CircuitType
+    totalPower?: FloatWithAggregatesFilter<"Circuit"> | number
+  }
+
+  export type FurthestLoadDistanceWhereInput = {
+    AND?: FurthestLoadDistanceWhereInput | FurthestLoadDistanceWhereInput[]
+    OR?: FurthestLoadDistanceWhereInput[]
+    NOT?: FurthestLoadDistanceWhereInput | FurthestLoadDistanceWhereInput[]
+    id?: StringFilter<"FurthestLoadDistance"> | string
+    projectId?: StringFilter<"FurthestLoadDistance"> | string
+    circuitName?: StringFilter<"FurthestLoadDistance"> | string
+    distance?: FloatFilter<"FurthestLoadDistance"> | number
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }
+
+  export type FurthestLoadDistanceOrderByWithRelationInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    circuitName?: SortOrder
+    distance?: SortOrder
+    project?: ProjectOrderByWithRelationInput
+  }
+
+  export type FurthestLoadDistanceWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    projectId?: string
+    AND?: FurthestLoadDistanceWhereInput | FurthestLoadDistanceWhereInput[]
+    OR?: FurthestLoadDistanceWhereInput[]
+    NOT?: FurthestLoadDistanceWhereInput | FurthestLoadDistanceWhereInput[]
+    circuitName?: StringFilter<"FurthestLoadDistance"> | string
+    distance?: FloatFilter<"FurthestLoadDistance"> | number
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }, "id" | "projectId">
+
+  export type FurthestLoadDistanceOrderByWithAggregationInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    circuitName?: SortOrder
+    distance?: SortOrder
+    _count?: FurthestLoadDistanceCountOrderByAggregateInput
+    _avg?: FurthestLoadDistanceAvgOrderByAggregateInput
+    _max?: FurthestLoadDistanceMaxOrderByAggregateInput
+    _min?: FurthestLoadDistanceMinOrderByAggregateInput
+    _sum?: FurthestLoadDistanceSumOrderByAggregateInput
+  }
+
+  export type FurthestLoadDistanceScalarWhereWithAggregatesInput = {
+    AND?: FurthestLoadDistanceScalarWhereWithAggregatesInput | FurthestLoadDistanceScalarWhereWithAggregatesInput[]
+    OR?: FurthestLoadDistanceScalarWhereWithAggregatesInput[]
+    NOT?: FurthestLoadDistanceScalarWhereWithAggregatesInput | FurthestLoadDistanceScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FurthestLoadDistance"> | string
+    projectId?: StringWithAggregatesFilter<"FurthestLoadDistance"> | string
+    circuitName?: StringWithAggregatesFilter<"FurthestLoadDistance"> | string
+    distance?: FloatWithAggregatesFilter<"FurthestLoadDistance"> | number
+  }
+
+  export type CableDataWhereInput = {
+    AND?: CableDataWhereInput | CableDataWhereInput[]
+    OR?: CableDataWhereInput[]
+    NOT?: CableDataWhereInput | CableDataWhereInput[]
+    id?: StringFilter<"CableData"> | string
+    projectId?: StringFilter<"CableData"> | string
+    material?: EnumCableMaterialFilter<"CableData"> | $Enums.CableMaterial
+    isolation?: EnumCableIsolationFilter<"CableData"> | $Enums.CableIsolation
+    modePose?: EnumModePoseFilter<"CableData"> | $Enums.ModePose
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }
+
+  export type CableDataOrderByWithRelationInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    material?: SortOrder
+    isolation?: SortOrder
+    modePose?: SortOrder
+    project?: ProjectOrderByWithRelationInput
+  }
+
+  export type CableDataWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    projectId?: string
+    AND?: CableDataWhereInput | CableDataWhereInput[]
+    OR?: CableDataWhereInput[]
+    NOT?: CableDataWhereInput | CableDataWhereInput[]
+    material?: EnumCableMaterialFilter<"CableData"> | $Enums.CableMaterial
+    isolation?: EnumCableIsolationFilter<"CableData"> | $Enums.CableIsolation
+    modePose?: EnumModePoseFilter<"CableData"> | $Enums.ModePose
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }, "id" | "projectId">
+
+  export type CableDataOrderByWithAggregationInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    material?: SortOrder
+    isolation?: SortOrder
+    modePose?: SortOrder
+    _count?: CableDataCountOrderByAggregateInput
+    _max?: CableDataMaxOrderByAggregateInput
+    _min?: CableDataMinOrderByAggregateInput
+  }
+
+  export type CableDataScalarWhereWithAggregatesInput = {
+    AND?: CableDataScalarWhereWithAggregatesInput | CableDataScalarWhereWithAggregatesInput[]
+    OR?: CableDataScalarWhereWithAggregatesInput[]
+    NOT?: CableDataScalarWhereWithAggregatesInput | CableDataScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CableData"> | string
+    projectId?: StringWithAggregatesFilter<"CableData"> | string
+    material?: EnumCableMaterialWithAggregatesFilter<"CableData"> | $Enums.CableMaterial
+    isolation?: EnumCableIsolationWithAggregatesFilter<"CableData"> | $Enums.CableIsolation
+    modePose?: EnumModePoseWithAggregatesFilter<"CableData"> | $Enums.ModePose
   }
 
   export type ProtectionWhereInput = {
@@ -13311,14 +15413,10 @@ export namespace Prisma {
     id?: StringFilter<"Protection"> | string
     projectId?: StringFilter<"Protection"> | string
     type?: EnumProtectionTypeFilter<"Protection"> | $Enums.ProtectionType
-    ratingAmps?: IntFilter<"Protection"> | number
-    curve?: StringNullableFilter<"Protection"> | string | null
-    poles?: IntFilter<"Protection"> | number
-    description?: StringNullableFilter<"Protection"> | string | null
-    equipmentName?: StringNullableFilter<"Protection"> | string | null
-    createdAt?: DateTimeFilter<"Protection"> | Date | string
-    updatedAt?: DateTimeFilter<"Protection"> | Date | string
-    circuits?: CircuitListRelationFilter
+    ratedCurrent?: FloatFilter<"Protection"> | number
+    numberOfPoles?: IntFilter<"Protection"> | number
+    curveType?: EnumCurveTypeFilter<"Protection"> | $Enums.CurveType
+    breakingCapacity?: FloatFilter<"Protection"> | number
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }
 
@@ -13326,46 +15424,35 @@ export namespace Prisma {
     id?: SortOrder
     projectId?: SortOrder
     type?: SortOrder
-    ratingAmps?: SortOrder
-    curve?: SortOrderInput | SortOrder
-    poles?: SortOrder
-    description?: SortOrderInput | SortOrder
-    equipmentName?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    circuits?: CircuitOrderByRelationAggregateInput
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    curveType?: SortOrder
+    breakingCapacity?: SortOrder
     project?: ProjectOrderByWithRelationInput
   }
 
   export type ProtectionWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    projectId?: string
     AND?: ProtectionWhereInput | ProtectionWhereInput[]
     OR?: ProtectionWhereInput[]
     NOT?: ProtectionWhereInput | ProtectionWhereInput[]
-    projectId?: StringFilter<"Protection"> | string
     type?: EnumProtectionTypeFilter<"Protection"> | $Enums.ProtectionType
-    ratingAmps?: IntFilter<"Protection"> | number
-    curve?: StringNullableFilter<"Protection"> | string | null
-    poles?: IntFilter<"Protection"> | number
-    description?: StringNullableFilter<"Protection"> | string | null
-    equipmentName?: StringNullableFilter<"Protection"> | string | null
-    createdAt?: DateTimeFilter<"Protection"> | Date | string
-    updatedAt?: DateTimeFilter<"Protection"> | Date | string
-    circuits?: CircuitListRelationFilter
+    ratedCurrent?: FloatFilter<"Protection"> | number
+    numberOfPoles?: IntFilter<"Protection"> | number
+    curveType?: EnumCurveTypeFilter<"Protection"> | $Enums.CurveType
+    breakingCapacity?: FloatFilter<"Protection"> | number
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
-  }, "id">
+  }, "id" | "projectId">
 
   export type ProtectionOrderByWithAggregationInput = {
     id?: SortOrder
     projectId?: SortOrder
     type?: SortOrder
-    ratingAmps?: SortOrder
-    curve?: SortOrderInput | SortOrder
-    poles?: SortOrder
-    description?: SortOrderInput | SortOrder
-    equipmentName?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    curveType?: SortOrder
+    breakingCapacity?: SortOrder
     _count?: ProtectionCountOrderByAggregateInput
     _avg?: ProtectionAvgOrderByAggregateInput
     _max?: ProtectionMaxOrderByAggregateInput
@@ -13380,105 +15467,117 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Protection"> | string
     projectId?: StringWithAggregatesFilter<"Protection"> | string
     type?: EnumProtectionTypeWithAggregatesFilter<"Protection"> | $Enums.ProtectionType
-    ratingAmps?: IntWithAggregatesFilter<"Protection"> | number
-    curve?: StringNullableWithAggregatesFilter<"Protection"> | string | null
-    poles?: IntWithAggregatesFilter<"Protection"> | number
-    description?: StringNullableWithAggregatesFilter<"Protection"> | string | null
-    equipmentName?: StringNullableWithAggregatesFilter<"Protection"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"Protection"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Protection"> | Date | string
+    ratedCurrent?: FloatWithAggregatesFilter<"Protection"> | number
+    numberOfPoles?: IntWithAggregatesFilter<"Protection"> | number
+    curveType?: EnumCurveTypeWithAggregatesFilter<"Protection"> | $Enums.CurveType
+    breakingCapacity?: FloatWithAggregatesFilter<"Protection"> | number
   }
 
-  export type CalculationWhereInput = {
-    AND?: CalculationWhereInput | CalculationWhereInput[]
-    OR?: CalculationWhereInput[]
-    NOT?: CalculationWhereInput | CalculationWhereInput[]
-    id?: StringFilter<"Calculation"> | string
-    projectId?: StringFilter<"Calculation"> | string
-    name?: StringFilter<"Calculation"> | string
-    totalInstalledPowerWatts?: IntNullableFilter<"Calculation"> | number | null
-    maximumShortCircuitAmps?: FloatNullableFilter<"Calculation"> | number | null
-    totalOperatingCurrentAmps?: FloatNullableFilter<"Calculation"> | number | null
-    totalCircuitCurrentAmps?: FloatNullableFilter<"Calculation"> | number | null
-    recommendedSectionMm2?: FloatNullableFilter<"Calculation"> | number | null
-    voltageDropPercent?: FloatNullableFilter<"Calculation"> | number | null
-    notes?: StringNullableFilter<"Calculation"> | string | null
-    createdAt?: DateTimeFilter<"Calculation"> | Date | string
-    updatedAt?: DateTimeFilter<"Calculation"> | Date | string
+  export type ResultWhereInput = {
+    AND?: ResultWhereInput | ResultWhereInput[]
+    OR?: ResultWhereInput[]
+    NOT?: ResultWhereInput | ResultWhereInput[]
+    id?: StringFilter<"Result"> | string
+    projectId?: StringFilter<"Result"> | string
+    currentNominal?: FloatFilter<"Result"> | number
+    currentDesign?: FloatFilter<"Result"> | number
+    recommendedCableSection?: FloatFilter<"Result"> | number
+    correctedCableCapacity?: FloatFilter<"Result"> | number
+    recommendedBreaker?: FloatFilter<"Result"> | number
+    voltageDropVolts?: FloatFilter<"Result"> | number
+    voltageDropPercent?: FloatFilter<"Result"> | number
+    shortCircuitCurrentAtEnd?: FloatFilter<"Result"> | number
+    breakerBreakingCapacity?: FloatFilter<"Result"> | number
+    overloadCheck?: EnumCheckStatusFilter<"Result"> | $Enums.CheckStatus
+    voltageDropCheck?: EnumCheckStatusFilter<"Result"> | $Enums.CheckStatus
+    breakingCapacityCheck?: EnumCheckStatusFilter<"Result"> | $Enums.CheckStatus
+    coordinationCheck?: EnumCheckStatusFilter<"Result"> | $Enums.CheckStatus
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }
 
-  export type CalculationOrderByWithRelationInput = {
+  export type ResultOrderByWithRelationInput = {
     id?: SortOrder
     projectId?: SortOrder
-    name?: SortOrder
-    totalInstalledPowerWatts?: SortOrderInput | SortOrder
-    maximumShortCircuitAmps?: SortOrderInput | SortOrder
-    totalOperatingCurrentAmps?: SortOrderInput | SortOrder
-    totalCircuitCurrentAmps?: SortOrderInput | SortOrder
-    recommendedSectionMm2?: SortOrderInput | SortOrder
-    voltageDropPercent?: SortOrderInput | SortOrder
-    notes?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    currentNominal?: SortOrder
+    currentDesign?: SortOrder
+    recommendedCableSection?: SortOrder
+    correctedCableCapacity?: SortOrder
+    recommendedBreaker?: SortOrder
+    voltageDropVolts?: SortOrder
+    voltageDropPercent?: SortOrder
+    shortCircuitCurrentAtEnd?: SortOrder
+    breakerBreakingCapacity?: SortOrder
+    overloadCheck?: SortOrder
+    voltageDropCheck?: SortOrder
+    breakingCapacityCheck?: SortOrder
+    coordinationCheck?: SortOrder
     project?: ProjectOrderByWithRelationInput
   }
 
-  export type CalculationWhereUniqueInput = Prisma.AtLeast<{
+  export type ResultWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: CalculationWhereInput | CalculationWhereInput[]
-    OR?: CalculationWhereInput[]
-    NOT?: CalculationWhereInput | CalculationWhereInput[]
-    projectId?: StringFilter<"Calculation"> | string
-    name?: StringFilter<"Calculation"> | string
-    totalInstalledPowerWatts?: IntNullableFilter<"Calculation"> | number | null
-    maximumShortCircuitAmps?: FloatNullableFilter<"Calculation"> | number | null
-    totalOperatingCurrentAmps?: FloatNullableFilter<"Calculation"> | number | null
-    totalCircuitCurrentAmps?: FloatNullableFilter<"Calculation"> | number | null
-    recommendedSectionMm2?: FloatNullableFilter<"Calculation"> | number | null
-    voltageDropPercent?: FloatNullableFilter<"Calculation"> | number | null
-    notes?: StringNullableFilter<"Calculation"> | string | null
-    createdAt?: DateTimeFilter<"Calculation"> | Date | string
-    updatedAt?: DateTimeFilter<"Calculation"> | Date | string
+    projectId?: string
+    AND?: ResultWhereInput | ResultWhereInput[]
+    OR?: ResultWhereInput[]
+    NOT?: ResultWhereInput | ResultWhereInput[]
+    currentNominal?: FloatFilter<"Result"> | number
+    currentDesign?: FloatFilter<"Result"> | number
+    recommendedCableSection?: FloatFilter<"Result"> | number
+    correctedCableCapacity?: FloatFilter<"Result"> | number
+    recommendedBreaker?: FloatFilter<"Result"> | number
+    voltageDropVolts?: FloatFilter<"Result"> | number
+    voltageDropPercent?: FloatFilter<"Result"> | number
+    shortCircuitCurrentAtEnd?: FloatFilter<"Result"> | number
+    breakerBreakingCapacity?: FloatFilter<"Result"> | number
+    overloadCheck?: EnumCheckStatusFilter<"Result"> | $Enums.CheckStatus
+    voltageDropCheck?: EnumCheckStatusFilter<"Result"> | $Enums.CheckStatus
+    breakingCapacityCheck?: EnumCheckStatusFilter<"Result"> | $Enums.CheckStatus
+    coordinationCheck?: EnumCheckStatusFilter<"Result"> | $Enums.CheckStatus
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
-  }, "id">
+  }, "id" | "projectId">
 
-  export type CalculationOrderByWithAggregationInput = {
+  export type ResultOrderByWithAggregationInput = {
     id?: SortOrder
     projectId?: SortOrder
-    name?: SortOrder
-    totalInstalledPowerWatts?: SortOrderInput | SortOrder
-    maximumShortCircuitAmps?: SortOrderInput | SortOrder
-    totalOperatingCurrentAmps?: SortOrderInput | SortOrder
-    totalCircuitCurrentAmps?: SortOrderInput | SortOrder
-    recommendedSectionMm2?: SortOrderInput | SortOrder
-    voltageDropPercent?: SortOrderInput | SortOrder
-    notes?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    _count?: CalculationCountOrderByAggregateInput
-    _avg?: CalculationAvgOrderByAggregateInput
-    _max?: CalculationMaxOrderByAggregateInput
-    _min?: CalculationMinOrderByAggregateInput
-    _sum?: CalculationSumOrderByAggregateInput
+    currentNominal?: SortOrder
+    currentDesign?: SortOrder
+    recommendedCableSection?: SortOrder
+    correctedCableCapacity?: SortOrder
+    recommendedBreaker?: SortOrder
+    voltageDropVolts?: SortOrder
+    voltageDropPercent?: SortOrder
+    shortCircuitCurrentAtEnd?: SortOrder
+    breakerBreakingCapacity?: SortOrder
+    overloadCheck?: SortOrder
+    voltageDropCheck?: SortOrder
+    breakingCapacityCheck?: SortOrder
+    coordinationCheck?: SortOrder
+    _count?: ResultCountOrderByAggregateInput
+    _avg?: ResultAvgOrderByAggregateInput
+    _max?: ResultMaxOrderByAggregateInput
+    _min?: ResultMinOrderByAggregateInput
+    _sum?: ResultSumOrderByAggregateInput
   }
 
-  export type CalculationScalarWhereWithAggregatesInput = {
-    AND?: CalculationScalarWhereWithAggregatesInput | CalculationScalarWhereWithAggregatesInput[]
-    OR?: CalculationScalarWhereWithAggregatesInput[]
-    NOT?: CalculationScalarWhereWithAggregatesInput | CalculationScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Calculation"> | string
-    projectId?: StringWithAggregatesFilter<"Calculation"> | string
-    name?: StringWithAggregatesFilter<"Calculation"> | string
-    totalInstalledPowerWatts?: IntNullableWithAggregatesFilter<"Calculation"> | number | null
-    maximumShortCircuitAmps?: FloatNullableWithAggregatesFilter<"Calculation"> | number | null
-    totalOperatingCurrentAmps?: FloatNullableWithAggregatesFilter<"Calculation"> | number | null
-    totalCircuitCurrentAmps?: FloatNullableWithAggregatesFilter<"Calculation"> | number | null
-    recommendedSectionMm2?: FloatNullableWithAggregatesFilter<"Calculation"> | number | null
-    voltageDropPercent?: FloatNullableWithAggregatesFilter<"Calculation"> | number | null
-    notes?: StringNullableWithAggregatesFilter<"Calculation"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"Calculation"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Calculation"> | Date | string
+  export type ResultScalarWhereWithAggregatesInput = {
+    AND?: ResultScalarWhereWithAggregatesInput | ResultScalarWhereWithAggregatesInput[]
+    OR?: ResultScalarWhereWithAggregatesInput[]
+    NOT?: ResultScalarWhereWithAggregatesInput | ResultScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Result"> | string
+    projectId?: StringWithAggregatesFilter<"Result"> | string
+    currentNominal?: FloatWithAggregatesFilter<"Result"> | number
+    currentDesign?: FloatWithAggregatesFilter<"Result"> | number
+    recommendedCableSection?: FloatWithAggregatesFilter<"Result"> | number
+    correctedCableCapacity?: FloatWithAggregatesFilter<"Result"> | number
+    recommendedBreaker?: FloatWithAggregatesFilter<"Result"> | number
+    voltageDropVolts?: FloatWithAggregatesFilter<"Result"> | number
+    voltageDropPercent?: FloatWithAggregatesFilter<"Result"> | number
+    shortCircuitCurrentAtEnd?: FloatWithAggregatesFilter<"Result"> | number
+    breakerBreakingCapacity?: FloatWithAggregatesFilter<"Result"> | number
+    overloadCheck?: EnumCheckStatusWithAggregatesFilter<"Result"> | $Enums.CheckStatus
+    voltageDropCheck?: EnumCheckStatusWithAggregatesFilter<"Result"> | $Enums.CheckStatus
+    breakingCapacityCheck?: EnumCheckStatusWithAggregatesFilter<"Result"> | $Enums.CheckStatus
+    coordinationCheck?: EnumCheckStatusWithAggregatesFilter<"Result"> | $Enums.CheckStatus
   }
 
   export type UserCreateInput = {
@@ -13486,14 +15585,14 @@ export namespace Prisma {
     name?: string | null
     email: string
     emailVerified?: Date | string | null
-    photo?: string | null
+    avatarUrl?: string | null
     password?: string | null
     isTwoFactorEnabled?: boolean
     twofactorSecret?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
-    projects?: ProjectCreateNestedManyWithoutOwnerInput
+    projects?: ProjectCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
@@ -13502,14 +15601,14 @@ export namespace Prisma {
     name?: string | null
     email: string
     emailVerified?: Date | string | null
-    photo?: string | null
+    avatarUrl?: string | null
     password?: string | null
     isTwoFactorEnabled?: boolean
     twofactorSecret?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -13518,14 +15617,14 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     twofactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    projects?: ProjectUpdateManyWithoutOwnerNestedInput
+    projects?: ProjectUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
@@ -13534,14 +15633,14 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     twofactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -13550,7 +15649,7 @@ export namespace Prisma {
     name?: string | null
     email: string
     emailVerified?: Date | string | null
-    photo?: string | null
+    avatarUrl?: string | null
     password?: string | null
     isTwoFactorEnabled?: boolean
     twofactorSecret?: string | null
@@ -13563,7 +15662,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     twofactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13576,7 +15675,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     twofactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13780,562 +15879,523 @@ export namespace Prisma {
 
   export type ProjectCreateInput = {
     id?: string
-    name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    building?: BuildingCreateNestedOneWithoutProjectInput
-    calculations?: CalculationCreateNestedManyWithoutProjectInput
+    name: string
+    client?: string | null
+    location?: string | null
+    user: UserCreateNestedOneWithoutProjectsInput
+    powerSupply?: PowerSupplyCreateNestedOneWithoutProjectInput
     circuits?: CircuitCreateNestedManyWithoutProjectInput
-    owner: UserCreateNestedOneWithoutProjectsInput
-    protections?: ProtectionCreateNestedManyWithoutProjectInput
+    cableData?: CableDataCreateNestedOneWithoutProjectInput
+    protection?: ProtectionCreateNestedOneWithoutProjectInput
+    result?: ResultCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateInput = {
     id?: string
-    name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
+    userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    ownerId: string
-    building?: BuildingUncheckedCreateNestedOneWithoutProjectInput
-    calculations?: CalculationUncheckedCreateNestedManyWithoutProjectInput
+    name: string
+    client?: string | null
+    location?: string | null
+    powerSupply?: PowerSupplyUncheckedCreateNestedOneWithoutProjectInput
     circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
-    protections?: ProtectionUncheckedCreateNestedManyWithoutProjectInput
+    cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
+    protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    result?: ResultUncheckedCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
   }
 
   export type ProjectUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    building?: BuildingUpdateOneWithoutProjectNestedInput
-    calculations?: CalculationUpdateManyWithoutProjectNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    powerSupply?: PowerSupplyUpdateOneWithoutProjectNestedInput
     circuits?: CircuitUpdateManyWithoutProjectNestedInput
-    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
-    protections?: ProtectionUpdateManyWithoutProjectNestedInput
+    cableData?: CableDataUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    result?: ResultUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ownerId?: StringFieldUpdateOperationsInput | string
-    building?: BuildingUncheckedUpdateOneWithoutProjectNestedInput
-    calculations?: CalculationUncheckedUpdateManyWithoutProjectNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    powerSupply?: PowerSupplyUncheckedUpdateOneWithoutProjectNestedInput
     circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
-    protections?: ProtectionUncheckedUpdateManyWithoutProjectNestedInput
+    cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
   }
 
   export type ProjectCreateManyInput = {
     id?: string
-    name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
+    userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    ownerId: string
+    name: string
+    client?: string | null
+    location?: string | null
   }
 
   export type ProjectUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ProjectUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ownerId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type BuildingCreateInput = {
+  export type PowerSupplyCreateInput = {
     id?: string
-    surfaceArea: number
-    numberOfRooms: number
-    supplyVoltage: string
-    phases?: number
-    buildingType?: $Enums.BuildingType
-    usage?: string | null
-    comment?: string | null
-    project: ProjectCreateNestedOneWithoutBuildingInput
+    type: $Enums.AlimentationType
+    nominalVoltage: number
+    frequency: number
+    regimeNeutre: $Enums.RegimeNeutre
+    distanceSourceToTGBT: number
+    project: ProjectCreateNestedOneWithoutPowerSupplyInput
   }
 
-  export type BuildingUncheckedCreateInput = {
-    id?: string
-    projectId: string
-    surfaceArea: number
-    numberOfRooms: number
-    supplyVoltage: string
-    phases?: number
-    buildingType?: $Enums.BuildingType
-    usage?: string | null
-    comment?: string | null
-  }
-
-  export type BuildingUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    surfaceArea?: FloatFieldUpdateOperationsInput | number
-    numberOfRooms?: IntFieldUpdateOperationsInput | number
-    supplyVoltage?: StringFieldUpdateOperationsInput | string
-    phases?: IntFieldUpdateOperationsInput | number
-    buildingType?: EnumBuildingTypeFieldUpdateOperationsInput | $Enums.BuildingType
-    usage?: NullableStringFieldUpdateOperationsInput | string | null
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    project?: ProjectUpdateOneRequiredWithoutBuildingNestedInput
-  }
-
-  export type BuildingUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    projectId?: StringFieldUpdateOperationsInput | string
-    surfaceArea?: FloatFieldUpdateOperationsInput | number
-    numberOfRooms?: IntFieldUpdateOperationsInput | number
-    supplyVoltage?: StringFieldUpdateOperationsInput | string
-    phases?: IntFieldUpdateOperationsInput | number
-    buildingType?: EnumBuildingTypeFieldUpdateOperationsInput | $Enums.BuildingType
-    usage?: NullableStringFieldUpdateOperationsInput | string | null
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type BuildingCreateManyInput = {
+  export type PowerSupplyUncheckedCreateInput = {
     id?: string
     projectId: string
-    surfaceArea: number
-    numberOfRooms: number
-    supplyVoltage: string
-    phases?: number
-    buildingType?: $Enums.BuildingType
-    usage?: string | null
-    comment?: string | null
+    type: $Enums.AlimentationType
+    nominalVoltage: number
+    frequency: number
+    regimeNeutre: $Enums.RegimeNeutre
+    distanceSourceToTGBT: number
   }
 
-  export type BuildingUpdateManyMutationInput = {
+  export type PowerSupplyUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    surfaceArea?: FloatFieldUpdateOperationsInput | number
-    numberOfRooms?: IntFieldUpdateOperationsInput | number
-    supplyVoltage?: StringFieldUpdateOperationsInput | string
-    phases?: IntFieldUpdateOperationsInput | number
-    buildingType?: EnumBuildingTypeFieldUpdateOperationsInput | $Enums.BuildingType
-    usage?: NullableStringFieldUpdateOperationsInput | string | null
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: EnumAlimentationTypeFieldUpdateOperationsInput | $Enums.AlimentationType
+    nominalVoltage?: FloatFieldUpdateOperationsInput | number
+    frequency?: FloatFieldUpdateOperationsInput | number
+    regimeNeutre?: EnumRegimeNeutreFieldUpdateOperationsInput | $Enums.RegimeNeutre
+    distanceSourceToTGBT?: FloatFieldUpdateOperationsInput | number
+    project?: ProjectUpdateOneRequiredWithoutPowerSupplyNestedInput
   }
 
-  export type BuildingUncheckedUpdateManyInput = {
+  export type PowerSupplyUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
-    surfaceArea?: FloatFieldUpdateOperationsInput | number
-    numberOfRooms?: IntFieldUpdateOperationsInput | number
-    supplyVoltage?: StringFieldUpdateOperationsInput | string
-    phases?: IntFieldUpdateOperationsInput | number
-    buildingType?: EnumBuildingTypeFieldUpdateOperationsInput | $Enums.BuildingType
-    usage?: NullableStringFieldUpdateOperationsInput | string | null
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: EnumAlimentationTypeFieldUpdateOperationsInput | $Enums.AlimentationType
+    nominalVoltage?: FloatFieldUpdateOperationsInput | number
+    frequency?: FloatFieldUpdateOperationsInput | number
+    regimeNeutre?: EnumRegimeNeutreFieldUpdateOperationsInput | $Enums.RegimeNeutre
+    distanceSourceToTGBT?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type PowerSupplyCreateManyInput = {
+    id?: string
+    projectId: string
+    type: $Enums.AlimentationType
+    nominalVoltage: number
+    frequency: number
+    regimeNeutre: $Enums.RegimeNeutre
+    distanceSourceToTGBT: number
+  }
+
+  export type PowerSupplyUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumAlimentationTypeFieldUpdateOperationsInput | $Enums.AlimentationType
+    nominalVoltage?: FloatFieldUpdateOperationsInput | number
+    frequency?: FloatFieldUpdateOperationsInput | number
+    regimeNeutre?: EnumRegimeNeutreFieldUpdateOperationsInput | $Enums.RegimeNeutre
+    distanceSourceToTGBT?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type PowerSupplyUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    type?: EnumAlimentationTypeFieldUpdateOperationsInput | $Enums.AlimentationType
+    nominalVoltage?: FloatFieldUpdateOperationsInput | number
+    frequency?: FloatFieldUpdateOperationsInput | number
+    regimeNeutre?: EnumRegimeNeutreFieldUpdateOperationsInput | $Enums.RegimeNeutre
+    distanceSourceToTGBT?: FloatFieldUpdateOperationsInput | number
   }
 
   export type CircuitCreateInput = {
     id?: string
-    label: string
-    type: $Enums.CircuitCategory
-    room?: string | null
-    quantity?: number
-    loadWatts?: number | null
-    loadAmps?: number | null
-    shortCircuitCurrentAmps?: number | null
-    operatingCurrentAmps?: number | null
-    circuitTotalCurrentAmps?: number | null
-    cableLengthMeters?: number | null
-    conductorSectionMm2?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    numberOfPoles?: number
-    isDedicated?: boolean
-    comment?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    name: string
+    circuitCount?: number
+    type: $Enums.CircuitType
+    totalPower: number
     project: ProjectCreateNestedOneWithoutCircuitsInput
-    protection?: ProtectionCreateNestedOneWithoutCircuitsInput
   }
 
   export type CircuitUncheckedCreateInput = {
     id?: string
     projectId: string
-    protectionId?: string | null
-    label: string
-    type: $Enums.CircuitCategory
-    room?: string | null
-    quantity?: number
-    loadWatts?: number | null
-    loadAmps?: number | null
-    shortCircuitCurrentAmps?: number | null
-    operatingCurrentAmps?: number | null
-    circuitTotalCurrentAmps?: number | null
-    cableLengthMeters?: number | null
-    conductorSectionMm2?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    numberOfPoles?: number
-    isDedicated?: boolean
-    comment?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    name: string
+    circuitCount?: number
+    type: $Enums.CircuitType
+    totalPower: number
   }
 
   export type CircuitUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
-    type?: EnumCircuitCategoryFieldUpdateOperationsInput | $Enums.CircuitCategory
-    room?: NullableStringFieldUpdateOperationsInput | string | null
-    quantity?: IntFieldUpdateOperationsInput | number
-    loadWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    loadAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    shortCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    operatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    circuitTotalCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    cableLengthMeters?: NullableFloatFieldUpdateOperationsInput | number | null
-    conductorSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    numberOfPoles?: IntFieldUpdateOperationsInput | number
-    isDedicated?: BoolFieldUpdateOperationsInput | boolean
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    circuitCount?: IntFieldUpdateOperationsInput | number
+    type?: EnumCircuitTypeFieldUpdateOperationsInput | $Enums.CircuitType
+    totalPower?: FloatFieldUpdateOperationsInput | number
     project?: ProjectUpdateOneRequiredWithoutCircuitsNestedInput
-    protection?: ProtectionUpdateOneWithoutCircuitsNestedInput
   }
 
   export type CircuitUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
-    protectionId?: NullableStringFieldUpdateOperationsInput | string | null
-    label?: StringFieldUpdateOperationsInput | string
-    type?: EnumCircuitCategoryFieldUpdateOperationsInput | $Enums.CircuitCategory
-    room?: NullableStringFieldUpdateOperationsInput | string | null
-    quantity?: IntFieldUpdateOperationsInput | number
-    loadWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    loadAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    shortCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    operatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    circuitTotalCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    cableLengthMeters?: NullableFloatFieldUpdateOperationsInput | number | null
-    conductorSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    numberOfPoles?: IntFieldUpdateOperationsInput | number
-    isDedicated?: BoolFieldUpdateOperationsInput | boolean
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    circuitCount?: IntFieldUpdateOperationsInput | number
+    type?: EnumCircuitTypeFieldUpdateOperationsInput | $Enums.CircuitType
+    totalPower?: FloatFieldUpdateOperationsInput | number
   }
 
   export type CircuitCreateManyInput = {
     id?: string
     projectId: string
-    protectionId?: string | null
-    label: string
-    type: $Enums.CircuitCategory
-    room?: string | null
-    quantity?: number
-    loadWatts?: number | null
-    loadAmps?: number | null
-    shortCircuitCurrentAmps?: number | null
-    operatingCurrentAmps?: number | null
-    circuitTotalCurrentAmps?: number | null
-    cableLengthMeters?: number | null
-    conductorSectionMm2?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    numberOfPoles?: number
-    isDedicated?: boolean
-    comment?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    name: string
+    circuitCount?: number
+    type: $Enums.CircuitType
+    totalPower: number
   }
 
   export type CircuitUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
-    type?: EnumCircuitCategoryFieldUpdateOperationsInput | $Enums.CircuitCategory
-    room?: NullableStringFieldUpdateOperationsInput | string | null
-    quantity?: IntFieldUpdateOperationsInput | number
-    loadWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    loadAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    shortCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    operatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    circuitTotalCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    cableLengthMeters?: NullableFloatFieldUpdateOperationsInput | number | null
-    conductorSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    numberOfPoles?: IntFieldUpdateOperationsInput | number
-    isDedicated?: BoolFieldUpdateOperationsInput | boolean
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    circuitCount?: IntFieldUpdateOperationsInput | number
+    type?: EnumCircuitTypeFieldUpdateOperationsInput | $Enums.CircuitType
+    totalPower?: FloatFieldUpdateOperationsInput | number
   }
 
   export type CircuitUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
-    protectionId?: NullableStringFieldUpdateOperationsInput | string | null
-    label?: StringFieldUpdateOperationsInput | string
-    type?: EnumCircuitCategoryFieldUpdateOperationsInput | $Enums.CircuitCategory
-    room?: NullableStringFieldUpdateOperationsInput | string | null
-    quantity?: IntFieldUpdateOperationsInput | number
-    loadWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    loadAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    shortCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    operatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    circuitTotalCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    cableLengthMeters?: NullableFloatFieldUpdateOperationsInput | number | null
-    conductorSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    numberOfPoles?: IntFieldUpdateOperationsInput | number
-    isDedicated?: BoolFieldUpdateOperationsInput | boolean
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    circuitCount?: IntFieldUpdateOperationsInput | number
+    type?: EnumCircuitTypeFieldUpdateOperationsInput | $Enums.CircuitType
+    totalPower?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type FurthestLoadDistanceCreateInput = {
+    id?: string
+    circuitName: string
+    distance: number
+    project: ProjectCreateNestedOneWithoutFurthestLoadDistanceInput
+  }
+
+  export type FurthestLoadDistanceUncheckedCreateInput = {
+    id?: string
+    projectId: string
+    circuitName: string
+    distance: number
+  }
+
+  export type FurthestLoadDistanceUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    circuitName?: StringFieldUpdateOperationsInput | string
+    distance?: FloatFieldUpdateOperationsInput | number
+    project?: ProjectUpdateOneRequiredWithoutFurthestLoadDistanceNestedInput
+  }
+
+  export type FurthestLoadDistanceUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    circuitName?: StringFieldUpdateOperationsInput | string
+    distance?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type FurthestLoadDistanceCreateManyInput = {
+    id?: string
+    projectId: string
+    circuitName: string
+    distance: number
+  }
+
+  export type FurthestLoadDistanceUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    circuitName?: StringFieldUpdateOperationsInput | string
+    distance?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type FurthestLoadDistanceUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    circuitName?: StringFieldUpdateOperationsInput | string
+    distance?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type CableDataCreateInput = {
+    id?: string
+    material: $Enums.CableMaterial
+    isolation: $Enums.CableIsolation
+    modePose: $Enums.ModePose
+    project: ProjectCreateNestedOneWithoutCableDataInput
+  }
+
+  export type CableDataUncheckedCreateInput = {
+    id?: string
+    projectId: string
+    material: $Enums.CableMaterial
+    isolation: $Enums.CableIsolation
+    modePose: $Enums.ModePose
+  }
+
+  export type CableDataUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    material?: EnumCableMaterialFieldUpdateOperationsInput | $Enums.CableMaterial
+    isolation?: EnumCableIsolationFieldUpdateOperationsInput | $Enums.CableIsolation
+    modePose?: EnumModePoseFieldUpdateOperationsInput | $Enums.ModePose
+    project?: ProjectUpdateOneRequiredWithoutCableDataNestedInput
+  }
+
+  export type CableDataUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    material?: EnumCableMaterialFieldUpdateOperationsInput | $Enums.CableMaterial
+    isolation?: EnumCableIsolationFieldUpdateOperationsInput | $Enums.CableIsolation
+    modePose?: EnumModePoseFieldUpdateOperationsInput | $Enums.ModePose
+  }
+
+  export type CableDataCreateManyInput = {
+    id?: string
+    projectId: string
+    material: $Enums.CableMaterial
+    isolation: $Enums.CableIsolation
+    modePose: $Enums.ModePose
+  }
+
+  export type CableDataUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    material?: EnumCableMaterialFieldUpdateOperationsInput | $Enums.CableMaterial
+    isolation?: EnumCableIsolationFieldUpdateOperationsInput | $Enums.CableIsolation
+    modePose?: EnumModePoseFieldUpdateOperationsInput | $Enums.ModePose
+  }
+
+  export type CableDataUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    material?: EnumCableMaterialFieldUpdateOperationsInput | $Enums.CableMaterial
+    isolation?: EnumCableIsolationFieldUpdateOperationsInput | $Enums.CableIsolation
+    modePose?: EnumModePoseFieldUpdateOperationsInput | $Enums.ModePose
   }
 
   export type ProtectionCreateInput = {
     id?: string
-    type?: $Enums.ProtectionType
-    ratingAmps: number
-    curve?: string | null
-    poles?: number
-    description?: string | null
-    equipmentName?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    circuits?: CircuitCreateNestedManyWithoutProtectionInput
-    project: ProjectCreateNestedOneWithoutProtectionsInput
+    type: $Enums.ProtectionType
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: $Enums.CurveType
+    breakingCapacity: number
+    project: ProjectCreateNestedOneWithoutProtectionInput
   }
 
   export type ProtectionUncheckedCreateInput = {
     id?: string
     projectId: string
-    type?: $Enums.ProtectionType
-    ratingAmps: number
-    curve?: string | null
-    poles?: number
-    description?: string | null
-    equipmentName?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    circuits?: CircuitUncheckedCreateNestedManyWithoutProtectionInput
+    type: $Enums.ProtectionType
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: $Enums.CurveType
+    breakingCapacity: number
   }
 
   export type ProtectionUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
-    ratingAmps?: IntFieldUpdateOperationsInput | number
-    curve?: NullableStringFieldUpdateOperationsInput | string | null
-    poles?: IntFieldUpdateOperationsInput | number
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    equipmentName?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    circuits?: CircuitUpdateManyWithoutProtectionNestedInput
-    project?: ProjectUpdateOneRequiredWithoutProtectionsNestedInput
+    ratedCurrent?: FloatFieldUpdateOperationsInput | number
+    numberOfPoles?: IntFieldUpdateOperationsInput | number
+    curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
+    breakingCapacity?: FloatFieldUpdateOperationsInput | number
+    project?: ProjectUpdateOneRequiredWithoutProtectionNestedInput
   }
 
   export type ProtectionUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
-    ratingAmps?: IntFieldUpdateOperationsInput | number
-    curve?: NullableStringFieldUpdateOperationsInput | string | null
-    poles?: IntFieldUpdateOperationsInput | number
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    equipmentName?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    circuits?: CircuitUncheckedUpdateManyWithoutProtectionNestedInput
+    ratedCurrent?: FloatFieldUpdateOperationsInput | number
+    numberOfPoles?: IntFieldUpdateOperationsInput | number
+    curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
+    breakingCapacity?: FloatFieldUpdateOperationsInput | number
   }
 
   export type ProtectionCreateManyInput = {
     id?: string
     projectId: string
-    type?: $Enums.ProtectionType
-    ratingAmps: number
-    curve?: string | null
-    poles?: number
-    description?: string | null
-    equipmentName?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    type: $Enums.ProtectionType
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: $Enums.CurveType
+    breakingCapacity: number
   }
 
   export type ProtectionUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
-    ratingAmps?: IntFieldUpdateOperationsInput | number
-    curve?: NullableStringFieldUpdateOperationsInput | string | null
-    poles?: IntFieldUpdateOperationsInput | number
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    equipmentName?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ratedCurrent?: FloatFieldUpdateOperationsInput | number
+    numberOfPoles?: IntFieldUpdateOperationsInput | number
+    curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
+    breakingCapacity?: FloatFieldUpdateOperationsInput | number
   }
 
   export type ProtectionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
-    ratingAmps?: IntFieldUpdateOperationsInput | number
-    curve?: NullableStringFieldUpdateOperationsInput | string | null
-    poles?: IntFieldUpdateOperationsInput | number
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    equipmentName?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ratedCurrent?: FloatFieldUpdateOperationsInput | number
+    numberOfPoles?: IntFieldUpdateOperationsInput | number
+    curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
+    breakingCapacity?: FloatFieldUpdateOperationsInput | number
   }
 
-  export type CalculationCreateInput = {
+  export type ResultCreateInput = {
     id?: string
-    name: string
-    totalInstalledPowerWatts?: number | null
-    maximumShortCircuitAmps?: number | null
-    totalOperatingCurrentAmps?: number | null
-    totalCircuitCurrentAmps?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    notes?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    project: ProjectCreateNestedOneWithoutCalculationsInput
+    currentNominal: number
+    currentDesign: number
+    recommendedCableSection: number
+    correctedCableCapacity: number
+    recommendedBreaker: number
+    voltageDropVolts: number
+    voltageDropPercent: number
+    shortCircuitCurrentAtEnd: number
+    breakerBreakingCapacity: number
+    overloadCheck: $Enums.CheckStatus
+    voltageDropCheck: $Enums.CheckStatus
+    breakingCapacityCheck: $Enums.CheckStatus
+    coordinationCheck: $Enums.CheckStatus
+    project: ProjectCreateNestedOneWithoutResultInput
   }
 
-  export type CalculationUncheckedCreateInput = {
-    id?: string
-    projectId: string
-    name: string
-    totalInstalledPowerWatts?: number | null
-    maximumShortCircuitAmps?: number | null
-    totalOperatingCurrentAmps?: number | null
-    totalCircuitCurrentAmps?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    notes?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CalculationUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    totalInstalledPowerWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    maximumShortCircuitAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalOperatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    project?: ProjectUpdateOneRequiredWithoutCalculationsNestedInput
-  }
-
-  export type CalculationUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    projectId?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    totalInstalledPowerWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    maximumShortCircuitAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalOperatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CalculationCreateManyInput = {
+  export type ResultUncheckedCreateInput = {
     id?: string
     projectId: string
-    name: string
-    totalInstalledPowerWatts?: number | null
-    maximumShortCircuitAmps?: number | null
-    totalOperatingCurrentAmps?: number | null
-    totalCircuitCurrentAmps?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    notes?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    currentNominal: number
+    currentDesign: number
+    recommendedCableSection: number
+    correctedCableCapacity: number
+    recommendedBreaker: number
+    voltageDropVolts: number
+    voltageDropPercent: number
+    shortCircuitCurrentAtEnd: number
+    breakerBreakingCapacity: number
+    overloadCheck: $Enums.CheckStatus
+    voltageDropCheck: $Enums.CheckStatus
+    breakingCapacityCheck: $Enums.CheckStatus
+    coordinationCheck: $Enums.CheckStatus
   }
 
-  export type CalculationUpdateManyMutationInput = {
+  export type ResultUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    totalInstalledPowerWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    maximumShortCircuitAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalOperatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    currentNominal?: FloatFieldUpdateOperationsInput | number
+    currentDesign?: FloatFieldUpdateOperationsInput | number
+    recommendedCableSection?: FloatFieldUpdateOperationsInput | number
+    correctedCableCapacity?: FloatFieldUpdateOperationsInput | number
+    recommendedBreaker?: FloatFieldUpdateOperationsInput | number
+    voltageDropVolts?: FloatFieldUpdateOperationsInput | number
+    voltageDropPercent?: FloatFieldUpdateOperationsInput | number
+    shortCircuitCurrentAtEnd?: FloatFieldUpdateOperationsInput | number
+    breakerBreakingCapacity?: FloatFieldUpdateOperationsInput | number
+    overloadCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    voltageDropCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    breakingCapacityCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    coordinationCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    project?: ProjectUpdateOneRequiredWithoutResultNestedInput
   }
 
-  export type CalculationUncheckedUpdateManyInput = {
+  export type ResultUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    totalInstalledPowerWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    maximumShortCircuitAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalOperatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    currentNominal?: FloatFieldUpdateOperationsInput | number
+    currentDesign?: FloatFieldUpdateOperationsInput | number
+    recommendedCableSection?: FloatFieldUpdateOperationsInput | number
+    correctedCableCapacity?: FloatFieldUpdateOperationsInput | number
+    recommendedBreaker?: FloatFieldUpdateOperationsInput | number
+    voltageDropVolts?: FloatFieldUpdateOperationsInput | number
+    voltageDropPercent?: FloatFieldUpdateOperationsInput | number
+    shortCircuitCurrentAtEnd?: FloatFieldUpdateOperationsInput | number
+    breakerBreakingCapacity?: FloatFieldUpdateOperationsInput | number
+    overloadCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    voltageDropCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    breakingCapacityCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    coordinationCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+  }
+
+  export type ResultCreateManyInput = {
+    id?: string
+    projectId: string
+    currentNominal: number
+    currentDesign: number
+    recommendedCableSection: number
+    correctedCableCapacity: number
+    recommendedBreaker: number
+    voltageDropVolts: number
+    voltageDropPercent: number
+    shortCircuitCurrentAtEnd: number
+    breakerBreakingCapacity: number
+    overloadCheck: $Enums.CheckStatus
+    voltageDropCheck: $Enums.CheckStatus
+    breakingCapacityCheck: $Enums.CheckStatus
+    coordinationCheck: $Enums.CheckStatus
+  }
+
+  export type ResultUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    currentNominal?: FloatFieldUpdateOperationsInput | number
+    currentDesign?: FloatFieldUpdateOperationsInput | number
+    recommendedCableSection?: FloatFieldUpdateOperationsInput | number
+    correctedCableCapacity?: FloatFieldUpdateOperationsInput | number
+    recommendedBreaker?: FloatFieldUpdateOperationsInput | number
+    voltageDropVolts?: FloatFieldUpdateOperationsInput | number
+    voltageDropPercent?: FloatFieldUpdateOperationsInput | number
+    shortCircuitCurrentAtEnd?: FloatFieldUpdateOperationsInput | number
+    breakerBreakingCapacity?: FloatFieldUpdateOperationsInput | number
+    overloadCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    voltageDropCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    breakingCapacityCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    coordinationCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+  }
+
+  export type ResultUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    currentNominal?: FloatFieldUpdateOperationsInput | number
+    currentDesign?: FloatFieldUpdateOperationsInput | number
+    recommendedCableSection?: FloatFieldUpdateOperationsInput | number
+    correctedCableCapacity?: FloatFieldUpdateOperationsInput | number
+    recommendedBreaker?: FloatFieldUpdateOperationsInput | number
+    voltageDropVolts?: FloatFieldUpdateOperationsInput | number
+    voltageDropPercent?: FloatFieldUpdateOperationsInput | number
+    shortCircuitCurrentAtEnd?: FloatFieldUpdateOperationsInput | number
+    breakerBreakingCapacity?: FloatFieldUpdateOperationsInput | number
+    overloadCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    voltageDropCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    breakingCapacityCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    coordinationCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -14435,7 +16495,7 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
-    photo?: SortOrder
+    avatarUrl?: SortOrder
     password?: SortOrder
     isTwoFactorEnabled?: SortOrder
     twofactorSecret?: SortOrder
@@ -14448,7 +16508,7 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
-    photo?: SortOrder
+    avatarUrl?: SortOrder
     password?: SortOrder
     isTwoFactorEnabled?: SortOrder
     twofactorSecret?: SortOrder
@@ -14461,7 +16521,7 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
-    photo?: SortOrder
+    avatarUrl?: SortOrder
     password?: SortOrder
     isTwoFactorEnabled?: SortOrder
     twofactorSecret?: SortOrder
@@ -14675,22 +16735,9 @@ export namespace Prisma {
     expires?: SortOrder
   }
 
-  export type EnumProjectStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.ProjectStatus | EnumProjectStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.ProjectStatus[] | ListEnumProjectStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ProjectStatus[] | ListEnumProjectStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumProjectStatusFilter<$PrismaModel> | $Enums.ProjectStatus
-  }
-
-  export type BuildingNullableScalarRelationFilter = {
-    is?: BuildingWhereInput | null
-    isNot?: BuildingWhereInput | null
-  }
-
-  export type CalculationListRelationFilter = {
-    every?: CalculationWhereInput
-    some?: CalculationWhereInput
-    none?: CalculationWhereInput
+  export type PowerSupplyNullableScalarRelationFilter = {
+    is?: PowerSupplyWhereInput | null
+    isNot?: PowerSupplyWhereInput | null
   }
 
   export type CircuitListRelationFilter = {
@@ -14699,74 +16746,65 @@ export namespace Prisma {
     none?: CircuitWhereInput
   }
 
-  export type ProtectionListRelationFilter = {
-    every?: ProtectionWhereInput
-    some?: ProtectionWhereInput
-    none?: ProtectionWhereInput
+  export type CableDataNullableScalarRelationFilter = {
+    is?: CableDataWhereInput | null
+    isNot?: CableDataWhereInput | null
   }
 
-  export type CalculationOrderByRelationAggregateInput = {
-    _count?: SortOrder
+  export type ProtectionNullableScalarRelationFilter = {
+    is?: ProtectionWhereInput | null
+    isNot?: ProtectionWhereInput | null
+  }
+
+  export type ResultNullableScalarRelationFilter = {
+    is?: ResultWhereInput | null
+    isNot?: ResultWhereInput | null
+  }
+
+  export type FurthestLoadDistanceNullableScalarRelationFilter = {
+    is?: FurthestLoadDistanceWhereInput | null
+    isNot?: FurthestLoadDistanceWhereInput | null
   }
 
   export type CircuitOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type ProtectionOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
   export type ProjectCountOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-    reference?: SortOrder
-    customerName?: SortOrder
-    siteAddress?: SortOrder
-    status?: SortOrder
-    objective?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    ownerId?: SortOrder
+    name?: SortOrder
+    client?: SortOrder
+    location?: SortOrder
   }
 
   export type ProjectMaxOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-    reference?: SortOrder
-    customerName?: SortOrder
-    siteAddress?: SortOrder
-    status?: SortOrder
-    objective?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    ownerId?: SortOrder
+    name?: SortOrder
+    client?: SortOrder
+    location?: SortOrder
   }
 
   export type ProjectMinOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-    reference?: SortOrder
-    customerName?: SortOrder
-    siteAddress?: SortOrder
-    status?: SortOrder
-    objective?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    ownerId?: SortOrder
+    name?: SortOrder
+    client?: SortOrder
+    location?: SortOrder
   }
 
-  export type EnumProjectStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.ProjectStatus | EnumProjectStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.ProjectStatus[] | ListEnumProjectStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ProjectStatus[] | ListEnumProjectStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumProjectStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProjectStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumProjectStatusFilter<$PrismaModel>
-    _max?: NestedEnumProjectStatusFilter<$PrismaModel>
+  export type EnumAlimentationTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.AlimentationType | EnumAlimentationTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AlimentationType[] | ListEnumAlimentationTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AlimentationType[] | ListEnumAlimentationTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumAlimentationTypeFilter<$PrismaModel> | $Enums.AlimentationType
   }
 
   export type FloatFilter<$PrismaModel = never> = {
@@ -14780,22 +16818,11 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type EnumBuildingTypeFilter<$PrismaModel = never> = {
-    equals?: $Enums.BuildingType | EnumBuildingTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.BuildingType[] | ListEnumBuildingTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BuildingType[] | ListEnumBuildingTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumBuildingTypeFilter<$PrismaModel> | $Enums.BuildingType
+  export type EnumRegimeNeutreFilter<$PrismaModel = never> = {
+    equals?: $Enums.RegimeNeutre | EnumRegimeNeutreFieldRefInput<$PrismaModel>
+    in?: $Enums.RegimeNeutre[] | ListEnumRegimeNeutreFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RegimeNeutre[] | ListEnumRegimeNeutreFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegimeNeutreFilter<$PrismaModel> | $Enums.RegimeNeutre
   }
 
   export type ProjectScalarRelationFilter = {
@@ -14803,52 +16830,56 @@ export namespace Prisma {
     isNot?: ProjectWhereInput
   }
 
-  export type BuildingCountOrderByAggregateInput = {
+  export type PowerSupplyCountOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
-    surfaceArea?: SortOrder
-    numberOfRooms?: SortOrder
-    supplyVoltage?: SortOrder
-    phases?: SortOrder
-    buildingType?: SortOrder
-    usage?: SortOrder
-    comment?: SortOrder
+    type?: SortOrder
+    nominalVoltage?: SortOrder
+    frequency?: SortOrder
+    regimeNeutre?: SortOrder
+    distanceSourceToTGBT?: SortOrder
   }
 
-  export type BuildingAvgOrderByAggregateInput = {
-    surfaceArea?: SortOrder
-    numberOfRooms?: SortOrder
-    phases?: SortOrder
+  export type PowerSupplyAvgOrderByAggregateInput = {
+    nominalVoltage?: SortOrder
+    frequency?: SortOrder
+    distanceSourceToTGBT?: SortOrder
   }
 
-  export type BuildingMaxOrderByAggregateInput = {
+  export type PowerSupplyMaxOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
-    surfaceArea?: SortOrder
-    numberOfRooms?: SortOrder
-    supplyVoltage?: SortOrder
-    phases?: SortOrder
-    buildingType?: SortOrder
-    usage?: SortOrder
-    comment?: SortOrder
+    type?: SortOrder
+    nominalVoltage?: SortOrder
+    frequency?: SortOrder
+    regimeNeutre?: SortOrder
+    distanceSourceToTGBT?: SortOrder
   }
 
-  export type BuildingMinOrderByAggregateInput = {
+  export type PowerSupplyMinOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
-    surfaceArea?: SortOrder
-    numberOfRooms?: SortOrder
-    supplyVoltage?: SortOrder
-    phases?: SortOrder
-    buildingType?: SortOrder
-    usage?: SortOrder
-    comment?: SortOrder
+    type?: SortOrder
+    nominalVoltage?: SortOrder
+    frequency?: SortOrder
+    regimeNeutre?: SortOrder
+    distanceSourceToTGBT?: SortOrder
   }
 
-  export type BuildingSumOrderByAggregateInput = {
-    surfaceArea?: SortOrder
-    numberOfRooms?: SortOrder
-    phases?: SortOrder
+  export type PowerSupplySumOrderByAggregateInput = {
+    nominalVoltage?: SortOrder
+    frequency?: SortOrder
+    distanceSourceToTGBT?: SortOrder
+  }
+
+  export type EnumAlimentationTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AlimentationType | EnumAlimentationTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AlimentationType[] | ListEnumAlimentationTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AlimentationType[] | ListEnumAlimentationTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumAlimentationTypeWithAggregatesFilter<$PrismaModel> | $Enums.AlimentationType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAlimentationTypeFilter<$PrismaModel>
+    _max?: NestedEnumAlimentationTypeFilter<$PrismaModel>
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -14867,6 +16898,71 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type EnumRegimeNeutreWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.RegimeNeutre | EnumRegimeNeutreFieldRefInput<$PrismaModel>
+    in?: $Enums.RegimeNeutre[] | ListEnumRegimeNeutreFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RegimeNeutre[] | ListEnumRegimeNeutreFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegimeNeutreWithAggregatesFilter<$PrismaModel> | $Enums.RegimeNeutre
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRegimeNeutreFilter<$PrismaModel>
+    _max?: NestedEnumRegimeNeutreFilter<$PrismaModel>
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type EnumCircuitTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.CircuitType | EnumCircuitTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CircuitType[] | ListEnumCircuitTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CircuitType[] | ListEnumCircuitTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCircuitTypeFilter<$PrismaModel> | $Enums.CircuitType
+  }
+
+  export type CircuitCountOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    name?: SortOrder
+    circuitCount?: SortOrder
+    type?: SortOrder
+    totalPower?: SortOrder
+  }
+
+  export type CircuitAvgOrderByAggregateInput = {
+    circuitCount?: SortOrder
+    totalPower?: SortOrder
+  }
+
+  export type CircuitMaxOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    name?: SortOrder
+    circuitCount?: SortOrder
+    type?: SortOrder
+    totalPower?: SortOrder
+  }
+
+  export type CircuitMinOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    name?: SortOrder
+    circuitCount?: SortOrder
+    type?: SortOrder
+    totalPower?: SortOrder
+  }
+
+  export type CircuitSumOrderByAggregateInput = {
+    circuitCount?: SortOrder
+    totalPower?: SortOrder
+  }
+
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -14883,163 +16979,118 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type EnumBuildingTypeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.BuildingType | EnumBuildingTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.BuildingType[] | ListEnumBuildingTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BuildingType[] | ListEnumBuildingTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumBuildingTypeWithAggregatesFilter<$PrismaModel> | $Enums.BuildingType
+  export type EnumCircuitTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CircuitType | EnumCircuitTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CircuitType[] | ListEnumCircuitTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CircuitType[] | ListEnumCircuitTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCircuitTypeWithAggregatesFilter<$PrismaModel> | $Enums.CircuitType
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumBuildingTypeFilter<$PrismaModel>
-    _max?: NestedEnumBuildingTypeFilter<$PrismaModel>
+    _min?: NestedEnumCircuitTypeFilter<$PrismaModel>
+    _max?: NestedEnumCircuitTypeFilter<$PrismaModel>
   }
 
-  export type EnumCircuitCategoryFilter<$PrismaModel = never> = {
-    equals?: $Enums.CircuitCategory | EnumCircuitCategoryFieldRefInput<$PrismaModel>
-    in?: $Enums.CircuitCategory[] | ListEnumCircuitCategoryFieldRefInput<$PrismaModel>
-    notIn?: $Enums.CircuitCategory[] | ListEnumCircuitCategoryFieldRefInput<$PrismaModel>
-    not?: NestedEnumCircuitCategoryFilter<$PrismaModel> | $Enums.CircuitCategory
-  }
-
-  export type FloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type ProtectionNullableScalarRelationFilter = {
-    is?: ProtectionWhereInput | null
-    isNot?: ProtectionWhereInput | null
-  }
-
-  export type CircuitCountOrderByAggregateInput = {
+  export type FurthestLoadDistanceCountOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
-    protectionId?: SortOrder
-    label?: SortOrder
-    type?: SortOrder
-    room?: SortOrder
-    quantity?: SortOrder
-    loadWatts?: SortOrder
-    loadAmps?: SortOrder
-    shortCircuitCurrentAmps?: SortOrder
-    operatingCurrentAmps?: SortOrder
-    circuitTotalCurrentAmps?: SortOrder
-    cableLengthMeters?: SortOrder
-    conductorSectionMm2?: SortOrder
-    recommendedSectionMm2?: SortOrder
-    voltageDropPercent?: SortOrder
-    numberOfPoles?: SortOrder
-    isDedicated?: SortOrder
-    comment?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    circuitName?: SortOrder
+    distance?: SortOrder
   }
 
-  export type CircuitAvgOrderByAggregateInput = {
-    quantity?: SortOrder
-    loadWatts?: SortOrder
-    loadAmps?: SortOrder
-    shortCircuitCurrentAmps?: SortOrder
-    operatingCurrentAmps?: SortOrder
-    circuitTotalCurrentAmps?: SortOrder
-    cableLengthMeters?: SortOrder
-    conductorSectionMm2?: SortOrder
-    recommendedSectionMm2?: SortOrder
-    voltageDropPercent?: SortOrder
-    numberOfPoles?: SortOrder
+  export type FurthestLoadDistanceAvgOrderByAggregateInput = {
+    distance?: SortOrder
   }
 
-  export type CircuitMaxOrderByAggregateInput = {
+  export type FurthestLoadDistanceMaxOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
-    protectionId?: SortOrder
-    label?: SortOrder
-    type?: SortOrder
-    room?: SortOrder
-    quantity?: SortOrder
-    loadWatts?: SortOrder
-    loadAmps?: SortOrder
-    shortCircuitCurrentAmps?: SortOrder
-    operatingCurrentAmps?: SortOrder
-    circuitTotalCurrentAmps?: SortOrder
-    cableLengthMeters?: SortOrder
-    conductorSectionMm2?: SortOrder
-    recommendedSectionMm2?: SortOrder
-    voltageDropPercent?: SortOrder
-    numberOfPoles?: SortOrder
-    isDedicated?: SortOrder
-    comment?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    circuitName?: SortOrder
+    distance?: SortOrder
   }
 
-  export type CircuitMinOrderByAggregateInput = {
+  export type FurthestLoadDistanceMinOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
-    protectionId?: SortOrder
-    label?: SortOrder
-    type?: SortOrder
-    room?: SortOrder
-    quantity?: SortOrder
-    loadWatts?: SortOrder
-    loadAmps?: SortOrder
-    shortCircuitCurrentAmps?: SortOrder
-    operatingCurrentAmps?: SortOrder
-    circuitTotalCurrentAmps?: SortOrder
-    cableLengthMeters?: SortOrder
-    conductorSectionMm2?: SortOrder
-    recommendedSectionMm2?: SortOrder
-    voltageDropPercent?: SortOrder
-    numberOfPoles?: SortOrder
-    isDedicated?: SortOrder
-    comment?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    circuitName?: SortOrder
+    distance?: SortOrder
   }
 
-  export type CircuitSumOrderByAggregateInput = {
-    quantity?: SortOrder
-    loadWatts?: SortOrder
-    loadAmps?: SortOrder
-    shortCircuitCurrentAmps?: SortOrder
-    operatingCurrentAmps?: SortOrder
-    circuitTotalCurrentAmps?: SortOrder
-    cableLengthMeters?: SortOrder
-    conductorSectionMm2?: SortOrder
-    recommendedSectionMm2?: SortOrder
-    voltageDropPercent?: SortOrder
-    numberOfPoles?: SortOrder
+  export type FurthestLoadDistanceSumOrderByAggregateInput = {
+    distance?: SortOrder
   }
 
-  export type EnumCircuitCategoryWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.CircuitCategory | EnumCircuitCategoryFieldRefInput<$PrismaModel>
-    in?: $Enums.CircuitCategory[] | ListEnumCircuitCategoryFieldRefInput<$PrismaModel>
-    notIn?: $Enums.CircuitCategory[] | ListEnumCircuitCategoryFieldRefInput<$PrismaModel>
-    not?: NestedEnumCircuitCategoryWithAggregatesFilter<$PrismaModel> | $Enums.CircuitCategory
+  export type EnumCableMaterialFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableMaterial | EnumCableMaterialFieldRefInput<$PrismaModel>
+    in?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel>
+    not?: NestedEnumCableMaterialFilter<$PrismaModel> | $Enums.CableMaterial
+  }
+
+  export type EnumCableIsolationFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableIsolation | EnumCableIsolationFieldRefInput<$PrismaModel>
+    in?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel>
+    not?: NestedEnumCableIsolationFilter<$PrismaModel> | $Enums.CableIsolation
+  }
+
+  export type EnumModePoseFilter<$PrismaModel = never> = {
+    equals?: $Enums.ModePose | EnumModePoseFieldRefInput<$PrismaModel>
+    in?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel>
+    not?: NestedEnumModePoseFilter<$PrismaModel> | $Enums.ModePose
+  }
+
+  export type CableDataCountOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    material?: SortOrder
+    isolation?: SortOrder
+    modePose?: SortOrder
+  }
+
+  export type CableDataMaxOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    material?: SortOrder
+    isolation?: SortOrder
+    modePose?: SortOrder
+  }
+
+  export type CableDataMinOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    material?: SortOrder
+    isolation?: SortOrder
+    modePose?: SortOrder
+  }
+
+  export type EnumCableMaterialWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableMaterial | EnumCableMaterialFieldRefInput<$PrismaModel>
+    in?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel>
+    not?: NestedEnumCableMaterialWithAggregatesFilter<$PrismaModel> | $Enums.CableMaterial
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumCircuitCategoryFilter<$PrismaModel>
-    _max?: NestedEnumCircuitCategoryFilter<$PrismaModel>
+    _min?: NestedEnumCableMaterialFilter<$PrismaModel>
+    _max?: NestedEnumCableMaterialFilter<$PrismaModel>
   }
 
-  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedFloatNullableFilter<$PrismaModel>
-    _min?: NestedFloatNullableFilter<$PrismaModel>
-    _max?: NestedFloatNullableFilter<$PrismaModel>
+  export type EnumCableIsolationWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableIsolation | EnumCableIsolationFieldRefInput<$PrismaModel>
+    in?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel>
+    not?: NestedEnumCableIsolationWithAggregatesFilter<$PrismaModel> | $Enums.CableIsolation
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCableIsolationFilter<$PrismaModel>
+    _max?: NestedEnumCableIsolationFilter<$PrismaModel>
+  }
+
+  export type EnumModePoseWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ModePose | EnumModePoseFieldRefInput<$PrismaModel>
+    in?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel>
+    not?: NestedEnumModePoseWithAggregatesFilter<$PrismaModel> | $Enums.ModePose
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumModePoseFilter<$PrismaModel>
+    _max?: NestedEnumModePoseFilter<$PrismaModel>
   }
 
   export type EnumProtectionTypeFilter<$PrismaModel = never> = {
@@ -15049,53 +17100,53 @@ export namespace Prisma {
     not?: NestedEnumProtectionTypeFilter<$PrismaModel> | $Enums.ProtectionType
   }
 
+  export type EnumCurveTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.CurveType | EnumCurveTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCurveTypeFilter<$PrismaModel> | $Enums.CurveType
+  }
+
   export type ProtectionCountOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
     type?: SortOrder
-    ratingAmps?: SortOrder
-    curve?: SortOrder
-    poles?: SortOrder
-    description?: SortOrder
-    equipmentName?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    curveType?: SortOrder
+    breakingCapacity?: SortOrder
   }
 
   export type ProtectionAvgOrderByAggregateInput = {
-    ratingAmps?: SortOrder
-    poles?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    breakingCapacity?: SortOrder
   }
 
   export type ProtectionMaxOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
     type?: SortOrder
-    ratingAmps?: SortOrder
-    curve?: SortOrder
-    poles?: SortOrder
-    description?: SortOrder
-    equipmentName?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    curveType?: SortOrder
+    breakingCapacity?: SortOrder
   }
 
   export type ProtectionMinOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
     type?: SortOrder
-    ratingAmps?: SortOrder
-    curve?: SortOrder
-    poles?: SortOrder
-    description?: SortOrder
-    equipmentName?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    curveType?: SortOrder
+    breakingCapacity?: SortOrder
   }
 
   export type ProtectionSumOrderByAggregateInput = {
-    ratingAmps?: SortOrder
-    poles?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    breakingCapacity?: SortOrder
   }
 
   export type EnumProtectionTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -15108,67 +17159,109 @@ export namespace Prisma {
     _max?: NestedEnumProtectionTypeFilter<$PrismaModel>
   }
 
-  export type CalculationCountOrderByAggregateInput = {
+  export type EnumCurveTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CurveType | EnumCurveTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCurveTypeWithAggregatesFilter<$PrismaModel> | $Enums.CurveType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCurveTypeFilter<$PrismaModel>
+    _max?: NestedEnumCurveTypeFilter<$PrismaModel>
+  }
+
+  export type EnumCheckStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.CheckStatus | EnumCheckStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.CheckStatus[] | ListEnumCheckStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CheckStatus[] | ListEnumCheckStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumCheckStatusFilter<$PrismaModel> | $Enums.CheckStatus
+  }
+
+  export type ResultCountOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
-    name?: SortOrder
-    totalInstalledPowerWatts?: SortOrder
-    maximumShortCircuitAmps?: SortOrder
-    totalOperatingCurrentAmps?: SortOrder
-    totalCircuitCurrentAmps?: SortOrder
-    recommendedSectionMm2?: SortOrder
+    currentNominal?: SortOrder
+    currentDesign?: SortOrder
+    recommendedCableSection?: SortOrder
+    correctedCableCapacity?: SortOrder
+    recommendedBreaker?: SortOrder
+    voltageDropVolts?: SortOrder
     voltageDropPercent?: SortOrder
-    notes?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    shortCircuitCurrentAtEnd?: SortOrder
+    breakerBreakingCapacity?: SortOrder
+    overloadCheck?: SortOrder
+    voltageDropCheck?: SortOrder
+    breakingCapacityCheck?: SortOrder
+    coordinationCheck?: SortOrder
   }
 
-  export type CalculationAvgOrderByAggregateInput = {
-    totalInstalledPowerWatts?: SortOrder
-    maximumShortCircuitAmps?: SortOrder
-    totalOperatingCurrentAmps?: SortOrder
-    totalCircuitCurrentAmps?: SortOrder
-    recommendedSectionMm2?: SortOrder
+  export type ResultAvgOrderByAggregateInput = {
+    currentNominal?: SortOrder
+    currentDesign?: SortOrder
+    recommendedCableSection?: SortOrder
+    correctedCableCapacity?: SortOrder
+    recommendedBreaker?: SortOrder
+    voltageDropVolts?: SortOrder
     voltageDropPercent?: SortOrder
+    shortCircuitCurrentAtEnd?: SortOrder
+    breakerBreakingCapacity?: SortOrder
   }
 
-  export type CalculationMaxOrderByAggregateInput = {
+  export type ResultMaxOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
-    name?: SortOrder
-    totalInstalledPowerWatts?: SortOrder
-    maximumShortCircuitAmps?: SortOrder
-    totalOperatingCurrentAmps?: SortOrder
-    totalCircuitCurrentAmps?: SortOrder
-    recommendedSectionMm2?: SortOrder
+    currentNominal?: SortOrder
+    currentDesign?: SortOrder
+    recommendedCableSection?: SortOrder
+    correctedCableCapacity?: SortOrder
+    recommendedBreaker?: SortOrder
+    voltageDropVolts?: SortOrder
     voltageDropPercent?: SortOrder
-    notes?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    shortCircuitCurrentAtEnd?: SortOrder
+    breakerBreakingCapacity?: SortOrder
+    overloadCheck?: SortOrder
+    voltageDropCheck?: SortOrder
+    breakingCapacityCheck?: SortOrder
+    coordinationCheck?: SortOrder
   }
 
-  export type CalculationMinOrderByAggregateInput = {
+  export type ResultMinOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
-    name?: SortOrder
-    totalInstalledPowerWatts?: SortOrder
-    maximumShortCircuitAmps?: SortOrder
-    totalOperatingCurrentAmps?: SortOrder
-    totalCircuitCurrentAmps?: SortOrder
-    recommendedSectionMm2?: SortOrder
+    currentNominal?: SortOrder
+    currentDesign?: SortOrder
+    recommendedCableSection?: SortOrder
+    correctedCableCapacity?: SortOrder
+    recommendedBreaker?: SortOrder
+    voltageDropVolts?: SortOrder
     voltageDropPercent?: SortOrder
-    notes?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    shortCircuitCurrentAtEnd?: SortOrder
+    breakerBreakingCapacity?: SortOrder
+    overloadCheck?: SortOrder
+    voltageDropCheck?: SortOrder
+    breakingCapacityCheck?: SortOrder
+    coordinationCheck?: SortOrder
   }
 
-  export type CalculationSumOrderByAggregateInput = {
-    totalInstalledPowerWatts?: SortOrder
-    maximumShortCircuitAmps?: SortOrder
-    totalOperatingCurrentAmps?: SortOrder
-    totalCircuitCurrentAmps?: SortOrder
-    recommendedSectionMm2?: SortOrder
+  export type ResultSumOrderByAggregateInput = {
+    currentNominal?: SortOrder
+    currentDesign?: SortOrder
+    recommendedCableSection?: SortOrder
+    correctedCableCapacity?: SortOrder
+    recommendedBreaker?: SortOrder
+    voltageDropVolts?: SortOrder
     voltageDropPercent?: SortOrder
+    shortCircuitCurrentAtEnd?: SortOrder
+    breakerBreakingCapacity?: SortOrder
+  }
+
+  export type EnumCheckStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CheckStatus | EnumCheckStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.CheckStatus[] | ListEnumCheckStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CheckStatus[] | ListEnumCheckStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumCheckStatusWithAggregatesFilter<$PrismaModel> | $Enums.CheckStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCheckStatusFilter<$PrismaModel>
+    _max?: NestedEnumCheckStatusFilter<$PrismaModel>
   }
 
   export type AccountCreateNestedManyWithoutUserInput = {
@@ -15178,10 +17271,10 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
-  export type ProjectCreateNestedManyWithoutOwnerInput = {
-    create?: XOR<ProjectCreateWithoutOwnerInput, ProjectUncheckedCreateWithoutOwnerInput> | ProjectCreateWithoutOwnerInput[] | ProjectUncheckedCreateWithoutOwnerInput[]
-    connectOrCreate?: ProjectCreateOrConnectWithoutOwnerInput | ProjectCreateOrConnectWithoutOwnerInput[]
-    createMany?: ProjectCreateManyOwnerInputEnvelope
+  export type ProjectCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput> | ProjectCreateWithoutUserInput[] | ProjectUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutUserInput | ProjectCreateOrConnectWithoutUserInput[]
+    createMany?: ProjectCreateManyUserInputEnvelope
     connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
   }
 
@@ -15199,10 +17292,10 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
-  export type ProjectUncheckedCreateNestedManyWithoutOwnerInput = {
-    create?: XOR<ProjectCreateWithoutOwnerInput, ProjectUncheckedCreateWithoutOwnerInput> | ProjectCreateWithoutOwnerInput[] | ProjectUncheckedCreateWithoutOwnerInput[]
-    connectOrCreate?: ProjectCreateOrConnectWithoutOwnerInput | ProjectCreateOrConnectWithoutOwnerInput[]
-    createMany?: ProjectCreateManyOwnerInputEnvelope
+  export type ProjectUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput> | ProjectCreateWithoutUserInput[] | ProjectUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutUserInput | ProjectCreateOrConnectWithoutUserInput[]
+    createMany?: ProjectCreateManyUserInputEnvelope
     connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
   }
 
@@ -15247,17 +17340,17 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
-  export type ProjectUpdateManyWithoutOwnerNestedInput = {
-    create?: XOR<ProjectCreateWithoutOwnerInput, ProjectUncheckedCreateWithoutOwnerInput> | ProjectCreateWithoutOwnerInput[] | ProjectUncheckedCreateWithoutOwnerInput[]
-    connectOrCreate?: ProjectCreateOrConnectWithoutOwnerInput | ProjectCreateOrConnectWithoutOwnerInput[]
-    upsert?: ProjectUpsertWithWhereUniqueWithoutOwnerInput | ProjectUpsertWithWhereUniqueWithoutOwnerInput[]
-    createMany?: ProjectCreateManyOwnerInputEnvelope
+  export type ProjectUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput> | ProjectCreateWithoutUserInput[] | ProjectUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutUserInput | ProjectCreateOrConnectWithoutUserInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutUserInput | ProjectUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProjectCreateManyUserInputEnvelope
     set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
     disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
     delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
     connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
-    update?: ProjectUpdateWithWhereUniqueWithoutOwnerInput | ProjectUpdateWithWhereUniqueWithoutOwnerInput[]
-    updateMany?: ProjectUpdateManyWithWhereWithoutOwnerInput | ProjectUpdateManyWithWhereWithoutOwnerInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutUserInput | ProjectUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutUserInput | ProjectUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
   }
 
@@ -15289,17 +17382,17 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
-  export type ProjectUncheckedUpdateManyWithoutOwnerNestedInput = {
-    create?: XOR<ProjectCreateWithoutOwnerInput, ProjectUncheckedCreateWithoutOwnerInput> | ProjectCreateWithoutOwnerInput[] | ProjectUncheckedCreateWithoutOwnerInput[]
-    connectOrCreate?: ProjectCreateOrConnectWithoutOwnerInput | ProjectCreateOrConnectWithoutOwnerInput[]
-    upsert?: ProjectUpsertWithWhereUniqueWithoutOwnerInput | ProjectUpsertWithWhereUniqueWithoutOwnerInput[]
-    createMany?: ProjectCreateManyOwnerInputEnvelope
+  export type ProjectUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput> | ProjectCreateWithoutUserInput[] | ProjectUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutUserInput | ProjectCreateOrConnectWithoutUserInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutUserInput | ProjectUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProjectCreateManyUserInputEnvelope
     set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
     disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
     delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
     connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
-    update?: ProjectUpdateWithWhereUniqueWithoutOwnerInput | ProjectUpdateWithWhereUniqueWithoutOwnerInput[]
-    updateMany?: ProjectUpdateManyWithWhereWithoutOwnerInput | ProjectUpdateManyWithWhereWithoutOwnerInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutUserInput | ProjectUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutUserInput | ProjectUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
   }
 
@@ -15353,17 +17446,16 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSessionsInput, UserUpdateWithoutSessionsInput>, UserUncheckedUpdateWithoutSessionsInput>
   }
 
-  export type BuildingCreateNestedOneWithoutProjectInput = {
-    create?: XOR<BuildingCreateWithoutProjectInput, BuildingUncheckedCreateWithoutProjectInput>
-    connectOrCreate?: BuildingCreateOrConnectWithoutProjectInput
-    connect?: BuildingWhereUniqueInput
+  export type UserCreateNestedOneWithoutProjectsInput = {
+    create?: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProjectsInput
+    connect?: UserWhereUniqueInput
   }
 
-  export type CalculationCreateNestedManyWithoutProjectInput = {
-    create?: XOR<CalculationCreateWithoutProjectInput, CalculationUncheckedCreateWithoutProjectInput> | CalculationCreateWithoutProjectInput[] | CalculationUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: CalculationCreateOrConnectWithoutProjectInput | CalculationCreateOrConnectWithoutProjectInput[]
-    createMany?: CalculationCreateManyProjectInputEnvelope
-    connect?: CalculationWhereUniqueInput | CalculationWhereUniqueInput[]
+  export type PowerSupplyCreateNestedOneWithoutProjectInput = {
+    create?: XOR<PowerSupplyCreateWithoutProjectInput, PowerSupplyUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: PowerSupplyCreateOrConnectWithoutProjectInput
+    connect?: PowerSupplyWhereUniqueInput
   }
 
   export type CircuitCreateNestedManyWithoutProjectInput = {
@@ -15373,30 +17465,34 @@ export namespace Prisma {
     connect?: CircuitWhereUniqueInput | CircuitWhereUniqueInput[]
   }
 
-  export type UserCreateNestedOneWithoutProjectsInput = {
-    create?: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutProjectsInput
-    connect?: UserWhereUniqueInput
+  export type CableDataCreateNestedOneWithoutProjectInput = {
+    create?: XOR<CableDataCreateWithoutProjectInput, CableDataUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: CableDataCreateOrConnectWithoutProjectInput
+    connect?: CableDataWhereUniqueInput
   }
 
-  export type ProtectionCreateNestedManyWithoutProjectInput = {
-    create?: XOR<ProtectionCreateWithoutProjectInput, ProtectionUncheckedCreateWithoutProjectInput> | ProtectionCreateWithoutProjectInput[] | ProtectionUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: ProtectionCreateOrConnectWithoutProjectInput | ProtectionCreateOrConnectWithoutProjectInput[]
-    createMany?: ProtectionCreateManyProjectInputEnvelope
-    connect?: ProtectionWhereUniqueInput | ProtectionWhereUniqueInput[]
+  export type ProtectionCreateNestedOneWithoutProjectInput = {
+    create?: XOR<ProtectionCreateWithoutProjectInput, ProtectionUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: ProtectionCreateOrConnectWithoutProjectInput
+    connect?: ProtectionWhereUniqueInput
   }
 
-  export type BuildingUncheckedCreateNestedOneWithoutProjectInput = {
-    create?: XOR<BuildingCreateWithoutProjectInput, BuildingUncheckedCreateWithoutProjectInput>
-    connectOrCreate?: BuildingCreateOrConnectWithoutProjectInput
-    connect?: BuildingWhereUniqueInput
+  export type ResultCreateNestedOneWithoutProjectInput = {
+    create?: XOR<ResultCreateWithoutProjectInput, ResultUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: ResultCreateOrConnectWithoutProjectInput
+    connect?: ResultWhereUniqueInput
   }
 
-  export type CalculationUncheckedCreateNestedManyWithoutProjectInput = {
-    create?: XOR<CalculationCreateWithoutProjectInput, CalculationUncheckedCreateWithoutProjectInput> | CalculationCreateWithoutProjectInput[] | CalculationUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: CalculationCreateOrConnectWithoutProjectInput | CalculationCreateOrConnectWithoutProjectInput[]
-    createMany?: CalculationCreateManyProjectInputEnvelope
-    connect?: CalculationWhereUniqueInput | CalculationWhereUniqueInput[]
+  export type FurthestLoadDistanceCreateNestedOneWithoutProjectInput = {
+    create?: XOR<FurthestLoadDistanceCreateWithoutProjectInput, FurthestLoadDistanceUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: FurthestLoadDistanceCreateOrConnectWithoutProjectInput
+    connect?: FurthestLoadDistanceWhereUniqueInput
+  }
+
+  export type PowerSupplyUncheckedCreateNestedOneWithoutProjectInput = {
+    create?: XOR<PowerSupplyCreateWithoutProjectInput, PowerSupplyUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: PowerSupplyCreateOrConnectWithoutProjectInput
+    connect?: PowerSupplyWhereUniqueInput
   }
 
   export type CircuitUncheckedCreateNestedManyWithoutProjectInput = {
@@ -15406,39 +17502,46 @@ export namespace Prisma {
     connect?: CircuitWhereUniqueInput | CircuitWhereUniqueInput[]
   }
 
-  export type ProtectionUncheckedCreateNestedManyWithoutProjectInput = {
-    create?: XOR<ProtectionCreateWithoutProjectInput, ProtectionUncheckedCreateWithoutProjectInput> | ProtectionCreateWithoutProjectInput[] | ProtectionUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: ProtectionCreateOrConnectWithoutProjectInput | ProtectionCreateOrConnectWithoutProjectInput[]
-    createMany?: ProtectionCreateManyProjectInputEnvelope
-    connect?: ProtectionWhereUniqueInput | ProtectionWhereUniqueInput[]
+  export type CableDataUncheckedCreateNestedOneWithoutProjectInput = {
+    create?: XOR<CableDataCreateWithoutProjectInput, CableDataUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: CableDataCreateOrConnectWithoutProjectInput
+    connect?: CableDataWhereUniqueInput
   }
 
-  export type EnumProjectStatusFieldUpdateOperationsInput = {
-    set?: $Enums.ProjectStatus
+  export type ProtectionUncheckedCreateNestedOneWithoutProjectInput = {
+    create?: XOR<ProtectionCreateWithoutProjectInput, ProtectionUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: ProtectionCreateOrConnectWithoutProjectInput
+    connect?: ProtectionWhereUniqueInput
   }
 
-  export type BuildingUpdateOneWithoutProjectNestedInput = {
-    create?: XOR<BuildingCreateWithoutProjectInput, BuildingUncheckedCreateWithoutProjectInput>
-    connectOrCreate?: BuildingCreateOrConnectWithoutProjectInput
-    upsert?: BuildingUpsertWithoutProjectInput
-    disconnect?: BuildingWhereInput | boolean
-    delete?: BuildingWhereInput | boolean
-    connect?: BuildingWhereUniqueInput
-    update?: XOR<XOR<BuildingUpdateToOneWithWhereWithoutProjectInput, BuildingUpdateWithoutProjectInput>, BuildingUncheckedUpdateWithoutProjectInput>
+  export type ResultUncheckedCreateNestedOneWithoutProjectInput = {
+    create?: XOR<ResultCreateWithoutProjectInput, ResultUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: ResultCreateOrConnectWithoutProjectInput
+    connect?: ResultWhereUniqueInput
   }
 
-  export type CalculationUpdateManyWithoutProjectNestedInput = {
-    create?: XOR<CalculationCreateWithoutProjectInput, CalculationUncheckedCreateWithoutProjectInput> | CalculationCreateWithoutProjectInput[] | CalculationUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: CalculationCreateOrConnectWithoutProjectInput | CalculationCreateOrConnectWithoutProjectInput[]
-    upsert?: CalculationUpsertWithWhereUniqueWithoutProjectInput | CalculationUpsertWithWhereUniqueWithoutProjectInput[]
-    createMany?: CalculationCreateManyProjectInputEnvelope
-    set?: CalculationWhereUniqueInput | CalculationWhereUniqueInput[]
-    disconnect?: CalculationWhereUniqueInput | CalculationWhereUniqueInput[]
-    delete?: CalculationWhereUniqueInput | CalculationWhereUniqueInput[]
-    connect?: CalculationWhereUniqueInput | CalculationWhereUniqueInput[]
-    update?: CalculationUpdateWithWhereUniqueWithoutProjectInput | CalculationUpdateWithWhereUniqueWithoutProjectInput[]
-    updateMany?: CalculationUpdateManyWithWhereWithoutProjectInput | CalculationUpdateManyWithWhereWithoutProjectInput[]
-    deleteMany?: CalculationScalarWhereInput | CalculationScalarWhereInput[]
+  export type FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput = {
+    create?: XOR<FurthestLoadDistanceCreateWithoutProjectInput, FurthestLoadDistanceUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: FurthestLoadDistanceCreateOrConnectWithoutProjectInput
+    connect?: FurthestLoadDistanceWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutProjectsNestedInput = {
+    create?: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProjectsInput
+    upsert?: UserUpsertWithoutProjectsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProjectsInput, UserUpdateWithoutProjectsInput>, UserUncheckedUpdateWithoutProjectsInput>
+  }
+
+  export type PowerSupplyUpdateOneWithoutProjectNestedInput = {
+    create?: XOR<PowerSupplyCreateWithoutProjectInput, PowerSupplyUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: PowerSupplyCreateOrConnectWithoutProjectInput
+    upsert?: PowerSupplyUpsertWithoutProjectInput
+    disconnect?: PowerSupplyWhereInput | boolean
+    delete?: PowerSupplyWhereInput | boolean
+    connect?: PowerSupplyWhereUniqueInput
+    update?: XOR<XOR<PowerSupplyUpdateToOneWithWhereWithoutProjectInput, PowerSupplyUpdateWithoutProjectInput>, PowerSupplyUncheckedUpdateWithoutProjectInput>
   }
 
   export type CircuitUpdateManyWithoutProjectNestedInput = {
@@ -15455,50 +17558,54 @@ export namespace Prisma {
     deleteMany?: CircuitScalarWhereInput | CircuitScalarWhereInput[]
   }
 
-  export type UserUpdateOneRequiredWithoutProjectsNestedInput = {
-    create?: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutProjectsInput
-    upsert?: UserUpsertWithoutProjectsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProjectsInput, UserUpdateWithoutProjectsInput>, UserUncheckedUpdateWithoutProjectsInput>
+  export type CableDataUpdateOneWithoutProjectNestedInput = {
+    create?: XOR<CableDataCreateWithoutProjectInput, CableDataUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: CableDataCreateOrConnectWithoutProjectInput
+    upsert?: CableDataUpsertWithoutProjectInput
+    disconnect?: CableDataWhereInput | boolean
+    delete?: CableDataWhereInput | boolean
+    connect?: CableDataWhereUniqueInput
+    update?: XOR<XOR<CableDataUpdateToOneWithWhereWithoutProjectInput, CableDataUpdateWithoutProjectInput>, CableDataUncheckedUpdateWithoutProjectInput>
   }
 
-  export type ProtectionUpdateManyWithoutProjectNestedInput = {
-    create?: XOR<ProtectionCreateWithoutProjectInput, ProtectionUncheckedCreateWithoutProjectInput> | ProtectionCreateWithoutProjectInput[] | ProtectionUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: ProtectionCreateOrConnectWithoutProjectInput | ProtectionCreateOrConnectWithoutProjectInput[]
-    upsert?: ProtectionUpsertWithWhereUniqueWithoutProjectInput | ProtectionUpsertWithWhereUniqueWithoutProjectInput[]
-    createMany?: ProtectionCreateManyProjectInputEnvelope
-    set?: ProtectionWhereUniqueInput | ProtectionWhereUniqueInput[]
-    disconnect?: ProtectionWhereUniqueInput | ProtectionWhereUniqueInput[]
-    delete?: ProtectionWhereUniqueInput | ProtectionWhereUniqueInput[]
-    connect?: ProtectionWhereUniqueInput | ProtectionWhereUniqueInput[]
-    update?: ProtectionUpdateWithWhereUniqueWithoutProjectInput | ProtectionUpdateWithWhereUniqueWithoutProjectInput[]
-    updateMany?: ProtectionUpdateManyWithWhereWithoutProjectInput | ProtectionUpdateManyWithWhereWithoutProjectInput[]
-    deleteMany?: ProtectionScalarWhereInput | ProtectionScalarWhereInput[]
+  export type ProtectionUpdateOneWithoutProjectNestedInput = {
+    create?: XOR<ProtectionCreateWithoutProjectInput, ProtectionUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: ProtectionCreateOrConnectWithoutProjectInput
+    upsert?: ProtectionUpsertWithoutProjectInput
+    disconnect?: ProtectionWhereInput | boolean
+    delete?: ProtectionWhereInput | boolean
+    connect?: ProtectionWhereUniqueInput
+    update?: XOR<XOR<ProtectionUpdateToOneWithWhereWithoutProjectInput, ProtectionUpdateWithoutProjectInput>, ProtectionUncheckedUpdateWithoutProjectInput>
   }
 
-  export type BuildingUncheckedUpdateOneWithoutProjectNestedInput = {
-    create?: XOR<BuildingCreateWithoutProjectInput, BuildingUncheckedCreateWithoutProjectInput>
-    connectOrCreate?: BuildingCreateOrConnectWithoutProjectInput
-    upsert?: BuildingUpsertWithoutProjectInput
-    disconnect?: BuildingWhereInput | boolean
-    delete?: BuildingWhereInput | boolean
-    connect?: BuildingWhereUniqueInput
-    update?: XOR<XOR<BuildingUpdateToOneWithWhereWithoutProjectInput, BuildingUpdateWithoutProjectInput>, BuildingUncheckedUpdateWithoutProjectInput>
+  export type ResultUpdateOneWithoutProjectNestedInput = {
+    create?: XOR<ResultCreateWithoutProjectInput, ResultUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: ResultCreateOrConnectWithoutProjectInput
+    upsert?: ResultUpsertWithoutProjectInput
+    disconnect?: ResultWhereInput | boolean
+    delete?: ResultWhereInput | boolean
+    connect?: ResultWhereUniqueInput
+    update?: XOR<XOR<ResultUpdateToOneWithWhereWithoutProjectInput, ResultUpdateWithoutProjectInput>, ResultUncheckedUpdateWithoutProjectInput>
   }
 
-  export type CalculationUncheckedUpdateManyWithoutProjectNestedInput = {
-    create?: XOR<CalculationCreateWithoutProjectInput, CalculationUncheckedCreateWithoutProjectInput> | CalculationCreateWithoutProjectInput[] | CalculationUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: CalculationCreateOrConnectWithoutProjectInput | CalculationCreateOrConnectWithoutProjectInput[]
-    upsert?: CalculationUpsertWithWhereUniqueWithoutProjectInput | CalculationUpsertWithWhereUniqueWithoutProjectInput[]
-    createMany?: CalculationCreateManyProjectInputEnvelope
-    set?: CalculationWhereUniqueInput | CalculationWhereUniqueInput[]
-    disconnect?: CalculationWhereUniqueInput | CalculationWhereUniqueInput[]
-    delete?: CalculationWhereUniqueInput | CalculationWhereUniqueInput[]
-    connect?: CalculationWhereUniqueInput | CalculationWhereUniqueInput[]
-    update?: CalculationUpdateWithWhereUniqueWithoutProjectInput | CalculationUpdateWithWhereUniqueWithoutProjectInput[]
-    updateMany?: CalculationUpdateManyWithWhereWithoutProjectInput | CalculationUpdateManyWithWhereWithoutProjectInput[]
-    deleteMany?: CalculationScalarWhereInput | CalculationScalarWhereInput[]
+  export type FurthestLoadDistanceUpdateOneWithoutProjectNestedInput = {
+    create?: XOR<FurthestLoadDistanceCreateWithoutProjectInput, FurthestLoadDistanceUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: FurthestLoadDistanceCreateOrConnectWithoutProjectInput
+    upsert?: FurthestLoadDistanceUpsertWithoutProjectInput
+    disconnect?: FurthestLoadDistanceWhereInput | boolean
+    delete?: FurthestLoadDistanceWhereInput | boolean
+    connect?: FurthestLoadDistanceWhereUniqueInput
+    update?: XOR<XOR<FurthestLoadDistanceUpdateToOneWithWhereWithoutProjectInput, FurthestLoadDistanceUpdateWithoutProjectInput>, FurthestLoadDistanceUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type PowerSupplyUncheckedUpdateOneWithoutProjectNestedInput = {
+    create?: XOR<PowerSupplyCreateWithoutProjectInput, PowerSupplyUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: PowerSupplyCreateOrConnectWithoutProjectInput
+    upsert?: PowerSupplyUpsertWithoutProjectInput
+    disconnect?: PowerSupplyWhereInput | boolean
+    delete?: PowerSupplyWhereInput | boolean
+    connect?: PowerSupplyWhereUniqueInput
+    update?: XOR<XOR<PowerSupplyUpdateToOneWithWhereWithoutProjectInput, PowerSupplyUpdateWithoutProjectInput>, PowerSupplyUncheckedUpdateWithoutProjectInput>
   }
 
   export type CircuitUncheckedUpdateManyWithoutProjectNestedInput = {
@@ -15515,24 +17622,54 @@ export namespace Prisma {
     deleteMany?: CircuitScalarWhereInput | CircuitScalarWhereInput[]
   }
 
-  export type ProtectionUncheckedUpdateManyWithoutProjectNestedInput = {
-    create?: XOR<ProtectionCreateWithoutProjectInput, ProtectionUncheckedCreateWithoutProjectInput> | ProtectionCreateWithoutProjectInput[] | ProtectionUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: ProtectionCreateOrConnectWithoutProjectInput | ProtectionCreateOrConnectWithoutProjectInput[]
-    upsert?: ProtectionUpsertWithWhereUniqueWithoutProjectInput | ProtectionUpsertWithWhereUniqueWithoutProjectInput[]
-    createMany?: ProtectionCreateManyProjectInputEnvelope
-    set?: ProtectionWhereUniqueInput | ProtectionWhereUniqueInput[]
-    disconnect?: ProtectionWhereUniqueInput | ProtectionWhereUniqueInput[]
-    delete?: ProtectionWhereUniqueInput | ProtectionWhereUniqueInput[]
-    connect?: ProtectionWhereUniqueInput | ProtectionWhereUniqueInput[]
-    update?: ProtectionUpdateWithWhereUniqueWithoutProjectInput | ProtectionUpdateWithWhereUniqueWithoutProjectInput[]
-    updateMany?: ProtectionUpdateManyWithWhereWithoutProjectInput | ProtectionUpdateManyWithWhereWithoutProjectInput[]
-    deleteMany?: ProtectionScalarWhereInput | ProtectionScalarWhereInput[]
+  export type CableDataUncheckedUpdateOneWithoutProjectNestedInput = {
+    create?: XOR<CableDataCreateWithoutProjectInput, CableDataUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: CableDataCreateOrConnectWithoutProjectInput
+    upsert?: CableDataUpsertWithoutProjectInput
+    disconnect?: CableDataWhereInput | boolean
+    delete?: CableDataWhereInput | boolean
+    connect?: CableDataWhereUniqueInput
+    update?: XOR<XOR<CableDataUpdateToOneWithWhereWithoutProjectInput, CableDataUpdateWithoutProjectInput>, CableDataUncheckedUpdateWithoutProjectInput>
   }
 
-  export type ProjectCreateNestedOneWithoutBuildingInput = {
-    create?: XOR<ProjectCreateWithoutBuildingInput, ProjectUncheckedCreateWithoutBuildingInput>
-    connectOrCreate?: ProjectCreateOrConnectWithoutBuildingInput
+  export type ProtectionUncheckedUpdateOneWithoutProjectNestedInput = {
+    create?: XOR<ProtectionCreateWithoutProjectInput, ProtectionUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: ProtectionCreateOrConnectWithoutProjectInput
+    upsert?: ProtectionUpsertWithoutProjectInput
+    disconnect?: ProtectionWhereInput | boolean
+    delete?: ProtectionWhereInput | boolean
+    connect?: ProtectionWhereUniqueInput
+    update?: XOR<XOR<ProtectionUpdateToOneWithWhereWithoutProjectInput, ProtectionUpdateWithoutProjectInput>, ProtectionUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type ResultUncheckedUpdateOneWithoutProjectNestedInput = {
+    create?: XOR<ResultCreateWithoutProjectInput, ResultUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: ResultCreateOrConnectWithoutProjectInput
+    upsert?: ResultUpsertWithoutProjectInput
+    disconnect?: ResultWhereInput | boolean
+    delete?: ResultWhereInput | boolean
+    connect?: ResultWhereUniqueInput
+    update?: XOR<XOR<ResultUpdateToOneWithWhereWithoutProjectInput, ResultUpdateWithoutProjectInput>, ResultUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput = {
+    create?: XOR<FurthestLoadDistanceCreateWithoutProjectInput, FurthestLoadDistanceUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: FurthestLoadDistanceCreateOrConnectWithoutProjectInput
+    upsert?: FurthestLoadDistanceUpsertWithoutProjectInput
+    disconnect?: FurthestLoadDistanceWhereInput | boolean
+    delete?: FurthestLoadDistanceWhereInput | boolean
+    connect?: FurthestLoadDistanceWhereUniqueInput
+    update?: XOR<XOR<FurthestLoadDistanceUpdateToOneWithWhereWithoutProjectInput, FurthestLoadDistanceUpdateWithoutProjectInput>, FurthestLoadDistanceUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type ProjectCreateNestedOneWithoutPowerSupplyInput = {
+    create?: XOR<ProjectCreateWithoutPowerSupplyInput, ProjectUncheckedCreateWithoutPowerSupplyInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutPowerSupplyInput
     connect?: ProjectWhereUniqueInput
+  }
+
+  export type EnumAlimentationTypeFieldUpdateOperationsInput = {
+    set?: $Enums.AlimentationType
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -15543,24 +17680,16 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type EnumRegimeNeutreFieldUpdateOperationsInput = {
+    set?: $Enums.RegimeNeutre
   }
 
-  export type EnumBuildingTypeFieldUpdateOperationsInput = {
-    set?: $Enums.BuildingType
-  }
-
-  export type ProjectUpdateOneRequiredWithoutBuildingNestedInput = {
-    create?: XOR<ProjectCreateWithoutBuildingInput, ProjectUncheckedCreateWithoutBuildingInput>
-    connectOrCreate?: ProjectCreateOrConnectWithoutBuildingInput
-    upsert?: ProjectUpsertWithoutBuildingInput
+  export type ProjectUpdateOneRequiredWithoutPowerSupplyNestedInput = {
+    create?: XOR<ProjectCreateWithoutPowerSupplyInput, ProjectUncheckedCreateWithoutPowerSupplyInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutPowerSupplyInput
+    upsert?: ProjectUpsertWithoutPowerSupplyInput
     connect?: ProjectWhereUniqueInput
-    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutBuildingInput, ProjectUpdateWithoutBuildingInput>, ProjectUncheckedUpdateWithoutBuildingInput>
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutPowerSupplyInput, ProjectUpdateWithoutPowerSupplyInput>, ProjectUncheckedUpdateWithoutPowerSupplyInput>
   }
 
   export type ProjectCreateNestedOneWithoutCircuitsInput = {
@@ -15569,22 +17698,16 @@ export namespace Prisma {
     connect?: ProjectWhereUniqueInput
   }
 
-  export type ProtectionCreateNestedOneWithoutCircuitsInput = {
-    create?: XOR<ProtectionCreateWithoutCircuitsInput, ProtectionUncheckedCreateWithoutCircuitsInput>
-    connectOrCreate?: ProtectionCreateOrConnectWithoutCircuitsInput
-    connect?: ProtectionWhereUniqueInput
-  }
-
-  export type EnumCircuitCategoryFieldUpdateOperationsInput = {
-    set?: $Enums.CircuitCategory
-  }
-
-  export type NullableFloatFieldUpdateOperationsInput = {
-    set?: number | null
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type EnumCircuitTypeFieldUpdateOperationsInput = {
+    set?: $Enums.CircuitType
   }
 
   export type ProjectUpdateOneRequiredWithoutCircuitsNestedInput = {
@@ -15595,88 +17718,84 @@ export namespace Prisma {
     update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutCircuitsInput, ProjectUpdateWithoutCircuitsInput>, ProjectUncheckedUpdateWithoutCircuitsInput>
   }
 
-  export type ProtectionUpdateOneWithoutCircuitsNestedInput = {
-    create?: XOR<ProtectionCreateWithoutCircuitsInput, ProtectionUncheckedCreateWithoutCircuitsInput>
-    connectOrCreate?: ProtectionCreateOrConnectWithoutCircuitsInput
-    upsert?: ProtectionUpsertWithoutCircuitsInput
-    disconnect?: ProtectionWhereInput | boolean
-    delete?: ProtectionWhereInput | boolean
-    connect?: ProtectionWhereUniqueInput
-    update?: XOR<XOR<ProtectionUpdateToOneWithWhereWithoutCircuitsInput, ProtectionUpdateWithoutCircuitsInput>, ProtectionUncheckedUpdateWithoutCircuitsInput>
-  }
-
-  export type CircuitCreateNestedManyWithoutProtectionInput = {
-    create?: XOR<CircuitCreateWithoutProtectionInput, CircuitUncheckedCreateWithoutProtectionInput> | CircuitCreateWithoutProtectionInput[] | CircuitUncheckedCreateWithoutProtectionInput[]
-    connectOrCreate?: CircuitCreateOrConnectWithoutProtectionInput | CircuitCreateOrConnectWithoutProtectionInput[]
-    createMany?: CircuitCreateManyProtectionInputEnvelope
-    connect?: CircuitWhereUniqueInput | CircuitWhereUniqueInput[]
-  }
-
-  export type ProjectCreateNestedOneWithoutProtectionsInput = {
-    create?: XOR<ProjectCreateWithoutProtectionsInput, ProjectUncheckedCreateWithoutProtectionsInput>
-    connectOrCreate?: ProjectCreateOrConnectWithoutProtectionsInput
+  export type ProjectCreateNestedOneWithoutFurthestLoadDistanceInput = {
+    create?: XOR<ProjectCreateWithoutFurthestLoadDistanceInput, ProjectUncheckedCreateWithoutFurthestLoadDistanceInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutFurthestLoadDistanceInput
     connect?: ProjectWhereUniqueInput
   }
 
-  export type CircuitUncheckedCreateNestedManyWithoutProtectionInput = {
-    create?: XOR<CircuitCreateWithoutProtectionInput, CircuitUncheckedCreateWithoutProtectionInput> | CircuitCreateWithoutProtectionInput[] | CircuitUncheckedCreateWithoutProtectionInput[]
-    connectOrCreate?: CircuitCreateOrConnectWithoutProtectionInput | CircuitCreateOrConnectWithoutProtectionInput[]
-    createMany?: CircuitCreateManyProtectionInputEnvelope
-    connect?: CircuitWhereUniqueInput | CircuitWhereUniqueInput[]
+  export type ProjectUpdateOneRequiredWithoutFurthestLoadDistanceNestedInput = {
+    create?: XOR<ProjectCreateWithoutFurthestLoadDistanceInput, ProjectUncheckedCreateWithoutFurthestLoadDistanceInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutFurthestLoadDistanceInput
+    upsert?: ProjectUpsertWithoutFurthestLoadDistanceInput
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutFurthestLoadDistanceInput, ProjectUpdateWithoutFurthestLoadDistanceInput>, ProjectUncheckedUpdateWithoutFurthestLoadDistanceInput>
+  }
+
+  export type ProjectCreateNestedOneWithoutCableDataInput = {
+    create?: XOR<ProjectCreateWithoutCableDataInput, ProjectUncheckedCreateWithoutCableDataInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutCableDataInput
+    connect?: ProjectWhereUniqueInput
+  }
+
+  export type EnumCableMaterialFieldUpdateOperationsInput = {
+    set?: $Enums.CableMaterial
+  }
+
+  export type EnumCableIsolationFieldUpdateOperationsInput = {
+    set?: $Enums.CableIsolation
+  }
+
+  export type EnumModePoseFieldUpdateOperationsInput = {
+    set?: $Enums.ModePose
+  }
+
+  export type ProjectUpdateOneRequiredWithoutCableDataNestedInput = {
+    create?: XOR<ProjectCreateWithoutCableDataInput, ProjectUncheckedCreateWithoutCableDataInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutCableDataInput
+    upsert?: ProjectUpsertWithoutCableDataInput
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutCableDataInput, ProjectUpdateWithoutCableDataInput>, ProjectUncheckedUpdateWithoutCableDataInput>
+  }
+
+  export type ProjectCreateNestedOneWithoutProtectionInput = {
+    create?: XOR<ProjectCreateWithoutProtectionInput, ProjectUncheckedCreateWithoutProtectionInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutProtectionInput
+    connect?: ProjectWhereUniqueInput
   }
 
   export type EnumProtectionTypeFieldUpdateOperationsInput = {
     set?: $Enums.ProtectionType
   }
 
-  export type CircuitUpdateManyWithoutProtectionNestedInput = {
-    create?: XOR<CircuitCreateWithoutProtectionInput, CircuitUncheckedCreateWithoutProtectionInput> | CircuitCreateWithoutProtectionInput[] | CircuitUncheckedCreateWithoutProtectionInput[]
-    connectOrCreate?: CircuitCreateOrConnectWithoutProtectionInput | CircuitCreateOrConnectWithoutProtectionInput[]
-    upsert?: CircuitUpsertWithWhereUniqueWithoutProtectionInput | CircuitUpsertWithWhereUniqueWithoutProtectionInput[]
-    createMany?: CircuitCreateManyProtectionInputEnvelope
-    set?: CircuitWhereUniqueInput | CircuitWhereUniqueInput[]
-    disconnect?: CircuitWhereUniqueInput | CircuitWhereUniqueInput[]
-    delete?: CircuitWhereUniqueInput | CircuitWhereUniqueInput[]
-    connect?: CircuitWhereUniqueInput | CircuitWhereUniqueInput[]
-    update?: CircuitUpdateWithWhereUniqueWithoutProtectionInput | CircuitUpdateWithWhereUniqueWithoutProtectionInput[]
-    updateMany?: CircuitUpdateManyWithWhereWithoutProtectionInput | CircuitUpdateManyWithWhereWithoutProtectionInput[]
-    deleteMany?: CircuitScalarWhereInput | CircuitScalarWhereInput[]
+  export type EnumCurveTypeFieldUpdateOperationsInput = {
+    set?: $Enums.CurveType
   }
 
-  export type ProjectUpdateOneRequiredWithoutProtectionsNestedInput = {
-    create?: XOR<ProjectCreateWithoutProtectionsInput, ProjectUncheckedCreateWithoutProtectionsInput>
-    connectOrCreate?: ProjectCreateOrConnectWithoutProtectionsInput
-    upsert?: ProjectUpsertWithoutProtectionsInput
+  export type ProjectUpdateOneRequiredWithoutProtectionNestedInput = {
+    create?: XOR<ProjectCreateWithoutProtectionInput, ProjectUncheckedCreateWithoutProtectionInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutProtectionInput
+    upsert?: ProjectUpsertWithoutProtectionInput
     connect?: ProjectWhereUniqueInput
-    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutProtectionsInput, ProjectUpdateWithoutProtectionsInput>, ProjectUncheckedUpdateWithoutProtectionsInput>
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutProtectionInput, ProjectUpdateWithoutProtectionInput>, ProjectUncheckedUpdateWithoutProtectionInput>
   }
 
-  export type CircuitUncheckedUpdateManyWithoutProtectionNestedInput = {
-    create?: XOR<CircuitCreateWithoutProtectionInput, CircuitUncheckedCreateWithoutProtectionInput> | CircuitCreateWithoutProtectionInput[] | CircuitUncheckedCreateWithoutProtectionInput[]
-    connectOrCreate?: CircuitCreateOrConnectWithoutProtectionInput | CircuitCreateOrConnectWithoutProtectionInput[]
-    upsert?: CircuitUpsertWithWhereUniqueWithoutProtectionInput | CircuitUpsertWithWhereUniqueWithoutProtectionInput[]
-    createMany?: CircuitCreateManyProtectionInputEnvelope
-    set?: CircuitWhereUniqueInput | CircuitWhereUniqueInput[]
-    disconnect?: CircuitWhereUniqueInput | CircuitWhereUniqueInput[]
-    delete?: CircuitWhereUniqueInput | CircuitWhereUniqueInput[]
-    connect?: CircuitWhereUniqueInput | CircuitWhereUniqueInput[]
-    update?: CircuitUpdateWithWhereUniqueWithoutProtectionInput | CircuitUpdateWithWhereUniqueWithoutProtectionInput[]
-    updateMany?: CircuitUpdateManyWithWhereWithoutProtectionInput | CircuitUpdateManyWithWhereWithoutProtectionInput[]
-    deleteMany?: CircuitScalarWhereInput | CircuitScalarWhereInput[]
-  }
-
-  export type ProjectCreateNestedOneWithoutCalculationsInput = {
-    create?: XOR<ProjectCreateWithoutCalculationsInput, ProjectUncheckedCreateWithoutCalculationsInput>
-    connectOrCreate?: ProjectCreateOrConnectWithoutCalculationsInput
+  export type ProjectCreateNestedOneWithoutResultInput = {
+    create?: XOR<ProjectCreateWithoutResultInput, ProjectUncheckedCreateWithoutResultInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutResultInput
     connect?: ProjectWhereUniqueInput
   }
 
-  export type ProjectUpdateOneRequiredWithoutCalculationsNestedInput = {
-    create?: XOR<ProjectCreateWithoutCalculationsInput, ProjectUncheckedCreateWithoutCalculationsInput>
-    connectOrCreate?: ProjectCreateOrConnectWithoutCalculationsInput
-    upsert?: ProjectUpsertWithoutCalculationsInput
+  export type EnumCheckStatusFieldUpdateOperationsInput = {
+    set?: $Enums.CheckStatus
+  }
+
+  export type ProjectUpdateOneRequiredWithoutResultNestedInput = {
+    create?: XOR<ProjectCreateWithoutResultInput, ProjectUncheckedCreateWithoutResultInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutResultInput
+    upsert?: ProjectUpsertWithoutResultInput
     connect?: ProjectWhereUniqueInput
-    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutCalculationsInput, ProjectUpdateWithoutCalculationsInput>, ProjectUncheckedUpdateWithoutCalculationsInput>
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutResultInput, ProjectUpdateWithoutResultInput>, ProjectUncheckedUpdateWithoutResultInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -15853,21 +17972,11 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedEnumProjectStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.ProjectStatus | EnumProjectStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.ProjectStatus[] | ListEnumProjectStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ProjectStatus[] | ListEnumProjectStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumProjectStatusFilter<$PrismaModel> | $Enums.ProjectStatus
-  }
-
-  export type NestedEnumProjectStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.ProjectStatus | EnumProjectStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.ProjectStatus[] | ListEnumProjectStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ProjectStatus[] | ListEnumProjectStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumProjectStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProjectStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumProjectStatusFilter<$PrismaModel>
-    _max?: NestedEnumProjectStatusFilter<$PrismaModel>
+  export type NestedEnumAlimentationTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.AlimentationType | EnumAlimentationTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AlimentationType[] | ListEnumAlimentationTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AlimentationType[] | ListEnumAlimentationTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumAlimentationTypeFilter<$PrismaModel> | $Enums.AlimentationType
   }
 
   export type NestedFloatFilter<$PrismaModel = never> = {
@@ -15881,11 +17990,21 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type NestedEnumBuildingTypeFilter<$PrismaModel = never> = {
-    equals?: $Enums.BuildingType | EnumBuildingTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.BuildingType[] | ListEnumBuildingTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BuildingType[] | ListEnumBuildingTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumBuildingTypeFilter<$PrismaModel> | $Enums.BuildingType
+  export type NestedEnumRegimeNeutreFilter<$PrismaModel = never> = {
+    equals?: $Enums.RegimeNeutre | EnumRegimeNeutreFieldRefInput<$PrismaModel>
+    in?: $Enums.RegimeNeutre[] | ListEnumRegimeNeutreFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RegimeNeutre[] | ListEnumRegimeNeutreFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegimeNeutreFilter<$PrismaModel> | $Enums.RegimeNeutre
+  }
+
+  export type NestedEnumAlimentationTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AlimentationType | EnumAlimentationTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.AlimentationType[] | ListEnumAlimentationTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AlimentationType[] | ListEnumAlimentationTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumAlimentationTypeWithAggregatesFilter<$PrismaModel> | $Enums.AlimentationType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAlimentationTypeFilter<$PrismaModel>
+    _max?: NestedEnumAlimentationTypeFilter<$PrismaModel>
   }
 
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -15904,6 +18023,23 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NestedEnumRegimeNeutreWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.RegimeNeutre | EnumRegimeNeutreFieldRefInput<$PrismaModel>
+    in?: $Enums.RegimeNeutre[] | ListEnumRegimeNeutreFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RegimeNeutre[] | ListEnumRegimeNeutreFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegimeNeutreWithAggregatesFilter<$PrismaModel> | $Enums.RegimeNeutre
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRegimeNeutreFilter<$PrismaModel>
+    _max?: NestedEnumRegimeNeutreFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCircuitTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.CircuitType | EnumCircuitTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CircuitType[] | ListEnumCircuitTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CircuitType[] | ListEnumCircuitTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCircuitTypeFilter<$PrismaModel> | $Enums.CircuitType
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -15920,47 +18056,65 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type NestedEnumBuildingTypeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.BuildingType | EnumBuildingTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.BuildingType[] | ListEnumBuildingTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BuildingType[] | ListEnumBuildingTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumBuildingTypeWithAggregatesFilter<$PrismaModel> | $Enums.BuildingType
+  export type NestedEnumCircuitTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CircuitType | EnumCircuitTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CircuitType[] | ListEnumCircuitTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CircuitType[] | ListEnumCircuitTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCircuitTypeWithAggregatesFilter<$PrismaModel> | $Enums.CircuitType
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumBuildingTypeFilter<$PrismaModel>
-    _max?: NestedEnumBuildingTypeFilter<$PrismaModel>
+    _min?: NestedEnumCircuitTypeFilter<$PrismaModel>
+    _max?: NestedEnumCircuitTypeFilter<$PrismaModel>
   }
 
-  export type NestedEnumCircuitCategoryFilter<$PrismaModel = never> = {
-    equals?: $Enums.CircuitCategory | EnumCircuitCategoryFieldRefInput<$PrismaModel>
-    in?: $Enums.CircuitCategory[] | ListEnumCircuitCategoryFieldRefInput<$PrismaModel>
-    notIn?: $Enums.CircuitCategory[] | ListEnumCircuitCategoryFieldRefInput<$PrismaModel>
-    not?: NestedEnumCircuitCategoryFilter<$PrismaModel> | $Enums.CircuitCategory
+  export type NestedEnumCableMaterialFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableMaterial | EnumCableMaterialFieldRefInput<$PrismaModel>
+    in?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel>
+    not?: NestedEnumCableMaterialFilter<$PrismaModel> | $Enums.CableMaterial
   }
 
-  export type NestedEnumCircuitCategoryWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.CircuitCategory | EnumCircuitCategoryFieldRefInput<$PrismaModel>
-    in?: $Enums.CircuitCategory[] | ListEnumCircuitCategoryFieldRefInput<$PrismaModel>
-    notIn?: $Enums.CircuitCategory[] | ListEnumCircuitCategoryFieldRefInput<$PrismaModel>
-    not?: NestedEnumCircuitCategoryWithAggregatesFilter<$PrismaModel> | $Enums.CircuitCategory
+  export type NestedEnumCableIsolationFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableIsolation | EnumCableIsolationFieldRefInput<$PrismaModel>
+    in?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel>
+    not?: NestedEnumCableIsolationFilter<$PrismaModel> | $Enums.CableIsolation
+  }
+
+  export type NestedEnumModePoseFilter<$PrismaModel = never> = {
+    equals?: $Enums.ModePose | EnumModePoseFieldRefInput<$PrismaModel>
+    in?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel>
+    not?: NestedEnumModePoseFilter<$PrismaModel> | $Enums.ModePose
+  }
+
+  export type NestedEnumCableMaterialWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableMaterial | EnumCableMaterialFieldRefInput<$PrismaModel>
+    in?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel>
+    not?: NestedEnumCableMaterialWithAggregatesFilter<$PrismaModel> | $Enums.CableMaterial
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumCircuitCategoryFilter<$PrismaModel>
-    _max?: NestedEnumCircuitCategoryFilter<$PrismaModel>
+    _min?: NestedEnumCableMaterialFilter<$PrismaModel>
+    _max?: NestedEnumCableMaterialFilter<$PrismaModel>
   }
 
-  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedFloatNullableFilter<$PrismaModel>
-    _min?: NestedFloatNullableFilter<$PrismaModel>
-    _max?: NestedFloatNullableFilter<$PrismaModel>
+  export type NestedEnumCableIsolationWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableIsolation | EnumCableIsolationFieldRefInput<$PrismaModel>
+    in?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel>
+    not?: NestedEnumCableIsolationWithAggregatesFilter<$PrismaModel> | $Enums.CableIsolation
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCableIsolationFilter<$PrismaModel>
+    _max?: NestedEnumCableIsolationFilter<$PrismaModel>
+  }
+
+  export type NestedEnumModePoseWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ModePose | EnumModePoseFieldRefInput<$PrismaModel>
+    in?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel>
+    not?: NestedEnumModePoseWithAggregatesFilter<$PrismaModel> | $Enums.ModePose
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumModePoseFilter<$PrismaModel>
+    _max?: NestedEnumModePoseFilter<$PrismaModel>
   }
 
   export type NestedEnumProtectionTypeFilter<$PrismaModel = never> = {
@@ -15968,6 +18122,13 @@ export namespace Prisma {
     in?: $Enums.ProtectionType[] | ListEnumProtectionTypeFieldRefInput<$PrismaModel>
     notIn?: $Enums.ProtectionType[] | ListEnumProtectionTypeFieldRefInput<$PrismaModel>
     not?: NestedEnumProtectionTypeFilter<$PrismaModel> | $Enums.ProtectionType
+  }
+
+  export type NestedEnumCurveTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.CurveType | EnumCurveTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCurveTypeFilter<$PrismaModel> | $Enums.CurveType
   }
 
   export type NestedEnumProtectionTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -15978,6 +18139,33 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumProtectionTypeFilter<$PrismaModel>
     _max?: NestedEnumProtectionTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCurveTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CurveType | EnumCurveTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCurveTypeWithAggregatesFilter<$PrismaModel> | $Enums.CurveType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCurveTypeFilter<$PrismaModel>
+    _max?: NestedEnumCurveTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCheckStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.CheckStatus | EnumCheckStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.CheckStatus[] | ListEnumCheckStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CheckStatus[] | ListEnumCheckStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumCheckStatusFilter<$PrismaModel> | $Enums.CheckStatus
+  }
+
+  export type NestedEnumCheckStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CheckStatus | EnumCheckStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.CheckStatus[] | ListEnumCheckStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CheckStatus[] | ListEnumCheckStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumCheckStatusWithAggregatesFilter<$PrismaModel> | $Enums.CheckStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCheckStatusFilter<$PrismaModel>
+    _max?: NestedEnumCheckStatusFilter<$PrismaModel>
   }
 
   export type AccountCreateWithoutUserInput = {
@@ -16016,47 +18204,43 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ProjectCreateWithoutOwnerInput = {
+  export type ProjectCreateWithoutUserInput = {
     id?: string
-    name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    building?: BuildingCreateNestedOneWithoutProjectInput
-    calculations?: CalculationCreateNestedManyWithoutProjectInput
+    name: string
+    client?: string | null
+    location?: string | null
+    powerSupply?: PowerSupplyCreateNestedOneWithoutProjectInput
     circuits?: CircuitCreateNestedManyWithoutProjectInput
-    protections?: ProtectionCreateNestedManyWithoutProjectInput
+    cableData?: CableDataCreateNestedOneWithoutProjectInput
+    protection?: ProtectionCreateNestedOneWithoutProjectInput
+    result?: ResultCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
   }
 
-  export type ProjectUncheckedCreateWithoutOwnerInput = {
+  export type ProjectUncheckedCreateWithoutUserInput = {
     id?: string
-    name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    building?: BuildingUncheckedCreateNestedOneWithoutProjectInput
-    calculations?: CalculationUncheckedCreateNestedManyWithoutProjectInput
+    name: string
+    client?: string | null
+    location?: string | null
+    powerSupply?: PowerSupplyUncheckedCreateNestedOneWithoutProjectInput
     circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
-    protections?: ProtectionUncheckedCreateNestedManyWithoutProjectInput
+    cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
+    protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    result?: ResultUncheckedCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
   }
 
-  export type ProjectCreateOrConnectWithoutOwnerInput = {
+  export type ProjectCreateOrConnectWithoutUserInput = {
     where: ProjectWhereUniqueInput
-    create: XOR<ProjectCreateWithoutOwnerInput, ProjectUncheckedCreateWithoutOwnerInput>
+    create: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput>
   }
 
-  export type ProjectCreateManyOwnerInputEnvelope = {
-    data: ProjectCreateManyOwnerInput | ProjectCreateManyOwnerInput[]
+  export type ProjectCreateManyUserInputEnvelope = {
+    data: ProjectCreateManyUserInput | ProjectCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -16115,20 +18299,20 @@ export namespace Prisma {
     session_state?: StringNullableFilter<"Account"> | string | null
   }
 
-  export type ProjectUpsertWithWhereUniqueWithoutOwnerInput = {
+  export type ProjectUpsertWithWhereUniqueWithoutUserInput = {
     where: ProjectWhereUniqueInput
-    update: XOR<ProjectUpdateWithoutOwnerInput, ProjectUncheckedUpdateWithoutOwnerInput>
-    create: XOR<ProjectCreateWithoutOwnerInput, ProjectUncheckedCreateWithoutOwnerInput>
+    update: XOR<ProjectUpdateWithoutUserInput, ProjectUncheckedUpdateWithoutUserInput>
+    create: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput>
   }
 
-  export type ProjectUpdateWithWhereUniqueWithoutOwnerInput = {
+  export type ProjectUpdateWithWhereUniqueWithoutUserInput = {
     where: ProjectWhereUniqueInput
-    data: XOR<ProjectUpdateWithoutOwnerInput, ProjectUncheckedUpdateWithoutOwnerInput>
+    data: XOR<ProjectUpdateWithoutUserInput, ProjectUncheckedUpdateWithoutUserInput>
   }
 
-  export type ProjectUpdateManyWithWhereWithoutOwnerInput = {
+  export type ProjectUpdateManyWithWhereWithoutUserInput = {
     where: ProjectScalarWhereInput
-    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyWithoutOwnerInput>
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyWithoutUserInput>
   }
 
   export type ProjectScalarWhereInput = {
@@ -16136,16 +18320,12 @@ export namespace Prisma {
     OR?: ProjectScalarWhereInput[]
     NOT?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
     id?: StringFilter<"Project"> | string
-    name?: StringFilter<"Project"> | string
-    description?: StringNullableFilter<"Project"> | string | null
-    reference?: StringNullableFilter<"Project"> | string | null
-    customerName?: StringNullableFilter<"Project"> | string | null
-    siteAddress?: StringNullableFilter<"Project"> | string | null
-    status?: EnumProjectStatusFilter<"Project"> | $Enums.ProjectStatus
-    objective?: StringNullableFilter<"Project"> | string | null
+    userId?: StringFilter<"Project"> | string
     createdAt?: DateTimeFilter<"Project"> | Date | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
-    ownerId?: StringFilter<"Project"> | string
+    name?: StringFilter<"Project"> | string
+    client?: StringNullableFilter<"Project"> | string | null
+    location?: StringNullableFilter<"Project"> | string | null
   }
 
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
@@ -16179,13 +18359,13 @@ export namespace Prisma {
     name?: string | null
     email: string
     emailVerified?: Date | string | null
-    photo?: string | null
+    avatarUrl?: string | null
     password?: string | null
     isTwoFactorEnabled?: boolean
     twofactorSecret?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    projects?: ProjectCreateNestedManyWithoutOwnerInput
+    projects?: ProjectCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
@@ -16194,13 +18374,13 @@ export namespace Prisma {
     name?: string | null
     email: string
     emailVerified?: Date | string | null
-    photo?: string | null
+    avatarUrl?: string | null
     password?: string | null
     isTwoFactorEnabled?: boolean
     twofactorSecret?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -16225,13 +18405,13 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     twofactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    projects?: ProjectUpdateManyWithoutOwnerNestedInput
+    projects?: ProjectUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
@@ -16240,13 +18420,13 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     twofactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -16255,14 +18435,14 @@ export namespace Prisma {
     name?: string | null
     email: string
     emailVerified?: Date | string | null
-    photo?: string | null
+    avatarUrl?: string | null
     password?: string | null
     isTwoFactorEnabled?: boolean
     twofactorSecret?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
-    projects?: ProjectCreateNestedManyWithoutOwnerInput
+    projects?: ProjectCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -16270,14 +18450,14 @@ export namespace Prisma {
     name?: string | null
     email: string
     emailVerified?: Date | string | null
-    photo?: string | null
+    avatarUrl?: string | null
     password?: string | null
     isTwoFactorEnabled?: boolean
     twofactorSecret?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -16301,14 +18481,14 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     twofactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    projects?: ProjectUpdateManyWithoutOwnerNestedInput
+    projects?: ProjectUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -16316,135 +18496,14 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    photo?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     twofactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
-  }
-
-  export type BuildingCreateWithoutProjectInput = {
-    id?: string
-    surfaceArea: number
-    numberOfRooms: number
-    supplyVoltage: string
-    phases?: number
-    buildingType?: $Enums.BuildingType
-    usage?: string | null
-    comment?: string | null
-  }
-
-  export type BuildingUncheckedCreateWithoutProjectInput = {
-    id?: string
-    surfaceArea: number
-    numberOfRooms: number
-    supplyVoltage: string
-    phases?: number
-    buildingType?: $Enums.BuildingType
-    usage?: string | null
-    comment?: string | null
-  }
-
-  export type BuildingCreateOrConnectWithoutProjectInput = {
-    where: BuildingWhereUniqueInput
-    create: XOR<BuildingCreateWithoutProjectInput, BuildingUncheckedCreateWithoutProjectInput>
-  }
-
-  export type CalculationCreateWithoutProjectInput = {
-    id?: string
-    name: string
-    totalInstalledPowerWatts?: number | null
-    maximumShortCircuitAmps?: number | null
-    totalOperatingCurrentAmps?: number | null
-    totalCircuitCurrentAmps?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    notes?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CalculationUncheckedCreateWithoutProjectInput = {
-    id?: string
-    name: string
-    totalInstalledPowerWatts?: number | null
-    maximumShortCircuitAmps?: number | null
-    totalOperatingCurrentAmps?: number | null
-    totalCircuitCurrentAmps?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    notes?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CalculationCreateOrConnectWithoutProjectInput = {
-    where: CalculationWhereUniqueInput
-    create: XOR<CalculationCreateWithoutProjectInput, CalculationUncheckedCreateWithoutProjectInput>
-  }
-
-  export type CalculationCreateManyProjectInputEnvelope = {
-    data: CalculationCreateManyProjectInput | CalculationCreateManyProjectInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type CircuitCreateWithoutProjectInput = {
-    id?: string
-    label: string
-    type: $Enums.CircuitCategory
-    room?: string | null
-    quantity?: number
-    loadWatts?: number | null
-    loadAmps?: number | null
-    shortCircuitCurrentAmps?: number | null
-    operatingCurrentAmps?: number | null
-    circuitTotalCurrentAmps?: number | null
-    cableLengthMeters?: number | null
-    conductorSectionMm2?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    numberOfPoles?: number
-    isDedicated?: boolean
-    comment?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    protection?: ProtectionCreateNestedOneWithoutCircuitsInput
-  }
-
-  export type CircuitUncheckedCreateWithoutProjectInput = {
-    id?: string
-    protectionId?: string | null
-    label: string
-    type: $Enums.CircuitCategory
-    room?: string | null
-    quantity?: number
-    loadWatts?: number | null
-    loadAmps?: number | null
-    shortCircuitCurrentAmps?: number | null
-    operatingCurrentAmps?: number | null
-    circuitTotalCurrentAmps?: number | null
-    cableLengthMeters?: number | null
-    conductorSectionMm2?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    numberOfPoles?: number
-    isDedicated?: boolean
-    comment?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CircuitCreateOrConnectWithoutProjectInput = {
-    where: CircuitWhereUniqueInput
-    create: XOR<CircuitCreateWithoutProjectInput, CircuitUncheckedCreateWithoutProjectInput>
-  }
-
-  export type CircuitCreateManyProjectInputEnvelope = {
-    data: CircuitCreateManyProjectInput | CircuitCreateManyProjectInput[]
-    skipDuplicates?: boolean
+    projects?: ProjectUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutProjectsInput = {
@@ -16452,7 +18511,7 @@ export namespace Prisma {
     name?: string | null
     email: string
     emailVerified?: Date | string | null
-    photo?: string | null
+    avatarUrl?: string | null
     password?: string | null
     isTwoFactorEnabled?: boolean
     twofactorSecret?: string | null
@@ -16467,7 +18526,7 @@ export namespace Prisma {
     name?: string | null
     email: string
     emailVerified?: Date | string | null
-    photo?: string | null
+    avatarUrl?: string | null
     password?: string | null
     isTwoFactorEnabled?: boolean
     twofactorSecret?: string | null
@@ -16482,30 +18541,90 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
   }
 
+  export type PowerSupplyCreateWithoutProjectInput = {
+    id?: string
+    type: $Enums.AlimentationType
+    nominalVoltage: number
+    frequency: number
+    regimeNeutre: $Enums.RegimeNeutre
+    distanceSourceToTGBT: number
+  }
+
+  export type PowerSupplyUncheckedCreateWithoutProjectInput = {
+    id?: string
+    type: $Enums.AlimentationType
+    nominalVoltage: number
+    frequency: number
+    regimeNeutre: $Enums.RegimeNeutre
+    distanceSourceToTGBT: number
+  }
+
+  export type PowerSupplyCreateOrConnectWithoutProjectInput = {
+    where: PowerSupplyWhereUniqueInput
+    create: XOR<PowerSupplyCreateWithoutProjectInput, PowerSupplyUncheckedCreateWithoutProjectInput>
+  }
+
+  export type CircuitCreateWithoutProjectInput = {
+    id?: string
+    name: string
+    circuitCount?: number
+    type: $Enums.CircuitType
+    totalPower: number
+  }
+
+  export type CircuitUncheckedCreateWithoutProjectInput = {
+    id?: string
+    name: string
+    circuitCount?: number
+    type: $Enums.CircuitType
+    totalPower: number
+  }
+
+  export type CircuitCreateOrConnectWithoutProjectInput = {
+    where: CircuitWhereUniqueInput
+    create: XOR<CircuitCreateWithoutProjectInput, CircuitUncheckedCreateWithoutProjectInput>
+  }
+
+  export type CircuitCreateManyProjectInputEnvelope = {
+    data: CircuitCreateManyProjectInput | CircuitCreateManyProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CableDataCreateWithoutProjectInput = {
+    id?: string
+    material: $Enums.CableMaterial
+    isolation: $Enums.CableIsolation
+    modePose: $Enums.ModePose
+  }
+
+  export type CableDataUncheckedCreateWithoutProjectInput = {
+    id?: string
+    material: $Enums.CableMaterial
+    isolation: $Enums.CableIsolation
+    modePose: $Enums.ModePose
+  }
+
+  export type CableDataCreateOrConnectWithoutProjectInput = {
+    where: CableDataWhereUniqueInput
+    create: XOR<CableDataCreateWithoutProjectInput, CableDataUncheckedCreateWithoutProjectInput>
+  }
+
   export type ProtectionCreateWithoutProjectInput = {
     id?: string
-    type?: $Enums.ProtectionType
-    ratingAmps: number
-    curve?: string | null
-    poles?: number
-    description?: string | null
-    equipmentName?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    circuits?: CircuitCreateNestedManyWithoutProtectionInput
+    type: $Enums.ProtectionType
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: $Enums.CurveType
+    breakingCapacity: number
   }
 
   export type ProtectionUncheckedCreateWithoutProjectInput = {
     id?: string
-    type?: $Enums.ProtectionType
-    ratingAmps: number
-    curve?: string | null
-    poles?: number
-    description?: string | null
-    equipmentName?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    circuits?: CircuitUncheckedCreateNestedManyWithoutProtectionInput
+    type: $Enums.ProtectionType
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: $Enums.CurveType
+    breakingCapacity: number
   }
 
   export type ProtectionCreateOrConnectWithoutProjectInput = {
@@ -16513,76 +18632,130 @@ export namespace Prisma {
     create: XOR<ProtectionCreateWithoutProjectInput, ProtectionUncheckedCreateWithoutProjectInput>
   }
 
-  export type ProtectionCreateManyProjectInputEnvelope = {
-    data: ProtectionCreateManyProjectInput | ProtectionCreateManyProjectInput[]
-    skipDuplicates?: boolean
+  export type ResultCreateWithoutProjectInput = {
+    id?: string
+    currentNominal: number
+    currentDesign: number
+    recommendedCableSection: number
+    correctedCableCapacity: number
+    recommendedBreaker: number
+    voltageDropVolts: number
+    voltageDropPercent: number
+    shortCircuitCurrentAtEnd: number
+    breakerBreakingCapacity: number
+    overloadCheck: $Enums.CheckStatus
+    voltageDropCheck: $Enums.CheckStatus
+    breakingCapacityCheck: $Enums.CheckStatus
+    coordinationCheck: $Enums.CheckStatus
   }
 
-  export type BuildingUpsertWithoutProjectInput = {
-    update: XOR<BuildingUpdateWithoutProjectInput, BuildingUncheckedUpdateWithoutProjectInput>
-    create: XOR<BuildingCreateWithoutProjectInput, BuildingUncheckedCreateWithoutProjectInput>
-    where?: BuildingWhereInput
+  export type ResultUncheckedCreateWithoutProjectInput = {
+    id?: string
+    currentNominal: number
+    currentDesign: number
+    recommendedCableSection: number
+    correctedCableCapacity: number
+    recommendedBreaker: number
+    voltageDropVolts: number
+    voltageDropPercent: number
+    shortCircuitCurrentAtEnd: number
+    breakerBreakingCapacity: number
+    overloadCheck: $Enums.CheckStatus
+    voltageDropCheck: $Enums.CheckStatus
+    breakingCapacityCheck: $Enums.CheckStatus
+    coordinationCheck: $Enums.CheckStatus
   }
 
-  export type BuildingUpdateToOneWithWhereWithoutProjectInput = {
-    where?: BuildingWhereInput
-    data: XOR<BuildingUpdateWithoutProjectInput, BuildingUncheckedUpdateWithoutProjectInput>
+  export type ResultCreateOrConnectWithoutProjectInput = {
+    where: ResultWhereUniqueInput
+    create: XOR<ResultCreateWithoutProjectInput, ResultUncheckedCreateWithoutProjectInput>
   }
 
-  export type BuildingUpdateWithoutProjectInput = {
+  export type FurthestLoadDistanceCreateWithoutProjectInput = {
+    id?: string
+    circuitName: string
+    distance: number
+  }
+
+  export type FurthestLoadDistanceUncheckedCreateWithoutProjectInput = {
+    id?: string
+    circuitName: string
+    distance: number
+  }
+
+  export type FurthestLoadDistanceCreateOrConnectWithoutProjectInput = {
+    where: FurthestLoadDistanceWhereUniqueInput
+    create: XOR<FurthestLoadDistanceCreateWithoutProjectInput, FurthestLoadDistanceUncheckedCreateWithoutProjectInput>
+  }
+
+  export type UserUpsertWithoutProjectsInput = {
+    update: XOR<UserUpdateWithoutProjectsInput, UserUncheckedUpdateWithoutProjectsInput>
+    create: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutProjectsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutProjectsInput, UserUncheckedUpdateWithoutProjectsInput>
+  }
+
+  export type UserUpdateWithoutProjectsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    surfaceArea?: FloatFieldUpdateOperationsInput | number
-    numberOfRooms?: IntFieldUpdateOperationsInput | number
-    supplyVoltage?: StringFieldUpdateOperationsInput | string
-    phases?: IntFieldUpdateOperationsInput | number
-    buildingType?: EnumBuildingTypeFieldUpdateOperationsInput | $Enums.BuildingType
-    usage?: NullableStringFieldUpdateOperationsInput | string | null
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    twofactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
-  export type BuildingUncheckedUpdateWithoutProjectInput = {
+  export type UserUncheckedUpdateWithoutProjectsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    surfaceArea?: FloatFieldUpdateOperationsInput | number
-    numberOfRooms?: IntFieldUpdateOperationsInput | number
-    supplyVoltage?: StringFieldUpdateOperationsInput | string
-    phases?: IntFieldUpdateOperationsInput | number
-    buildingType?: EnumBuildingTypeFieldUpdateOperationsInput | $Enums.BuildingType
-    usage?: NullableStringFieldUpdateOperationsInput | string | null
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    twofactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type CalculationUpsertWithWhereUniqueWithoutProjectInput = {
-    where: CalculationWhereUniqueInput
-    update: XOR<CalculationUpdateWithoutProjectInput, CalculationUncheckedUpdateWithoutProjectInput>
-    create: XOR<CalculationCreateWithoutProjectInput, CalculationUncheckedCreateWithoutProjectInput>
+  export type PowerSupplyUpsertWithoutProjectInput = {
+    update: XOR<PowerSupplyUpdateWithoutProjectInput, PowerSupplyUncheckedUpdateWithoutProjectInput>
+    create: XOR<PowerSupplyCreateWithoutProjectInput, PowerSupplyUncheckedCreateWithoutProjectInput>
+    where?: PowerSupplyWhereInput
   }
 
-  export type CalculationUpdateWithWhereUniqueWithoutProjectInput = {
-    where: CalculationWhereUniqueInput
-    data: XOR<CalculationUpdateWithoutProjectInput, CalculationUncheckedUpdateWithoutProjectInput>
+  export type PowerSupplyUpdateToOneWithWhereWithoutProjectInput = {
+    where?: PowerSupplyWhereInput
+    data: XOR<PowerSupplyUpdateWithoutProjectInput, PowerSupplyUncheckedUpdateWithoutProjectInput>
   }
 
-  export type CalculationUpdateManyWithWhereWithoutProjectInput = {
-    where: CalculationScalarWhereInput
-    data: XOR<CalculationUpdateManyMutationInput, CalculationUncheckedUpdateManyWithoutProjectInput>
+  export type PowerSupplyUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumAlimentationTypeFieldUpdateOperationsInput | $Enums.AlimentationType
+    nominalVoltage?: FloatFieldUpdateOperationsInput | number
+    frequency?: FloatFieldUpdateOperationsInput | number
+    regimeNeutre?: EnumRegimeNeutreFieldUpdateOperationsInput | $Enums.RegimeNeutre
+    distanceSourceToTGBT?: FloatFieldUpdateOperationsInput | number
   }
 
-  export type CalculationScalarWhereInput = {
-    AND?: CalculationScalarWhereInput | CalculationScalarWhereInput[]
-    OR?: CalculationScalarWhereInput[]
-    NOT?: CalculationScalarWhereInput | CalculationScalarWhereInput[]
-    id?: StringFilter<"Calculation"> | string
-    projectId?: StringFilter<"Calculation"> | string
-    name?: StringFilter<"Calculation"> | string
-    totalInstalledPowerWatts?: IntNullableFilter<"Calculation"> | number | null
-    maximumShortCircuitAmps?: FloatNullableFilter<"Calculation"> | number | null
-    totalOperatingCurrentAmps?: FloatNullableFilter<"Calculation"> | number | null
-    totalCircuitCurrentAmps?: FloatNullableFilter<"Calculation"> | number | null
-    recommendedSectionMm2?: FloatNullableFilter<"Calculation"> | number | null
-    voltageDropPercent?: FloatNullableFilter<"Calculation"> | number | null
-    notes?: StringNullableFilter<"Calculation"> | string | null
-    createdAt?: DateTimeFilter<"Calculation"> | Date | string
-    updatedAt?: DateTimeFilter<"Calculation"> | Date | string
+  export type PowerSupplyUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumAlimentationTypeFieldUpdateOperationsInput | $Enums.AlimentationType
+    nominalVoltage?: FloatFieldUpdateOperationsInput | number
+    frequency?: FloatFieldUpdateOperationsInput | number
+    regimeNeutre?: EnumRegimeNeutreFieldUpdateOperationsInput | $Enums.RegimeNeutre
+    distanceSourceToTGBT?: FloatFieldUpdateOperationsInput | number
   }
 
   export type CircuitUpsertWithWhereUniqueWithoutProjectInput = {
@@ -16607,252 +18780,243 @@ export namespace Prisma {
     NOT?: CircuitScalarWhereInput | CircuitScalarWhereInput[]
     id?: StringFilter<"Circuit"> | string
     projectId?: StringFilter<"Circuit"> | string
-    protectionId?: StringNullableFilter<"Circuit"> | string | null
-    label?: StringFilter<"Circuit"> | string
-    type?: EnumCircuitCategoryFilter<"Circuit"> | $Enums.CircuitCategory
-    room?: StringNullableFilter<"Circuit"> | string | null
-    quantity?: IntFilter<"Circuit"> | number
-    loadWatts?: IntNullableFilter<"Circuit"> | number | null
-    loadAmps?: FloatNullableFilter<"Circuit"> | number | null
-    shortCircuitCurrentAmps?: FloatNullableFilter<"Circuit"> | number | null
-    operatingCurrentAmps?: FloatNullableFilter<"Circuit"> | number | null
-    circuitTotalCurrentAmps?: FloatNullableFilter<"Circuit"> | number | null
-    cableLengthMeters?: FloatNullableFilter<"Circuit"> | number | null
-    conductorSectionMm2?: FloatNullableFilter<"Circuit"> | number | null
-    recommendedSectionMm2?: FloatNullableFilter<"Circuit"> | number | null
-    voltageDropPercent?: FloatNullableFilter<"Circuit"> | number | null
-    numberOfPoles?: IntFilter<"Circuit"> | number
-    isDedicated?: BoolFilter<"Circuit"> | boolean
-    comment?: StringNullableFilter<"Circuit"> | string | null
-    createdAt?: DateTimeFilter<"Circuit"> | Date | string
-    updatedAt?: DateTimeFilter<"Circuit"> | Date | string
+    name?: StringFilter<"Circuit"> | string
+    circuitCount?: IntFilter<"Circuit"> | number
+    type?: EnumCircuitTypeFilter<"Circuit"> | $Enums.CircuitType
+    totalPower?: FloatFilter<"Circuit"> | number
   }
 
-  export type UserUpsertWithoutProjectsInput = {
-    update: XOR<UserUpdateWithoutProjectsInput, UserUncheckedUpdateWithoutProjectsInput>
-    create: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
-    where?: UserWhereInput
+  export type CableDataUpsertWithoutProjectInput = {
+    update: XOR<CableDataUpdateWithoutProjectInput, CableDataUncheckedUpdateWithoutProjectInput>
+    create: XOR<CableDataCreateWithoutProjectInput, CableDataUncheckedCreateWithoutProjectInput>
+    where?: CableDataWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutProjectsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutProjectsInput, UserUncheckedUpdateWithoutProjectsInput>
+  export type CableDataUpdateToOneWithWhereWithoutProjectInput = {
+    where?: CableDataWhereInput
+    data: XOR<CableDataUpdateWithoutProjectInput, CableDataUncheckedUpdateWithoutProjectInput>
   }
 
-  export type UserUpdateWithoutProjectsInput = {
+  export type CableDataUpdateWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    photo?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
-    twofactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
+    material?: EnumCableMaterialFieldUpdateOperationsInput | $Enums.CableMaterial
+    isolation?: EnumCableIsolationFieldUpdateOperationsInput | $Enums.CableIsolation
+    modePose?: EnumModePoseFieldUpdateOperationsInput | $Enums.ModePose
   }
 
-  export type UserUncheckedUpdateWithoutProjectsInput = {
+  export type CableDataUncheckedUpdateWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    photo?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
-    twofactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    material?: EnumCableMaterialFieldUpdateOperationsInput | $Enums.CableMaterial
+    isolation?: EnumCableIsolationFieldUpdateOperationsInput | $Enums.CableIsolation
+    modePose?: EnumModePoseFieldUpdateOperationsInput | $Enums.ModePose
   }
 
-  export type ProtectionUpsertWithWhereUniqueWithoutProjectInput = {
-    where: ProtectionWhereUniqueInput
+  export type ProtectionUpsertWithoutProjectInput = {
     update: XOR<ProtectionUpdateWithoutProjectInput, ProtectionUncheckedUpdateWithoutProjectInput>
     create: XOR<ProtectionCreateWithoutProjectInput, ProtectionUncheckedCreateWithoutProjectInput>
+    where?: ProtectionWhereInput
   }
 
-  export type ProtectionUpdateWithWhereUniqueWithoutProjectInput = {
-    where: ProtectionWhereUniqueInput
+  export type ProtectionUpdateToOneWithWhereWithoutProjectInput = {
+    where?: ProtectionWhereInput
     data: XOR<ProtectionUpdateWithoutProjectInput, ProtectionUncheckedUpdateWithoutProjectInput>
   }
 
-  export type ProtectionUpdateManyWithWhereWithoutProjectInput = {
-    where: ProtectionScalarWhereInput
-    data: XOR<ProtectionUpdateManyMutationInput, ProtectionUncheckedUpdateManyWithoutProjectInput>
+  export type ProtectionUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
+    ratedCurrent?: FloatFieldUpdateOperationsInput | number
+    numberOfPoles?: IntFieldUpdateOperationsInput | number
+    curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
+    breakingCapacity?: FloatFieldUpdateOperationsInput | number
   }
 
-  export type ProtectionScalarWhereInput = {
-    AND?: ProtectionScalarWhereInput | ProtectionScalarWhereInput[]
-    OR?: ProtectionScalarWhereInput[]
-    NOT?: ProtectionScalarWhereInput | ProtectionScalarWhereInput[]
-    id?: StringFilter<"Protection"> | string
-    projectId?: StringFilter<"Protection"> | string
-    type?: EnumProtectionTypeFilter<"Protection"> | $Enums.ProtectionType
-    ratingAmps?: IntFilter<"Protection"> | number
-    curve?: StringNullableFilter<"Protection"> | string | null
-    poles?: IntFilter<"Protection"> | number
-    description?: StringNullableFilter<"Protection"> | string | null
-    equipmentName?: StringNullableFilter<"Protection"> | string | null
-    createdAt?: DateTimeFilter<"Protection"> | Date | string
-    updatedAt?: DateTimeFilter<"Protection"> | Date | string
+  export type ProtectionUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
+    ratedCurrent?: FloatFieldUpdateOperationsInput | number
+    numberOfPoles?: IntFieldUpdateOperationsInput | number
+    curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
+    breakingCapacity?: FloatFieldUpdateOperationsInput | number
   }
 
-  export type ProjectCreateWithoutBuildingInput = {
+  export type ResultUpsertWithoutProjectInput = {
+    update: XOR<ResultUpdateWithoutProjectInput, ResultUncheckedUpdateWithoutProjectInput>
+    create: XOR<ResultCreateWithoutProjectInput, ResultUncheckedCreateWithoutProjectInput>
+    where?: ResultWhereInput
+  }
+
+  export type ResultUpdateToOneWithWhereWithoutProjectInput = {
+    where?: ResultWhereInput
+    data: XOR<ResultUpdateWithoutProjectInput, ResultUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type ResultUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    currentNominal?: FloatFieldUpdateOperationsInput | number
+    currentDesign?: FloatFieldUpdateOperationsInput | number
+    recommendedCableSection?: FloatFieldUpdateOperationsInput | number
+    correctedCableCapacity?: FloatFieldUpdateOperationsInput | number
+    recommendedBreaker?: FloatFieldUpdateOperationsInput | number
+    voltageDropVolts?: FloatFieldUpdateOperationsInput | number
+    voltageDropPercent?: FloatFieldUpdateOperationsInput | number
+    shortCircuitCurrentAtEnd?: FloatFieldUpdateOperationsInput | number
+    breakerBreakingCapacity?: FloatFieldUpdateOperationsInput | number
+    overloadCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    voltageDropCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    breakingCapacityCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    coordinationCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+  }
+
+  export type ResultUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    currentNominal?: FloatFieldUpdateOperationsInput | number
+    currentDesign?: FloatFieldUpdateOperationsInput | number
+    recommendedCableSection?: FloatFieldUpdateOperationsInput | number
+    correctedCableCapacity?: FloatFieldUpdateOperationsInput | number
+    recommendedBreaker?: FloatFieldUpdateOperationsInput | number
+    voltageDropVolts?: FloatFieldUpdateOperationsInput | number
+    voltageDropPercent?: FloatFieldUpdateOperationsInput | number
+    shortCircuitCurrentAtEnd?: FloatFieldUpdateOperationsInput | number
+    breakerBreakingCapacity?: FloatFieldUpdateOperationsInput | number
+    overloadCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    voltageDropCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    breakingCapacityCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+    coordinationCheck?: EnumCheckStatusFieldUpdateOperationsInput | $Enums.CheckStatus
+  }
+
+  export type FurthestLoadDistanceUpsertWithoutProjectInput = {
+    update: XOR<FurthestLoadDistanceUpdateWithoutProjectInput, FurthestLoadDistanceUncheckedUpdateWithoutProjectInput>
+    create: XOR<FurthestLoadDistanceCreateWithoutProjectInput, FurthestLoadDistanceUncheckedCreateWithoutProjectInput>
+    where?: FurthestLoadDistanceWhereInput
+  }
+
+  export type FurthestLoadDistanceUpdateToOneWithWhereWithoutProjectInput = {
+    where?: FurthestLoadDistanceWhereInput
+    data: XOR<FurthestLoadDistanceUpdateWithoutProjectInput, FurthestLoadDistanceUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type FurthestLoadDistanceUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    circuitName?: StringFieldUpdateOperationsInput | string
+    distance?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type FurthestLoadDistanceUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    circuitName?: StringFieldUpdateOperationsInput | string
+    distance?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectCreateWithoutPowerSupplyInput = {
     id?: string
-    name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    calculations?: CalculationCreateNestedManyWithoutProjectInput
+    name: string
+    client?: string | null
+    location?: string | null
+    user: UserCreateNestedOneWithoutProjectsInput
     circuits?: CircuitCreateNestedManyWithoutProjectInput
-    owner: UserCreateNestedOneWithoutProjectsInput
-    protections?: ProtectionCreateNestedManyWithoutProjectInput
+    cableData?: CableDataCreateNestedOneWithoutProjectInput
+    protection?: ProtectionCreateNestedOneWithoutProjectInput
+    result?: ResultCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
   }
 
-  export type ProjectUncheckedCreateWithoutBuildingInput = {
+  export type ProjectUncheckedCreateWithoutPowerSupplyInput = {
     id?: string
-    name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
+    userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    ownerId: string
-    calculations?: CalculationUncheckedCreateNestedManyWithoutProjectInput
+    name: string
+    client?: string | null
+    location?: string | null
     circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
-    protections?: ProtectionUncheckedCreateNestedManyWithoutProjectInput
+    cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
+    protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    result?: ResultUncheckedCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
   }
 
-  export type ProjectCreateOrConnectWithoutBuildingInput = {
+  export type ProjectCreateOrConnectWithoutPowerSupplyInput = {
     where: ProjectWhereUniqueInput
-    create: XOR<ProjectCreateWithoutBuildingInput, ProjectUncheckedCreateWithoutBuildingInput>
+    create: XOR<ProjectCreateWithoutPowerSupplyInput, ProjectUncheckedCreateWithoutPowerSupplyInput>
   }
 
-  export type ProjectUpsertWithoutBuildingInput = {
-    update: XOR<ProjectUpdateWithoutBuildingInput, ProjectUncheckedUpdateWithoutBuildingInput>
-    create: XOR<ProjectCreateWithoutBuildingInput, ProjectUncheckedCreateWithoutBuildingInput>
+  export type ProjectUpsertWithoutPowerSupplyInput = {
+    update: XOR<ProjectUpdateWithoutPowerSupplyInput, ProjectUncheckedUpdateWithoutPowerSupplyInput>
+    create: XOR<ProjectCreateWithoutPowerSupplyInput, ProjectUncheckedCreateWithoutPowerSupplyInput>
     where?: ProjectWhereInput
   }
 
-  export type ProjectUpdateToOneWithWhereWithoutBuildingInput = {
+  export type ProjectUpdateToOneWithWhereWithoutPowerSupplyInput = {
     where?: ProjectWhereInput
-    data: XOR<ProjectUpdateWithoutBuildingInput, ProjectUncheckedUpdateWithoutBuildingInput>
+    data: XOR<ProjectUpdateWithoutPowerSupplyInput, ProjectUncheckedUpdateWithoutPowerSupplyInput>
   }
 
-  export type ProjectUpdateWithoutBuildingInput = {
+  export type ProjectUpdateWithoutPowerSupplyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    calculations?: CalculationUpdateManyWithoutProjectNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutProjectsNestedInput
     circuits?: CircuitUpdateManyWithoutProjectNestedInput
-    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
-    protections?: ProtectionUpdateManyWithoutProjectNestedInput
+    cableData?: CableDataUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    result?: ResultUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
   }
 
-  export type ProjectUncheckedUpdateWithoutBuildingInput = {
+  export type ProjectUncheckedUpdateWithoutPowerSupplyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ownerId?: StringFieldUpdateOperationsInput | string
-    calculations?: CalculationUncheckedUpdateManyWithoutProjectNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
-    protections?: ProtectionUncheckedUpdateManyWithoutProjectNestedInput
+    cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
   }
 
   export type ProjectCreateWithoutCircuitsInput = {
     id?: string
-    name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    building?: BuildingCreateNestedOneWithoutProjectInput
-    calculations?: CalculationCreateNestedManyWithoutProjectInput
-    owner: UserCreateNestedOneWithoutProjectsInput
-    protections?: ProtectionCreateNestedManyWithoutProjectInput
+    name: string
+    client?: string | null
+    location?: string | null
+    user: UserCreateNestedOneWithoutProjectsInput
+    powerSupply?: PowerSupplyCreateNestedOneWithoutProjectInput
+    cableData?: CableDataCreateNestedOneWithoutProjectInput
+    protection?: ProtectionCreateNestedOneWithoutProjectInput
+    result?: ResultCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutCircuitsInput = {
     id?: string
-    name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
+    userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    ownerId: string
-    building?: BuildingUncheckedCreateNestedOneWithoutProjectInput
-    calculations?: CalculationUncheckedCreateNestedManyWithoutProjectInput
-    protections?: ProtectionUncheckedCreateNestedManyWithoutProjectInput
+    name: string
+    client?: string | null
+    location?: string | null
+    powerSupply?: PowerSupplyUncheckedCreateNestedOneWithoutProjectInput
+    cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
+    protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    result?: ResultUncheckedCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutCircuitsInput = {
     where: ProjectWhereUniqueInput
     create: XOR<ProjectCreateWithoutCircuitsInput, ProjectUncheckedCreateWithoutCircuitsInput>
-  }
-
-  export type ProtectionCreateWithoutCircuitsInput = {
-    id?: string
-    type?: $Enums.ProtectionType
-    ratingAmps: number
-    curve?: string | null
-    poles?: number
-    description?: string | null
-    equipmentName?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    project: ProjectCreateNestedOneWithoutProtectionsInput
-  }
-
-  export type ProtectionUncheckedCreateWithoutCircuitsInput = {
-    id?: string
-    projectId: string
-    type?: $Enums.ProtectionType
-    ratingAmps: number
-    curve?: string | null
-    poles?: number
-    description?: string | null
-    equipmentName?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ProtectionCreateOrConnectWithoutCircuitsInput = {
-    where: ProtectionWhereUniqueInput
-    create: XOR<ProtectionCreateWithoutCircuitsInput, ProtectionUncheckedCreateWithoutCircuitsInput>
   }
 
   export type ProjectUpsertWithoutCircuitsInput = {
@@ -16868,313 +19032,336 @@ export namespace Prisma {
 
   export type ProjectUpdateWithoutCircuitsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    building?: BuildingUpdateOneWithoutProjectNestedInput
-    calculations?: CalculationUpdateManyWithoutProjectNestedInput
-    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
-    protections?: ProtectionUpdateManyWithoutProjectNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    powerSupply?: PowerSupplyUpdateOneWithoutProjectNestedInput
+    cableData?: CableDataUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    result?: ResultUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutCircuitsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ownerId?: StringFieldUpdateOperationsInput | string
-    building?: BuildingUncheckedUpdateOneWithoutProjectNestedInput
-    calculations?: CalculationUncheckedUpdateManyWithoutProjectNestedInput
-    protections?: ProtectionUncheckedUpdateManyWithoutProjectNestedInput
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    powerSupply?: PowerSupplyUncheckedUpdateOneWithoutProjectNestedInput
+    cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
   }
 
-  export type ProtectionUpsertWithoutCircuitsInput = {
-    update: XOR<ProtectionUpdateWithoutCircuitsInput, ProtectionUncheckedUpdateWithoutCircuitsInput>
-    create: XOR<ProtectionCreateWithoutCircuitsInput, ProtectionUncheckedCreateWithoutCircuitsInput>
-    where?: ProtectionWhereInput
-  }
-
-  export type ProtectionUpdateToOneWithWhereWithoutCircuitsInput = {
-    where?: ProtectionWhereInput
-    data: XOR<ProtectionUpdateWithoutCircuitsInput, ProtectionUncheckedUpdateWithoutCircuitsInput>
-  }
-
-  export type ProtectionUpdateWithoutCircuitsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
-    ratingAmps?: IntFieldUpdateOperationsInput | number
-    curve?: NullableStringFieldUpdateOperationsInput | string | null
-    poles?: IntFieldUpdateOperationsInput | number
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    equipmentName?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    project?: ProjectUpdateOneRequiredWithoutProtectionsNestedInput
-  }
-
-  export type ProtectionUncheckedUpdateWithoutCircuitsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    projectId?: StringFieldUpdateOperationsInput | string
-    type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
-    ratingAmps?: IntFieldUpdateOperationsInput | number
-    curve?: NullableStringFieldUpdateOperationsInput | string | null
-    poles?: IntFieldUpdateOperationsInput | number
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    equipmentName?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CircuitCreateWithoutProtectionInput = {
+  export type ProjectCreateWithoutFurthestLoadDistanceInput = {
     id?: string
-    label: string
-    type: $Enums.CircuitCategory
-    room?: string | null
-    quantity?: number
-    loadWatts?: number | null
-    loadAmps?: number | null
-    shortCircuitCurrentAmps?: number | null
-    operatingCurrentAmps?: number | null
-    circuitTotalCurrentAmps?: number | null
-    cableLengthMeters?: number | null
-    conductorSectionMm2?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    numberOfPoles?: number
-    isDedicated?: boolean
-    comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    project: ProjectCreateNestedOneWithoutCircuitsInput
-  }
-
-  export type CircuitUncheckedCreateWithoutProtectionInput = {
-    id?: string
-    projectId: string
-    label: string
-    type: $Enums.CircuitCategory
-    room?: string | null
-    quantity?: number
-    loadWatts?: number | null
-    loadAmps?: number | null
-    shortCircuitCurrentAmps?: number | null
-    operatingCurrentAmps?: number | null
-    circuitTotalCurrentAmps?: number | null
-    cableLengthMeters?: number | null
-    conductorSectionMm2?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    numberOfPoles?: number
-    isDedicated?: boolean
-    comment?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CircuitCreateOrConnectWithoutProtectionInput = {
-    where: CircuitWhereUniqueInput
-    create: XOR<CircuitCreateWithoutProtectionInput, CircuitUncheckedCreateWithoutProtectionInput>
-  }
-
-  export type CircuitCreateManyProtectionInputEnvelope = {
-    data: CircuitCreateManyProtectionInput | CircuitCreateManyProtectionInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ProjectCreateWithoutProtectionsInput = {
-    id?: string
     name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    building?: BuildingCreateNestedOneWithoutProjectInput
-    calculations?: CalculationCreateNestedManyWithoutProjectInput
+    client?: string | null
+    location?: string | null
+    user: UserCreateNestedOneWithoutProjectsInput
+    powerSupply?: PowerSupplyCreateNestedOneWithoutProjectInput
     circuits?: CircuitCreateNestedManyWithoutProjectInput
-    owner: UserCreateNestedOneWithoutProjectsInput
+    cableData?: CableDataCreateNestedOneWithoutProjectInput
+    protection?: ProtectionCreateNestedOneWithoutProjectInput
+    result?: ResultCreateNestedOneWithoutProjectInput
   }
 
-  export type ProjectUncheckedCreateWithoutProtectionsInput = {
+  export type ProjectUncheckedCreateWithoutFurthestLoadDistanceInput = {
     id?: string
-    name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
+    userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    ownerId: string
-    building?: BuildingUncheckedCreateNestedOneWithoutProjectInput
-    calculations?: CalculationUncheckedCreateNestedManyWithoutProjectInput
+    name: string
+    client?: string | null
+    location?: string | null
+    powerSupply?: PowerSupplyUncheckedCreateNestedOneWithoutProjectInput
     circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
+    cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
+    protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    result?: ResultUncheckedCreateNestedOneWithoutProjectInput
   }
 
-  export type ProjectCreateOrConnectWithoutProtectionsInput = {
+  export type ProjectCreateOrConnectWithoutFurthestLoadDistanceInput = {
     where: ProjectWhereUniqueInput
-    create: XOR<ProjectCreateWithoutProtectionsInput, ProjectUncheckedCreateWithoutProtectionsInput>
+    create: XOR<ProjectCreateWithoutFurthestLoadDistanceInput, ProjectUncheckedCreateWithoutFurthestLoadDistanceInput>
   }
 
-  export type CircuitUpsertWithWhereUniqueWithoutProtectionInput = {
-    where: CircuitWhereUniqueInput
-    update: XOR<CircuitUpdateWithoutProtectionInput, CircuitUncheckedUpdateWithoutProtectionInput>
-    create: XOR<CircuitCreateWithoutProtectionInput, CircuitUncheckedCreateWithoutProtectionInput>
-  }
-
-  export type CircuitUpdateWithWhereUniqueWithoutProtectionInput = {
-    where: CircuitWhereUniqueInput
-    data: XOR<CircuitUpdateWithoutProtectionInput, CircuitUncheckedUpdateWithoutProtectionInput>
-  }
-
-  export type CircuitUpdateManyWithWhereWithoutProtectionInput = {
-    where: CircuitScalarWhereInput
-    data: XOR<CircuitUpdateManyMutationInput, CircuitUncheckedUpdateManyWithoutProtectionInput>
-  }
-
-  export type ProjectUpsertWithoutProtectionsInput = {
-    update: XOR<ProjectUpdateWithoutProtectionsInput, ProjectUncheckedUpdateWithoutProtectionsInput>
-    create: XOR<ProjectCreateWithoutProtectionsInput, ProjectUncheckedCreateWithoutProtectionsInput>
+  export type ProjectUpsertWithoutFurthestLoadDistanceInput = {
+    update: XOR<ProjectUpdateWithoutFurthestLoadDistanceInput, ProjectUncheckedUpdateWithoutFurthestLoadDistanceInput>
+    create: XOR<ProjectCreateWithoutFurthestLoadDistanceInput, ProjectUncheckedCreateWithoutFurthestLoadDistanceInput>
     where?: ProjectWhereInput
   }
 
-  export type ProjectUpdateToOneWithWhereWithoutProtectionsInput = {
+  export type ProjectUpdateToOneWithWhereWithoutFurthestLoadDistanceInput = {
     where?: ProjectWhereInput
-    data: XOR<ProjectUpdateWithoutProtectionsInput, ProjectUncheckedUpdateWithoutProtectionsInput>
+    data: XOR<ProjectUpdateWithoutFurthestLoadDistanceInput, ProjectUncheckedUpdateWithoutFurthestLoadDistanceInput>
   }
 
-  export type ProjectUpdateWithoutProtectionsInput = {
+  export type ProjectUpdateWithoutFurthestLoadDistanceInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    building?: BuildingUpdateOneWithoutProjectNestedInput
-    calculations?: CalculationUpdateManyWithoutProjectNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    powerSupply?: PowerSupplyUpdateOneWithoutProjectNestedInput
     circuits?: CircuitUpdateManyWithoutProjectNestedInput
-    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    cableData?: CableDataUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    result?: ResultUpdateOneWithoutProjectNestedInput
   }
 
-  export type ProjectUncheckedUpdateWithoutProtectionsInput = {
+  export type ProjectUncheckedUpdateWithoutFurthestLoadDistanceInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ownerId?: StringFieldUpdateOperationsInput | string
-    building?: BuildingUncheckedUpdateOneWithoutProjectNestedInput
-    calculations?: CalculationUncheckedUpdateManyWithoutProjectNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    powerSupply?: PowerSupplyUncheckedUpdateOneWithoutProjectNestedInput
     circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
+    cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
   }
 
-  export type ProjectCreateWithoutCalculationsInput = {
+  export type ProjectCreateWithoutCableDataInput = {
     id?: string
-    name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    building?: BuildingCreateNestedOneWithoutProjectInput
+    name: string
+    client?: string | null
+    location?: string | null
+    user: UserCreateNestedOneWithoutProjectsInput
+    powerSupply?: PowerSupplyCreateNestedOneWithoutProjectInput
     circuits?: CircuitCreateNestedManyWithoutProjectInput
-    owner: UserCreateNestedOneWithoutProjectsInput
-    protections?: ProtectionCreateNestedManyWithoutProjectInput
+    protection?: ProtectionCreateNestedOneWithoutProjectInput
+    result?: ResultCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
   }
 
-  export type ProjectUncheckedCreateWithoutCalculationsInput = {
+  export type ProjectUncheckedCreateWithoutCableDataInput = {
     id?: string
-    name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
+    userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    ownerId: string
-    building?: BuildingUncheckedCreateNestedOneWithoutProjectInput
+    name: string
+    client?: string | null
+    location?: string | null
+    powerSupply?: PowerSupplyUncheckedCreateNestedOneWithoutProjectInput
     circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
-    protections?: ProtectionUncheckedCreateNestedManyWithoutProjectInput
+    protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    result?: ResultUncheckedCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
   }
 
-  export type ProjectCreateOrConnectWithoutCalculationsInput = {
+  export type ProjectCreateOrConnectWithoutCableDataInput = {
     where: ProjectWhereUniqueInput
-    create: XOR<ProjectCreateWithoutCalculationsInput, ProjectUncheckedCreateWithoutCalculationsInput>
+    create: XOR<ProjectCreateWithoutCableDataInput, ProjectUncheckedCreateWithoutCableDataInput>
   }
 
-  export type ProjectUpsertWithoutCalculationsInput = {
-    update: XOR<ProjectUpdateWithoutCalculationsInput, ProjectUncheckedUpdateWithoutCalculationsInput>
-    create: XOR<ProjectCreateWithoutCalculationsInput, ProjectUncheckedCreateWithoutCalculationsInput>
+  export type ProjectUpsertWithoutCableDataInput = {
+    update: XOR<ProjectUpdateWithoutCableDataInput, ProjectUncheckedUpdateWithoutCableDataInput>
+    create: XOR<ProjectCreateWithoutCableDataInput, ProjectUncheckedCreateWithoutCableDataInput>
     where?: ProjectWhereInput
   }
 
-  export type ProjectUpdateToOneWithWhereWithoutCalculationsInput = {
+  export type ProjectUpdateToOneWithWhereWithoutCableDataInput = {
     where?: ProjectWhereInput
-    data: XOR<ProjectUpdateWithoutCalculationsInput, ProjectUncheckedUpdateWithoutCalculationsInput>
+    data: XOR<ProjectUpdateWithoutCableDataInput, ProjectUncheckedUpdateWithoutCableDataInput>
   }
 
-  export type ProjectUpdateWithoutCalculationsInput = {
+  export type ProjectUpdateWithoutCableDataInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    building?: BuildingUpdateOneWithoutProjectNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    powerSupply?: PowerSupplyUpdateOneWithoutProjectNestedInput
     circuits?: CircuitUpdateManyWithoutProjectNestedInput
-    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
-    protections?: ProtectionUpdateManyWithoutProjectNestedInput
+    protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    result?: ResultUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
   }
 
-  export type ProjectUncheckedUpdateWithoutCalculationsInput = {
+  export type ProjectUncheckedUpdateWithoutCableDataInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ownerId?: StringFieldUpdateOperationsInput | string
-    building?: BuildingUncheckedUpdateOneWithoutProjectNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    powerSupply?: PowerSupplyUncheckedUpdateOneWithoutProjectNestedInput
     circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
-    protections?: ProtectionUncheckedUpdateManyWithoutProjectNestedInput
+    protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
+  }
+
+  export type ProjectCreateWithoutProtectionInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    name: string
+    client?: string | null
+    location?: string | null
+    user: UserCreateNestedOneWithoutProjectsInput
+    powerSupply?: PowerSupplyCreateNestedOneWithoutProjectInput
+    circuits?: CircuitCreateNestedManyWithoutProjectInput
+    cableData?: CableDataCreateNestedOneWithoutProjectInput
+    result?: ResultCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutProtectionInput = {
+    id?: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    name: string
+    client?: string | null
+    location?: string | null
+    powerSupply?: PowerSupplyUncheckedCreateNestedOneWithoutProjectInput
+    circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
+    cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
+    result?: ResultUncheckedCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutProtectionInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutProtectionInput, ProjectUncheckedCreateWithoutProtectionInput>
+  }
+
+  export type ProjectUpsertWithoutProtectionInput = {
+    update: XOR<ProjectUpdateWithoutProtectionInput, ProjectUncheckedUpdateWithoutProtectionInput>
+    create: XOR<ProjectCreateWithoutProtectionInput, ProjectUncheckedCreateWithoutProtectionInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutProtectionInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutProtectionInput, ProjectUncheckedUpdateWithoutProtectionInput>
+  }
+
+  export type ProjectUpdateWithoutProtectionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    powerSupply?: PowerSupplyUpdateOneWithoutProjectNestedInput
+    circuits?: CircuitUpdateManyWithoutProjectNestedInput
+    cableData?: CableDataUpdateOneWithoutProjectNestedInput
+    result?: ResultUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutProtectionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    powerSupply?: PowerSupplyUncheckedUpdateOneWithoutProjectNestedInput
+    circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
+    cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
+    result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
+  }
+
+  export type ProjectCreateWithoutResultInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    name: string
+    client?: string | null
+    location?: string | null
+    user: UserCreateNestedOneWithoutProjectsInput
+    powerSupply?: PowerSupplyCreateNestedOneWithoutProjectInput
+    circuits?: CircuitCreateNestedManyWithoutProjectInput
+    cableData?: CableDataCreateNestedOneWithoutProjectInput
+    protection?: ProtectionCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutResultInput = {
+    id?: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    name: string
+    client?: string | null
+    location?: string | null
+    powerSupply?: PowerSupplyUncheckedCreateNestedOneWithoutProjectInput
+    circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
+    cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
+    protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutResultInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutResultInput, ProjectUncheckedCreateWithoutResultInput>
+  }
+
+  export type ProjectUpsertWithoutResultInput = {
+    update: XOR<ProjectUpdateWithoutResultInput, ProjectUncheckedUpdateWithoutResultInput>
+    create: XOR<ProjectCreateWithoutResultInput, ProjectUncheckedCreateWithoutResultInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutResultInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutResultInput, ProjectUncheckedUpdateWithoutResultInput>
+  }
+
+  export type ProjectUpdateWithoutResultInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    powerSupply?: PowerSupplyUpdateOneWithoutProjectNestedInput
+    circuits?: CircuitUpdateManyWithoutProjectNestedInput
+    cableData?: CableDataUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutResultInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    powerSupply?: PowerSupplyUncheckedUpdateOneWithoutProjectNestedInput
+    circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
+    cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
   }
 
   export type AccountCreateManyUserInput = {
@@ -17190,17 +19377,13 @@ export namespace Prisma {
     session_state?: string | null
   }
 
-  export type ProjectCreateManyOwnerInput = {
+  export type ProjectCreateManyUserInput = {
     id?: string
-    name: string
-    description?: string | null
-    reference?: string | null
-    customerName?: string | null
-    siteAddress?: string | null
-    status?: $Enums.ProjectStatus
-    objective?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    name: string
+    client?: string | null
+    location?: string | null
   }
 
   export type SessionCreateManyUserInput = {
@@ -17248,51 +19431,43 @@ export namespace Prisma {
     session_state?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ProjectUpdateWithoutOwnerInput = {
+  export type ProjectUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    building?: BuildingUpdateOneWithoutProjectNestedInput
-    calculations?: CalculationUpdateManyWithoutProjectNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    powerSupply?: PowerSupplyUpdateOneWithoutProjectNestedInput
     circuits?: CircuitUpdateManyWithoutProjectNestedInput
-    protections?: ProtectionUpdateManyWithoutProjectNestedInput
+    cableData?: CableDataUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    result?: ResultUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
   }
 
-  export type ProjectUncheckedUpdateWithoutOwnerInput = {
+  export type ProjectUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    building?: BuildingUncheckedUpdateOneWithoutProjectNestedInput
-    calculations?: CalculationUncheckedUpdateManyWithoutProjectNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    powerSupply?: PowerSupplyUncheckedUpdateOneWithoutProjectNestedInput
     circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
-    protections?: ProtectionUncheckedUpdateManyWithoutProjectNestedInput
+    cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
   }
 
-  export type ProjectUncheckedUpdateManyWithoutOwnerInput = {
+  export type ProjectUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    customerName?: NullableStringFieldUpdateOperationsInput | string | null
-    siteAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
-    objective?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SessionUpdateWithoutUserInput = {
@@ -17313,294 +19488,36 @@ export namespace Prisma {
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CalculationCreateManyProjectInput = {
-    id?: string
-    name: string
-    totalInstalledPowerWatts?: number | null
-    maximumShortCircuitAmps?: number | null
-    totalOperatingCurrentAmps?: number | null
-    totalCircuitCurrentAmps?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    notes?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
   export type CircuitCreateManyProjectInput = {
     id?: string
-    protectionId?: string | null
-    label: string
-    type: $Enums.CircuitCategory
-    room?: string | null
-    quantity?: number
-    loadWatts?: number | null
-    loadAmps?: number | null
-    shortCircuitCurrentAmps?: number | null
-    operatingCurrentAmps?: number | null
-    circuitTotalCurrentAmps?: number | null
-    cableLengthMeters?: number | null
-    conductorSectionMm2?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    numberOfPoles?: number
-    isDedicated?: boolean
-    comment?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ProtectionCreateManyProjectInput = {
-    id?: string
-    type?: $Enums.ProtectionType
-    ratingAmps: number
-    curve?: string | null
-    poles?: number
-    description?: string | null
-    equipmentName?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CalculationUpdateWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    totalInstalledPowerWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    maximumShortCircuitAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalOperatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CalculationUncheckedUpdateWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    totalInstalledPowerWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    maximumShortCircuitAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalOperatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CalculationUncheckedUpdateManyWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    totalInstalledPowerWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    maximumShortCircuitAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalOperatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    totalCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name: string
+    circuitCount?: number
+    type: $Enums.CircuitType
+    totalPower: number
   }
 
   export type CircuitUpdateWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
-    type?: EnumCircuitCategoryFieldUpdateOperationsInput | $Enums.CircuitCategory
-    room?: NullableStringFieldUpdateOperationsInput | string | null
-    quantity?: IntFieldUpdateOperationsInput | number
-    loadWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    loadAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    shortCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    operatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    circuitTotalCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    cableLengthMeters?: NullableFloatFieldUpdateOperationsInput | number | null
-    conductorSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    numberOfPoles?: IntFieldUpdateOperationsInput | number
-    isDedicated?: BoolFieldUpdateOperationsInput | boolean
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    protection?: ProtectionUpdateOneWithoutCircuitsNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    circuitCount?: IntFieldUpdateOperationsInput | number
+    type?: EnumCircuitTypeFieldUpdateOperationsInput | $Enums.CircuitType
+    totalPower?: FloatFieldUpdateOperationsInput | number
   }
 
   export type CircuitUncheckedUpdateWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
-    protectionId?: NullableStringFieldUpdateOperationsInput | string | null
-    label?: StringFieldUpdateOperationsInput | string
-    type?: EnumCircuitCategoryFieldUpdateOperationsInput | $Enums.CircuitCategory
-    room?: NullableStringFieldUpdateOperationsInput | string | null
-    quantity?: IntFieldUpdateOperationsInput | number
-    loadWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    loadAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    shortCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    operatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    circuitTotalCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    cableLengthMeters?: NullableFloatFieldUpdateOperationsInput | number | null
-    conductorSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    numberOfPoles?: IntFieldUpdateOperationsInput | number
-    isDedicated?: BoolFieldUpdateOperationsInput | boolean
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    circuitCount?: IntFieldUpdateOperationsInput | number
+    type?: EnumCircuitTypeFieldUpdateOperationsInput | $Enums.CircuitType
+    totalPower?: FloatFieldUpdateOperationsInput | number
   }
 
   export type CircuitUncheckedUpdateManyWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
-    protectionId?: NullableStringFieldUpdateOperationsInput | string | null
-    label?: StringFieldUpdateOperationsInput | string
-    type?: EnumCircuitCategoryFieldUpdateOperationsInput | $Enums.CircuitCategory
-    room?: NullableStringFieldUpdateOperationsInput | string | null
-    quantity?: IntFieldUpdateOperationsInput | number
-    loadWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    loadAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    shortCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    operatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    circuitTotalCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    cableLengthMeters?: NullableFloatFieldUpdateOperationsInput | number | null
-    conductorSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    numberOfPoles?: IntFieldUpdateOperationsInput | number
-    isDedicated?: BoolFieldUpdateOperationsInput | boolean
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ProtectionUpdateWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
-    ratingAmps?: IntFieldUpdateOperationsInput | number
-    curve?: NullableStringFieldUpdateOperationsInput | string | null
-    poles?: IntFieldUpdateOperationsInput | number
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    equipmentName?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    circuits?: CircuitUpdateManyWithoutProtectionNestedInput
-  }
-
-  export type ProtectionUncheckedUpdateWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
-    ratingAmps?: IntFieldUpdateOperationsInput | number
-    curve?: NullableStringFieldUpdateOperationsInput | string | null
-    poles?: IntFieldUpdateOperationsInput | number
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    equipmentName?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    circuits?: CircuitUncheckedUpdateManyWithoutProtectionNestedInput
-  }
-
-  export type ProtectionUncheckedUpdateManyWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
-    ratingAmps?: IntFieldUpdateOperationsInput | number
-    curve?: NullableStringFieldUpdateOperationsInput | string | null
-    poles?: IntFieldUpdateOperationsInput | number
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    equipmentName?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CircuitCreateManyProtectionInput = {
-    id?: string
-    projectId: string
-    label: string
-    type: $Enums.CircuitCategory
-    room?: string | null
-    quantity?: number
-    loadWatts?: number | null
-    loadAmps?: number | null
-    shortCircuitCurrentAmps?: number | null
-    operatingCurrentAmps?: number | null
-    circuitTotalCurrentAmps?: number | null
-    cableLengthMeters?: number | null
-    conductorSectionMm2?: number | null
-    recommendedSectionMm2?: number | null
-    voltageDropPercent?: number | null
-    numberOfPoles?: number
-    isDedicated?: boolean
-    comment?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CircuitUpdateWithoutProtectionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
-    type?: EnumCircuitCategoryFieldUpdateOperationsInput | $Enums.CircuitCategory
-    room?: NullableStringFieldUpdateOperationsInput | string | null
-    quantity?: IntFieldUpdateOperationsInput | number
-    loadWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    loadAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    shortCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    operatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    circuitTotalCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    cableLengthMeters?: NullableFloatFieldUpdateOperationsInput | number | null
-    conductorSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    numberOfPoles?: IntFieldUpdateOperationsInput | number
-    isDedicated?: BoolFieldUpdateOperationsInput | boolean
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    project?: ProjectUpdateOneRequiredWithoutCircuitsNestedInput
-  }
-
-  export type CircuitUncheckedUpdateWithoutProtectionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    projectId?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
-    type?: EnumCircuitCategoryFieldUpdateOperationsInput | $Enums.CircuitCategory
-    room?: NullableStringFieldUpdateOperationsInput | string | null
-    quantity?: IntFieldUpdateOperationsInput | number
-    loadWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    loadAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    shortCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    operatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    circuitTotalCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    cableLengthMeters?: NullableFloatFieldUpdateOperationsInput | number | null
-    conductorSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    numberOfPoles?: IntFieldUpdateOperationsInput | number
-    isDedicated?: BoolFieldUpdateOperationsInput | boolean
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CircuitUncheckedUpdateManyWithoutProtectionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    projectId?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
-    type?: EnumCircuitCategoryFieldUpdateOperationsInput | $Enums.CircuitCategory
-    room?: NullableStringFieldUpdateOperationsInput | string | null
-    quantity?: IntFieldUpdateOperationsInput | number
-    loadWatts?: NullableIntFieldUpdateOperationsInput | number | null
-    loadAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    shortCircuitCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    operatingCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    circuitTotalCurrentAmps?: NullableFloatFieldUpdateOperationsInput | number | null
-    cableLengthMeters?: NullableFloatFieldUpdateOperationsInput | number | null
-    conductorSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    recommendedSectionMm2?: NullableFloatFieldUpdateOperationsInput | number | null
-    voltageDropPercent?: NullableFloatFieldUpdateOperationsInput | number | null
-    numberOfPoles?: IntFieldUpdateOperationsInput | number
-    isDedicated?: BoolFieldUpdateOperationsInput | boolean
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    circuitCount?: IntFieldUpdateOperationsInput | number
+    type?: EnumCircuitTypeFieldUpdateOperationsInput | $Enums.CircuitType
+    totalPower?: FloatFieldUpdateOperationsInput | number
   }
 
 

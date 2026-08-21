@@ -125,7 +125,7 @@ exports.Prisma.UserScalarFieldEnum = {
   name: 'name',
   email: 'email',
   emailVerified: 'emailVerified',
-  photo: 'photo',
+  avatarUrl: 'avatarUrl',
   password: 'password',
   isTwoFactorEnabled: 'isTwoFactorEnabled',
   twofactorSecret: 'twofactorSecret',
@@ -163,80 +163,74 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
 
 exports.Prisma.ProjectScalarFieldEnum = {
   id: 'id',
-  name: 'name',
-  description: 'description',
-  reference: 'reference',
-  customerName: 'customerName',
-  siteAddress: 'siteAddress',
-  status: 'status',
-  objective: 'objective',
+  userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  ownerId: 'ownerId'
+  name: 'name',
+  client: 'client',
+  location: 'location'
 };
 
-exports.Prisma.BuildingScalarFieldEnum = {
+exports.Prisma.PowerSupplyScalarFieldEnum = {
   id: 'id',
   projectId: 'projectId',
-  surfaceArea: 'surfaceArea',
-  numberOfRooms: 'numberOfRooms',
-  supplyVoltage: 'supplyVoltage',
-  phases: 'phases',
-  buildingType: 'buildingType',
-  usage: 'usage',
-  comment: 'comment'
+  type: 'type',
+  nominalVoltage: 'nominalVoltage',
+  frequency: 'frequency',
+  regimeNeutre: 'regimeNeutre',
+  distanceSourceToTGBT: 'distanceSourceToTGBT'
 };
 
 exports.Prisma.CircuitScalarFieldEnum = {
   id: 'id',
   projectId: 'projectId',
-  protectionId: 'protectionId',
-  label: 'label',
+  name: 'name',
+  circuitCount: 'circuitCount',
   type: 'type',
-  room: 'room',
-  quantity: 'quantity',
-  loadWatts: 'loadWatts',
-  loadAmps: 'loadAmps',
-  shortCircuitCurrentAmps: 'shortCircuitCurrentAmps',
-  operatingCurrentAmps: 'operatingCurrentAmps',
-  circuitTotalCurrentAmps: 'circuitTotalCurrentAmps',
-  cableLengthMeters: 'cableLengthMeters',
-  conductorSectionMm2: 'conductorSectionMm2',
-  recommendedSectionMm2: 'recommendedSectionMm2',
-  voltageDropPercent: 'voltageDropPercent',
-  numberOfPoles: 'numberOfPoles',
-  isDedicated: 'isDedicated',
-  comment: 'comment',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  totalPower: 'totalPower'
+};
+
+exports.Prisma.FurthestLoadDistanceScalarFieldEnum = {
+  id: 'id',
+  projectId: 'projectId',
+  circuitName: 'circuitName',
+  distance: 'distance'
+};
+
+exports.Prisma.CableDataScalarFieldEnum = {
+  id: 'id',
+  projectId: 'projectId',
+  material: 'material',
+  isolation: 'isolation',
+  modePose: 'modePose'
 };
 
 exports.Prisma.ProtectionScalarFieldEnum = {
   id: 'id',
   projectId: 'projectId',
   type: 'type',
-  ratingAmps: 'ratingAmps',
-  curve: 'curve',
-  poles: 'poles',
-  description: 'description',
-  equipmentName: 'equipmentName',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  ratedCurrent: 'ratedCurrent',
+  numberOfPoles: 'numberOfPoles',
+  curveType: 'curveType',
+  breakingCapacity: 'breakingCapacity'
 };
 
-exports.Prisma.CalculationScalarFieldEnum = {
+exports.Prisma.ResultScalarFieldEnum = {
   id: 'id',
   projectId: 'projectId',
-  name: 'name',
-  totalInstalledPowerWatts: 'totalInstalledPowerWatts',
-  maximumShortCircuitAmps: 'maximumShortCircuitAmps',
-  totalOperatingCurrentAmps: 'totalOperatingCurrentAmps',
-  totalCircuitCurrentAmps: 'totalCircuitCurrentAmps',
-  recommendedSectionMm2: 'recommendedSectionMm2',
+  currentNominal: 'currentNominal',
+  currentDesign: 'currentDesign',
+  recommendedCableSection: 'recommendedCableSection',
+  correctedCableCapacity: 'correctedCableCapacity',
+  recommendedBreaker: 'recommendedBreaker',
+  voltageDropVolts: 'voltageDropVolts',
   voltageDropPercent: 'voltageDropPercent',
-  notes: 'notes',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  shortCircuitCurrentAtEnd: 'shortCircuitCurrentAtEnd',
+  breakerBreakingCapacity: 'breakerBreakingCapacity',
+  overloadCheck: 'overloadCheck',
+  voltageDropCheck: 'voltageDropCheck',
+  breakingCapacityCheck: 'breakingCapacityCheck',
+  coordinationCheck: 'coordinationCheck'
 };
 
 exports.Prisma.SortOrder = {
@@ -253,37 +247,63 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-exports.ProjectStatus = exports.$Enums.ProjectStatus = {
-  DRAFT: 'DRAFT',
-  IN_PROGRESS: 'IN_PROGRESS',
-  REVIEW: 'REVIEW',
-  COMPLETED: 'COMPLETED',
-  ARCHIVED: 'ARCHIVED'
+exports.AlimentationType = exports.$Enums.AlimentationType = {
+  MONOPHASE: 'MONOPHASE',
+  TRIPHASE: 'TRIPHASE'
 };
 
-exports.BuildingType = exports.$Enums.BuildingType = {
-  RESIDENTIAL: 'RESIDENTIAL',
-  COMMERCIAL: 'COMMERCIAL',
-  INDUSTRIAL: 'INDUSTRIAL',
-  MIXED_USE: 'MIXED_USE'
+exports.RegimeNeutre = exports.$Enums.RegimeNeutre = {
+  TT: 'TT',
+  TN: 'TN',
+  IT: 'IT'
 };
 
-exports.CircuitCategory = exports.$Enums.CircuitCategory = {
-  LIGHTING: 'LIGHTING',
-  SOCKETS: 'SOCKETS',
-  HVAC: 'HVAC',
-  WATER_HEATER: 'WATER_HEATER',
-  APPLIANCE: 'APPLIANCE',
-  OTHER: 'OTHER'
+exports.CircuitType = exports.$Enums.CircuitType = {
+  ECLAIRAGE: 'ECLAIRAGE',
+  PRISE_COURANT: 'PRISE_COURANT',
+  FORCE_MOTRICE: 'FORCE_MOTRICE',
+  CHAUFFAGE: 'CHAUFFAGE',
+  CLIMATISATION: 'CLIMATISATION',
+  AUTRE: 'AUTRE'
+};
+
+exports.CableMaterial = exports.$Enums.CableMaterial = {
+  CUIVRE: 'CUIVRE',
+  ALUMINIUM: 'ALUMINIUM'
+};
+
+exports.CableIsolation = exports.$Enums.CableIsolation = {
+  PVC: 'PVC',
+  XLPE: 'XLPE',
+  EPR: 'EPR'
+};
+
+exports.ModePose = exports.$Enums.ModePose = {
+  SOUS_CONDUIT_EN_SAILLIE: 'SOUS_CONDUIT_EN_SAILLIE',
+  ENCASTRE_DANS_MUR: 'ENCASTRE_DANS_MUR',
+  CHEMINEE_DE_CABLES: 'CHEMINEE_DE_CABLES',
+  ENTERRE: 'ENTERRE',
+  AIR_LIBRE: 'AIR_LIBRE'
 };
 
 exports.ProtectionType = exports.$Enums.ProtectionType = {
-  MCB: 'MCB',
-  RCCB: 'RCCB',
-  RCBO: 'RCBO',
-  FUSE: 'FUSE',
-  MAIN_BREAKER: 'MAIN_BREAKER',
-  SPD: 'SPD'
+  DISJONCTEUR: 'DISJONCTEUR',
+  FUSIBLE: 'FUSIBLE',
+  INTERRUPTEUR_SECTIONNEUR: 'INTERRUPTEUR_SECTIONNEUR'
+};
+
+exports.CurveType = exports.$Enums.CurveType = {
+  B: 'B',
+  C: 'C',
+  D: 'D',
+  K: 'K',
+  Z: 'Z'
+};
+
+exports.CheckStatus = exports.$Enums.CheckStatus = {
+  PASS: 'PASS',
+  FAIL: 'FAIL',
+  TO_VERIFY_WITH_MANUFACTURER: 'TO_VERIFY_WITH_MANUFACTURER'
 };
 
 exports.Prisma.ModelName = {
@@ -292,10 +312,12 @@ exports.Prisma.ModelName = {
   Session: 'Session',
   VerificationToken: 'VerificationToken',
   Project: 'Project',
-  Building: 'Building',
+  PowerSupply: 'PowerSupply',
   Circuit: 'Circuit',
+  FurthestLoadDistance: 'FurthestLoadDistance',
+  CableData: 'CableData',
   Protection: 'Protection',
-  Calculation: 'Calculation'
+  Result: 'Result'
 };
 
 /**

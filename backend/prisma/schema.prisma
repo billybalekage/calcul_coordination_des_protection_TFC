@@ -58,123 +58,172 @@ model VerificationToken {
 }
 
 model Project {
-  id           String        @id @default(uuid())
-  name         String
-  description  String?
-  reference    String?       @unique
-  customerName String?
-  siteAddress  String?
-  status       ProjectStatus @default(DRAFT)
-  objective    String?
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
-  ownerId      String
-  building     Building?
-  calculations Calculation[]
-  circuits     Circuit[]
-  owner        User          @relation(fields: [ownerId], references: [id], onDelete: Cascade)
-  protections  Protection[]
+  id        String   @id @default(cuid())
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 1. Informations générales du projet
+  name     String
+  client   String?
+  location String?
+
+  // Relations vers les sous-modèles
+  user                 User                  @relation(fields: [userId], references: [id])
+  powerSupply          PowerSupply?
+  circuits             Circuit[]
+  cableData            CableData?
+  protection           Protection?
+  result               Result?
+  furthestLoadDistance FurthestLoadDistance?
 }
 
-model Building {
-  id            String       @id @default(uuid())
-  projectId     String       @unique
-  surfaceArea   Float
-  numberOfRooms Int
-  supplyVoltage String
-  phases        Int          @default(3)
-  buildingType  BuildingType @default(RESIDENTIAL)
-  usage         String?
-  comment       String?
-  project       Project      @relation(fields: [projectId], references: [id], onDelete: Cascade)
+// 2. Caractéristiques de l'alimentation électrique
+model PowerSupply {
+  id        String  @id @default(cuid())
+  projectId String  @unique
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  type                 AlimentationType
+  nominalVoltage       Float
+  frequency            Float
+  regimeNeutre         RegimeNeutre
+  distanceSourceToTGBT Float
+  standard             Standard
 }
 
+// 3. Circuit électrique
 model Circuit {
-  id                      String          @id @default(uuid())
-  projectId               String
-  protectionId            String?
-  label                   String
-  type                    CircuitCategory
-  room                    String?
-  quantity                Int             @default(1)
-  loadWatts               Int?
-  loadAmps                Float?
-  shortCircuitCurrentAmps Float?
-  operatingCurrentAmps    Float?
-  circuitTotalCurrentAmps Float?
-  cableLengthMeters       Float?
-  conductorSectionMm2     Float?
-  recommendedSectionMm2   Float?
-  voltageDropPercent      Float?
-  numberOfPoles           Int             @default(1)
-  isDedicated             Boolean         @default(false)
-  comment                 String?
-  createdAt               DateTime        @default(now())
-  updatedAt               DateTime        @updatedAt
-  project                 Project         @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  protection              Protection?     @relation(fields: [protectionId], references: [id])
+  id        String  @id @default(cuid())
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  name         String
+  circuitCount Int         @default(1)
+  type         CircuitType
+  totalPower   Float
 }
 
+// 4. Distance entre la charge la plus éloignée et le tableau divisionnaire
+model FurthestLoadDistance {
+  id        String  @id @default(cuid())
+  projectId String  @unique
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  circuitName String
+  distance    Float
+}
+
+// 5. Données concernant les câbles
+model CableData {
+  id        String  @id @default(cuid())
+  projectId String  @unique
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  material  CableMaterial
+  isolation CableIsolation
+  modePose  ModePose
+}
+
+// 6. Choix des protections
 model Protection {
-  id            String         @id @default(uuid())
-  projectId     String
-  type          ProtectionType @default(MCB)
-  ratingAmps    Int
-  curve         String?        @default("C")
-  poles         Int            @default(1)
-  description   String?
-  equipmentName String?
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
-  circuits      Circuit[]
-  project       Project        @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  id        String  @id @default(cuid())
+  projectId String  @unique
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  type             ProtectionType
+  ratedCurrent     Float
+  numberOfPoles    Int
+  curveType        CurveType
+  breakingCapacity Float
 }
 
-model Calculation {
-  id                        String   @id @default(uuid())
-  projectId                 String
-  name                      String
-  totalInstalledPowerWatts  Int?
-  maximumShortCircuitAmps   Float?
-  totalOperatingCurrentAmps Float?
-  totalCircuitCurrentAmps   Float?
-  recommendedSectionMm2     Float?
-  voltageDropPercent        Float?
-  notes                     String?
-  createdAt                 DateTime @default(now())
-  updatedAt                 DateTime @updatedAt
-  project                   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+// 7. Résultats calculés et vérifications
+model Result {
+  id        String  @id @default(cuid())
+  projectId String  @unique
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  currentNominal           Float
+  currentDesign            Float
+  recommendedCableSection  Float
+  correctedCableCapacity   Float
+  recommendedBreaker       Float
+  voltageDropVolts         Float
+  voltageDropPercent       Float
+  shortCircuitCurrentAtEnd Float
+  breakerBreakingCapacity  Float
+  overloadCheck            CheckStatus
+  voltageDropCheck         CheckStatus
+  breakingCapacityCheck    CheckStatus
+  coordinationCheck        CheckStatus
 }
 
-enum ProjectStatus {
-  DRAFT
-  IN_PROGRESS
-  REVIEW
-  COMPLETED
-  ARCHIVED
+// ==========================================
+// ENUMS ÉLECTRIQUES
+// ==========================================
+enum AlimentationType {
+  MONOPHASE
+  TRIPHASE
 }
 
-enum BuildingType {
-  RESIDENTIAL
-  COMMERCIAL
-  INDUSTRIAL
-  MIXED_USE
+enum RegimeNeutre {
+  TT
+  TN
+  IT
 }
 
-enum CircuitCategory {
-  LIGHTING
-  SOCKETS
-  HVAC
-  WATER_HEATER
-  APPLIANCE
-  OTHER
+enum CircuitType {
+  ECLAIRAGE
+  PRISE_COURANT
+  FORCE_MOTRICE
+  CHAUFFAGE
+  CLIMATISATION
+  AUTRE
+}
+
+enum CableMaterial {
+  CUIVRE
+  ALUMINIUM
+}
+
+enum CableIsolation {
+  PVC
+  XLPE
+  EPR
+}
+
+enum ModePose {
+  SOUS_CONDUIT_EN_SAILLIE
+  ENCASTRE_DANS_MUR
+  CHEMINEE_DE_CABLES
+  ENTERRE
+  AIR_LIBRE
 }
 
 enum ProtectionType {
-  MCB
-  RCCB
-  RCBO
-  FUSE
-  MAIN_BREAKER
-  SPD
+  DISJONCTEUR
+  FUSIBLE
+  INTERRUPTEUR_SECTIONNEUR
+}
+
+enum CurveType {
+  B
+  C
+  D
+  K
+  Z
+}
+
+enum CheckStatus {
+  PASS
+  FAIL
+  TO_VERIFY_WITH_MANUFACTURER
+}
+
+enum Standard {
+  NFC_15_100
+  CEI_60364
+  IEEE_141
+  IEEE_242
 }

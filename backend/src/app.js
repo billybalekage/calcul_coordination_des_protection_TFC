@@ -16,6 +16,8 @@ const { checkDatabaseConnection } = require("./config/prisma");
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const authRoute = require("./features/auth/routes/auth.route");
+const projectRoute = require("./features/projects/routes/project.route");
+const calculRoute = require("./features/calculs/routes/calcul.routes");
 
 const createApp = () => {
   const app = express();
@@ -132,6 +134,8 @@ const createApp = () => {
   });
 
   app.use("/api/v1/auth", authRoute);
+  app.use("/api/v1/projects", projectRoute);
+  app.use("/api/v1/calculations", calculRoute);
 
   app.use(notFound);
 
