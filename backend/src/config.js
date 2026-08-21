@@ -1,12 +1,15 @@
 const Joi = require("joi");
 const Redis = require("ioredis"); // communication avec le serveur distant de redis
 
-const FALLBACK_JWT_ACCESS_SECRET =
+const isProductionEnvironment = process.env.NODE_ENV === "production";
+const FALLBACK_JWT_ACCESS_SECRET = "dev-access-secret-key-change-me-please-123456";
+const FALLBACK_JWT_REFRESH_SECRET = "dev-refresh-secret-key-change-me-please-987654";
+const accessSecret =
   process.env.JWT_ACCESS_SECRET ||
-  "dev-access-secret-key-change-me-please-123456";
-const FALLBACK_JWT_REFRESH_SECRET =
+  (isProductionEnvironment ? "" : FALLBACK_JWT_ACCESS_SECRET);
+const refreshSecret =
   process.env.JWT_REFRESH_SECRET ||
-  "dev-refresh-secret-key-change-me-please-987654";
+  (isProductionEnvironment ? "" : FALLBACK_JWT_REFRESH_SECRET);
 
 // allow DATABASE_URL to be used in .env while code expects DB_URL
 if (!process.env.DB_URL && process.env.DATABASE_URL) {
@@ -111,8 +114,8 @@ const envSchema = Joi.object({
 const normalizedEnv = {
   ...process.env,
   jwt: {
-    accessSecret: FALLBACK_JWT_ACCESS_SECRET,
-    refreshSecret: FALLBACK_JWT_REFRESH_SECRET,
+    accessSecret,
+    refreshSecret,
     accessExpiresInMinutes:
       Number(process.env.JWT_ACCESS_EXPIRES_IN_MINUTES) || 15,
     refreshExpiresInDays: Number(process.env.JWT_REFRESH_EXPIRES_IN_DAYS) || 30,

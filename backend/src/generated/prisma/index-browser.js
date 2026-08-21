@@ -178,7 +178,8 @@ exports.Prisma.PowerSupplyScalarFieldEnum = {
   nominalVoltage: 'nominalVoltage',
   frequency: 'frequency',
   regimeNeutre: 'regimeNeutre',
-  distanceSourceToTGBT: 'distanceSourceToTGBT'
+  distanceSourceToTGBT: 'distanceSourceToTGBT',
+  standard: 'standard'
 };
 
 exports.Prisma.CircuitScalarFieldEnum = {
@@ -256,6 +257,13 @@ exports.RegimeNeutre = exports.$Enums.RegimeNeutre = {
   TT: 'TT',
   TN: 'TN',
   IT: 'IT'
+};
+
+exports.Standard = exports.$Enums.Standard = {
+  NFC_15_100: 'NFC_15_100',
+  CEI_60364: 'CEI_60364',
+  IEEE_141: 'IEEE_141',
+  IEEE_242: 'IEEE_242'
 };
 
 exports.CircuitType = exports.$Enums.CircuitType = {

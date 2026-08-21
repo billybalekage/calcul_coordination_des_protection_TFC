@@ -89,6 +89,7 @@ model PowerSupply {
   frequency            Float
   regimeNeutre         RegimeNeutre
   distanceSourceToTGBT Float
+  standard             Standard
 }
 
 // 3. Circuit électrique
@@ -218,4 +219,11 @@ enum CheckStatus {
   PASS
   FAIL
   TO_VERIFY_WITH_MANUFACTURER
+}
+
+enum Standard {
+  NFC_15_100
+  CEI_60364
+  IEEE_141
+  IEEE_242
 }

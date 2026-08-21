@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "backend pour l'application de calcul des protections. il assure l'authentification, la comminication avec la base de donnees, la gestion de projets electriques  et l'echange des donnees avec le moteur de calcul python via API",
   "main": "server.js",
+  "overrides": {
+    "deepmerge-ts": "^8.0.1"
+  },
   "scripts": {
     "test": "node --test tests/*.test.js",
     "server": "nodemon server.js",

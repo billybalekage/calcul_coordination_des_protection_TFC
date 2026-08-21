@@ -37,8 +37,10 @@ const createApp = () => {
 
   const swaggerSpec = swaggerJsdoc(swaggerOptions);
 
-  app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-  app.get("/docs.json", (_req, res) => res.json(swaggerSpec));
+  if (env.NODE_ENV !== "production") {
+    app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    app.get("/docs.json", (_req, res) => res.json(swaggerSpec));
+  }
 
   app.set("trust proxy", env.TRUST_PROXY ? 1 : false);
 

@@ -35,23 +35,25 @@ function getPrismaClient() {
 }
 
 async function checkDatabaseConnection(timeoutMs = 3000) {
-  const client = getPrismaClient();
   const startedAt = Date.now();
 
-  const query = client.$queryRaw`SELECT 1`;
-  const timeout = new Promise((_resolve, reject) => {
-    setTimeout(
-      () => reject(new Error(`Database check timed out after ${timeoutMs} ms`)),
-      timeoutMs,
-    );
-  });
-
   try {
-    await Promise.reject([query, timeout]);
+    const client = getPrismaClient();
+    let timeoutHandle;
+    const timeout = new Promise((_resolve, reject) => {
+      timeoutHandle = setTimeout(
+        () =>
+          reject(new Error(`Database check timed out after ${timeoutMs} ms`)),
+        timeoutMs,
+      );
+    });
+
+    await Promise.race([client.$queryRaw`SELECT 1`, timeout]);
+    clearTimeout(timeoutHandle);
     return { connected: true, latencyMs: Date.now() - startedAt, error: null };
   } catch (error) {
     console.error("[prisma] Database health check failed: ", error.message);
-    return { connected: false, latencyMs: null, err: error.message };
+    return { connected: false, latencyMs: null, error: error.message };
   }
 }
 
