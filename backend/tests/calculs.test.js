@@ -294,6 +294,35 @@ test("normalization applies the selected standard rules", () => {
   );
 });
 
+test("normalization preserves FastAPI per-circuit results", () => {
+  const result = normalizeCalculationResult(
+    {
+      currentNominal: 8,
+      currentDesign: 10,
+      recommendedCableSection: 2.5,
+      correctedCableCapacity: 22,
+      recommendedBreaker: 16,
+      voltageDropVolts: 2,
+      voltageDropPercent: 1,
+      shortCircuitCurrentAtEnd: 5000,
+      breakerBreakingCapacity: 6000,
+      overloadCheck: "PASS",
+      voltageDropCheck: "PASS",
+      breakingCapacityCheck: "PASS",
+      coordinationCheck: "PASS",
+      standard: "IEC_60364",
+      perCircuit: [{ circuitName: "C1", ib: 8, recommendedSection: 2.5 }],
+    },
+    "IEC_60364",
+  );
+
+  assert.deepEqual(result.perCircuit, [
+    { circuitName: "C1", ib: 8, recommendedSection: 2.5 },
+  ]);
+  assert.equal(result.standard, "IEC_60364");
+  assert.equal(result.assumptions.source, "FastAPI");
+});
+
 test("available standards expose selectable calculation profiles", () => {
   const standards = calculService.getAvailableStandards();
 

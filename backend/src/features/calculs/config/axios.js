@@ -9,6 +9,10 @@ const calculApi = axios.create({
   },
 });
 
+if (env.NODE_ENV === "production" && !env.CALCUL_API_KEY) {
+  throw new Error("CALCUL_API_KEY must be configured in production.");
+}
+
 calculApi.interceptors.request.use((config) => {
   if (env.CALCUL_API_KEY) {
     config.headers["X-API-Key"] = env.CALCUL_API_KEY;

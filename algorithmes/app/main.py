@@ -7,7 +7,7 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
 
 from app.config.config import settings
-from app.core.route import router
+from app.api.router import api_router
 from app.limiter import init_rate_limiting
 
 
@@ -65,7 +65,7 @@ def create_app() -> FastAPI:
     app.add_middleware(SecurityHeadersMiddleware)
     app.add_middleware(RequestLoggingMiddleware)
     init_rate_limiting(app)
-    app.include_router(router)
+    app.include_router(api_router)
     return app
 
 

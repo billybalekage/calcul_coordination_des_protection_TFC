@@ -1,4 +1,4 @@
-from typing import List
+from pathlib import Path
 
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings
@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     default_host: str = Field(default="localhost")
 
     class Config:
-        env_file = ".env"
+        env_file = Path(__file__).resolve().parents[2] / ".env"
         extra = "ignore"
 
     @field_validator("allowed_hosts", "cors_origins", mode="before")

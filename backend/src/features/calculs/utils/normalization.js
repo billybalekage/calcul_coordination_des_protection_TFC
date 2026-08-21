@@ -161,6 +161,16 @@ function normalizeCalculationResult(physicalResult, standard, input = null) {
     result[field] = physicalResult[field];
   }
 
+  if (Array.isArray(physicalResult.perCircuit)) {
+    result.perCircuit = physicalResult.perCircuit;
+    result.standard = physicalResult.standard || standard;
+    result.assumptions = {
+      source: "FastAPI",
+      calculationStandard: result.standard,
+    };
+    return result;
+  }
+
   if (rules.calculationMode === "NFC_15_100" && input) {
     const employmentCurrent = calculateEmploymentCurrent(input);
     const protectionCurrent = input.protection.ratedCurrent;

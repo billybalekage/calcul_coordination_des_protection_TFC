@@ -2,8 +2,10 @@ const Joi = require("joi");
 const Redis = require("ioredis"); // communication avec le serveur distant de redis
 
 const isProductionEnvironment = process.env.NODE_ENV === "production";
-const FALLBACK_JWT_ACCESS_SECRET = "dev-access-secret-key-change-me-please-123456";
-const FALLBACK_JWT_REFRESH_SECRET = "dev-refresh-secret-key-change-me-please-987654";
+const FALLBACK_JWT_ACCESS_SECRET =
+  "dev-access-secret-key-change-me-please-123456";
+const FALLBACK_JWT_REFRESH_SECRET =
+  "dev-refresh-secret-key-change-me-please-987654";
 const accessSecret =
   process.env.JWT_ACCESS_SECRET ||
   (isProductionEnvironment ? "" : FALLBACK_JWT_ACCESS_SECRET);
@@ -25,6 +27,7 @@ const envSchema = Joi.object({
   DATABASE_URL: Joi.string(),
   CLIENT_URL: Joi.string().uri().default("http://localhost:5173"),
   CALCUL_URL: Joi.string().uri().default("http://localhost:8000"),
+  CALCUL_API_KEY: Joi.string().allow(""),
   CORS_ORIGINS: Joi.string().allow("", null).default(""),
 
   RATE_LIMIT_MAX_PUBLIC: Joi.number().integer().default(100),
