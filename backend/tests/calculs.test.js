@@ -21,6 +21,49 @@ const {
 const originalGetPrismaClient = prismaConfig.getPrismaClient;
 const originalPost = calculApi.post;
 
+test("uses cosPhi in the single-phase employment current formula", () => {
+  const input = {
+    powerSupply: {
+      type: "MONOPHASE",
+      nominalVoltage: 230,
+    },
+    circuits: [
+      {
+        name: "C1",
+        circuitCount: 1,
+        type: "AUTRE",
+        totalPower: 2300,
+        cosPhi: 0.8,
+      },
+    ],
+    cableData: {},
+    protection: { ratedCurrent: 16 },
+    furthestLoadDistance: { circuitName: "C1", distance: 20 },
+  };
+
+  const result = normalizeCalculationResult(
+    {
+      currentNominal: 0,
+      currentDesign: 0,
+      recommendedCableSection: 1.5,
+      correctedCableCapacity: 0,
+      recommendedBreaker: 6,
+      voltageDropVolts: 0,
+      voltageDropPercent: 0,
+      shortCircuitCurrentAtEnd: 1000,
+      breakerBreakingCapacity: 6000,
+      overloadCheck: "FAIL",
+      voltageDropCheck: "PASS",
+      breakingCapacityCheck: "PASS",
+      coordinationCheck: "FAIL",
+    },
+    "NFC_15_100",
+    input,
+  );
+
+  assert.equal(result.currentNominal, 12.5);
+});
+
 const projectData = {
   id: "project-1",
   name: "Atelier",
@@ -106,6 +149,33 @@ test("getCalculationInput builds the FastAPI payload without database technical 
     assert.deepEqual(input.circuits, projectData.circuits);
     assert.equal(input.powerSupply.id, undefined);
     assert.equal(input.cableData.projectId, undefined);
+  } finally {
+    database.restore();
+  }
+});
+
+test("getCalculationInput preserves cosPhi and design factors", async () => {
+  const database = mockDatabase({
+    ...projectData,
+    circuits: [
+      {
+        ...projectData.circuits[0],
+        cosPhi: 0.8,
+        utilizationFactor: 0.9,
+        simultaneityFactor: 0.7,
+      },
+    ],
+  });
+
+  try {
+    const input = await calculService.getCalculationInput(
+      "project-1",
+      "user-1",
+    );
+
+    assert.equal(input.circuits[0].cosPhi, 0.8);
+    assert.equal(input.circuits[0].utilizationFactor, 0.9);
+    assert.equal(input.circuits[0].simultaneityFactor, 0.7);
   } finally {
     database.restore();
   }

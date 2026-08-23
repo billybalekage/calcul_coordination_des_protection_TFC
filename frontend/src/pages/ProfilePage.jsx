@@ -72,7 +72,7 @@ export default function ProfilePage() {
           <div className="relative">
             <img
               src={
-                user?.photo ||
+                user?.avatarUrl ||
                 "https://ui-avatars.com/api/?name=" +
                   encodeURIComponent(user?.name || "User")
               }

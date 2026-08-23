@@ -39,8 +39,8 @@ class CircuitInput(BaseModel):
     totalPower: float = Field(ge=0)
     distance: float | None = Field(default=None, ge=0)
     cosPhi: float | None = Field(default=None, gt=0, le=1)
-    utilizationFactor: float = Field(default=1.0, gt=0, le=1)
-    simultaneityFactor: float = Field(default=1.0, gt=0, le=1)
+    utilizationFactor: float | None = Field(default=1.0, gt=0, le=1)
+    simultaneityFactor: float | None = Field(default=1.0, gt=0, le=1)
     startCurrentMultiplier: float = Field(default=6.0, ge=1)
     hasStartingCurrent: bool | None = None
 

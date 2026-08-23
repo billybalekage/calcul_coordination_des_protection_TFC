@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 require("dotenv").config();
 
 const { getPrismaClient } = require("../src/config/prisma");
@@ -13,11 +12,13 @@ async function clearDatabase() {
 
     await prisma.$executeRawUnsafe(`
       TRUNCATE TABLE
-        "Calculation",
         "Circuit",
+        "PowerSupply",
+        "FurthestLoadDistance",
+        "CableData",
         "Protection",
+        "Result",
         "Project",
-        "Building",
         "Session",
         "Account",
         "VerificationToken",

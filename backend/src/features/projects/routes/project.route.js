@@ -5,7 +5,7 @@ const controller = require("../controllers/project.controller");
 const router = express.Router();
 
 router.use(authenticate);
-router.post("/", controller.createProject);
+router.post("/create", controller.createProject);
 router.get("/", controller.getProjects);
 router.get("/:projectId", controller.getProject);
 router.post("/:projectId/power-supply", controller.addPowerSupply);

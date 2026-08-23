@@ -16,9 +16,13 @@ const RESULT_FIELDS = [
   "coordinationCheck",
 ];
 
-function getPowerFactor(circuitType) {
+function getPowerFactor(circuit) {
+  if (circuit.cosPhi != null) {
+    return circuit.cosPhi;
+  }
+
   return ["FORCE_MOTRICE", "PRISE_COURANT", "CLIMATISATION"].includes(
-    circuitType,
+    circuit.type,
   )
     ? 0.8
     : 1;
@@ -30,9 +34,7 @@ function calculateEmploymentCurrent(input) {
 
   return input.circuits.reduce((total, circuit) => {
     const power = circuit.totalPower * circuit.circuitCount;
-    return (
-      total + power / (phaseFactor * voltage * getPowerFactor(circuit.type))
-    );
+    return total + power / (phaseFactor * voltage * getPowerFactor(circuit));
   }, 0);
 }
 
@@ -75,7 +77,7 @@ function getIecCorrectedCapacity(section, input, rules) {
 function normalizeIec60364Result(physicalResult, input, rules, result) {
   const employmentCurrent = calculateEmploymentCurrent(input);
   const circuit = getCircuitForDistance(input);
-  const powerFactor = getPowerFactor(circuit.type);
+  const powerFactor = getPowerFactor(circuit);
   const phaseFactor = input.powerSupply.type === "TRIPHASE" ? Math.sqrt(3) : 1;
   const circuitCurrent =
     (circuit.totalPower * circuit.circuitCount) /
@@ -175,7 +177,7 @@ function normalizeCalculationResult(physicalResult, standard, input = null) {
     const employmentCurrent = calculateEmploymentCurrent(input);
     const protectionCurrent = input.protection.ratedCurrent;
     const circuit = getCircuitForDistance(input);
-    const powerFactor = getPowerFactor(circuit.type);
+    const powerFactor = getPowerFactor(circuit);
     const phaseFactor =
       input.powerSupply.type === "TRIPHASE" ? Math.sqrt(3) : 1;
     const circuitCurrent =

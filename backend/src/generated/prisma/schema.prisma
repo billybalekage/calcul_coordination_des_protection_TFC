@@ -8,19 +8,31 @@ datasource db {
 }
 
 model User {
-  id                 String    @id @default(uuid())
+  id                 String     @id @default(uuid())
   name               String?
-  email              String    @unique
+  email              String     @unique
   emailVerified      DateTime?
   avatarUrl          String?
   password           String?
-  isTwoFactorEnabled Boolean   @default(false)
+  role               UserRole   @default(USER)
+  status             UserStatus @default(ACTIVE)
+  isTwoFactorEnabled Boolean    @default(false)
   twofactorSecret    String?
-  createdAt          DateTime  @default(now())
-  updatedAt          DateTime  @updatedAt
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
   accounts           Account[]
   projects           Project[]
   sessions           Session[]
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
 }
 
 model Account {
@@ -98,10 +110,13 @@ model Circuit {
   projectId String
   project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
 
-  name         String
-  circuitCount Int         @default(1)
-  type         CircuitType
-  totalPower   Float
+  name               String
+  circuitCount       Int         @default(1)
+  type               CircuitType
+  totalPower         Float
+  cosPhi             Float       @default(1)
+  utilizationFactor  Float       @default(1)
+  simultaneityFactor Float       @default(1)
 }
 
 // 4. Distance entre la charge la plus éloignée et le tableau divisionnaire

@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 const { env, isProduction } = require("../config");
+const { UnauthorizedError } = require("../common/errors/AppErrors");
 
 const ISSUER = "calculd_de_protection";
 const AUDIENCE = "calculd_de_protection-app";

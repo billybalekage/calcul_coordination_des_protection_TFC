@@ -127,6 +127,8 @@ exports.Prisma.UserScalarFieldEnum = {
   emailVerified: 'emailVerified',
   avatarUrl: 'avatarUrl',
   password: 'password',
+  role: 'role',
+  status: 'status',
   isTwoFactorEnabled: 'isTwoFactorEnabled',
   twofactorSecret: 'twofactorSecret',
   createdAt: 'createdAt',
@@ -188,7 +190,10 @@ exports.Prisma.CircuitScalarFieldEnum = {
   name: 'name',
   circuitCount: 'circuitCount',
   type: 'type',
-  totalPower: 'totalPower'
+  totalPower: 'totalPower',
+  cosPhi: 'cosPhi',
+  utilizationFactor: 'utilizationFactor',
+  simultaneityFactor: 'simultaneityFactor'
 };
 
 exports.Prisma.FurthestLoadDistanceScalarFieldEnum = {
@@ -248,6 +253,16 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.UserRole = exports.$Enums.UserRole = {
+  USER: 'USER',
+  ADMIN: 'ADMIN'
+};
+
+exports.UserStatus = exports.$Enums.UserStatus = {
+  ACTIVE: 'ACTIVE',
+  SUSPENDED: 'SUSPENDED'
+};
+
 exports.AlimentationType = exports.$Enums.AlimentationType = {
   MONOPHASE: 'MONOPHASE',
   TRIPHASE: 'TRIPHASE'

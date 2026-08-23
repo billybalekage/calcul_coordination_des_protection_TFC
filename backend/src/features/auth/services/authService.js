@@ -454,7 +454,7 @@ async function processGoogleAuth({ idToken } = {}) {
         data: {
           name: googlePayload.name,
           email: googlePayload.email,
-          photo: googlePayload.avatarUrl,
+          avatarUrl: googlePayload.avatarUrl,
           emailVerified: googlePayload.emailVerified ? new Date() : null,
           password: null,
         },
@@ -495,7 +495,7 @@ async function processGoogleAuth({ idToken } = {}) {
       where: { id: user.id },
       data: {
         emailVerified: new Date(),
-        photo: googlePayload.avatarUrl || user.photo || null,
+        avatarUrl: googlePayload.avatarUrl || user.avatarUrl || null,
       },
       select: publicUserSelect,
     });
@@ -537,7 +537,7 @@ async function updateProfilePhoto(userId, file) {
   const prisma = prismaModule.getPrismaClient();
   const user = await prisma.user.findUnique({
     where: { id: userId },
-    select: { id: true, photo: true },
+    select: { id: true, avatarUrl: true },
   });
 
   if (!user) {
@@ -550,7 +550,7 @@ async function updateProfilePhoto(userId, file) {
 
   const updatedUser = await prisma.user.update({
     where: { id: userId },
-    data: { photo: uploaded.url },
+    data: { avatarUrl: uploaded.url },
     select: publicUserSelect,
   });
 

@@ -35,6 +35,7 @@ async function register(req, res) {
   res.status(201).json({
     success: true,
     user,
+    token: issueAuthCookies(res, user.id),
     message: "Compte créé. Veuillez vérifier votre adresse email.",
   });
 }
@@ -64,6 +65,7 @@ async function login(req, res) {
   res.status(200).json({
     success: true,
     user: result.user,
+    token: issueAuthCookies(res, result.user.id),
     message: "Connexion réussie.",
   });
 }

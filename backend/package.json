@@ -11,6 +11,7 @@
     "server": "nodemon server.js",
     "start": "node server.js",
     "fetch-users": "node scripts/fetchUsers.js",
+    "seed-admin": "node scripts/seedAdmin.js",
     "clear-db": "node scripts/clearDatabase.js",
     "prisma": "prisma",
     "prisma:generate": "prisma generate",

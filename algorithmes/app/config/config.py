@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     debug: bool = Field(default=False)
     api_key: str = Field(..., min_length=16)
     allowed_hosts: str = Field(default="localhost,127.0.0.1,[::1]")
-    cors_origins: str = Field(default="http://localhost:7000,http://127.0.0.1:7000")
+    cors_origins: str = Field(default="http://localhost:8800,http://127.0.0.1:8800")
     api_prefix: str = Field(default="/api")
     https_redirect: bool = Field(default=False)
     gzip_min_size: int = Field(default=1000, ge=0)

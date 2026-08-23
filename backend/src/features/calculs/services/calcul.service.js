@@ -15,7 +15,12 @@ function getPrisma() {
   return prismaModule.getPrismaClient();
 }
 
+
+
 async function getOwnedProject(projectId, userId, include = {}) {
+  if (!userId) {
+    throw new NotFoundError("Utiisateur non trouvé")
+  }
   const project = await getPrisma().project.findFirst({
     where: { id: projectId, userId },
     include,

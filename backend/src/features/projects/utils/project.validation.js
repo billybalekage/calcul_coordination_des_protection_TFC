@@ -38,6 +38,9 @@ const circuitSchema = Joi.object({
     )
     .required(),
   totalPower: nonNegativeNumber.max(100000000).required(),
+  cosPhi: positiveNumber.max(1).allow(null).default(1),
+  utilizationFactor: positiveNumber.max(1).allow(null).default(1),
+  simultaneityFactor: positiveNumber.max(1).allow(null).default(1),
 }).options({ abortEarly: false, stripUnknown: true });
 
 const cableDataSchema = Joi.object({
