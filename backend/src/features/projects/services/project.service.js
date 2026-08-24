@@ -47,6 +47,21 @@ async function addCircuit(projectId, userId, data) {
   });
 }
 
+async function updateCircuit(projectId, userId, circuitId, data) {
+  await getOwnedProject(projectId, userId);
+  return getPrisma().circuit.updateMany({
+    where: { id: circuitId, projectId },
+    data,
+  });
+}
+
+async function deleteCircuit(projectId, userId, circuitId) {
+  await getOwnedProject(projectId, userId);
+  return getPrisma().circuit.deleteMany({
+    where: { id: circuitId, projectId },
+  });
+}
+
 async function saveCableData(projectId, userId, data) {
   await getOwnedProject(projectId, userId);
   return getPrisma().cableData.upsert({
@@ -80,6 +95,8 @@ module.exports = {
   getOwnedProject,
   savePowerSupply,
   addCircuit,
+  updateCircuit,
+  deleteCircuit,
   saveCableData,
   saveProtection,
   saveFurthestLoadDistance,

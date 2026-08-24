@@ -7,6 +7,7 @@ import ResetPassword from "./pages/auth/ResetPassword";
 import ProfilePage from "./pages/ProfilePage";
 import NotFound from "./pages/notFound";
 import Darshboard from "./pages/Darshboard";
+import ProjectCalculation from "./pages/ProjectCalculation";
 import { useAuthSession } from "@/hooks/use-auth-session";
 
 const ProtectedRoute = ({ children }) => {
@@ -103,6 +104,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/projects/:projectId"
+          element={
+            <ProtectedRoute>
+              <ProjectCalculation />
             </ProtectedRoute>
           }
         />

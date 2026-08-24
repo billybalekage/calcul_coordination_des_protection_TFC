@@ -45,6 +45,30 @@ async function addCircuit(req, res) {
   res.status(201).json({ success: true, circuit });
 }
 
+async function updateCircuit(req, res) {
+  const data = validate(circuitSchema, req.body);
+  const result = await projectService.updateCircuit(
+    projectId(req),
+    req.user.id,
+    req.params.circuitId,
+    data,
+  );
+  if (!result.count)
+    return res.status(404).json({ message: "Circuit introuvable." });
+  res.status(200).json({ success: true });
+}
+
+async function deleteCircuit(req, res) {
+  const result = await projectService.deleteCircuit(
+    projectId(req),
+    req.user.id,
+    req.params.circuitId,
+  );
+  if (!result.count)
+    return res.status(404).json({ message: "Circuit introuvable." });
+  res.status(204).send();
+}
+
 async function addCableData(req, res) {
   const data = validate(cableDataSchema, req.body);
   const cableData = await projectService.saveCableData(
@@ -101,6 +125,8 @@ module.exports = {
   getProjects,
   addPowerSupply,
   addCircuit,
+  updateCircuit,
+  deleteCircuit,
   addCableData,
   addProtection,
   addFurthestLoadDistance,

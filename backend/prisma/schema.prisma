@@ -110,13 +110,26 @@ model Circuit {
   projectId String
   project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
 
-  name               String
-  circuitCount       Int         @default(1)
-  type               CircuitType
-  totalPower         Float
-  cosPhi             Float       @default(1)
-  utilizationFactor  Float       @default(1)
-  simultaneityFactor Float       @default(1)
+  name                     String
+  circuitCount             Int             @default(1)
+  type                     CircuitType
+  totalPower               Float
+  cosPhi                   Float           @default(1)
+  utilizationFactor        Float           @default(1)
+  simultaneityFactor       Float           @default(1)
+  distance                 Float?
+  cableMaterial            CableMaterial?
+  cableIsolation           CableIsolation?
+  modePose                 ModePose?
+  correctionFactors        Json?
+  izReference              Float?
+  millivoltsPerAmpereMeter Float?
+  protectionType           ProtectionType?
+  ratedCurrent             Float?
+  numberOfPoles            Int?
+  curveType                CurveType?
+  breakingCapacity         Float?
+  selectivityVerified      Boolean         @default(false)
 }
 
 // 4. Distance entre la charge la plus éloignée et le tableau divisionnaire

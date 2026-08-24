@@ -146,7 +146,11 @@ test("getCalculationInput builds the FastAPI payload without database technical 
       location: "Lyon",
     });
     assert.deepEqual(input.powerSupply, projectData.powerSupply);
-    assert.deepEqual(input.circuits, projectData.circuits);
+    assert.equal(input.circuits.length, 1);
+    assert.equal(input.circuits[0].name, "Eclairage");
+    assert.equal(input.circuits[0].distance, 25);
+    assert.deepEqual(input.circuits[0].cableData, projectData.cableData);
+    assert.deepEqual(input.circuits[0].protection, projectData.protection);
     assert.equal(input.powerSupply.id, undefined);
     assert.equal(input.cableData.projectId, undefined);
   } finally {
@@ -194,11 +198,7 @@ test("getCalculationInput rejects an incomplete project", async () => {
       () => calculService.getCalculationInput("project-1", "user-1"),
       (error) => {
         assert.equal(error instanceof BadRequestError, true);
-        assert.deepEqual(error.details.missing, [
-          "circuits",
-          "protection",
-          "furthestLoadDistance",
-        ]);
+        assert.deepEqual(error.details.missing, ["circuits"]);
         return true;
       },
     );
@@ -359,7 +359,7 @@ test("normalization applies the selected standard rules", () => {
     10,
   );
   assert.equal(
-    normalizeCalculationResult(physicalResult, "IEEE_141").voltageDropCheck,
+    normalizeCalculationResult(physicalResult, "IEC_60364").voltageDropCheck,
     "PASS",
   );
 });
@@ -398,7 +398,7 @@ test("available standards expose selectable calculation profiles", () => {
 
   assert.deepEqual(
     standards.map((standard) => standard.value),
-    ["NFC_15_100", "IEC_60364", "IEEE_141", "IEEE_242"],
+    ["NFC_15_100", "IEC_60364"],
   );
   assert.equal(standards[0].calculationMode, "NFC_15_100");
   assert.equal(standards[1].calculationMode, "IEC_60364");

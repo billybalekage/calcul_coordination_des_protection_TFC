@@ -6,6 +6,66 @@ from app.features.calculs.services import calculate_result
 
 
 class CalculationServiceTests(unittest.TestCase):
+    def test_each_circuit_uses_its_own_cable_and_protection(self):
+        payload = {
+            "project": {"id": "project-1", "name": "Maison"},
+            "powerSupply": {
+                "type": "MONOPHASE",
+                "nominalVoltage": 230,
+                "frequency": 50,
+                "regimeNeutre": "TT",
+                "distanceSourceToTGBT": 10,
+            },
+            "circuits": [
+                {
+                    "name": "Eclairage",
+                    "type": "ECLAIRAGE",
+                    "totalPower": 920,
+                    "distance": 15,
+                    "cableData": {
+                        "material": "CUIVRE",
+                        "isolation": "PVC",
+                        "modePose": "ENCASTRE_DANS_MUR",
+                    },
+                    "protection": {
+                        "type": "DISJONCTEUR",
+                        "ratedCurrent": 10,
+                        "numberOfPoles": 1,
+                        "curveType": "C",
+                        "breakingCapacity": 6000,
+                    },
+                },
+                {
+                    "name": "Chauffe-eau",
+                    "type": "CHAUFFAGE",
+                    "totalPower": 3680,
+                    "distance": 25,
+                    "cableData": {
+                        "material": "CUIVRE",
+                        "isolation": "XLPE",
+                        "modePose": "SOUS_CONDUIT_EN_SAILLIE",
+                    },
+                    "protection": {
+                        "type": "DISJONCTEUR",
+                        "ratedCurrent": 16,
+                        "numberOfPoles": 1,
+                        "curveType": "C",
+                        "breakingCapacity": 6000,
+                    },
+                },
+            ],
+        }
+
+        result = calculate_result(CalculationInput.model_validate(payload))
+
+        self.assertEqual(len(result.perCircuit), 2)
+        self.assertEqual(result.perCircuit[0].recommendedBreaker, 10)
+        self.assertEqual(result.perCircuit[1].recommendedBreaker, 16)
+        self.assertEqual(
+            result.perCircuit[0].coordinationCheck,
+            "TO_VERIFY_WITH_MANUFACTURER",
+        )
+
     def test_missing_or_null_design_factors_default_to_one(self):
         power_supply = {
             "type": "MONOPHASE",
@@ -207,7 +267,11 @@ class CalculationServiceTests(unittest.TestCase):
 
         self.assertEqual(result.recommendedCableSection, 1.5)
         self.assertEqual(result.recommendedBreaker, 10)
-        self.assertEqual(result.overloadCheck, "PASS")
+        self.assertEqual(result.overloadCheck, "FAIL")
+        self.assertEqual(
+            result.perCircuit[0].coordinationCheck,
+            "TO_VERIFY_WITH_MANUFACTURER",
+        )
         self.assertEqual(len(result.perCircuit), 1)
         self.assertGreater(result.perCircuit[0].recommendedSection, 0)
 

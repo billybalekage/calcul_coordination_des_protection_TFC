@@ -19,9 +19,7 @@ const powerSupplySchema = Joi.object({
   frequency: positiveNumber.max(1000).required(),
   regimeNeutre: Joi.string().valid("TT", "TN", "IT").required(),
   distanceSourceToTGBT: nonNegativeNumber.max(100000).required(),
-  standard: Joi.string()
-    .valid("NFC_15_100", "IEC_60364", "IEEE_141", "IEEE_242")
-    .required(),
+  standard: Joi.string().valid("NFC_15_100", "IEC_60364").required(),
 }).options({ abortEarly: false, stripUnknown: true });
 
 const circuitSchema = Joi.object({
@@ -41,6 +39,29 @@ const circuitSchema = Joi.object({
   cosPhi: positiveNumber.max(1).allow(null).default(1),
   utilizationFactor: positiveNumber.max(1).allow(null).default(1),
   simultaneityFactor: positiveNumber.max(1).allow(null).default(1),
+  distance: nonNegativeNumber.max(100000).allow(null),
+  cableMaterial: Joi.string().valid("CUIVRE", "ALUMINIUM").allow(null),
+  cableIsolation: Joi.string().valid("PVC", "XLPE", "EPR").allow(null),
+  modePose: Joi.string()
+    .valid(
+      "SOUS_CONDUIT_EN_SAILLIE",
+      "ENCASTRE_DANS_MUR",
+      "CHEMINEE_DE_CABLES",
+      "ENTERRE",
+      "AIR_LIBRE",
+    )
+    .allow(null),
+  correctionFactors: Joi.object().pattern(Joi.string(), positiveNumber.max(1)),
+  izReference: positiveNumber.max(100000).allow(null),
+  millivoltsPerAmpereMeter: positiveNumber.max(100000).allow(null),
+  protectionType: Joi.string()
+    .valid("DISJONCTEUR", "FUSIBLE", "INTERRUPTEUR_SECTIONNEUR")
+    .allow(null),
+  ratedCurrent: positiveNumber.max(100000).allow(null),
+  numberOfPoles: Joi.number().integer().valid(1, 2, 3, 4).allow(null),
+  curveType: Joi.string().valid("B", "C", "D", "K", "Z").allow(null),
+  breakingCapacity: positiveNumber.max(1000000).allow(null),
+  selectivityVerified: Joi.boolean().default(false),
 }).options({ abortEarly: false, stripUnknown: true });
 
 const cableDataSchema = Joi.object({

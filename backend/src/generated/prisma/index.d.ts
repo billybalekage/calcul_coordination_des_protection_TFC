@@ -8878,6 +8878,12 @@ export namespace Prisma {
     cosPhi: number | null
     utilizationFactor: number | null
     simultaneityFactor: number | null
+    distance: number | null
+    izReference: number | null
+    millivoltsPerAmpereMeter: number | null
+    ratedCurrent: number | null
+    numberOfPoles: number | null
+    breakingCapacity: number | null
   }
 
   export type CircuitSumAggregateOutputType = {
@@ -8886,6 +8892,12 @@ export namespace Prisma {
     cosPhi: number | null
     utilizationFactor: number | null
     simultaneityFactor: number | null
+    distance: number | null
+    izReference: number | null
+    millivoltsPerAmpereMeter: number | null
+    ratedCurrent: number | null
+    numberOfPoles: number | null
+    breakingCapacity: number | null
   }
 
   export type CircuitMinAggregateOutputType = {
@@ -8898,6 +8910,18 @@ export namespace Prisma {
     cosPhi: number | null
     utilizationFactor: number | null
     simultaneityFactor: number | null
+    distance: number | null
+    cableMaterial: $Enums.CableMaterial | null
+    cableIsolation: $Enums.CableIsolation | null
+    modePose: $Enums.ModePose | null
+    izReference: number | null
+    millivoltsPerAmpereMeter: number | null
+    protectionType: $Enums.ProtectionType | null
+    ratedCurrent: number | null
+    numberOfPoles: number | null
+    curveType: $Enums.CurveType | null
+    breakingCapacity: number | null
+    selectivityVerified: boolean | null
   }
 
   export type CircuitMaxAggregateOutputType = {
@@ -8910,6 +8934,18 @@ export namespace Prisma {
     cosPhi: number | null
     utilizationFactor: number | null
     simultaneityFactor: number | null
+    distance: number | null
+    cableMaterial: $Enums.CableMaterial | null
+    cableIsolation: $Enums.CableIsolation | null
+    modePose: $Enums.ModePose | null
+    izReference: number | null
+    millivoltsPerAmpereMeter: number | null
+    protectionType: $Enums.ProtectionType | null
+    ratedCurrent: number | null
+    numberOfPoles: number | null
+    curveType: $Enums.CurveType | null
+    breakingCapacity: number | null
+    selectivityVerified: boolean | null
   }
 
   export type CircuitCountAggregateOutputType = {
@@ -8922,6 +8958,19 @@ export namespace Prisma {
     cosPhi: number
     utilizationFactor: number
     simultaneityFactor: number
+    distance: number
+    cableMaterial: number
+    cableIsolation: number
+    modePose: number
+    correctionFactors: number
+    izReference: number
+    millivoltsPerAmpereMeter: number
+    protectionType: number
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: number
+    breakingCapacity: number
+    selectivityVerified: number
     _all: number
   }
 
@@ -8932,6 +8981,12 @@ export namespace Prisma {
     cosPhi?: true
     utilizationFactor?: true
     simultaneityFactor?: true
+    distance?: true
+    izReference?: true
+    millivoltsPerAmpereMeter?: true
+    ratedCurrent?: true
+    numberOfPoles?: true
+    breakingCapacity?: true
   }
 
   export type CircuitSumAggregateInputType = {
@@ -8940,6 +8995,12 @@ export namespace Prisma {
     cosPhi?: true
     utilizationFactor?: true
     simultaneityFactor?: true
+    distance?: true
+    izReference?: true
+    millivoltsPerAmpereMeter?: true
+    ratedCurrent?: true
+    numberOfPoles?: true
+    breakingCapacity?: true
   }
 
   export type CircuitMinAggregateInputType = {
@@ -8952,6 +9013,18 @@ export namespace Prisma {
     cosPhi?: true
     utilizationFactor?: true
     simultaneityFactor?: true
+    distance?: true
+    cableMaterial?: true
+    cableIsolation?: true
+    modePose?: true
+    izReference?: true
+    millivoltsPerAmpereMeter?: true
+    protectionType?: true
+    ratedCurrent?: true
+    numberOfPoles?: true
+    curveType?: true
+    breakingCapacity?: true
+    selectivityVerified?: true
   }
 
   export type CircuitMaxAggregateInputType = {
@@ -8964,6 +9037,18 @@ export namespace Prisma {
     cosPhi?: true
     utilizationFactor?: true
     simultaneityFactor?: true
+    distance?: true
+    cableMaterial?: true
+    cableIsolation?: true
+    modePose?: true
+    izReference?: true
+    millivoltsPerAmpereMeter?: true
+    protectionType?: true
+    ratedCurrent?: true
+    numberOfPoles?: true
+    curveType?: true
+    breakingCapacity?: true
+    selectivityVerified?: true
   }
 
   export type CircuitCountAggregateInputType = {
@@ -8976,6 +9061,19 @@ export namespace Prisma {
     cosPhi?: true
     utilizationFactor?: true
     simultaneityFactor?: true
+    distance?: true
+    cableMaterial?: true
+    cableIsolation?: true
+    modePose?: true
+    correctionFactors?: true
+    izReference?: true
+    millivoltsPerAmpereMeter?: true
+    protectionType?: true
+    ratedCurrent?: true
+    numberOfPoles?: true
+    curveType?: true
+    breakingCapacity?: true
+    selectivityVerified?: true
     _all?: true
   }
 
@@ -9075,6 +9173,19 @@ export namespace Prisma {
     cosPhi: number
     utilizationFactor: number
     simultaneityFactor: number
+    distance: number | null
+    cableMaterial: $Enums.CableMaterial | null
+    cableIsolation: $Enums.CableIsolation | null
+    modePose: $Enums.ModePose | null
+    correctionFactors: JsonValue | null
+    izReference: number | null
+    millivoltsPerAmpereMeter: number | null
+    protectionType: $Enums.ProtectionType | null
+    ratedCurrent: number | null
+    numberOfPoles: number | null
+    curveType: $Enums.CurveType | null
+    breakingCapacity: number | null
+    selectivityVerified: boolean
     _count: CircuitCountAggregateOutputType | null
     _avg: CircuitAvgAggregateOutputType | null
     _sum: CircuitSumAggregateOutputType | null
@@ -9106,6 +9217,19 @@ export namespace Prisma {
     cosPhi?: boolean
     utilizationFactor?: boolean
     simultaneityFactor?: boolean
+    distance?: boolean
+    cableMaterial?: boolean
+    cableIsolation?: boolean
+    modePose?: boolean
+    correctionFactors?: boolean
+    izReference?: boolean
+    millivoltsPerAmpereMeter?: boolean
+    protectionType?: boolean
+    ratedCurrent?: boolean
+    numberOfPoles?: boolean
+    curveType?: boolean
+    breakingCapacity?: boolean
+    selectivityVerified?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["circuit"]>
 
@@ -9119,6 +9243,19 @@ export namespace Prisma {
     cosPhi?: boolean
     utilizationFactor?: boolean
     simultaneityFactor?: boolean
+    distance?: boolean
+    cableMaterial?: boolean
+    cableIsolation?: boolean
+    modePose?: boolean
+    correctionFactors?: boolean
+    izReference?: boolean
+    millivoltsPerAmpereMeter?: boolean
+    protectionType?: boolean
+    ratedCurrent?: boolean
+    numberOfPoles?: boolean
+    curveType?: boolean
+    breakingCapacity?: boolean
+    selectivityVerified?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["circuit"]>
 
@@ -9132,6 +9269,19 @@ export namespace Prisma {
     cosPhi?: boolean
     utilizationFactor?: boolean
     simultaneityFactor?: boolean
+    distance?: boolean
+    cableMaterial?: boolean
+    cableIsolation?: boolean
+    modePose?: boolean
+    correctionFactors?: boolean
+    izReference?: boolean
+    millivoltsPerAmpereMeter?: boolean
+    protectionType?: boolean
+    ratedCurrent?: boolean
+    numberOfPoles?: boolean
+    curveType?: boolean
+    breakingCapacity?: boolean
+    selectivityVerified?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["circuit"]>
 
@@ -9145,9 +9295,22 @@ export namespace Prisma {
     cosPhi?: boolean
     utilizationFactor?: boolean
     simultaneityFactor?: boolean
+    distance?: boolean
+    cableMaterial?: boolean
+    cableIsolation?: boolean
+    modePose?: boolean
+    correctionFactors?: boolean
+    izReference?: boolean
+    millivoltsPerAmpereMeter?: boolean
+    protectionType?: boolean
+    ratedCurrent?: boolean
+    numberOfPoles?: boolean
+    curveType?: boolean
+    breakingCapacity?: boolean
+    selectivityVerified?: boolean
   }
 
-  export type CircuitOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "name" | "circuitCount" | "type" | "totalPower" | "cosPhi" | "utilizationFactor" | "simultaneityFactor", ExtArgs["result"]["circuit"]>
+  export type CircuitOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "name" | "circuitCount" | "type" | "totalPower" | "cosPhi" | "utilizationFactor" | "simultaneityFactor" | "distance" | "cableMaterial" | "cableIsolation" | "modePose" | "correctionFactors" | "izReference" | "millivoltsPerAmpereMeter" | "protectionType" | "ratedCurrent" | "numberOfPoles" | "curveType" | "breakingCapacity" | "selectivityVerified", ExtArgs["result"]["circuit"]>
   export type CircuitInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
@@ -9173,6 +9336,19 @@ export namespace Prisma {
       cosPhi: number
       utilizationFactor: number
       simultaneityFactor: number
+      distance: number | null
+      cableMaterial: $Enums.CableMaterial | null
+      cableIsolation: $Enums.CableIsolation | null
+      modePose: $Enums.ModePose | null
+      correctionFactors: Prisma.JsonValue | null
+      izReference: number | null
+      millivoltsPerAmpereMeter: number | null
+      protectionType: $Enums.ProtectionType | null
+      ratedCurrent: number | null
+      numberOfPoles: number | null
+      curveType: $Enums.CurveType | null
+      breakingCapacity: number | null
+      selectivityVerified: boolean
     }, ExtArgs["result"]["circuit"]>
     composites: {}
   }
@@ -9606,6 +9782,19 @@ export namespace Prisma {
     readonly cosPhi: FieldRef<"Circuit", 'Float'>
     readonly utilizationFactor: FieldRef<"Circuit", 'Float'>
     readonly simultaneityFactor: FieldRef<"Circuit", 'Float'>
+    readonly distance: FieldRef<"Circuit", 'Float'>
+    readonly cableMaterial: FieldRef<"Circuit", 'CableMaterial'>
+    readonly cableIsolation: FieldRef<"Circuit", 'CableIsolation'>
+    readonly modePose: FieldRef<"Circuit", 'ModePose'>
+    readonly correctionFactors: FieldRef<"Circuit", 'Json'>
+    readonly izReference: FieldRef<"Circuit", 'Float'>
+    readonly millivoltsPerAmpereMeter: FieldRef<"Circuit", 'Float'>
+    readonly protectionType: FieldRef<"Circuit", 'ProtectionType'>
+    readonly ratedCurrent: FieldRef<"Circuit", 'Float'>
+    readonly numberOfPoles: FieldRef<"Circuit", 'Int'>
+    readonly curveType: FieldRef<"Circuit", 'CurveType'>
+    readonly breakingCapacity: FieldRef<"Circuit", 'Float'>
+    readonly selectivityVerified: FieldRef<"Circuit", 'Boolean'>
   }
     
 
@@ -14667,7 +14856,20 @@ export namespace Prisma {
     totalPower: 'totalPower',
     cosPhi: 'cosPhi',
     utilizationFactor: 'utilizationFactor',
-    simultaneityFactor: 'simultaneityFactor'
+    simultaneityFactor: 'simultaneityFactor',
+    distance: 'distance',
+    cableMaterial: 'cableMaterial',
+    cableIsolation: 'cableIsolation',
+    modePose: 'modePose',
+    correctionFactors: 'correctionFactors',
+    izReference: 'izReference',
+    millivoltsPerAmpereMeter: 'millivoltsPerAmpereMeter',
+    protectionType: 'protectionType',
+    ratedCurrent: 'ratedCurrent',
+    numberOfPoles: 'numberOfPoles',
+    curveType: 'curveType',
+    breakingCapacity: 'breakingCapacity',
+    selectivityVerified: 'selectivityVerified'
   };
 
   export type CircuitScalarFieldEnum = (typeof CircuitScalarFieldEnum)[keyof typeof CircuitScalarFieldEnum]
@@ -14736,6 +14938,14 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
   export const QueryMode: {
     default: 'default',
     insensitive: 'insensitive'
@@ -14750,6 +14960,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -14943,6 +15162,20 @@ export namespace Prisma {
    * Reference to a field of type 'ModePose[]'
    */
   export type ListEnumModePoseFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ModePose[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -15441,6 +15674,19 @@ export namespace Prisma {
     cosPhi?: FloatFilter<"Circuit"> | number
     utilizationFactor?: FloatFilter<"Circuit"> | number
     simultaneityFactor?: FloatFilter<"Circuit"> | number
+    distance?: FloatNullableFilter<"Circuit"> | number | null
+    cableMaterial?: EnumCableMaterialNullableFilter<"Circuit"> | $Enums.CableMaterial | null
+    cableIsolation?: EnumCableIsolationNullableFilter<"Circuit"> | $Enums.CableIsolation | null
+    modePose?: EnumModePoseNullableFilter<"Circuit"> | $Enums.ModePose | null
+    correctionFactors?: JsonNullableFilter<"Circuit">
+    izReference?: FloatNullableFilter<"Circuit"> | number | null
+    millivoltsPerAmpereMeter?: FloatNullableFilter<"Circuit"> | number | null
+    protectionType?: EnumProtectionTypeNullableFilter<"Circuit"> | $Enums.ProtectionType | null
+    ratedCurrent?: FloatNullableFilter<"Circuit"> | number | null
+    numberOfPoles?: IntNullableFilter<"Circuit"> | number | null
+    curveType?: EnumCurveTypeNullableFilter<"Circuit"> | $Enums.CurveType | null
+    breakingCapacity?: FloatNullableFilter<"Circuit"> | number | null
+    selectivityVerified?: BoolFilter<"Circuit"> | boolean
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }
 
@@ -15454,6 +15700,19 @@ export namespace Prisma {
     cosPhi?: SortOrder
     utilizationFactor?: SortOrder
     simultaneityFactor?: SortOrder
+    distance?: SortOrderInput | SortOrder
+    cableMaterial?: SortOrderInput | SortOrder
+    cableIsolation?: SortOrderInput | SortOrder
+    modePose?: SortOrderInput | SortOrder
+    correctionFactors?: SortOrderInput | SortOrder
+    izReference?: SortOrderInput | SortOrder
+    millivoltsPerAmpereMeter?: SortOrderInput | SortOrder
+    protectionType?: SortOrderInput | SortOrder
+    ratedCurrent?: SortOrderInput | SortOrder
+    numberOfPoles?: SortOrderInput | SortOrder
+    curveType?: SortOrderInput | SortOrder
+    breakingCapacity?: SortOrderInput | SortOrder
+    selectivityVerified?: SortOrder
     project?: ProjectOrderByWithRelationInput
   }
 
@@ -15470,6 +15729,19 @@ export namespace Prisma {
     cosPhi?: FloatFilter<"Circuit"> | number
     utilizationFactor?: FloatFilter<"Circuit"> | number
     simultaneityFactor?: FloatFilter<"Circuit"> | number
+    distance?: FloatNullableFilter<"Circuit"> | number | null
+    cableMaterial?: EnumCableMaterialNullableFilter<"Circuit"> | $Enums.CableMaterial | null
+    cableIsolation?: EnumCableIsolationNullableFilter<"Circuit"> | $Enums.CableIsolation | null
+    modePose?: EnumModePoseNullableFilter<"Circuit"> | $Enums.ModePose | null
+    correctionFactors?: JsonNullableFilter<"Circuit">
+    izReference?: FloatNullableFilter<"Circuit"> | number | null
+    millivoltsPerAmpereMeter?: FloatNullableFilter<"Circuit"> | number | null
+    protectionType?: EnumProtectionTypeNullableFilter<"Circuit"> | $Enums.ProtectionType | null
+    ratedCurrent?: FloatNullableFilter<"Circuit"> | number | null
+    numberOfPoles?: IntNullableFilter<"Circuit"> | number | null
+    curveType?: EnumCurveTypeNullableFilter<"Circuit"> | $Enums.CurveType | null
+    breakingCapacity?: FloatNullableFilter<"Circuit"> | number | null
+    selectivityVerified?: BoolFilter<"Circuit"> | boolean
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }, "id">
 
@@ -15483,6 +15755,19 @@ export namespace Prisma {
     cosPhi?: SortOrder
     utilizationFactor?: SortOrder
     simultaneityFactor?: SortOrder
+    distance?: SortOrderInput | SortOrder
+    cableMaterial?: SortOrderInput | SortOrder
+    cableIsolation?: SortOrderInput | SortOrder
+    modePose?: SortOrderInput | SortOrder
+    correctionFactors?: SortOrderInput | SortOrder
+    izReference?: SortOrderInput | SortOrder
+    millivoltsPerAmpereMeter?: SortOrderInput | SortOrder
+    protectionType?: SortOrderInput | SortOrder
+    ratedCurrent?: SortOrderInput | SortOrder
+    numberOfPoles?: SortOrderInput | SortOrder
+    curveType?: SortOrderInput | SortOrder
+    breakingCapacity?: SortOrderInput | SortOrder
+    selectivityVerified?: SortOrder
     _count?: CircuitCountOrderByAggregateInput
     _avg?: CircuitAvgOrderByAggregateInput
     _max?: CircuitMaxOrderByAggregateInput
@@ -15503,6 +15788,19 @@ export namespace Prisma {
     cosPhi?: FloatWithAggregatesFilter<"Circuit"> | number
     utilizationFactor?: FloatWithAggregatesFilter<"Circuit"> | number
     simultaneityFactor?: FloatWithAggregatesFilter<"Circuit"> | number
+    distance?: FloatNullableWithAggregatesFilter<"Circuit"> | number | null
+    cableMaterial?: EnumCableMaterialNullableWithAggregatesFilter<"Circuit"> | $Enums.CableMaterial | null
+    cableIsolation?: EnumCableIsolationNullableWithAggregatesFilter<"Circuit"> | $Enums.CableIsolation | null
+    modePose?: EnumModePoseNullableWithAggregatesFilter<"Circuit"> | $Enums.ModePose | null
+    correctionFactors?: JsonNullableWithAggregatesFilter<"Circuit">
+    izReference?: FloatNullableWithAggregatesFilter<"Circuit"> | number | null
+    millivoltsPerAmpereMeter?: FloatNullableWithAggregatesFilter<"Circuit"> | number | null
+    protectionType?: EnumProtectionTypeNullableWithAggregatesFilter<"Circuit"> | $Enums.ProtectionType | null
+    ratedCurrent?: FloatNullableWithAggregatesFilter<"Circuit"> | number | null
+    numberOfPoles?: IntNullableWithAggregatesFilter<"Circuit"> | number | null
+    curveType?: EnumCurveTypeNullableWithAggregatesFilter<"Circuit"> | $Enums.CurveType | null
+    breakingCapacity?: FloatNullableWithAggregatesFilter<"Circuit"> | number | null
+    selectivityVerified?: BoolWithAggregatesFilter<"Circuit"> | boolean
   }
 
   export type FurthestLoadDistanceWhereInput = {
@@ -16275,6 +16573,19 @@ export namespace Prisma {
     cosPhi?: number
     utilizationFactor?: number
     simultaneityFactor?: number
+    distance?: number | null
+    cableMaterial?: $Enums.CableMaterial | null
+    cableIsolation?: $Enums.CableIsolation | null
+    modePose?: $Enums.ModePose | null
+    correctionFactors?: NullableJsonNullValueInput | InputJsonValue
+    izReference?: number | null
+    millivoltsPerAmpereMeter?: number | null
+    protectionType?: $Enums.ProtectionType | null
+    ratedCurrent?: number | null
+    numberOfPoles?: number | null
+    curveType?: $Enums.CurveType | null
+    breakingCapacity?: number | null
+    selectivityVerified?: boolean
     project: ProjectCreateNestedOneWithoutCircuitsInput
   }
 
@@ -16288,6 +16599,19 @@ export namespace Prisma {
     cosPhi?: number
     utilizationFactor?: number
     simultaneityFactor?: number
+    distance?: number | null
+    cableMaterial?: $Enums.CableMaterial | null
+    cableIsolation?: $Enums.CableIsolation | null
+    modePose?: $Enums.ModePose | null
+    correctionFactors?: NullableJsonNullValueInput | InputJsonValue
+    izReference?: number | null
+    millivoltsPerAmpereMeter?: number | null
+    protectionType?: $Enums.ProtectionType | null
+    ratedCurrent?: number | null
+    numberOfPoles?: number | null
+    curveType?: $Enums.CurveType | null
+    breakingCapacity?: number | null
+    selectivityVerified?: boolean
   }
 
   export type CircuitUpdateInput = {
@@ -16299,6 +16623,19 @@ export namespace Prisma {
     cosPhi?: FloatFieldUpdateOperationsInput | number
     utilizationFactor?: FloatFieldUpdateOperationsInput | number
     simultaneityFactor?: FloatFieldUpdateOperationsInput | number
+    distance?: NullableFloatFieldUpdateOperationsInput | number | null
+    cableMaterial?: NullableEnumCableMaterialFieldUpdateOperationsInput | $Enums.CableMaterial | null
+    cableIsolation?: NullableEnumCableIsolationFieldUpdateOperationsInput | $Enums.CableIsolation | null
+    modePose?: NullableEnumModePoseFieldUpdateOperationsInput | $Enums.ModePose | null
+    correctionFactors?: NullableJsonNullValueInput | InputJsonValue
+    izReference?: NullableFloatFieldUpdateOperationsInput | number | null
+    millivoltsPerAmpereMeter?: NullableFloatFieldUpdateOperationsInput | number | null
+    protectionType?: NullableEnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType | null
+    ratedCurrent?: NullableFloatFieldUpdateOperationsInput | number | null
+    numberOfPoles?: NullableIntFieldUpdateOperationsInput | number | null
+    curveType?: NullableEnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType | null
+    breakingCapacity?: NullableFloatFieldUpdateOperationsInput | number | null
+    selectivityVerified?: BoolFieldUpdateOperationsInput | boolean
     project?: ProjectUpdateOneRequiredWithoutCircuitsNestedInput
   }
 
@@ -16312,6 +16649,19 @@ export namespace Prisma {
     cosPhi?: FloatFieldUpdateOperationsInput | number
     utilizationFactor?: FloatFieldUpdateOperationsInput | number
     simultaneityFactor?: FloatFieldUpdateOperationsInput | number
+    distance?: NullableFloatFieldUpdateOperationsInput | number | null
+    cableMaterial?: NullableEnumCableMaterialFieldUpdateOperationsInput | $Enums.CableMaterial | null
+    cableIsolation?: NullableEnumCableIsolationFieldUpdateOperationsInput | $Enums.CableIsolation | null
+    modePose?: NullableEnumModePoseFieldUpdateOperationsInput | $Enums.ModePose | null
+    correctionFactors?: NullableJsonNullValueInput | InputJsonValue
+    izReference?: NullableFloatFieldUpdateOperationsInput | number | null
+    millivoltsPerAmpereMeter?: NullableFloatFieldUpdateOperationsInput | number | null
+    protectionType?: NullableEnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType | null
+    ratedCurrent?: NullableFloatFieldUpdateOperationsInput | number | null
+    numberOfPoles?: NullableIntFieldUpdateOperationsInput | number | null
+    curveType?: NullableEnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType | null
+    breakingCapacity?: NullableFloatFieldUpdateOperationsInput | number | null
+    selectivityVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type CircuitCreateManyInput = {
@@ -16324,6 +16674,19 @@ export namespace Prisma {
     cosPhi?: number
     utilizationFactor?: number
     simultaneityFactor?: number
+    distance?: number | null
+    cableMaterial?: $Enums.CableMaterial | null
+    cableIsolation?: $Enums.CableIsolation | null
+    modePose?: $Enums.ModePose | null
+    correctionFactors?: NullableJsonNullValueInput | InputJsonValue
+    izReference?: number | null
+    millivoltsPerAmpereMeter?: number | null
+    protectionType?: $Enums.ProtectionType | null
+    ratedCurrent?: number | null
+    numberOfPoles?: number | null
+    curveType?: $Enums.CurveType | null
+    breakingCapacity?: number | null
+    selectivityVerified?: boolean
   }
 
   export type CircuitUpdateManyMutationInput = {
@@ -16335,6 +16698,19 @@ export namespace Prisma {
     cosPhi?: FloatFieldUpdateOperationsInput | number
     utilizationFactor?: FloatFieldUpdateOperationsInput | number
     simultaneityFactor?: FloatFieldUpdateOperationsInput | number
+    distance?: NullableFloatFieldUpdateOperationsInput | number | null
+    cableMaterial?: NullableEnumCableMaterialFieldUpdateOperationsInput | $Enums.CableMaterial | null
+    cableIsolation?: NullableEnumCableIsolationFieldUpdateOperationsInput | $Enums.CableIsolation | null
+    modePose?: NullableEnumModePoseFieldUpdateOperationsInput | $Enums.ModePose | null
+    correctionFactors?: NullableJsonNullValueInput | InputJsonValue
+    izReference?: NullableFloatFieldUpdateOperationsInput | number | null
+    millivoltsPerAmpereMeter?: NullableFloatFieldUpdateOperationsInput | number | null
+    protectionType?: NullableEnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType | null
+    ratedCurrent?: NullableFloatFieldUpdateOperationsInput | number | null
+    numberOfPoles?: NullableIntFieldUpdateOperationsInput | number | null
+    curveType?: NullableEnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType | null
+    breakingCapacity?: NullableFloatFieldUpdateOperationsInput | number | null
+    selectivityVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type CircuitUncheckedUpdateManyInput = {
@@ -16347,6 +16723,19 @@ export namespace Prisma {
     cosPhi?: FloatFieldUpdateOperationsInput | number
     utilizationFactor?: FloatFieldUpdateOperationsInput | number
     simultaneityFactor?: FloatFieldUpdateOperationsInput | number
+    distance?: NullableFloatFieldUpdateOperationsInput | number | null
+    cableMaterial?: NullableEnumCableMaterialFieldUpdateOperationsInput | $Enums.CableMaterial | null
+    cableIsolation?: NullableEnumCableIsolationFieldUpdateOperationsInput | $Enums.CableIsolation | null
+    modePose?: NullableEnumModePoseFieldUpdateOperationsInput | $Enums.ModePose | null
+    correctionFactors?: NullableJsonNullValueInput | InputJsonValue
+    izReference?: NullableFloatFieldUpdateOperationsInput | number | null
+    millivoltsPerAmpereMeter?: NullableFloatFieldUpdateOperationsInput | number | null
+    protectionType?: NullableEnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType | null
+    ratedCurrent?: NullableFloatFieldUpdateOperationsInput | number | null
+    numberOfPoles?: NullableIntFieldUpdateOperationsInput | number | null
+    curveType?: NullableEnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType | null
+    breakingCapacity?: NullableFloatFieldUpdateOperationsInput | number | null
+    selectivityVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type FurthestLoadDistanceCreateInput = {
@@ -17234,6 +17623,75 @@ export namespace Prisma {
     not?: NestedEnumCircuitTypeFilter<$PrismaModel> | $Enums.CircuitType
   }
 
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type EnumCableMaterialNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableMaterial | EnumCableMaterialFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCableMaterialNullableFilter<$PrismaModel> | $Enums.CableMaterial | null
+  }
+
+  export type EnumCableIsolationNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableIsolation | EnumCableIsolationFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCableIsolationNullableFilter<$PrismaModel> | $Enums.CableIsolation | null
+  }
+
+  export type EnumModePoseNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.ModePose | EnumModePoseFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumModePoseNullableFilter<$PrismaModel> | $Enums.ModePose | null
+  }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type EnumProtectionTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.ProtectionType | EnumProtectionTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ProtectionType[] | ListEnumProtectionTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ProtectionType[] | ListEnumProtectionTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumProtectionTypeNullableFilter<$PrismaModel> | $Enums.ProtectionType | null
+  }
+
+  export type EnumCurveTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.CurveType | EnumCurveTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCurveTypeNullableFilter<$PrismaModel> | $Enums.CurveType | null
+  }
+
   export type CircuitCountOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
@@ -17244,6 +17702,19 @@ export namespace Prisma {
     cosPhi?: SortOrder
     utilizationFactor?: SortOrder
     simultaneityFactor?: SortOrder
+    distance?: SortOrder
+    cableMaterial?: SortOrder
+    cableIsolation?: SortOrder
+    modePose?: SortOrder
+    correctionFactors?: SortOrder
+    izReference?: SortOrder
+    millivoltsPerAmpereMeter?: SortOrder
+    protectionType?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    curveType?: SortOrder
+    breakingCapacity?: SortOrder
+    selectivityVerified?: SortOrder
   }
 
   export type CircuitAvgOrderByAggregateInput = {
@@ -17252,6 +17723,12 @@ export namespace Prisma {
     cosPhi?: SortOrder
     utilizationFactor?: SortOrder
     simultaneityFactor?: SortOrder
+    distance?: SortOrder
+    izReference?: SortOrder
+    millivoltsPerAmpereMeter?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    breakingCapacity?: SortOrder
   }
 
   export type CircuitMaxOrderByAggregateInput = {
@@ -17264,6 +17741,18 @@ export namespace Prisma {
     cosPhi?: SortOrder
     utilizationFactor?: SortOrder
     simultaneityFactor?: SortOrder
+    distance?: SortOrder
+    cableMaterial?: SortOrder
+    cableIsolation?: SortOrder
+    modePose?: SortOrder
+    izReference?: SortOrder
+    millivoltsPerAmpereMeter?: SortOrder
+    protectionType?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    curveType?: SortOrder
+    breakingCapacity?: SortOrder
+    selectivityVerified?: SortOrder
   }
 
   export type CircuitMinOrderByAggregateInput = {
@@ -17276,6 +17765,18 @@ export namespace Prisma {
     cosPhi?: SortOrder
     utilizationFactor?: SortOrder
     simultaneityFactor?: SortOrder
+    distance?: SortOrder
+    cableMaterial?: SortOrder
+    cableIsolation?: SortOrder
+    modePose?: SortOrder
+    izReference?: SortOrder
+    millivoltsPerAmpereMeter?: SortOrder
+    protectionType?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    curveType?: SortOrder
+    breakingCapacity?: SortOrder
+    selectivityVerified?: SortOrder
   }
 
   export type CircuitSumOrderByAggregateInput = {
@@ -17284,6 +17785,12 @@ export namespace Prisma {
     cosPhi?: SortOrder
     utilizationFactor?: SortOrder
     simultaneityFactor?: SortOrder
+    distance?: SortOrder
+    izReference?: SortOrder
+    millivoltsPerAmpereMeter?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    breakingCapacity?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -17310,6 +17817,98 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCircuitTypeFilter<$PrismaModel>
     _max?: NestedEnumCircuitTypeFilter<$PrismaModel>
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type EnumCableMaterialNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableMaterial | EnumCableMaterialFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCableMaterialNullableWithAggregatesFilter<$PrismaModel> | $Enums.CableMaterial | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumCableMaterialNullableFilter<$PrismaModel>
+    _max?: NestedEnumCableMaterialNullableFilter<$PrismaModel>
+  }
+
+  export type EnumCableIsolationNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableIsolation | EnumCableIsolationFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCableIsolationNullableWithAggregatesFilter<$PrismaModel> | $Enums.CableIsolation | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumCableIsolationNullableFilter<$PrismaModel>
+    _max?: NestedEnumCableIsolationNullableFilter<$PrismaModel>
+  }
+
+  export type EnumModePoseNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ModePose | EnumModePoseFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumModePoseNullableWithAggregatesFilter<$PrismaModel> | $Enums.ModePose | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumModePoseNullableFilter<$PrismaModel>
+    _max?: NestedEnumModePoseNullableFilter<$PrismaModel>
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
+  }
+
+  export type EnumProtectionTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ProtectionType | EnumProtectionTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ProtectionType[] | ListEnumProtectionTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ProtectionType[] | ListEnumProtectionTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumProtectionTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.ProtectionType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumProtectionTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumProtectionTypeNullableFilter<$PrismaModel>
+  }
+
+  export type EnumCurveTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CurveType | EnumCurveTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCurveTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.CurveType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumCurveTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumCurveTypeNullableFilter<$PrismaModel>
   }
 
   export type FurthestLoadDistanceCountOrderByAggregateInput = {
@@ -18045,6 +18644,34 @@ export namespace Prisma {
     set?: $Enums.CircuitType
   }
 
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableEnumCableMaterialFieldUpdateOperationsInput = {
+    set?: $Enums.CableMaterial | null
+  }
+
+  export type NullableEnumCableIsolationFieldUpdateOperationsInput = {
+    set?: $Enums.CableIsolation | null
+  }
+
+  export type NullableEnumModePoseFieldUpdateOperationsInput = {
+    set?: $Enums.ModePose | null
+  }
+
+  export type NullableEnumProtectionTypeFieldUpdateOperationsInput = {
+    set?: $Enums.ProtectionType | null
+  }
+
+  export type NullableEnumCurveTypeFieldUpdateOperationsInput = {
+    set?: $Enums.CurveType | null
+  }
+
   export type ProjectUpdateOneRequiredWithoutCircuitsNestedInput = {
     create?: XOR<ProjectCreateWithoutCircuitsInput, ProjectUncheckedCreateWithoutCircuitsInput>
     connectOrCreate?: ProjectCreateOrConnectWithoutCircuitsInput
@@ -18426,6 +19053,41 @@ export namespace Prisma {
     not?: NestedEnumCircuitTypeFilter<$PrismaModel> | $Enums.CircuitType
   }
 
+  export type NestedEnumCableMaterialNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableMaterial | EnumCableMaterialFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCableMaterialNullableFilter<$PrismaModel> | $Enums.CableMaterial | null
+  }
+
+  export type NestedEnumCableIsolationNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableIsolation | EnumCableIsolationFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCableIsolationNullableFilter<$PrismaModel> | $Enums.CableIsolation | null
+  }
+
+  export type NestedEnumModePoseNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.ModePose | EnumModePoseFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumModePoseNullableFilter<$PrismaModel> | $Enums.ModePose | null
+  }
+
+  export type NestedEnumProtectionTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.ProtectionType | EnumProtectionTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ProtectionType[] | ListEnumProtectionTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ProtectionType[] | ListEnumProtectionTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumProtectionTypeNullableFilter<$PrismaModel> | $Enums.ProtectionType | null
+  }
+
+  export type NestedEnumCurveTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.CurveType | EnumCurveTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCurveTypeNullableFilter<$PrismaModel> | $Enums.CurveType | null
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -18450,6 +19112,95 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCircuitTypeFilter<$PrismaModel>
     _max?: NestedEnumCircuitTypeFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCableMaterialNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableMaterial | EnumCableMaterialFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CableMaterial[] | ListEnumCableMaterialFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCableMaterialNullableWithAggregatesFilter<$PrismaModel> | $Enums.CableMaterial | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumCableMaterialNullableFilter<$PrismaModel>
+    _max?: NestedEnumCableMaterialNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCableIsolationNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CableIsolation | EnumCableIsolationFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CableIsolation[] | ListEnumCableIsolationFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCableIsolationNullableWithAggregatesFilter<$PrismaModel> | $Enums.CableIsolation | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumCableIsolationNullableFilter<$PrismaModel>
+    _max?: NestedEnumCableIsolationNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumModePoseNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ModePose | EnumModePoseFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ModePose[] | ListEnumModePoseFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumModePoseNullableWithAggregatesFilter<$PrismaModel> | $Enums.ModePose | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumModePoseNullableFilter<$PrismaModel>
+    _max?: NestedEnumModePoseNullableFilter<$PrismaModel>
+  }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedEnumProtectionTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ProtectionType | EnumProtectionTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ProtectionType[] | ListEnumProtectionTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ProtectionType[] | ListEnumProtectionTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumProtectionTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.ProtectionType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumProtectionTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumProtectionTypeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCurveTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CurveType | EnumCurveTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CurveType[] | ListEnumCurveTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCurveTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.CurveType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumCurveTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumCurveTypeNullableFilter<$PrismaModel>
   }
 
   export type NestedEnumCableMaterialFilter<$PrismaModel = never> = {
@@ -18981,6 +19732,19 @@ export namespace Prisma {
     cosPhi?: number
     utilizationFactor?: number
     simultaneityFactor?: number
+    distance?: number | null
+    cableMaterial?: $Enums.CableMaterial | null
+    cableIsolation?: $Enums.CableIsolation | null
+    modePose?: $Enums.ModePose | null
+    correctionFactors?: NullableJsonNullValueInput | InputJsonValue
+    izReference?: number | null
+    millivoltsPerAmpereMeter?: number | null
+    protectionType?: $Enums.ProtectionType | null
+    ratedCurrent?: number | null
+    numberOfPoles?: number | null
+    curveType?: $Enums.CurveType | null
+    breakingCapacity?: number | null
+    selectivityVerified?: boolean
   }
 
   export type CircuitUncheckedCreateWithoutProjectInput = {
@@ -18992,6 +19756,19 @@ export namespace Prisma {
     cosPhi?: number
     utilizationFactor?: number
     simultaneityFactor?: number
+    distance?: number | null
+    cableMaterial?: $Enums.CableMaterial | null
+    cableIsolation?: $Enums.CableIsolation | null
+    modePose?: $Enums.ModePose | null
+    correctionFactors?: NullableJsonNullValueInput | InputJsonValue
+    izReference?: number | null
+    millivoltsPerAmpereMeter?: number | null
+    protectionType?: $Enums.ProtectionType | null
+    ratedCurrent?: number | null
+    numberOfPoles?: number | null
+    curveType?: $Enums.CurveType | null
+    breakingCapacity?: number | null
+    selectivityVerified?: boolean
   }
 
   export type CircuitCreateOrConnectWithoutProjectInput = {
@@ -19207,6 +19984,19 @@ export namespace Prisma {
     cosPhi?: FloatFilter<"Circuit"> | number
     utilizationFactor?: FloatFilter<"Circuit"> | number
     simultaneityFactor?: FloatFilter<"Circuit"> | number
+    distance?: FloatNullableFilter<"Circuit"> | number | null
+    cableMaterial?: EnumCableMaterialNullableFilter<"Circuit"> | $Enums.CableMaterial | null
+    cableIsolation?: EnumCableIsolationNullableFilter<"Circuit"> | $Enums.CableIsolation | null
+    modePose?: EnumModePoseNullableFilter<"Circuit"> | $Enums.ModePose | null
+    correctionFactors?: JsonNullableFilter<"Circuit">
+    izReference?: FloatNullableFilter<"Circuit"> | number | null
+    millivoltsPerAmpereMeter?: FloatNullableFilter<"Circuit"> | number | null
+    protectionType?: EnumProtectionTypeNullableFilter<"Circuit"> | $Enums.ProtectionType | null
+    ratedCurrent?: FloatNullableFilter<"Circuit"> | number | null
+    numberOfPoles?: IntNullableFilter<"Circuit"> | number | null
+    curveType?: EnumCurveTypeNullableFilter<"Circuit"> | $Enums.CurveType | null
+    breakingCapacity?: FloatNullableFilter<"Circuit"> | number | null
+    selectivityVerified?: BoolFilter<"Circuit"> | boolean
   }
 
   export type CableDataUpsertWithoutProjectInput = {
@@ -19920,6 +20710,19 @@ export namespace Prisma {
     cosPhi?: number
     utilizationFactor?: number
     simultaneityFactor?: number
+    distance?: number | null
+    cableMaterial?: $Enums.CableMaterial | null
+    cableIsolation?: $Enums.CableIsolation | null
+    modePose?: $Enums.ModePose | null
+    correctionFactors?: NullableJsonNullValueInput | InputJsonValue
+    izReference?: number | null
+    millivoltsPerAmpereMeter?: number | null
+    protectionType?: $Enums.ProtectionType | null
+    ratedCurrent?: number | null
+    numberOfPoles?: number | null
+    curveType?: $Enums.CurveType | null
+    breakingCapacity?: number | null
+    selectivityVerified?: boolean
   }
 
   export type CircuitUpdateWithoutProjectInput = {
@@ -19931,6 +20734,19 @@ export namespace Prisma {
     cosPhi?: FloatFieldUpdateOperationsInput | number
     utilizationFactor?: FloatFieldUpdateOperationsInput | number
     simultaneityFactor?: FloatFieldUpdateOperationsInput | number
+    distance?: NullableFloatFieldUpdateOperationsInput | number | null
+    cableMaterial?: NullableEnumCableMaterialFieldUpdateOperationsInput | $Enums.CableMaterial | null
+    cableIsolation?: NullableEnumCableIsolationFieldUpdateOperationsInput | $Enums.CableIsolation | null
+    modePose?: NullableEnumModePoseFieldUpdateOperationsInput | $Enums.ModePose | null
+    correctionFactors?: NullableJsonNullValueInput | InputJsonValue
+    izReference?: NullableFloatFieldUpdateOperationsInput | number | null
+    millivoltsPerAmpereMeter?: NullableFloatFieldUpdateOperationsInput | number | null
+    protectionType?: NullableEnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType | null
+    ratedCurrent?: NullableFloatFieldUpdateOperationsInput | number | null
+    numberOfPoles?: NullableIntFieldUpdateOperationsInput | number | null
+    curveType?: NullableEnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType | null
+    breakingCapacity?: NullableFloatFieldUpdateOperationsInput | number | null
+    selectivityVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type CircuitUncheckedUpdateWithoutProjectInput = {
@@ -19942,6 +20758,19 @@ export namespace Prisma {
     cosPhi?: FloatFieldUpdateOperationsInput | number
     utilizationFactor?: FloatFieldUpdateOperationsInput | number
     simultaneityFactor?: FloatFieldUpdateOperationsInput | number
+    distance?: NullableFloatFieldUpdateOperationsInput | number | null
+    cableMaterial?: NullableEnumCableMaterialFieldUpdateOperationsInput | $Enums.CableMaterial | null
+    cableIsolation?: NullableEnumCableIsolationFieldUpdateOperationsInput | $Enums.CableIsolation | null
+    modePose?: NullableEnumModePoseFieldUpdateOperationsInput | $Enums.ModePose | null
+    correctionFactors?: NullableJsonNullValueInput | InputJsonValue
+    izReference?: NullableFloatFieldUpdateOperationsInput | number | null
+    millivoltsPerAmpereMeter?: NullableFloatFieldUpdateOperationsInput | number | null
+    protectionType?: NullableEnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType | null
+    ratedCurrent?: NullableFloatFieldUpdateOperationsInput | number | null
+    numberOfPoles?: NullableIntFieldUpdateOperationsInput | number | null
+    curveType?: NullableEnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType | null
+    breakingCapacity?: NullableFloatFieldUpdateOperationsInput | number | null
+    selectivityVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type CircuitUncheckedUpdateManyWithoutProjectInput = {
@@ -19953,6 +20782,19 @@ export namespace Prisma {
     cosPhi?: FloatFieldUpdateOperationsInput | number
     utilizationFactor?: FloatFieldUpdateOperationsInput | number
     simultaneityFactor?: FloatFieldUpdateOperationsInput | number
+    distance?: NullableFloatFieldUpdateOperationsInput | number | null
+    cableMaterial?: NullableEnumCableMaterialFieldUpdateOperationsInput | $Enums.CableMaterial | null
+    cableIsolation?: NullableEnumCableIsolationFieldUpdateOperationsInput | $Enums.CableIsolation | null
+    modePose?: NullableEnumModePoseFieldUpdateOperationsInput | $Enums.ModePose | null
+    correctionFactors?: NullableJsonNullValueInput | InputJsonValue
+    izReference?: NullableFloatFieldUpdateOperationsInput | number | null
+    millivoltsPerAmpereMeter?: NullableFloatFieldUpdateOperationsInput | number | null
+    protectionType?: NullableEnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType | null
+    ratedCurrent?: NullableFloatFieldUpdateOperationsInput | number | null
+    numberOfPoles?: NullableIntFieldUpdateOperationsInput | number | null
+    curveType?: NullableEnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType | null
+    breakingCapacity?: NullableFloatFieldUpdateOperationsInput | number | null
+    selectivityVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
 

@@ -10,6 +10,8 @@ router.get("/", controller.getProjects);
 router.get("/:projectId", controller.getProject);
 router.post("/:projectId/power-supply", controller.addPowerSupply);
 router.post("/:projectId/circuits", controller.addCircuit);
+router.patch("/:projectId/circuits/:circuitId", controller.updateCircuit);
+router.delete("/:projectId/circuits/:circuitId", controller.deleteCircuit);
 router.post("/:projectId/cable-data", controller.addCableData);
 router.post("/:projectId/protection", controller.addProtection);
 router.post(

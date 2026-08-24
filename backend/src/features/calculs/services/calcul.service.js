@@ -15,11 +15,9 @@ function getPrisma() {
   return prismaModule.getPrismaClient();
 }
 
-
-
 async function getOwnedProject(projectId, userId, include = {}) {
   if (!userId) {
-    throw new NotFoundError("Utiisateur non trouvé")
+    throw new NotFoundError("Utiisateur non trouvé");
   }
   const project = await getPrisma().project.findFirst({
     where: { id: projectId, userId },
@@ -42,13 +40,65 @@ async function getCalculationInput(projectId, userId) {
   const missing = [];
   if (!project.powerSupply) missing.push("powerSupply");
   if (!project.circuits.length) missing.push("circuits");
-  if (!project.cableData) missing.push("cableData");
-  if (!project.protection) missing.push("protection");
-  if (!project.furthestLoadDistance) missing.push("furthestLoadDistance");
+  const unresolvedCircuit = project.circuits.find((circuit) => {
+    const hasCable =
+      circuit.cableMaterial && circuit.cableIsolation && circuit.modePose;
+    const hasProtection =
+      circuit.protectionType &&
+      circuit.ratedCurrent &&
+      circuit.numberOfPoles &&
+      circuit.curveType &&
+      circuit.breakingCapacity;
+    const hasDistance =
+      circuit.distance != null ||
+      (project.furthestLoadDistance?.circuitName === circuit.name &&
+        project.furthestLoadDistance.distance != null);
+    return (
+      (!hasCable && !project.cableData) ||
+      (!hasProtection && !project.protection) ||
+      !hasDistance
+    );
+  });
+  if (unresolvedCircuit) missing.push(`circuit:${unresolvedCircuit.name}`);
 
   if (missing.length) {
     throw new BadRequestError("Le projet est incomplet.", { missing });
   }
+
+  const circuits = project.circuits.map((circuit) => ({
+    name: circuit.name,
+    circuitCount: circuit.circuitCount,
+    type: circuit.type,
+    totalPower: circuit.totalPower,
+    cosPhi: circuit.cosPhi,
+    utilizationFactor: circuit.utilizationFactor,
+    simultaneityFactor: circuit.simultaneityFactor,
+    distance:
+      circuit.distance ??
+      (project.furthestLoadDistance?.circuitName === circuit.name
+        ? project.furthestLoadDistance.distance
+        : null),
+    cableData: circuit.cableMaterial
+      ? {
+          material: circuit.cableMaterial,
+          isolation: circuit.cableIsolation,
+          modePose: circuit.modePose,
+          correctionFactors: circuit.correctionFactors || {},
+          izReference: circuit.izReference,
+          millivoltsPerAmpereMeter: circuit.millivoltsPerAmpereMeter,
+        }
+      : project.cableData,
+    protection: circuit.protectionType
+      ? {
+          type: circuit.protectionType,
+          ratedCurrent: circuit.ratedCurrent,
+          numberOfPoles: circuit.numberOfPoles,
+          curveType: circuit.curveType,
+          breakingCapacity: circuit.breakingCapacity,
+          selectivityVerified: circuit.selectivityVerified,
+        }
+      : project.protection,
+  }));
 
   return {
     project: {
@@ -58,7 +108,7 @@ async function getCalculationInput(projectId, userId) {
       location: project.location,
     },
     powerSupply: project.powerSupply,
-    circuits: project.circuits,
+    circuits,
     cableData: project.cableData,
     protection: project.protection,
     furthestLoadDistance: project.furthestLoadDistance,

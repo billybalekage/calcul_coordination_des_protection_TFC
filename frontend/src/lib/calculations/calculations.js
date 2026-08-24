@@ -18,3 +18,8 @@ export async function downloadCalculationReport(projectId) {
   link.remove();
   window.URL.revokeObjectURL(url);
 }
+
+export async function calculateProject(projectId) {
+  const response = await api.post(`/projects/${projectId}/calculate`);
+  return response.data.result;
+}

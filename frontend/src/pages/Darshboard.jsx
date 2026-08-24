@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { Download, LoaderCircle } from "lucide-react";
+import { Download, LoaderCircle, Plus, Settings2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getProjects } from "@/lib/projects/projects";
+import { createProject, getProjects } from "@/lib/projects/projects";
 import { downloadCalculationReport } from "@/lib/calculations/calculations";
 
 const Darshboard = () => {
   const [projects, setProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [downloadingProjectId, setDownloadingProjectId] = useState(null);
+  const [showCreate, setShowCreate] = useState(false);
+  const [newProject, setNewProject] = useState({
+    name: "",
+    client: "",
+    location: "",
+  });
+  const [creating, setCreating] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -43,14 +50,81 @@ const Darshboard = () => {
     }
   }
 
+  async function handleCreate(event) {
+    event.preventDefault();
+    if (!newProject.name.trim())
+      return toast.error("Le nom du projet est requis.");
+    setCreating(true);
+    try {
+      const project = await createProject(newProject);
+      window.location.assign(`/projects/${project.id}`);
+    } catch (error) {
+      toast.error(
+        error.response?.data?.message || "Impossible de créer le projet.",
+      );
+    } finally {
+      setCreating(false);
+    }
+  }
+
   return (
     <main className="min-h-screen w-full max-w-5xl px-6 py-12">
       <header className="mb-8">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
           Calculs électriques
         </p>
-        <h1 className="mt-2 text-4xl font-bold tracking-tight">Mes projets</h1>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h1 className="mt-2 text-4xl font-bold tracking-tight">
+            Mes projets
+          </h1>
+          <Button
+            onClick={() => setShowCreate(!showCreate)}
+            className="bg-cyan-700 text-white hover:bg-cyan-800"
+          >
+            <Plus className="size-4" /> Nouveau projet
+          </Button>
+        </div>
       </header>
+
+      {showCreate && (
+        <form
+          onSubmit={handleCreate}
+          className="mb-6 grid gap-3 rounded-xl border border-cyan-100 bg-white p-5 shadow-sm md:grid-cols-[1.2fr_1fr_1fr_auto]"
+        >
+          <input
+            required
+            placeholder="Nom du projet"
+            value={newProject.name}
+            onChange={(e) =>
+              setNewProject({ ...newProject, name: e.target.value })
+            }
+            className="h-10 rounded-lg border border-slate-300 px-3 text-sm"
+          />
+          <input
+            placeholder="Client"
+            value={newProject.client}
+            onChange={(e) =>
+              setNewProject({ ...newProject, client: e.target.value })
+            }
+            className="h-10 rounded-lg border border-slate-300 px-3 text-sm"
+          />
+          <input
+            placeholder="Lieu"
+            value={newProject.location}
+            onChange={(e) =>
+              setNewProject({ ...newProject, location: e.target.value })
+            }
+            className="h-10 rounded-lg border border-slate-300 px-3 text-sm"
+          />
+          <Button
+            type="submit"
+            disabled={creating}
+            className="bg-slate-900 text-white"
+          >
+            {creating ? "Création..." : "Créer"}
+          </Button>
+        </form>
+      )}
 
       {isLoading ? (
         <div className="flex items-center gap-2 text-muted-foreground">
@@ -79,24 +153,38 @@ const Darshboard = () => {
                     .join(" · ") || "Projet sans détails supplémentaires"}
                 </p>
               </div>
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => handleDownload(project.id)}
-                disabled={downloadingProjectId === project.id}
-                aria-label={`Télécharger le rapport PDF de ${project.name}`}
-                title="Télécharger le rapport PDF"
-              >
-                {downloadingProjectId === project.id ? (
-                  <LoaderCircle
-                    className="size-4 animate-spin"
-                    aria-hidden="true"
-                  />
-                ) : (
-                  <Download className="size-4" aria-hidden="true" />
-                )}
-                <span className="sr-only">Télécharger le rapport PDF</span>
-              </Button>
+              <div className="flex shrink-0 gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() =>
+                    window.location.assign(`/projects/${project.id}`)
+                  }
+                  aria-label={`Configurer ${project.name}`}
+                  title="Configurer le dimensionnement"
+                >
+                  <Settings2 className="size-4" />
+                  <span className="sr-only">Configurer le dimensionnement</span>
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => handleDownload(project.id)}
+                  disabled={downloadingProjectId === project.id}
+                  aria-label={`Télécharger le rapport PDF de ${project.name}`}
+                  title="Télécharger le rapport PDF"
+                >
+                  {downloadingProjectId === project.id ? (
+                    <LoaderCircle
+                      className="size-4 animate-spin"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <Download className="size-4" aria-hidden="true" />
+                  )}
+                  <span className="sr-only">Télécharger le rapport PDF</span>
+                </Button>
+              </div>
             </article>
           ))}
         </section>

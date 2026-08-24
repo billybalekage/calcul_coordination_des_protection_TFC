@@ -37,26 +37,6 @@ const STANDARD_RULES = Object.freeze({
     sections: [1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120],
     breakerRatings: [6, 10, 13, 16, 20, 25, 32, 40, 50, 63, 80, 100, 125, 160],
   }),
-  IEEE_141: Object.freeze({
-    label: "IEEE 141",
-    calculationMode: "GENERIC",
-    voltageDropLimitPercent: 5,
-    lightingVoltageDropLimitPercent: 3,
-    resistivity: 0.022,
-    correctionFactor: 1,
-    sections: [1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120],
-    breakerRatings: [10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 100, 125, 160],
-  }),
-  IEEE_242: Object.freeze({
-    label: "IEEE 242",
-    calculationMode: "GENERIC",
-    voltageDropLimitPercent: 3,
-    lightingVoltageDropLimitPercent: 3,
-    resistivity: 0.022,
-    correctionFactor: 1,
-    sections: [1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120],
-    breakerRatings: [10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 100, 125, 160],
-  }),
 });
 
 function getStandardRules(standard) {

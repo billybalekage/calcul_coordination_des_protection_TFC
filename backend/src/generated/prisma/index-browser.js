@@ -193,7 +193,20 @@ exports.Prisma.CircuitScalarFieldEnum = {
   totalPower: 'totalPower',
   cosPhi: 'cosPhi',
   utilizationFactor: 'utilizationFactor',
-  simultaneityFactor: 'simultaneityFactor'
+  simultaneityFactor: 'simultaneityFactor',
+  distance: 'distance',
+  cableMaterial: 'cableMaterial',
+  cableIsolation: 'cableIsolation',
+  modePose: 'modePose',
+  correctionFactors: 'correctionFactors',
+  izReference: 'izReference',
+  millivoltsPerAmpereMeter: 'millivoltsPerAmpereMeter',
+  protectionType: 'protectionType',
+  ratedCurrent: 'ratedCurrent',
+  numberOfPoles: 'numberOfPoles',
+  curveType: 'curveType',
+  breakingCapacity: 'breakingCapacity',
+  selectivityVerified: 'selectivityVerified'
 };
 
 exports.Prisma.FurthestLoadDistanceScalarFieldEnum = {
@@ -244,6 +257,11 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull
+};
+
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
@@ -252,6 +270,12 @@ exports.Prisma.QueryMode = {
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
+};
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
 };
 exports.UserRole = exports.$Enums.UserRole = {
   USER: 'USER',

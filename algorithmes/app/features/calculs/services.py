@@ -19,17 +19,15 @@ from app.features.calculs.voltage_drop import calculate_voltage_drop
 
 
 def distance_for_circuit(data: CalculationInput, circuit) -> float:
-    if circuit.distance is not None:
-        return circuit.distance
-    if circuit.name == data.furthestLoadDistance.circuitName:
-        return data.furthestLoadDistance.distance
-    return 0.0
+    return circuit.distance
 
 
 def calculate_circuit(data: CalculationInput, circuit) -> CircuitCalculationResult:
     rules = get_standard_rules(data.powerSupply.standard)
+    cable_data = circuit.cableData
+    protection = circuit.protection
     ib, i_design, i_start = calculate_currents(circuit, data.powerSupply)
-    k_total = total_correction_factor(data.cableData, data.powerSupply.standard)
+    k_total = total_correction_factor(cable_data, data.powerSupply.standard)
     distance = distance_for_circuit(data, circuit)
     limit = (
         rules["lightingVoltageDropLimitPercent"]
@@ -39,7 +37,7 @@ def calculate_circuit(data: CalculationInput, circuit) -> CircuitCalculationResu
     thermal_minimum = (
         1.5
         * i_design
-        / ampacity_for_section(1.5, data.cableData, data.powerSupply.standard)
+        / ampacity_for_section(1.5, cable_data, data.powerSupply.standard)
         / k_total
     )
     voltage_minimum = (
@@ -52,11 +50,11 @@ def calculate_circuit(data: CalculationInput, circuit) -> CircuitCalculationResu
     )
     minimum_section = max(thermal_minimum, voltage_minimum)
     selected_section = rules["sections"][-1]
-    selected_iz = ampacity_for_section(selected_section, data.cableData, data.powerSupply.standard)
+    selected_iz = ampacity_for_section(selected_section, cable_data, data.powerSupply.standard)
     selected_drop = (0.0, 0.0)
 
     for section in rules["sections"]:
-        iz = ampacity_for_section(section, data.cableData, data.powerSupply.standard)
+        iz = ampacity_for_section(section, cable_data, data.powerSupply.standard)
         iz_corrected = iz * k_total
         drop = calculate_voltage_drop(
             i_design,
@@ -64,7 +62,7 @@ def calculate_circuit(data: CalculationInput, circuit) -> CircuitCalculationResu
             section,
             circuit,
             data.powerSupply,
-            data.cableData,
+            cable_data,
         )
         if i_design <= iz_corrected and drop[1] <= limit:
             selected_section = section
@@ -78,7 +76,7 @@ def calculate_circuit(data: CalculationInput, circuit) -> CircuitCalculationResu
             selected_section,
             circuit,
             data.powerSupply,
-            data.cableData,
+            cable_data,
         )
 
     iz_corrected = selected_iz * k_total
@@ -97,8 +95,8 @@ def calculate_circuit(data: CalculationInput, circuit) -> CircuitCalculationResu
         i_design,
         iz_corrected,
         i_cc,
-        data.protection,
-        breaker,
+        protection,
+        protection.ratedCurrent,
         data.powerSupply.standard,
     )
 
@@ -120,8 +118,24 @@ def calculate_circuit(data: CalculationInput, circuit) -> CircuitCalculationResu
         requiredBreakingCapacity=i_cc,
         overloadCheck=overload,
         voltageDropCheck="PASS" if selected_drop[1] <= limit else "FAIL",
-        breakingCapacityCheck=breaking,
-        coordinationCheck=coordination,
+        breakingCapacityCheck=(
+            breaking
+            if protection.selectivityVerified
+            else "TO_VERIFY_WITH_MANUFACTURER"
+        ),
+        coordinationCheck=(
+            coordination
+            if protection.selectivityVerified
+            else "TO_VERIFY_WITH_MANUFACTURER"
+        ),
+        assumptions={
+            "distanceMeters": distance,
+            "correctionFactor": k_total,
+            "cableDataProvidedPerCircuit": True,
+            "protectionDataProvidedPerCircuit": True,
+            "selectivityVerified": protection.selectivityVerified,
+            "shortCircuitMethod": "SIMPLIFIED_LOOP_IMPEDANCE",
+        },
     )
 
 
@@ -139,7 +153,9 @@ def calculate_result(data: CalculationInput) -> CalculationResult:
         shortCircuitCurrentAtEnd=max(
             result.shortCircuitCurrentAtEnd for result in circuit_results
         ),
-        breakerBreakingCapacity=data.protection.breakingCapacity,
+        breakerBreakingCapacity=min(
+            circuit.protection.breakingCapacity for circuit in data.circuits
+        ),
         overloadCheck=(
             "PASS"
             if all(result.overloadCheck == "PASS" for result in circuit_results)

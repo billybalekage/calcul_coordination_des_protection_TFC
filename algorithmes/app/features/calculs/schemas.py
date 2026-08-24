@@ -43,6 +43,8 @@ class CircuitInput(BaseModel):
     simultaneityFactor: float | None = Field(default=1.0, gt=0, le=1)
     startCurrentMultiplier: float = Field(default=6.0, ge=1)
     hasStartingCurrent: bool | None = None
+    cableData: "CableDataInput | None" = None
+    protection: "ProtectionInput | None" = None
 
 
 class CableDataInput(BaseModel):
@@ -70,6 +72,7 @@ class ProtectionInput(BaseModel):
     numberOfPoles: Literal[1, 2, 3, 4]
     curveType: Literal["B", "C", "D", "K", "Z"]
     breakingCapacity: float = Field(gt=0)
+    selectivityVerified: bool = False
 
 
 class FurthestLoadDistanceInput(BaseModel):
@@ -83,15 +86,33 @@ class CalculationInput(BaseModel):
     project: ProjectInput
     powerSupply: PowerSupplyInput
     circuits: list[CircuitInput] = Field(min_length=1)
-    cableData: CableDataInput
-    protection: ProtectionInput
-    furthestLoadDistance: FurthestLoadDistanceInput
+    cableData: CableDataInput | None = None
+    protection: ProtectionInput | None = None
+    furthestLoadDistance: FurthestLoadDistanceInput | None = None
 
     @model_validator(mode="after")
-    def validate_distance_circuit(self):
-        names = {circuit.name for circuit in self.circuits}
-        if self.furthestLoadDistance.circuitName not in names:
-            raise ValueError("furthestLoadDistance.circuitName must match a circuit")
+    def validate_circuit_equipment(self):
+        names = [circuit.name for circuit in self.circuits]
+        if len(names) != len(set(names)):
+            raise ValueError("Circuit names must be unique")
+
+        for circuit in self.circuits:
+            if circuit.cableData is None:
+                circuit.cableData = self.cableData
+            if circuit.protection is None:
+                circuit.protection = self.protection
+            if circuit.cableData is None or circuit.protection is None:
+                raise ValueError(
+                    f"Circuit '{circuit.name}' must define cableData and protection"
+                )
+            if circuit.distance is None and self.furthestLoadDistance:
+                if circuit.name == self.furthestLoadDistance.circuitName:
+                    circuit.distance = self.furthestLoadDistance.distance
+            if circuit.distance is None:
+                raise ValueError(
+                    f"Circuit '{circuit.name}' must define its cable distance"
+                )
+
         return self
 
 
@@ -111,10 +132,11 @@ class CircuitCalculationResult(BaseModel):
     shortCircuitCurrentAtEnd: float
     recommendedBreaker: float
     requiredBreakingCapacity: float
-    overloadCheck: Literal["PASS", "FAIL"]
-    voltageDropCheck: Literal["PASS", "FAIL"]
-    breakingCapacityCheck: Literal["PASS", "FAIL"]
-    coordinationCheck: Literal["PASS", "FAIL"]
+    overloadCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
+    voltageDropCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
+    breakingCapacityCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
+    coordinationCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
+    assumptions: dict[str, object] = Field(default_factory=dict)
 
 
 class CalculationResult(BaseModel):
