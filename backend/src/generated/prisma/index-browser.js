@@ -231,7 +231,23 @@ exports.Prisma.ProtectionScalarFieldEnum = {
   ratedCurrent: 'ratedCurrent',
   numberOfPoles: 'numberOfPoles',
   curveType: 'curveType',
-  breakingCapacity: 'breakingCapacity'
+  breakingCapacity: 'breakingCapacity',
+  manufacturer: 'manufacturer',
+  reference: 'reference',
+  selectivityLimitA: 'selectivityLimitA'
+};
+
+exports.Prisma.UpstreamProtectionScalarFieldEnum = {
+  id: 'id',
+  projectId: 'projectId',
+  type: 'type',
+  ratedCurrent: 'ratedCurrent',
+  numberOfPoles: 'numberOfPoles',
+  curveType: 'curveType',
+  breakingCapacity: 'breakingCapacity',
+  manufacturer: 'manufacturer',
+  reference: 'reference',
+  selectivityLimitA: 'selectivityLimitA'
 };
 
 exports.Prisma.ResultScalarFieldEnum = {
@@ -364,6 +380,7 @@ exports.Prisma.ModelName = {
   FurthestLoadDistance: 'FurthestLoadDistance',
   CableData: 'CableData',
   Protection: 'Protection',
+  UpstreamProtection: 'UpstreamProtection',
   Result: 'Result'
 };
 

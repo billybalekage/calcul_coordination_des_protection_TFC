@@ -28,12 +28,13 @@ async function getOwnedProject(projectId, userId, include = {}) {
   return project;
 }
 
-async function getCalculationInput(projectId, userId) {
+async function getCalculationInput(projectId, userId, overrides = {}) {
   const project = await getOwnedProject(projectId, userId, {
     powerSupply: true,
     circuits: true,
     cableData: true,
     protection: true,
+    upstreamProtection: true,
     furthestLoadDistance: true,
   });
 
@@ -53,10 +54,7 @@ async function getCalculationInput(projectId, userId) {
       circuit.distance != null ||
       (project.furthestLoadDistance?.circuitName === circuit.name &&
         project.furthestLoadDistance.distance != null);
-    return (
-      (!hasCable && !project.cableData) ||
-      !hasDistance
-    );
+    return (!hasCable && !project.cableData) || !hasDistance;
   });
   if (unresolvedCircuit) missing.push(`circuit:${unresolvedCircuit.name}`);
 
@@ -110,12 +108,14 @@ async function getCalculationInput(projectId, userId) {
     circuits,
     cableData: project.cableData,
     protection: project.protection,
+    upstreamProtection:
+      overrides.upstreamProtection || project.upstreamProtection,
     furthestLoadDistance: project.furthestLoadDistance,
   };
 }
 
-async function calculate(projectId, userId) {
-  const input = await getCalculationInput(projectId, userId);
+async function calculate(projectId, userId, overrides = {}) {
+  const input = await getCalculationInput(projectId, userId, overrides);
   const calculation = await runCalculation(input);
 
   await saveNormalizedResult(projectId, calculation.normalizedResults);

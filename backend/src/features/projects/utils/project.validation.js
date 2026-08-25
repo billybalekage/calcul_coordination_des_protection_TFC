@@ -86,6 +86,9 @@ const protectionSchema = Joi.object({
   numberOfPoles: Joi.number().integer().valid(1, 2, 3, 4).required(),
   curveType: Joi.string().valid("B", "C", "D", "K", "Z").required(),
   breakingCapacity: positiveNumber.max(1000000).required(),
+  manufacturer: Joi.string().trim().max(120).allow("", null),
+  reference: Joi.string().trim().max(150).allow("", null),
+  selectivityLimitA: positiveNumber.max(10000000).allow(null),
 }).options({ abortEarly: false, stripUnknown: true });
 
 const furthestLoadDistanceSchema = Joi.object({

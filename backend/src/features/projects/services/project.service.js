@@ -80,6 +80,15 @@ async function saveProtection(projectId, userId, data) {
   });
 }
 
+async function saveUpstreamProtection(projectId, userId, data) {
+  await getOwnedProject(projectId, userId);
+  return getPrisma().upstreamProtection.upsert({
+    where: { projectId },
+    create: { ...data, project: { connect: { id: projectId } } },
+    update: data,
+  });
+}
+
 async function saveFurthestLoadDistance(projectId, userId, data) {
   await getOwnedProject(projectId, userId);
   return getPrisma().furthestLoadDistance.upsert({
@@ -99,5 +108,6 @@ module.exports = {
   deleteCircuit,
   saveCableData,
   saveProtection,
+  saveUpstreamProtection,
   saveFurthestLoadDistance,
 };

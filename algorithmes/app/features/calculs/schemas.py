@@ -73,6 +73,18 @@ class ProtectionInput(BaseModel):
     curveType: Literal["B", "C", "D", "K", "Z"]
     breakingCapacity: float = Field(gt=0)
     selectivityVerified: bool = False
+    manufacturer: str | None = None
+    reference: str | None = None
+    selectivityLimitA: float | None = Field(default=None, gt=0)
+
+
+class CoordinationResult(BaseModel):
+    status: Literal["PASS", "FAIL", "PARTIAL", "TO_VERIFY_WITH_MANUFACTURER"]
+    method: Literal["MANUFACTURER_TABLE", "GENERIC_CHECK", "NOT_AVAILABLE"]
+    reason: str
+    calculatedShortCircuitCurrentA: float
+    manufacturerLimitA: float | None = None
+    upstreamProtection: dict[str, object] | None = None
     
 class RecommendedProtection(BaseModel):
     type: Literal["DISJONCTEUR"] = "DISJONCTEUR"
@@ -97,6 +109,7 @@ class CalculationInput(BaseModel):
     circuits: list[CircuitInput] = Field(min_length=1)
     cableData: CableDataInput | None = None
     protection: ProtectionInput | None = None
+    upstreamProtection: ProtectionInput | None = None
     furthestLoadDistance: FurthestLoadDistanceInput | None = None
 
     @model_validator(mode="after")
@@ -143,7 +156,8 @@ class CircuitCalculationResult(BaseModel):
     overloadCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
     voltageDropCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
     breakingCapacityCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
-    coordinationCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
+    coordinationCheck: Literal["PASS", "FAIL", "PARTIAL", "TO_VERIFY_WITH_MANUFACTURER"]
+    coordination: CoordinationResult
     assumptions: dict[str, object] = Field(default_factory=dict)
 
 
@@ -161,7 +175,8 @@ class CalculationResult(BaseModel):
     overloadCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
     voltageDropCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
     breakingCapacityCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
-    coordinationCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
+    coordinationCheck: Literal["PASS", "FAIL", "PARTIAL", "TO_VERIFY_WITH_MANUFACTURER"]
+    coordination: CoordinationResult
     standard: str
     perCircuit: list[CircuitCalculationResult]
 

@@ -15,6 +15,10 @@ router.delete("/:projectId/circuits/:circuitId", controller.deleteCircuit);
 router.post("/:projectId/cable-data", controller.addCableData);
 router.post("/:projectId/protection", controller.addProtection);
 router.post(
+  "/:projectId/upstream-protection",
+  controller.addUpstreamProtection,
+);
+router.post(
   "/:projectId/furthest-load-distance",
   controller.addFurthestLoadDistance,
 );

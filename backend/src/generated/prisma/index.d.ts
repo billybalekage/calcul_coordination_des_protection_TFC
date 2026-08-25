@@ -64,6 +64,11 @@ export type CableData = $Result.DefaultSelection<Prisma.$CableDataPayload>
  */
 export type Protection = $Result.DefaultSelection<Prisma.$ProtectionPayload>
 /**
+ * Model UpstreamProtection
+ * 
+ */
+export type UpstreamProtection = $Result.DefaultSelection<Prisma.$UpstreamProtectionPayload>
+/**
  * Model Result
  * 
  */
@@ -454,6 +459,16 @@ export class PrismaClient<
     * ```
     */
   get protection(): Prisma.ProtectionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.upstreamProtection`: Exposes CRUD operations for the **UpstreamProtection** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UpstreamProtections
+    * const upstreamProtections = await prisma.upstreamProtection.findMany()
+    * ```
+    */
+  get upstreamProtection(): Prisma.UpstreamProtectionDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.result`: Exposes CRUD operations for the **Result** model.
@@ -921,6 +936,7 @@ export namespace Prisma {
     FurthestLoadDistance: 'FurthestLoadDistance',
     CableData: 'CableData',
     Protection: 'Protection',
+    UpstreamProtection: 'UpstreamProtection',
     Result: 'Result'
   };
 
@@ -937,7 +953,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "account" | "session" | "verificationToken" | "project" | "powerSupply" | "circuit" | "furthestLoadDistance" | "cableData" | "protection" | "result"
+      modelProps: "user" | "account" | "session" | "verificationToken" | "project" | "powerSupply" | "circuit" | "furthestLoadDistance" | "cableData" | "protection" | "upstreamProtection" | "result"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1681,6 +1697,80 @@ export namespace Prisma {
           }
         }
       }
+      UpstreamProtection: {
+        payload: Prisma.$UpstreamProtectionPayload<ExtArgs>
+        fields: Prisma.UpstreamProtectionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UpstreamProtectionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpstreamProtectionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UpstreamProtectionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpstreamProtectionPayload>
+          }
+          findFirst: {
+            args: Prisma.UpstreamProtectionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpstreamProtectionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UpstreamProtectionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpstreamProtectionPayload>
+          }
+          findMany: {
+            args: Prisma.UpstreamProtectionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpstreamProtectionPayload>[]
+          }
+          create: {
+            args: Prisma.UpstreamProtectionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpstreamProtectionPayload>
+          }
+          createMany: {
+            args: Prisma.UpstreamProtectionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UpstreamProtectionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpstreamProtectionPayload>[]
+          }
+          delete: {
+            args: Prisma.UpstreamProtectionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpstreamProtectionPayload>
+          }
+          update: {
+            args: Prisma.UpstreamProtectionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpstreamProtectionPayload>
+          }
+          deleteMany: {
+            args: Prisma.UpstreamProtectionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UpstreamProtectionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.UpstreamProtectionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpstreamProtectionPayload>[]
+          }
+          upsert: {
+            args: Prisma.UpstreamProtectionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UpstreamProtectionPayload>
+          }
+          aggregate: {
+            args: Prisma.UpstreamProtectionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUpstreamProtection>
+          }
+          groupBy: {
+            args: Prisma.UpstreamProtectionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UpstreamProtectionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UpstreamProtectionCountArgs<ExtArgs>
+            result: $Utils.Optional<UpstreamProtectionCountAggregateOutputType> | number
+          }
+        }
+      }
       Result: {
         payload: Prisma.$ResultPayload<ExtArgs>
         fields: Prisma.ResultFieldRefs
@@ -1888,6 +1978,7 @@ export namespace Prisma {
     furthestLoadDistance?: FurthestLoadDistanceOmit
     cableData?: CableDataOmit
     protection?: ProtectionOmit
+    upstreamProtection?: UpstreamProtectionOmit
     result?: ResultOmit
   }
 
@@ -6667,6 +6758,7 @@ export namespace Prisma {
     circuits?: boolean | Project$circuitsArgs<ExtArgs>
     cableData?: boolean | Project$cableDataArgs<ExtArgs>
     protection?: boolean | Project$protectionArgs<ExtArgs>
+    upstreamProtection?: boolean | Project$upstreamProtectionArgs<ExtArgs>
     result?: boolean | Project$resultArgs<ExtArgs>
     furthestLoadDistance?: boolean | Project$furthestLoadDistanceArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
@@ -6711,6 +6803,7 @@ export namespace Prisma {
     circuits?: boolean | Project$circuitsArgs<ExtArgs>
     cableData?: boolean | Project$cableDataArgs<ExtArgs>
     protection?: boolean | Project$protectionArgs<ExtArgs>
+    upstreamProtection?: boolean | Project$upstreamProtectionArgs<ExtArgs>
     result?: boolean | Project$resultArgs<ExtArgs>
     furthestLoadDistance?: boolean | Project$furthestLoadDistanceArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
@@ -6730,6 +6823,7 @@ export namespace Prisma {
       circuits: Prisma.$CircuitPayload<ExtArgs>[]
       cableData: Prisma.$CableDataPayload<ExtArgs> | null
       protection: Prisma.$ProtectionPayload<ExtArgs> | null
+      upstreamProtection: Prisma.$UpstreamProtectionPayload<ExtArgs> | null
       result: Prisma.$ResultPayload<ExtArgs> | null
       furthestLoadDistance: Prisma.$FurthestLoadDistancePayload<ExtArgs> | null
     }
@@ -7140,6 +7234,7 @@ export namespace Prisma {
     circuits<T extends Project$circuitsArgs<ExtArgs> = {}>(args?: Subset<T, Project$circuitsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CircuitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     cableData<T extends Project$cableDataArgs<ExtArgs> = {}>(args?: Subset<T, Project$cableDataArgs<ExtArgs>>): Prisma__CableDataClient<$Result.GetResult<Prisma.$CableDataPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     protection<T extends Project$protectionArgs<ExtArgs> = {}>(args?: Subset<T, Project$protectionArgs<ExtArgs>>): Prisma__ProtectionClient<$Result.GetResult<Prisma.$ProtectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    upstreamProtection<T extends Project$upstreamProtectionArgs<ExtArgs> = {}>(args?: Subset<T, Project$upstreamProtectionArgs<ExtArgs>>): Prisma__UpstreamProtectionClient<$Result.GetResult<Prisma.$UpstreamProtectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     result<T extends Project$resultArgs<ExtArgs> = {}>(args?: Subset<T, Project$resultArgs<ExtArgs>>): Prisma__ResultClient<$Result.GetResult<Prisma.$ResultPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     furthestLoadDistance<T extends Project$furthestLoadDistanceArgs<ExtArgs> = {}>(args?: Subset<T, Project$furthestLoadDistanceArgs<ExtArgs>>): Prisma__FurthestLoadDistanceClient<$Result.GetResult<Prisma.$FurthestLoadDistancePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
@@ -7657,6 +7752,25 @@ export namespace Prisma {
      */
     include?: ProtectionInclude<ExtArgs> | null
     where?: ProtectionWhereInput
+  }
+
+  /**
+   * Project.upstreamProtection
+   */
+  export type Project$upstreamProtectionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UpstreamProtection
+     */
+    select?: UpstreamProtectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UpstreamProtection
+     */
+    omit?: UpstreamProtectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpstreamProtectionInclude<ExtArgs> | null
+    where?: UpstreamProtectionWhereInput
   }
 
   /**
@@ -12377,12 +12491,14 @@ export namespace Prisma {
     ratedCurrent: number | null
     numberOfPoles: number | null
     breakingCapacity: number | null
+    selectivityLimitA: number | null
   }
 
   export type ProtectionSumAggregateOutputType = {
     ratedCurrent: number | null
     numberOfPoles: number | null
     breakingCapacity: number | null
+    selectivityLimitA: number | null
   }
 
   export type ProtectionMinAggregateOutputType = {
@@ -12393,6 +12509,9 @@ export namespace Prisma {
     numberOfPoles: number | null
     curveType: $Enums.CurveType | null
     breakingCapacity: number | null
+    manufacturer: string | null
+    reference: string | null
+    selectivityLimitA: number | null
   }
 
   export type ProtectionMaxAggregateOutputType = {
@@ -12403,6 +12522,9 @@ export namespace Prisma {
     numberOfPoles: number | null
     curveType: $Enums.CurveType | null
     breakingCapacity: number | null
+    manufacturer: string | null
+    reference: string | null
+    selectivityLimitA: number | null
   }
 
   export type ProtectionCountAggregateOutputType = {
@@ -12413,6 +12535,9 @@ export namespace Prisma {
     numberOfPoles: number
     curveType: number
     breakingCapacity: number
+    manufacturer: number
+    reference: number
+    selectivityLimitA: number
     _all: number
   }
 
@@ -12421,12 +12546,14 @@ export namespace Prisma {
     ratedCurrent?: true
     numberOfPoles?: true
     breakingCapacity?: true
+    selectivityLimitA?: true
   }
 
   export type ProtectionSumAggregateInputType = {
     ratedCurrent?: true
     numberOfPoles?: true
     breakingCapacity?: true
+    selectivityLimitA?: true
   }
 
   export type ProtectionMinAggregateInputType = {
@@ -12437,6 +12564,9 @@ export namespace Prisma {
     numberOfPoles?: true
     curveType?: true
     breakingCapacity?: true
+    manufacturer?: true
+    reference?: true
+    selectivityLimitA?: true
   }
 
   export type ProtectionMaxAggregateInputType = {
@@ -12447,6 +12577,9 @@ export namespace Prisma {
     numberOfPoles?: true
     curveType?: true
     breakingCapacity?: true
+    manufacturer?: true
+    reference?: true
+    selectivityLimitA?: true
   }
 
   export type ProtectionCountAggregateInputType = {
@@ -12457,6 +12590,9 @@ export namespace Prisma {
     numberOfPoles?: true
     curveType?: true
     breakingCapacity?: true
+    manufacturer?: true
+    reference?: true
+    selectivityLimitA?: true
     _all?: true
   }
 
@@ -12554,6 +12690,9 @@ export namespace Prisma {
     numberOfPoles: number
     curveType: $Enums.CurveType
     breakingCapacity: number
+    manufacturer: string | null
+    reference: string | null
+    selectivityLimitA: number | null
     _count: ProtectionCountAggregateOutputType | null
     _avg: ProtectionAvgAggregateOutputType | null
     _sum: ProtectionSumAggregateOutputType | null
@@ -12583,6 +12722,9 @@ export namespace Prisma {
     numberOfPoles?: boolean
     curveType?: boolean
     breakingCapacity?: boolean
+    manufacturer?: boolean
+    reference?: boolean
+    selectivityLimitA?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["protection"]>
 
@@ -12594,6 +12736,9 @@ export namespace Prisma {
     numberOfPoles?: boolean
     curveType?: boolean
     breakingCapacity?: boolean
+    manufacturer?: boolean
+    reference?: boolean
+    selectivityLimitA?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["protection"]>
 
@@ -12605,6 +12750,9 @@ export namespace Prisma {
     numberOfPoles?: boolean
     curveType?: boolean
     breakingCapacity?: boolean
+    manufacturer?: boolean
+    reference?: boolean
+    selectivityLimitA?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["protection"]>
 
@@ -12616,9 +12764,12 @@ export namespace Prisma {
     numberOfPoles?: boolean
     curveType?: boolean
     breakingCapacity?: boolean
+    manufacturer?: boolean
+    reference?: boolean
+    selectivityLimitA?: boolean
   }
 
-  export type ProtectionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "type" | "ratedCurrent" | "numberOfPoles" | "curveType" | "breakingCapacity", ExtArgs["result"]["protection"]>
+  export type ProtectionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "type" | "ratedCurrent" | "numberOfPoles" | "curveType" | "breakingCapacity" | "manufacturer" | "reference" | "selectivityLimitA", ExtArgs["result"]["protection"]>
   export type ProtectionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
@@ -12642,6 +12793,9 @@ export namespace Prisma {
       numberOfPoles: number
       curveType: $Enums.CurveType
       breakingCapacity: number
+      manufacturer: string | null
+      reference: string | null
+      selectivityLimitA: number | null
     }, ExtArgs["result"]["protection"]>
     composites: {}
   }
@@ -13073,6 +13227,9 @@ export namespace Prisma {
     readonly numberOfPoles: FieldRef<"Protection", 'Int'>
     readonly curveType: FieldRef<"Protection", 'CurveType'>
     readonly breakingCapacity: FieldRef<"Protection", 'Float'>
+    readonly manufacturer: FieldRef<"Protection", 'String'>
+    readonly reference: FieldRef<"Protection", 'String'>
+    readonly selectivityLimitA: FieldRef<"Protection", 'Float'>
   }
     
 
@@ -13489,6 +13646,1180 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: ProtectionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model UpstreamProtection
+   */
+
+  export type AggregateUpstreamProtection = {
+    _count: UpstreamProtectionCountAggregateOutputType | null
+    _avg: UpstreamProtectionAvgAggregateOutputType | null
+    _sum: UpstreamProtectionSumAggregateOutputType | null
+    _min: UpstreamProtectionMinAggregateOutputType | null
+    _max: UpstreamProtectionMaxAggregateOutputType | null
+  }
+
+  export type UpstreamProtectionAvgAggregateOutputType = {
+    ratedCurrent: number | null
+    numberOfPoles: number | null
+    breakingCapacity: number | null
+    selectivityLimitA: number | null
+  }
+
+  export type UpstreamProtectionSumAggregateOutputType = {
+    ratedCurrent: number | null
+    numberOfPoles: number | null
+    breakingCapacity: number | null
+    selectivityLimitA: number | null
+  }
+
+  export type UpstreamProtectionMinAggregateOutputType = {
+    id: string | null
+    projectId: string | null
+    type: $Enums.ProtectionType | null
+    ratedCurrent: number | null
+    numberOfPoles: number | null
+    curveType: $Enums.CurveType | null
+    breakingCapacity: number | null
+    manufacturer: string | null
+    reference: string | null
+    selectivityLimitA: number | null
+  }
+
+  export type UpstreamProtectionMaxAggregateOutputType = {
+    id: string | null
+    projectId: string | null
+    type: $Enums.ProtectionType | null
+    ratedCurrent: number | null
+    numberOfPoles: number | null
+    curveType: $Enums.CurveType | null
+    breakingCapacity: number | null
+    manufacturer: string | null
+    reference: string | null
+    selectivityLimitA: number | null
+  }
+
+  export type UpstreamProtectionCountAggregateOutputType = {
+    id: number
+    projectId: number
+    type: number
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: number
+    breakingCapacity: number
+    manufacturer: number
+    reference: number
+    selectivityLimitA: number
+    _all: number
+  }
+
+
+  export type UpstreamProtectionAvgAggregateInputType = {
+    ratedCurrent?: true
+    numberOfPoles?: true
+    breakingCapacity?: true
+    selectivityLimitA?: true
+  }
+
+  export type UpstreamProtectionSumAggregateInputType = {
+    ratedCurrent?: true
+    numberOfPoles?: true
+    breakingCapacity?: true
+    selectivityLimitA?: true
+  }
+
+  export type UpstreamProtectionMinAggregateInputType = {
+    id?: true
+    projectId?: true
+    type?: true
+    ratedCurrent?: true
+    numberOfPoles?: true
+    curveType?: true
+    breakingCapacity?: true
+    manufacturer?: true
+    reference?: true
+    selectivityLimitA?: true
+  }
+
+  export type UpstreamProtectionMaxAggregateInputType = {
+    id?: true
+    projectId?: true
+    type?: true
+    ratedCurrent?: true
+    numberOfPoles?: true
+    curveType?: true
+    breakingCapacity?: true
+    manufacturer?: true
+    reference?: true
+    selectivityLimitA?: true
+  }
+
+  export type UpstreamProtectionCountAggregateInputType = {
+    id?: true
+    projectId?: true
+    type?: true
+    ratedCurrent?: true
+    numberOfPoles?: true
+    curveType?: true
+    breakingCapacity?: true
+    manufacturer?: true
+    reference?: true
+    selectivityLimitA?: true
+    _all?: true
+  }
+
+  export type UpstreamProtectionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UpstreamProtection to aggregate.
+     */
+    where?: UpstreamProtectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UpstreamProtections to fetch.
+     */
+    orderBy?: UpstreamProtectionOrderByWithRelationInput | UpstreamProtectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UpstreamProtectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UpstreamProtections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UpstreamProtections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UpstreamProtections
+    **/
+    _count?: true | UpstreamProtectionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UpstreamProtectionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UpstreamProtectionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UpstreamProtectionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UpstreamProtectionMaxAggregateInputType
+  }
+
+  export type GetUpstreamProtectionAggregateType<T extends UpstreamProtectionAggregateArgs> = {
+        [P in keyof T & keyof AggregateUpstreamProtection]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUpstreamProtection[P]>
+      : GetScalarType<T[P], AggregateUpstreamProtection[P]>
+  }
+
+
+
+
+  export type UpstreamProtectionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UpstreamProtectionWhereInput
+    orderBy?: UpstreamProtectionOrderByWithAggregationInput | UpstreamProtectionOrderByWithAggregationInput[]
+    by: UpstreamProtectionScalarFieldEnum[] | UpstreamProtectionScalarFieldEnum
+    having?: UpstreamProtectionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UpstreamProtectionCountAggregateInputType | true
+    _avg?: UpstreamProtectionAvgAggregateInputType
+    _sum?: UpstreamProtectionSumAggregateInputType
+    _min?: UpstreamProtectionMinAggregateInputType
+    _max?: UpstreamProtectionMaxAggregateInputType
+  }
+
+  export type UpstreamProtectionGroupByOutputType = {
+    id: string
+    projectId: string
+    type: $Enums.ProtectionType
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: $Enums.CurveType
+    breakingCapacity: number
+    manufacturer: string | null
+    reference: string | null
+    selectivityLimitA: number | null
+    _count: UpstreamProtectionCountAggregateOutputType | null
+    _avg: UpstreamProtectionAvgAggregateOutputType | null
+    _sum: UpstreamProtectionSumAggregateOutputType | null
+    _min: UpstreamProtectionMinAggregateOutputType | null
+    _max: UpstreamProtectionMaxAggregateOutputType | null
+  }
+
+  type GetUpstreamProtectionGroupByPayload<T extends UpstreamProtectionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UpstreamProtectionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UpstreamProtectionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UpstreamProtectionGroupByOutputType[P]>
+            : GetScalarType<T[P], UpstreamProtectionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UpstreamProtectionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    type?: boolean
+    ratedCurrent?: boolean
+    numberOfPoles?: boolean
+    curveType?: boolean
+    breakingCapacity?: boolean
+    manufacturer?: boolean
+    reference?: boolean
+    selectivityLimitA?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["upstreamProtection"]>
+
+  export type UpstreamProtectionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    type?: boolean
+    ratedCurrent?: boolean
+    numberOfPoles?: boolean
+    curveType?: boolean
+    breakingCapacity?: boolean
+    manufacturer?: boolean
+    reference?: boolean
+    selectivityLimitA?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["upstreamProtection"]>
+
+  export type UpstreamProtectionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    type?: boolean
+    ratedCurrent?: boolean
+    numberOfPoles?: boolean
+    curveType?: boolean
+    breakingCapacity?: boolean
+    manufacturer?: boolean
+    reference?: boolean
+    selectivityLimitA?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["upstreamProtection"]>
+
+  export type UpstreamProtectionSelectScalar = {
+    id?: boolean
+    projectId?: boolean
+    type?: boolean
+    ratedCurrent?: boolean
+    numberOfPoles?: boolean
+    curveType?: boolean
+    breakingCapacity?: boolean
+    manufacturer?: boolean
+    reference?: boolean
+    selectivityLimitA?: boolean
+  }
+
+  export type UpstreamProtectionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "type" | "ratedCurrent" | "numberOfPoles" | "curveType" | "breakingCapacity" | "manufacturer" | "reference" | "selectivityLimitA", ExtArgs["result"]["upstreamProtection"]>
+  export type UpstreamProtectionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type UpstreamProtectionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type UpstreamProtectionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+
+  export type $UpstreamProtectionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UpstreamProtection"
+    objects: {
+      project: Prisma.$ProjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      projectId: string
+      type: $Enums.ProtectionType
+      ratedCurrent: number
+      numberOfPoles: number
+      curveType: $Enums.CurveType
+      breakingCapacity: number
+      manufacturer: string | null
+      reference: string | null
+      selectivityLimitA: number | null
+    }, ExtArgs["result"]["upstreamProtection"]>
+    composites: {}
+  }
+
+  type UpstreamProtectionGetPayload<S extends boolean | null | undefined | UpstreamProtectionDefaultArgs> = $Result.GetResult<Prisma.$UpstreamProtectionPayload, S>
+
+  type UpstreamProtectionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UpstreamProtectionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UpstreamProtectionCountAggregateInputType | true
+    }
+
+  export interface UpstreamProtectionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UpstreamProtection'], meta: { name: 'UpstreamProtection' } }
+    /**
+     * Find zero or one UpstreamProtection that matches the filter.
+     * @param {UpstreamProtectionFindUniqueArgs} args - Arguments to find a UpstreamProtection
+     * @example
+     * // Get one UpstreamProtection
+     * const upstreamProtection = await prisma.upstreamProtection.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UpstreamProtectionFindUniqueArgs>(args: SelectSubset<T, UpstreamProtectionFindUniqueArgs<ExtArgs>>): Prisma__UpstreamProtectionClient<$Result.GetResult<Prisma.$UpstreamProtectionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one UpstreamProtection that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UpstreamProtectionFindUniqueOrThrowArgs} args - Arguments to find a UpstreamProtection
+     * @example
+     * // Get one UpstreamProtection
+     * const upstreamProtection = await prisma.upstreamProtection.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UpstreamProtectionFindUniqueOrThrowArgs>(args: SelectSubset<T, UpstreamProtectionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UpstreamProtectionClient<$Result.GetResult<Prisma.$UpstreamProtectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UpstreamProtection that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpstreamProtectionFindFirstArgs} args - Arguments to find a UpstreamProtection
+     * @example
+     * // Get one UpstreamProtection
+     * const upstreamProtection = await prisma.upstreamProtection.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UpstreamProtectionFindFirstArgs>(args?: SelectSubset<T, UpstreamProtectionFindFirstArgs<ExtArgs>>): Prisma__UpstreamProtectionClient<$Result.GetResult<Prisma.$UpstreamProtectionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UpstreamProtection that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpstreamProtectionFindFirstOrThrowArgs} args - Arguments to find a UpstreamProtection
+     * @example
+     * // Get one UpstreamProtection
+     * const upstreamProtection = await prisma.upstreamProtection.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UpstreamProtectionFindFirstOrThrowArgs>(args?: SelectSubset<T, UpstreamProtectionFindFirstOrThrowArgs<ExtArgs>>): Prisma__UpstreamProtectionClient<$Result.GetResult<Prisma.$UpstreamProtectionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more UpstreamProtections that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpstreamProtectionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UpstreamProtections
+     * const upstreamProtections = await prisma.upstreamProtection.findMany()
+     * 
+     * // Get first 10 UpstreamProtections
+     * const upstreamProtections = await prisma.upstreamProtection.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const upstreamProtectionWithIdOnly = await prisma.upstreamProtection.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UpstreamProtectionFindManyArgs>(args?: SelectSubset<T, UpstreamProtectionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UpstreamProtectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a UpstreamProtection.
+     * @param {UpstreamProtectionCreateArgs} args - Arguments to create a UpstreamProtection.
+     * @example
+     * // Create one UpstreamProtection
+     * const UpstreamProtection = await prisma.upstreamProtection.create({
+     *   data: {
+     *     // ... data to create a UpstreamProtection
+     *   }
+     * })
+     * 
+     */
+    create<T extends UpstreamProtectionCreateArgs>(args: SelectSubset<T, UpstreamProtectionCreateArgs<ExtArgs>>): Prisma__UpstreamProtectionClient<$Result.GetResult<Prisma.$UpstreamProtectionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many UpstreamProtections.
+     * @param {UpstreamProtectionCreateManyArgs} args - Arguments to create many UpstreamProtections.
+     * @example
+     * // Create many UpstreamProtections
+     * const upstreamProtection = await prisma.upstreamProtection.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UpstreamProtectionCreateManyArgs>(args?: SelectSubset<T, UpstreamProtectionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many UpstreamProtections and returns the data saved in the database.
+     * @param {UpstreamProtectionCreateManyAndReturnArgs} args - Arguments to create many UpstreamProtections.
+     * @example
+     * // Create many UpstreamProtections
+     * const upstreamProtection = await prisma.upstreamProtection.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many UpstreamProtections and only return the `id`
+     * const upstreamProtectionWithIdOnly = await prisma.upstreamProtection.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UpstreamProtectionCreateManyAndReturnArgs>(args?: SelectSubset<T, UpstreamProtectionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UpstreamProtectionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a UpstreamProtection.
+     * @param {UpstreamProtectionDeleteArgs} args - Arguments to delete one UpstreamProtection.
+     * @example
+     * // Delete one UpstreamProtection
+     * const UpstreamProtection = await prisma.upstreamProtection.delete({
+     *   where: {
+     *     // ... filter to delete one UpstreamProtection
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UpstreamProtectionDeleteArgs>(args: SelectSubset<T, UpstreamProtectionDeleteArgs<ExtArgs>>): Prisma__UpstreamProtectionClient<$Result.GetResult<Prisma.$UpstreamProtectionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one UpstreamProtection.
+     * @param {UpstreamProtectionUpdateArgs} args - Arguments to update one UpstreamProtection.
+     * @example
+     * // Update one UpstreamProtection
+     * const upstreamProtection = await prisma.upstreamProtection.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UpstreamProtectionUpdateArgs>(args: SelectSubset<T, UpstreamProtectionUpdateArgs<ExtArgs>>): Prisma__UpstreamProtectionClient<$Result.GetResult<Prisma.$UpstreamProtectionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more UpstreamProtections.
+     * @param {UpstreamProtectionDeleteManyArgs} args - Arguments to filter UpstreamProtections to delete.
+     * @example
+     * // Delete a few UpstreamProtections
+     * const { count } = await prisma.upstreamProtection.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UpstreamProtectionDeleteManyArgs>(args?: SelectSubset<T, UpstreamProtectionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UpstreamProtections.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpstreamProtectionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UpstreamProtections
+     * const upstreamProtection = await prisma.upstreamProtection.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UpstreamProtectionUpdateManyArgs>(args: SelectSubset<T, UpstreamProtectionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UpstreamProtections and returns the data updated in the database.
+     * @param {UpstreamProtectionUpdateManyAndReturnArgs} args - Arguments to update many UpstreamProtections.
+     * @example
+     * // Update many UpstreamProtections
+     * const upstreamProtection = await prisma.upstreamProtection.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more UpstreamProtections and only return the `id`
+     * const upstreamProtectionWithIdOnly = await prisma.upstreamProtection.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends UpstreamProtectionUpdateManyAndReturnArgs>(args: SelectSubset<T, UpstreamProtectionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UpstreamProtectionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one UpstreamProtection.
+     * @param {UpstreamProtectionUpsertArgs} args - Arguments to update or create a UpstreamProtection.
+     * @example
+     * // Update or create a UpstreamProtection
+     * const upstreamProtection = await prisma.upstreamProtection.upsert({
+     *   create: {
+     *     // ... data to create a UpstreamProtection
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UpstreamProtection we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UpstreamProtectionUpsertArgs>(args: SelectSubset<T, UpstreamProtectionUpsertArgs<ExtArgs>>): Prisma__UpstreamProtectionClient<$Result.GetResult<Prisma.$UpstreamProtectionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of UpstreamProtections.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpstreamProtectionCountArgs} args - Arguments to filter UpstreamProtections to count.
+     * @example
+     * // Count the number of UpstreamProtections
+     * const count = await prisma.upstreamProtection.count({
+     *   where: {
+     *     // ... the filter for the UpstreamProtections we want to count
+     *   }
+     * })
+    **/
+    count<T extends UpstreamProtectionCountArgs>(
+      args?: Subset<T, UpstreamProtectionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UpstreamProtectionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UpstreamProtection.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpstreamProtectionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UpstreamProtectionAggregateArgs>(args: Subset<T, UpstreamProtectionAggregateArgs>): Prisma.PrismaPromise<GetUpstreamProtectionAggregateType<T>>
+
+    /**
+     * Group by UpstreamProtection.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UpstreamProtectionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UpstreamProtectionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UpstreamProtectionGroupByArgs['orderBy'] }
+        : { orderBy?: UpstreamProtectionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UpstreamProtectionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUpstreamProtectionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UpstreamProtection model
+   */
+  readonly fields: UpstreamProtectionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UpstreamProtection.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UpstreamProtectionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the UpstreamProtection model
+   */
+  interface UpstreamProtectionFieldRefs {
+    readonly id: FieldRef<"UpstreamProtection", 'String'>
+    readonly projectId: FieldRef<"UpstreamProtection", 'String'>
+    readonly type: FieldRef<"UpstreamProtection", 'ProtectionType'>
+    readonly ratedCurrent: FieldRef<"UpstreamProtection", 'Float'>
+    readonly numberOfPoles: FieldRef<"UpstreamProtection", 'Int'>
+    readonly curveType: FieldRef<"UpstreamProtection", 'CurveType'>
+    readonly breakingCapacity: FieldRef<"UpstreamProtection", 'Float'>
+    readonly manufacturer: FieldRef<"UpstreamProtection", 'String'>
+    readonly reference: FieldRef<"UpstreamProtection", 'String'>
+    readonly selectivityLimitA: FieldRef<"UpstreamProtection", 'Float'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * UpstreamProtection findUnique
+   */
+  export type UpstreamProtectionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UpstreamProtection
+     */
+    select?: UpstreamProtectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UpstreamProtection
+     */
+    omit?: UpstreamProtectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpstreamProtectionInclude<ExtArgs> | null
+    /**
+     * Filter, which UpstreamProtection to fetch.
+     */
+    where: UpstreamProtectionWhereUniqueInput
+  }
+
+  /**
+   * UpstreamProtection findUniqueOrThrow
+   */
+  export type UpstreamProtectionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UpstreamProtection
+     */
+    select?: UpstreamProtectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UpstreamProtection
+     */
+    omit?: UpstreamProtectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpstreamProtectionInclude<ExtArgs> | null
+    /**
+     * Filter, which UpstreamProtection to fetch.
+     */
+    where: UpstreamProtectionWhereUniqueInput
+  }
+
+  /**
+   * UpstreamProtection findFirst
+   */
+  export type UpstreamProtectionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UpstreamProtection
+     */
+    select?: UpstreamProtectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UpstreamProtection
+     */
+    omit?: UpstreamProtectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpstreamProtectionInclude<ExtArgs> | null
+    /**
+     * Filter, which UpstreamProtection to fetch.
+     */
+    where?: UpstreamProtectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UpstreamProtections to fetch.
+     */
+    orderBy?: UpstreamProtectionOrderByWithRelationInput | UpstreamProtectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UpstreamProtections.
+     */
+    cursor?: UpstreamProtectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UpstreamProtections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UpstreamProtections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UpstreamProtections.
+     */
+    distinct?: UpstreamProtectionScalarFieldEnum | UpstreamProtectionScalarFieldEnum[]
+  }
+
+  /**
+   * UpstreamProtection findFirstOrThrow
+   */
+  export type UpstreamProtectionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UpstreamProtection
+     */
+    select?: UpstreamProtectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UpstreamProtection
+     */
+    omit?: UpstreamProtectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpstreamProtectionInclude<ExtArgs> | null
+    /**
+     * Filter, which UpstreamProtection to fetch.
+     */
+    where?: UpstreamProtectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UpstreamProtections to fetch.
+     */
+    orderBy?: UpstreamProtectionOrderByWithRelationInput | UpstreamProtectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UpstreamProtections.
+     */
+    cursor?: UpstreamProtectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UpstreamProtections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UpstreamProtections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UpstreamProtections.
+     */
+    distinct?: UpstreamProtectionScalarFieldEnum | UpstreamProtectionScalarFieldEnum[]
+  }
+
+  /**
+   * UpstreamProtection findMany
+   */
+  export type UpstreamProtectionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UpstreamProtection
+     */
+    select?: UpstreamProtectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UpstreamProtection
+     */
+    omit?: UpstreamProtectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpstreamProtectionInclude<ExtArgs> | null
+    /**
+     * Filter, which UpstreamProtections to fetch.
+     */
+    where?: UpstreamProtectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UpstreamProtections to fetch.
+     */
+    orderBy?: UpstreamProtectionOrderByWithRelationInput | UpstreamProtectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UpstreamProtections.
+     */
+    cursor?: UpstreamProtectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UpstreamProtections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UpstreamProtections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UpstreamProtections.
+     */
+    distinct?: UpstreamProtectionScalarFieldEnum | UpstreamProtectionScalarFieldEnum[]
+  }
+
+  /**
+   * UpstreamProtection create
+   */
+  export type UpstreamProtectionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UpstreamProtection
+     */
+    select?: UpstreamProtectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UpstreamProtection
+     */
+    omit?: UpstreamProtectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpstreamProtectionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UpstreamProtection.
+     */
+    data: XOR<UpstreamProtectionCreateInput, UpstreamProtectionUncheckedCreateInput>
+  }
+
+  /**
+   * UpstreamProtection createMany
+   */
+  export type UpstreamProtectionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UpstreamProtections.
+     */
+    data: UpstreamProtectionCreateManyInput | UpstreamProtectionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * UpstreamProtection createManyAndReturn
+   */
+  export type UpstreamProtectionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UpstreamProtection
+     */
+    select?: UpstreamProtectionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the UpstreamProtection
+     */
+    omit?: UpstreamProtectionOmit<ExtArgs> | null
+    /**
+     * The data used to create many UpstreamProtections.
+     */
+    data: UpstreamProtectionCreateManyInput | UpstreamProtectionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpstreamProtectionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * UpstreamProtection update
+   */
+  export type UpstreamProtectionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UpstreamProtection
+     */
+    select?: UpstreamProtectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UpstreamProtection
+     */
+    omit?: UpstreamProtectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpstreamProtectionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UpstreamProtection.
+     */
+    data: XOR<UpstreamProtectionUpdateInput, UpstreamProtectionUncheckedUpdateInput>
+    /**
+     * Choose, which UpstreamProtection to update.
+     */
+    where: UpstreamProtectionWhereUniqueInput
+  }
+
+  /**
+   * UpstreamProtection updateMany
+   */
+  export type UpstreamProtectionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UpstreamProtections.
+     */
+    data: XOR<UpstreamProtectionUpdateManyMutationInput, UpstreamProtectionUncheckedUpdateManyInput>
+    /**
+     * Filter which UpstreamProtections to update
+     */
+    where?: UpstreamProtectionWhereInput
+    /**
+     * Limit how many UpstreamProtections to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * UpstreamProtection updateManyAndReturn
+   */
+  export type UpstreamProtectionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UpstreamProtection
+     */
+    select?: UpstreamProtectionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the UpstreamProtection
+     */
+    omit?: UpstreamProtectionOmit<ExtArgs> | null
+    /**
+     * The data used to update UpstreamProtections.
+     */
+    data: XOR<UpstreamProtectionUpdateManyMutationInput, UpstreamProtectionUncheckedUpdateManyInput>
+    /**
+     * Filter which UpstreamProtections to update
+     */
+    where?: UpstreamProtectionWhereInput
+    /**
+     * Limit how many UpstreamProtections to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpstreamProtectionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * UpstreamProtection upsert
+   */
+  export type UpstreamProtectionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UpstreamProtection
+     */
+    select?: UpstreamProtectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UpstreamProtection
+     */
+    omit?: UpstreamProtectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpstreamProtectionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UpstreamProtection to update in case it exists.
+     */
+    where: UpstreamProtectionWhereUniqueInput
+    /**
+     * In case the UpstreamProtection found by the `where` argument doesn't exist, create a new UpstreamProtection with this data.
+     */
+    create: XOR<UpstreamProtectionCreateInput, UpstreamProtectionUncheckedCreateInput>
+    /**
+     * In case the UpstreamProtection was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UpstreamProtectionUpdateInput, UpstreamProtectionUncheckedUpdateInput>
+  }
+
+  /**
+   * UpstreamProtection delete
+   */
+  export type UpstreamProtectionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UpstreamProtection
+     */
+    select?: UpstreamProtectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UpstreamProtection
+     */
+    omit?: UpstreamProtectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpstreamProtectionInclude<ExtArgs> | null
+    /**
+     * Filter which UpstreamProtection to delete.
+     */
+    where: UpstreamProtectionWhereUniqueInput
+  }
+
+  /**
+   * UpstreamProtection deleteMany
+   */
+  export type UpstreamProtectionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UpstreamProtections to delete
+     */
+    where?: UpstreamProtectionWhereInput
+    /**
+     * Limit how many UpstreamProtections to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * UpstreamProtection without action
+   */
+  export type UpstreamProtectionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UpstreamProtection
+     */
+    select?: UpstreamProtectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UpstreamProtection
+     */
+    omit?: UpstreamProtectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UpstreamProtectionInclude<ExtArgs> | null
   }
 
 
@@ -14903,10 +16234,29 @@ export namespace Prisma {
     ratedCurrent: 'ratedCurrent',
     numberOfPoles: 'numberOfPoles',
     curveType: 'curveType',
-    breakingCapacity: 'breakingCapacity'
+    breakingCapacity: 'breakingCapacity',
+    manufacturer: 'manufacturer',
+    reference: 'reference',
+    selectivityLimitA: 'selectivityLimitA'
   };
 
   export type ProtectionScalarFieldEnum = (typeof ProtectionScalarFieldEnum)[keyof typeof ProtectionScalarFieldEnum]
+
+
+  export const UpstreamProtectionScalarFieldEnum: {
+    id: 'id',
+    projectId: 'projectId',
+    type: 'type',
+    ratedCurrent: 'ratedCurrent',
+    numberOfPoles: 'numberOfPoles',
+    curveType: 'curveType',
+    breakingCapacity: 'breakingCapacity',
+    manufacturer: 'manufacturer',
+    reference: 'reference',
+    selectivityLimitA: 'selectivityLimitA'
+  };
+
+  export type UpstreamProtectionScalarFieldEnum = (typeof UpstreamProtectionScalarFieldEnum)[keyof typeof UpstreamProtectionScalarFieldEnum]
 
 
   export const ResultScalarFieldEnum: {
@@ -15522,6 +16872,7 @@ export namespace Prisma {
     circuits?: CircuitListRelationFilter
     cableData?: XOR<CableDataNullableScalarRelationFilter, CableDataWhereInput> | null
     protection?: XOR<ProtectionNullableScalarRelationFilter, ProtectionWhereInput> | null
+    upstreamProtection?: XOR<UpstreamProtectionNullableScalarRelationFilter, UpstreamProtectionWhereInput> | null
     result?: XOR<ResultNullableScalarRelationFilter, ResultWhereInput> | null
     furthestLoadDistance?: XOR<FurthestLoadDistanceNullableScalarRelationFilter, FurthestLoadDistanceWhereInput> | null
   }
@@ -15539,6 +16890,7 @@ export namespace Prisma {
     circuits?: CircuitOrderByRelationAggregateInput
     cableData?: CableDataOrderByWithRelationInput
     protection?: ProtectionOrderByWithRelationInput
+    upstreamProtection?: UpstreamProtectionOrderByWithRelationInput
     result?: ResultOrderByWithRelationInput
     furthestLoadDistance?: FurthestLoadDistanceOrderByWithRelationInput
   }
@@ -15559,6 +16911,7 @@ export namespace Prisma {
     circuits?: CircuitListRelationFilter
     cableData?: XOR<CableDataNullableScalarRelationFilter, CableDataWhereInput> | null
     protection?: XOR<ProtectionNullableScalarRelationFilter, ProtectionWhereInput> | null
+    upstreamProtection?: XOR<UpstreamProtectionNullableScalarRelationFilter, UpstreamProtectionWhereInput> | null
     result?: XOR<ResultNullableScalarRelationFilter, ResultWhereInput> | null
     furthestLoadDistance?: XOR<FurthestLoadDistanceNullableScalarRelationFilter, FurthestLoadDistanceWhereInput> | null
   }, "id">
@@ -15921,6 +17274,9 @@ export namespace Prisma {
     numberOfPoles?: IntFilter<"Protection"> | number
     curveType?: EnumCurveTypeFilter<"Protection"> | $Enums.CurveType
     breakingCapacity?: FloatFilter<"Protection"> | number
+    manufacturer?: StringNullableFilter<"Protection"> | string | null
+    reference?: StringNullableFilter<"Protection"> | string | null
+    selectivityLimitA?: FloatNullableFilter<"Protection"> | number | null
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }
 
@@ -15932,6 +17288,9 @@ export namespace Prisma {
     numberOfPoles?: SortOrder
     curveType?: SortOrder
     breakingCapacity?: SortOrder
+    manufacturer?: SortOrderInput | SortOrder
+    reference?: SortOrderInput | SortOrder
+    selectivityLimitA?: SortOrderInput | SortOrder
     project?: ProjectOrderByWithRelationInput
   }
 
@@ -15946,6 +17305,9 @@ export namespace Prisma {
     numberOfPoles?: IntFilter<"Protection"> | number
     curveType?: EnumCurveTypeFilter<"Protection"> | $Enums.CurveType
     breakingCapacity?: FloatFilter<"Protection"> | number
+    manufacturer?: StringNullableFilter<"Protection"> | string | null
+    reference?: StringNullableFilter<"Protection"> | string | null
+    selectivityLimitA?: FloatNullableFilter<"Protection"> | number | null
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }, "id" | "projectId">
 
@@ -15957,6 +17319,9 @@ export namespace Prisma {
     numberOfPoles?: SortOrder
     curveType?: SortOrder
     breakingCapacity?: SortOrder
+    manufacturer?: SortOrderInput | SortOrder
+    reference?: SortOrderInput | SortOrder
+    selectivityLimitA?: SortOrderInput | SortOrder
     _count?: ProtectionCountOrderByAggregateInput
     _avg?: ProtectionAvgOrderByAggregateInput
     _max?: ProtectionMaxOrderByAggregateInput
@@ -15975,6 +17340,91 @@ export namespace Prisma {
     numberOfPoles?: IntWithAggregatesFilter<"Protection"> | number
     curveType?: EnumCurveTypeWithAggregatesFilter<"Protection"> | $Enums.CurveType
     breakingCapacity?: FloatWithAggregatesFilter<"Protection"> | number
+    manufacturer?: StringNullableWithAggregatesFilter<"Protection"> | string | null
+    reference?: StringNullableWithAggregatesFilter<"Protection"> | string | null
+    selectivityLimitA?: FloatNullableWithAggregatesFilter<"Protection"> | number | null
+  }
+
+  export type UpstreamProtectionWhereInput = {
+    AND?: UpstreamProtectionWhereInput | UpstreamProtectionWhereInput[]
+    OR?: UpstreamProtectionWhereInput[]
+    NOT?: UpstreamProtectionWhereInput | UpstreamProtectionWhereInput[]
+    id?: StringFilter<"UpstreamProtection"> | string
+    projectId?: StringFilter<"UpstreamProtection"> | string
+    type?: EnumProtectionTypeFilter<"UpstreamProtection"> | $Enums.ProtectionType
+    ratedCurrent?: FloatFilter<"UpstreamProtection"> | number
+    numberOfPoles?: IntFilter<"UpstreamProtection"> | number
+    curveType?: EnumCurveTypeFilter<"UpstreamProtection"> | $Enums.CurveType
+    breakingCapacity?: FloatFilter<"UpstreamProtection"> | number
+    manufacturer?: StringNullableFilter<"UpstreamProtection"> | string | null
+    reference?: StringNullableFilter<"UpstreamProtection"> | string | null
+    selectivityLimitA?: FloatNullableFilter<"UpstreamProtection"> | number | null
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }
+
+  export type UpstreamProtectionOrderByWithRelationInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    type?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    curveType?: SortOrder
+    breakingCapacity?: SortOrder
+    manufacturer?: SortOrderInput | SortOrder
+    reference?: SortOrderInput | SortOrder
+    selectivityLimitA?: SortOrderInput | SortOrder
+    project?: ProjectOrderByWithRelationInput
+  }
+
+  export type UpstreamProtectionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    projectId?: string
+    AND?: UpstreamProtectionWhereInput | UpstreamProtectionWhereInput[]
+    OR?: UpstreamProtectionWhereInput[]
+    NOT?: UpstreamProtectionWhereInput | UpstreamProtectionWhereInput[]
+    type?: EnumProtectionTypeFilter<"UpstreamProtection"> | $Enums.ProtectionType
+    ratedCurrent?: FloatFilter<"UpstreamProtection"> | number
+    numberOfPoles?: IntFilter<"UpstreamProtection"> | number
+    curveType?: EnumCurveTypeFilter<"UpstreamProtection"> | $Enums.CurveType
+    breakingCapacity?: FloatFilter<"UpstreamProtection"> | number
+    manufacturer?: StringNullableFilter<"UpstreamProtection"> | string | null
+    reference?: StringNullableFilter<"UpstreamProtection"> | string | null
+    selectivityLimitA?: FloatNullableFilter<"UpstreamProtection"> | number | null
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }, "id" | "projectId">
+
+  export type UpstreamProtectionOrderByWithAggregationInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    type?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    curveType?: SortOrder
+    breakingCapacity?: SortOrder
+    manufacturer?: SortOrderInput | SortOrder
+    reference?: SortOrderInput | SortOrder
+    selectivityLimitA?: SortOrderInput | SortOrder
+    _count?: UpstreamProtectionCountOrderByAggregateInput
+    _avg?: UpstreamProtectionAvgOrderByAggregateInput
+    _max?: UpstreamProtectionMaxOrderByAggregateInput
+    _min?: UpstreamProtectionMinOrderByAggregateInput
+    _sum?: UpstreamProtectionSumOrderByAggregateInput
+  }
+
+  export type UpstreamProtectionScalarWhereWithAggregatesInput = {
+    AND?: UpstreamProtectionScalarWhereWithAggregatesInput | UpstreamProtectionScalarWhereWithAggregatesInput[]
+    OR?: UpstreamProtectionScalarWhereWithAggregatesInput[]
+    NOT?: UpstreamProtectionScalarWhereWithAggregatesInput | UpstreamProtectionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UpstreamProtection"> | string
+    projectId?: StringWithAggregatesFilter<"UpstreamProtection"> | string
+    type?: EnumProtectionTypeWithAggregatesFilter<"UpstreamProtection"> | $Enums.ProtectionType
+    ratedCurrent?: FloatWithAggregatesFilter<"UpstreamProtection"> | number
+    numberOfPoles?: IntWithAggregatesFilter<"UpstreamProtection"> | number
+    curveType?: EnumCurveTypeWithAggregatesFilter<"UpstreamProtection"> | $Enums.CurveType
+    breakingCapacity?: FloatWithAggregatesFilter<"UpstreamProtection"> | number
+    manufacturer?: StringNullableWithAggregatesFilter<"UpstreamProtection"> | string | null
+    reference?: StringNullableWithAggregatesFilter<"UpstreamProtection"> | string | null
+    selectivityLimitA?: FloatNullableWithAggregatesFilter<"UpstreamProtection"> | number | null
   }
 
   export type ResultWhereInput = {
@@ -16407,6 +17857,7 @@ export namespace Prisma {
     circuits?: CircuitCreateNestedManyWithoutProjectInput
     cableData?: CableDataCreateNestedOneWithoutProjectInput
     protection?: ProtectionCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionCreateNestedOneWithoutProjectInput
     result?: ResultCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
   }
@@ -16423,6 +17874,7 @@ export namespace Prisma {
     circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
     cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
     protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionUncheckedCreateNestedOneWithoutProjectInput
     result?: ResultUncheckedCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
   }
@@ -16439,6 +17891,7 @@ export namespace Prisma {
     circuits?: CircuitUpdateManyWithoutProjectNestedInput
     cableData?: CableDataUpdateOneWithoutProjectNestedInput
     protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUpdateOneWithoutProjectNestedInput
     result?: ResultUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
   }
@@ -16455,6 +17908,7 @@ export namespace Prisma {
     circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
     cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
     protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUncheckedUpdateOneWithoutProjectNestedInput
     result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
   }
@@ -16848,6 +18302,9 @@ export namespace Prisma {
     numberOfPoles: number
     curveType: $Enums.CurveType
     breakingCapacity: number
+    manufacturer?: string | null
+    reference?: string | null
+    selectivityLimitA?: number | null
     project: ProjectCreateNestedOneWithoutProtectionInput
   }
 
@@ -16859,6 +18316,9 @@ export namespace Prisma {
     numberOfPoles: number
     curveType: $Enums.CurveType
     breakingCapacity: number
+    manufacturer?: string | null
+    reference?: string | null
+    selectivityLimitA?: number | null
   }
 
   export type ProtectionUpdateInput = {
@@ -16868,6 +18328,9 @@ export namespace Prisma {
     numberOfPoles?: IntFieldUpdateOperationsInput | number
     curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
     breakingCapacity?: FloatFieldUpdateOperationsInput | number
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    reference?: NullableStringFieldUpdateOperationsInput | string | null
+    selectivityLimitA?: NullableFloatFieldUpdateOperationsInput | number | null
     project?: ProjectUpdateOneRequiredWithoutProtectionNestedInput
   }
 
@@ -16879,6 +18342,9 @@ export namespace Prisma {
     numberOfPoles?: IntFieldUpdateOperationsInput | number
     curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
     breakingCapacity?: FloatFieldUpdateOperationsInput | number
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    reference?: NullableStringFieldUpdateOperationsInput | string | null
+    selectivityLimitA?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
   export type ProtectionCreateManyInput = {
@@ -16889,6 +18355,9 @@ export namespace Prisma {
     numberOfPoles: number
     curveType: $Enums.CurveType
     breakingCapacity: number
+    manufacturer?: string | null
+    reference?: string | null
+    selectivityLimitA?: number | null
   }
 
   export type ProtectionUpdateManyMutationInput = {
@@ -16898,6 +18367,9 @@ export namespace Prisma {
     numberOfPoles?: IntFieldUpdateOperationsInput | number
     curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
     breakingCapacity?: FloatFieldUpdateOperationsInput | number
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    reference?: NullableStringFieldUpdateOperationsInput | string | null
+    selectivityLimitA?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
   export type ProtectionUncheckedUpdateManyInput = {
@@ -16908,6 +18380,99 @@ export namespace Prisma {
     numberOfPoles?: IntFieldUpdateOperationsInput | number
     curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
     breakingCapacity?: FloatFieldUpdateOperationsInput | number
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    reference?: NullableStringFieldUpdateOperationsInput | string | null
+    selectivityLimitA?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type UpstreamProtectionCreateInput = {
+    id?: string
+    type: $Enums.ProtectionType
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: $Enums.CurveType
+    breakingCapacity: number
+    manufacturer?: string | null
+    reference?: string | null
+    selectivityLimitA?: number | null
+    project: ProjectCreateNestedOneWithoutUpstreamProtectionInput
+  }
+
+  export type UpstreamProtectionUncheckedCreateInput = {
+    id?: string
+    projectId: string
+    type: $Enums.ProtectionType
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: $Enums.CurveType
+    breakingCapacity: number
+    manufacturer?: string | null
+    reference?: string | null
+    selectivityLimitA?: number | null
+  }
+
+  export type UpstreamProtectionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
+    ratedCurrent?: FloatFieldUpdateOperationsInput | number
+    numberOfPoles?: IntFieldUpdateOperationsInput | number
+    curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
+    breakingCapacity?: FloatFieldUpdateOperationsInput | number
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    reference?: NullableStringFieldUpdateOperationsInput | string | null
+    selectivityLimitA?: NullableFloatFieldUpdateOperationsInput | number | null
+    project?: ProjectUpdateOneRequiredWithoutUpstreamProtectionNestedInput
+  }
+
+  export type UpstreamProtectionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
+    ratedCurrent?: FloatFieldUpdateOperationsInput | number
+    numberOfPoles?: IntFieldUpdateOperationsInput | number
+    curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
+    breakingCapacity?: FloatFieldUpdateOperationsInput | number
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    reference?: NullableStringFieldUpdateOperationsInput | string | null
+    selectivityLimitA?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type UpstreamProtectionCreateManyInput = {
+    id?: string
+    projectId: string
+    type: $Enums.ProtectionType
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: $Enums.CurveType
+    breakingCapacity: number
+    manufacturer?: string | null
+    reference?: string | null
+    selectivityLimitA?: number | null
+  }
+
+  export type UpstreamProtectionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
+    ratedCurrent?: FloatFieldUpdateOperationsInput | number
+    numberOfPoles?: IntFieldUpdateOperationsInput | number
+    curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
+    breakingCapacity?: FloatFieldUpdateOperationsInput | number
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    reference?: NullableStringFieldUpdateOperationsInput | string | null
+    selectivityLimitA?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type UpstreamProtectionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
+    ratedCurrent?: FloatFieldUpdateOperationsInput | number
+    numberOfPoles?: IntFieldUpdateOperationsInput | number
+    curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
+    breakingCapacity?: FloatFieldUpdateOperationsInput | number
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    reference?: NullableStringFieldUpdateOperationsInput | string | null
+    selectivityLimitA?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
   export type ResultCreateInput = {
@@ -17431,6 +18996,11 @@ export namespace Prisma {
   export type ProtectionNullableScalarRelationFilter = {
     is?: ProtectionWhereInput | null
     isNot?: ProtectionWhereInput | null
+  }
+
+  export type UpstreamProtectionNullableScalarRelationFilter = {
+    is?: UpstreamProtectionWhereInput | null
+    isNot?: UpstreamProtectionWhereInput | null
   }
 
   export type ResultNullableScalarRelationFilter = {
@@ -18037,12 +19607,16 @@ export namespace Prisma {
     numberOfPoles?: SortOrder
     curveType?: SortOrder
     breakingCapacity?: SortOrder
+    manufacturer?: SortOrder
+    reference?: SortOrder
+    selectivityLimitA?: SortOrder
   }
 
   export type ProtectionAvgOrderByAggregateInput = {
     ratedCurrent?: SortOrder
     numberOfPoles?: SortOrder
     breakingCapacity?: SortOrder
+    selectivityLimitA?: SortOrder
   }
 
   export type ProtectionMaxOrderByAggregateInput = {
@@ -18053,6 +19627,9 @@ export namespace Prisma {
     numberOfPoles?: SortOrder
     curveType?: SortOrder
     breakingCapacity?: SortOrder
+    manufacturer?: SortOrder
+    reference?: SortOrder
+    selectivityLimitA?: SortOrder
   }
 
   export type ProtectionMinOrderByAggregateInput = {
@@ -18063,12 +19640,16 @@ export namespace Prisma {
     numberOfPoles?: SortOrder
     curveType?: SortOrder
     breakingCapacity?: SortOrder
+    manufacturer?: SortOrder
+    reference?: SortOrder
+    selectivityLimitA?: SortOrder
   }
 
   export type ProtectionSumOrderByAggregateInput = {
     ratedCurrent?: SortOrder
     numberOfPoles?: SortOrder
     breakingCapacity?: SortOrder
+    selectivityLimitA?: SortOrder
   }
 
   export type EnumProtectionTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -18089,6 +19670,59 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCurveTypeFilter<$PrismaModel>
     _max?: NestedEnumCurveTypeFilter<$PrismaModel>
+  }
+
+  export type UpstreamProtectionCountOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    type?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    curveType?: SortOrder
+    breakingCapacity?: SortOrder
+    manufacturer?: SortOrder
+    reference?: SortOrder
+    selectivityLimitA?: SortOrder
+  }
+
+  export type UpstreamProtectionAvgOrderByAggregateInput = {
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    breakingCapacity?: SortOrder
+    selectivityLimitA?: SortOrder
+  }
+
+  export type UpstreamProtectionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    type?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    curveType?: SortOrder
+    breakingCapacity?: SortOrder
+    manufacturer?: SortOrder
+    reference?: SortOrder
+    selectivityLimitA?: SortOrder
+  }
+
+  export type UpstreamProtectionMinOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    type?: SortOrder
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    curveType?: SortOrder
+    breakingCapacity?: SortOrder
+    manufacturer?: SortOrder
+    reference?: SortOrder
+    selectivityLimitA?: SortOrder
+  }
+
+  export type UpstreamProtectionSumOrderByAggregateInput = {
+    ratedCurrent?: SortOrder
+    numberOfPoles?: SortOrder
+    breakingCapacity?: SortOrder
+    selectivityLimitA?: SortOrder
   }
 
   export type EnumCheckStatusFilter<$PrismaModel = never> = {
@@ -18407,6 +20041,12 @@ export namespace Prisma {
     connect?: ProtectionWhereUniqueInput
   }
 
+  export type UpstreamProtectionCreateNestedOneWithoutProjectInput = {
+    create?: XOR<UpstreamProtectionCreateWithoutProjectInput, UpstreamProtectionUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: UpstreamProtectionCreateOrConnectWithoutProjectInput
+    connect?: UpstreamProtectionWhereUniqueInput
+  }
+
   export type ResultCreateNestedOneWithoutProjectInput = {
     create?: XOR<ResultCreateWithoutProjectInput, ResultUncheckedCreateWithoutProjectInput>
     connectOrCreate?: ResultCreateOrConnectWithoutProjectInput
@@ -18442,6 +20082,12 @@ export namespace Prisma {
     create?: XOR<ProtectionCreateWithoutProjectInput, ProtectionUncheckedCreateWithoutProjectInput>
     connectOrCreate?: ProtectionCreateOrConnectWithoutProjectInput
     connect?: ProtectionWhereUniqueInput
+  }
+
+  export type UpstreamProtectionUncheckedCreateNestedOneWithoutProjectInput = {
+    create?: XOR<UpstreamProtectionCreateWithoutProjectInput, UpstreamProtectionUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: UpstreamProtectionCreateOrConnectWithoutProjectInput
+    connect?: UpstreamProtectionWhereUniqueInput
   }
 
   export type ResultUncheckedCreateNestedOneWithoutProjectInput = {
@@ -18508,6 +20154,16 @@ export namespace Prisma {
     update?: XOR<XOR<ProtectionUpdateToOneWithWhereWithoutProjectInput, ProtectionUpdateWithoutProjectInput>, ProtectionUncheckedUpdateWithoutProjectInput>
   }
 
+  export type UpstreamProtectionUpdateOneWithoutProjectNestedInput = {
+    create?: XOR<UpstreamProtectionCreateWithoutProjectInput, UpstreamProtectionUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: UpstreamProtectionCreateOrConnectWithoutProjectInput
+    upsert?: UpstreamProtectionUpsertWithoutProjectInput
+    disconnect?: UpstreamProtectionWhereInput | boolean
+    delete?: UpstreamProtectionWhereInput | boolean
+    connect?: UpstreamProtectionWhereUniqueInput
+    update?: XOR<XOR<UpstreamProtectionUpdateToOneWithWhereWithoutProjectInput, UpstreamProtectionUpdateWithoutProjectInput>, UpstreamProtectionUncheckedUpdateWithoutProjectInput>
+  }
+
   export type ResultUpdateOneWithoutProjectNestedInput = {
     create?: XOR<ResultCreateWithoutProjectInput, ResultUncheckedCreateWithoutProjectInput>
     connectOrCreate?: ResultCreateOrConnectWithoutProjectInput
@@ -18570,6 +20226,16 @@ export namespace Prisma {
     delete?: ProtectionWhereInput | boolean
     connect?: ProtectionWhereUniqueInput
     update?: XOR<XOR<ProtectionUpdateToOneWithWhereWithoutProjectInput, ProtectionUpdateWithoutProjectInput>, ProtectionUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type UpstreamProtectionUncheckedUpdateOneWithoutProjectNestedInput = {
+    create?: XOR<UpstreamProtectionCreateWithoutProjectInput, UpstreamProtectionUncheckedCreateWithoutProjectInput>
+    connectOrCreate?: UpstreamProtectionCreateOrConnectWithoutProjectInput
+    upsert?: UpstreamProtectionUpsertWithoutProjectInput
+    disconnect?: UpstreamProtectionWhereInput | boolean
+    delete?: UpstreamProtectionWhereInput | boolean
+    connect?: UpstreamProtectionWhereUniqueInput
+    update?: XOR<XOR<UpstreamProtectionUpdateToOneWithWhereWithoutProjectInput, UpstreamProtectionUpdateWithoutProjectInput>, UpstreamProtectionUncheckedUpdateWithoutProjectInput>
   }
 
   export type ResultUncheckedUpdateOneWithoutProjectNestedInput = {
@@ -18740,6 +20406,20 @@ export namespace Prisma {
     upsert?: ProjectUpsertWithoutProtectionInput
     connect?: ProjectWhereUniqueInput
     update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutProtectionInput, ProjectUpdateWithoutProtectionInput>, ProjectUncheckedUpdateWithoutProtectionInput>
+  }
+
+  export type ProjectCreateNestedOneWithoutUpstreamProtectionInput = {
+    create?: XOR<ProjectCreateWithoutUpstreamProtectionInput, ProjectUncheckedCreateWithoutUpstreamProtectionInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutUpstreamProtectionInput
+    connect?: ProjectWhereUniqueInput
+  }
+
+  export type ProjectUpdateOneRequiredWithoutUpstreamProtectionNestedInput = {
+    create?: XOR<ProjectCreateWithoutUpstreamProtectionInput, ProjectUncheckedCreateWithoutUpstreamProtectionInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutUpstreamProtectionInput
+    upsert?: ProjectUpsertWithoutUpstreamProtectionInput
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutUpstreamProtectionInput, ProjectUpdateWithoutUpstreamProtectionInput>, ProjectUncheckedUpdateWithoutUpstreamProtectionInput>
   }
 
   export type ProjectCreateNestedOneWithoutResultInput = {
@@ -19352,6 +21032,7 @@ export namespace Prisma {
     circuits?: CircuitCreateNestedManyWithoutProjectInput
     cableData?: CableDataCreateNestedOneWithoutProjectInput
     protection?: ProtectionCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionCreateNestedOneWithoutProjectInput
     result?: ResultCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
   }
@@ -19367,6 +21048,7 @@ export namespace Prisma {
     circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
     cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
     protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionUncheckedCreateNestedOneWithoutProjectInput
     result?: ResultUncheckedCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
   }
@@ -19807,6 +21489,9 @@ export namespace Prisma {
     numberOfPoles: number
     curveType: $Enums.CurveType
     breakingCapacity: number
+    manufacturer?: string | null
+    reference?: string | null
+    selectivityLimitA?: number | null
   }
 
   export type ProtectionUncheckedCreateWithoutProjectInput = {
@@ -19816,11 +21501,43 @@ export namespace Prisma {
     numberOfPoles: number
     curveType: $Enums.CurveType
     breakingCapacity: number
+    manufacturer?: string | null
+    reference?: string | null
+    selectivityLimitA?: number | null
   }
 
   export type ProtectionCreateOrConnectWithoutProjectInput = {
     where: ProtectionWhereUniqueInput
     create: XOR<ProtectionCreateWithoutProjectInput, ProtectionUncheckedCreateWithoutProjectInput>
+  }
+
+  export type UpstreamProtectionCreateWithoutProjectInput = {
+    id?: string
+    type: $Enums.ProtectionType
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: $Enums.CurveType
+    breakingCapacity: number
+    manufacturer?: string | null
+    reference?: string | null
+    selectivityLimitA?: number | null
+  }
+
+  export type UpstreamProtectionUncheckedCreateWithoutProjectInput = {
+    id?: string
+    type: $Enums.ProtectionType
+    ratedCurrent: number
+    numberOfPoles: number
+    curveType: $Enums.CurveType
+    breakingCapacity: number
+    manufacturer?: string | null
+    reference?: string | null
+    selectivityLimitA?: number | null
+  }
+
+  export type UpstreamProtectionCreateOrConnectWithoutProjectInput = {
+    where: UpstreamProtectionWhereUniqueInput
+    create: XOR<UpstreamProtectionCreateWithoutProjectInput, UpstreamProtectionUncheckedCreateWithoutProjectInput>
   }
 
   export type ResultCreateWithoutProjectInput = {
@@ -20042,6 +21759,9 @@ export namespace Prisma {
     numberOfPoles?: IntFieldUpdateOperationsInput | number
     curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
     breakingCapacity?: FloatFieldUpdateOperationsInput | number
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    reference?: NullableStringFieldUpdateOperationsInput | string | null
+    selectivityLimitA?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
   export type ProtectionUncheckedUpdateWithoutProjectInput = {
@@ -20051,6 +21771,44 @@ export namespace Prisma {
     numberOfPoles?: IntFieldUpdateOperationsInput | number
     curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
     breakingCapacity?: FloatFieldUpdateOperationsInput | number
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    reference?: NullableStringFieldUpdateOperationsInput | string | null
+    selectivityLimitA?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type UpstreamProtectionUpsertWithoutProjectInput = {
+    update: XOR<UpstreamProtectionUpdateWithoutProjectInput, UpstreamProtectionUncheckedUpdateWithoutProjectInput>
+    create: XOR<UpstreamProtectionCreateWithoutProjectInput, UpstreamProtectionUncheckedCreateWithoutProjectInput>
+    where?: UpstreamProtectionWhereInput
+  }
+
+  export type UpstreamProtectionUpdateToOneWithWhereWithoutProjectInput = {
+    where?: UpstreamProtectionWhereInput
+    data: XOR<UpstreamProtectionUpdateWithoutProjectInput, UpstreamProtectionUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type UpstreamProtectionUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
+    ratedCurrent?: FloatFieldUpdateOperationsInput | number
+    numberOfPoles?: IntFieldUpdateOperationsInput | number
+    curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
+    breakingCapacity?: FloatFieldUpdateOperationsInput | number
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    reference?: NullableStringFieldUpdateOperationsInput | string | null
+    selectivityLimitA?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type UpstreamProtectionUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumProtectionTypeFieldUpdateOperationsInput | $Enums.ProtectionType
+    ratedCurrent?: FloatFieldUpdateOperationsInput | number
+    numberOfPoles?: IntFieldUpdateOperationsInput | number
+    curveType?: EnumCurveTypeFieldUpdateOperationsInput | $Enums.CurveType
+    breakingCapacity?: FloatFieldUpdateOperationsInput | number
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    reference?: NullableStringFieldUpdateOperationsInput | string | null
+    selectivityLimitA?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
   export type ResultUpsertWithoutProjectInput = {
@@ -20132,6 +21890,7 @@ export namespace Prisma {
     circuits?: CircuitCreateNestedManyWithoutProjectInput
     cableData?: CableDataCreateNestedOneWithoutProjectInput
     protection?: ProtectionCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionCreateNestedOneWithoutProjectInput
     result?: ResultCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
   }
@@ -20147,6 +21906,7 @@ export namespace Prisma {
     circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
     cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
     protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionUncheckedCreateNestedOneWithoutProjectInput
     result?: ResultUncheckedCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
   }
@@ -20178,6 +21938,7 @@ export namespace Prisma {
     circuits?: CircuitUpdateManyWithoutProjectNestedInput
     cableData?: CableDataUpdateOneWithoutProjectNestedInput
     protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUpdateOneWithoutProjectNestedInput
     result?: ResultUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
   }
@@ -20193,6 +21954,7 @@ export namespace Prisma {
     circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
     cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
     protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUncheckedUpdateOneWithoutProjectNestedInput
     result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
   }
@@ -20208,6 +21970,7 @@ export namespace Prisma {
     powerSupply?: PowerSupplyCreateNestedOneWithoutProjectInput
     cableData?: CableDataCreateNestedOneWithoutProjectInput
     protection?: ProtectionCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionCreateNestedOneWithoutProjectInput
     result?: ResultCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
   }
@@ -20223,6 +21986,7 @@ export namespace Prisma {
     powerSupply?: PowerSupplyUncheckedCreateNestedOneWithoutProjectInput
     cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
     protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionUncheckedCreateNestedOneWithoutProjectInput
     result?: ResultUncheckedCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
   }
@@ -20254,6 +22018,7 @@ export namespace Prisma {
     powerSupply?: PowerSupplyUpdateOneWithoutProjectNestedInput
     cableData?: CableDataUpdateOneWithoutProjectNestedInput
     protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUpdateOneWithoutProjectNestedInput
     result?: ResultUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
   }
@@ -20269,6 +22034,7 @@ export namespace Prisma {
     powerSupply?: PowerSupplyUncheckedUpdateOneWithoutProjectNestedInput
     cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
     protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUncheckedUpdateOneWithoutProjectNestedInput
     result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
   }
@@ -20285,6 +22051,7 @@ export namespace Prisma {
     circuits?: CircuitCreateNestedManyWithoutProjectInput
     cableData?: CableDataCreateNestedOneWithoutProjectInput
     protection?: ProtectionCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionCreateNestedOneWithoutProjectInput
     result?: ResultCreateNestedOneWithoutProjectInput
   }
 
@@ -20300,6 +22067,7 @@ export namespace Prisma {
     circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
     cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
     protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionUncheckedCreateNestedOneWithoutProjectInput
     result?: ResultUncheckedCreateNestedOneWithoutProjectInput
   }
 
@@ -20331,6 +22099,7 @@ export namespace Prisma {
     circuits?: CircuitUpdateManyWithoutProjectNestedInput
     cableData?: CableDataUpdateOneWithoutProjectNestedInput
     protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUpdateOneWithoutProjectNestedInput
     result?: ResultUpdateOneWithoutProjectNestedInput
   }
 
@@ -20346,6 +22115,7 @@ export namespace Prisma {
     circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
     cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
     protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUncheckedUpdateOneWithoutProjectNestedInput
     result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
   }
 
@@ -20360,6 +22130,7 @@ export namespace Prisma {
     powerSupply?: PowerSupplyCreateNestedOneWithoutProjectInput
     circuits?: CircuitCreateNestedManyWithoutProjectInput
     protection?: ProtectionCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionCreateNestedOneWithoutProjectInput
     result?: ResultCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
   }
@@ -20375,6 +22146,7 @@ export namespace Prisma {
     powerSupply?: PowerSupplyUncheckedCreateNestedOneWithoutProjectInput
     circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
     protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionUncheckedCreateNestedOneWithoutProjectInput
     result?: ResultUncheckedCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
   }
@@ -20406,6 +22178,7 @@ export namespace Prisma {
     powerSupply?: PowerSupplyUpdateOneWithoutProjectNestedInput
     circuits?: CircuitUpdateManyWithoutProjectNestedInput
     protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUpdateOneWithoutProjectNestedInput
     result?: ResultUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
   }
@@ -20421,6 +22194,7 @@ export namespace Prisma {
     powerSupply?: PowerSupplyUncheckedUpdateOneWithoutProjectNestedInput
     circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
     protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUncheckedUpdateOneWithoutProjectNestedInput
     result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
   }
@@ -20436,6 +22210,7 @@ export namespace Prisma {
     powerSupply?: PowerSupplyCreateNestedOneWithoutProjectInput
     circuits?: CircuitCreateNestedManyWithoutProjectInput
     cableData?: CableDataCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionCreateNestedOneWithoutProjectInput
     result?: ResultCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
   }
@@ -20451,6 +22226,7 @@ export namespace Prisma {
     powerSupply?: PowerSupplyUncheckedCreateNestedOneWithoutProjectInput
     circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
     cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionUncheckedCreateNestedOneWithoutProjectInput
     result?: ResultUncheckedCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
   }
@@ -20482,6 +22258,7 @@ export namespace Prisma {
     powerSupply?: PowerSupplyUpdateOneWithoutProjectNestedInput
     circuits?: CircuitUpdateManyWithoutProjectNestedInput
     cableData?: CableDataUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUpdateOneWithoutProjectNestedInput
     result?: ResultUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
   }
@@ -20497,6 +22274,87 @@ export namespace Prisma {
     powerSupply?: PowerSupplyUncheckedUpdateOneWithoutProjectNestedInput
     circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
     cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
+  }
+
+  export type ProjectCreateWithoutUpstreamProtectionInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    name: string
+    client?: string | null
+    location?: string | null
+    user: UserCreateNestedOneWithoutProjectsInput
+    powerSupply?: PowerSupplyCreateNestedOneWithoutProjectInput
+    circuits?: CircuitCreateNestedManyWithoutProjectInput
+    cableData?: CableDataCreateNestedOneWithoutProjectInput
+    protection?: ProtectionCreateNestedOneWithoutProjectInput
+    result?: ResultCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutUpstreamProtectionInput = {
+    id?: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    name: string
+    client?: string | null
+    location?: string | null
+    powerSupply?: PowerSupplyUncheckedCreateNestedOneWithoutProjectInput
+    circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
+    cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
+    protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    result?: ResultUncheckedCreateNestedOneWithoutProjectInput
+    furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutUpstreamProtectionInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutUpstreamProtectionInput, ProjectUncheckedCreateWithoutUpstreamProtectionInput>
+  }
+
+  export type ProjectUpsertWithoutUpstreamProtectionInput = {
+    update: XOR<ProjectUpdateWithoutUpstreamProtectionInput, ProjectUncheckedUpdateWithoutUpstreamProtectionInput>
+    create: XOR<ProjectCreateWithoutUpstreamProtectionInput, ProjectUncheckedCreateWithoutUpstreamProtectionInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutUpstreamProtectionInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutUpstreamProtectionInput, ProjectUncheckedUpdateWithoutUpstreamProtectionInput>
+  }
+
+  export type ProjectUpdateWithoutUpstreamProtectionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    powerSupply?: PowerSupplyUpdateOneWithoutProjectNestedInput
+    circuits?: CircuitUpdateManyWithoutProjectNestedInput
+    cableData?: CableDataUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    result?: ResultUpdateOneWithoutProjectNestedInput
+    furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutUpstreamProtectionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    client?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    powerSupply?: PowerSupplyUncheckedUpdateOneWithoutProjectNestedInput
+    circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
+    cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
+    protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
     result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
   }
@@ -20513,6 +22371,7 @@ export namespace Prisma {
     circuits?: CircuitCreateNestedManyWithoutProjectInput
     cableData?: CableDataCreateNestedOneWithoutProjectInput
     protection?: ProtectionCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceCreateNestedOneWithoutProjectInput
   }
 
@@ -20528,6 +22387,7 @@ export namespace Prisma {
     circuits?: CircuitUncheckedCreateNestedManyWithoutProjectInput
     cableData?: CableDataUncheckedCreateNestedOneWithoutProjectInput
     protection?: ProtectionUncheckedCreateNestedOneWithoutProjectInput
+    upstreamProtection?: UpstreamProtectionUncheckedCreateNestedOneWithoutProjectInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedCreateNestedOneWithoutProjectInput
   }
 
@@ -20559,6 +22419,7 @@ export namespace Prisma {
     circuits?: CircuitUpdateManyWithoutProjectNestedInput
     cableData?: CableDataUpdateOneWithoutProjectNestedInput
     protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
   }
 
@@ -20574,6 +22435,7 @@ export namespace Prisma {
     circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
     cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
     protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUncheckedUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
   }
 
@@ -20655,6 +22517,7 @@ export namespace Prisma {
     circuits?: CircuitUpdateManyWithoutProjectNestedInput
     cableData?: CableDataUpdateOneWithoutProjectNestedInput
     protection?: ProtectionUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUpdateOneWithoutProjectNestedInput
     result?: ResultUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUpdateOneWithoutProjectNestedInput
   }
@@ -20670,6 +22533,7 @@ export namespace Prisma {
     circuits?: CircuitUncheckedUpdateManyWithoutProjectNestedInput
     cableData?: CableDataUncheckedUpdateOneWithoutProjectNestedInput
     protection?: ProtectionUncheckedUpdateOneWithoutProjectNestedInput
+    upstreamProtection?: UpstreamProtectionUncheckedUpdateOneWithoutProjectNestedInput
     result?: ResultUncheckedUpdateOneWithoutProjectNestedInput
     furthestLoadDistance?: FurthestLoadDistanceUncheckedUpdateOneWithoutProjectNestedInput
   }

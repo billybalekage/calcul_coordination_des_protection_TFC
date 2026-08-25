@@ -86,6 +86,7 @@ model Project {
   circuits             Circuit[]
   cableData            CableData?
   protection           Protection?
+  upstreamProtection   UpstreamProtection?
   result               Result?
   furthestLoadDistance FurthestLoadDistance?
 }
@@ -159,11 +160,28 @@ model Protection {
   projectId String  @unique
   project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
 
-  type             ProtectionType
-  ratedCurrent     Float
-  numberOfPoles    Int
-  curveType        CurveType
-  breakingCapacity Float
+  type              ProtectionType
+  ratedCurrent      Float
+  numberOfPoles     Int
+  curveType         CurveType
+  breakingCapacity  Float
+  manufacturer      String?
+  reference         String?
+  selectivityLimitA Float?
+}
+
+model UpstreamProtection {
+  id                String         @id @default(cuid())
+  projectId         String         @unique
+  project           Project        @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  type              ProtectionType
+  ratedCurrent      Float
+  numberOfPoles     Int
+  curveType         CurveType
+  breakingCapacity  Float
+  manufacturer      String?
+  reference         String?
+  selectivityLimitA Float?
 }
 
 // 7. Résultats calculés et vérifications

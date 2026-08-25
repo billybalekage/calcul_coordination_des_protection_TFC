@@ -11,6 +11,7 @@ async function launchCalculation(req, res) {
   const result = await calculService.calculate(
     req.params.projectId,
     req.user.id,
+    req.body,
   );
 
   res.status(200).json({ success: true, result });

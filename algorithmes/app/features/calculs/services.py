@@ -6,12 +6,14 @@ from app.features.calculs.cable import (
 from app.features.calculs.current import calculate_currents, phase_factor
 from app.features.calculs.protections import (
     check_protection,
+    evaluate_coordination,
     next_breaker,
     recommend_protection,
     short_circuit_current,
 )
 from app.features.calculs.rules import get_standard_rules
 from app.features.calculs.schemas import (
+    CoordinationResult,
     CalculationInput,
     CalculationResult,
     CircuitCalculationResult,
@@ -99,13 +101,18 @@ def calculate_circuit(data: CalculationInput, circuit) -> CircuitCalculationResu
     protection = circuit.protection or recommended_protection
     selectivity_verified = getattr(protection, "selectivityVerified", False)
     breaker = recommended_protection.ratedCurrent
-    overload, breaking, coordination, _ = check_protection(
+    overload, breaking, _, _ = check_protection(
         i_design,
         iz_corrected,
         i_cc,
         protection,
         protection.ratedCurrent,
         data.powerSupply.standard,
+    )
+    coordination = evaluate_coordination(
+        recommended_protection,
+        data.upstreamProtection,
+        i_cc,
     )
 
     return CircuitCalculationResult(
@@ -132,11 +139,8 @@ def calculate_circuit(data: CalculationInput, circuit) -> CircuitCalculationResu
             if selectivity_verified
             else "TO_VERIFY_WITH_MANUFACTURER"
         ),
-        coordinationCheck=(
-            coordination
-            if selectivity_verified
-            else "TO_VERIFY_WITH_MANUFACTURER"
-        ),
+        coordinationCheck=coordination.status,
+        coordination=coordination,
         assumptions={
             "distanceMeters": distance,
             "correctionFactor": k_total,
@@ -187,7 +191,43 @@ def calculate_result(data: CalculationInput) -> CalculationResult:
         coordinationCheck=(
             "PASS"
             if all(result.coordinationCheck == "PASS" for result in circuit_results)
+            else "PARTIAL"
+            if any(
+                result.coordinationCheck == "TO_VERIFY_WITH_MANUFACTURER"
+                for result in circuit_results
+            )
             else "FAIL"
+        ),
+        coordination=CoordinationResult(
+            status=(
+                "PASS"
+                if all(result.coordinationCheck == "PASS" for result in circuit_results)
+                else "PARTIAL"
+                if any(
+                    result.coordinationCheck == "TO_VERIFY_WITH_MANUFACTURER"
+                    for result in circuit_results
+                )
+                else "FAIL"
+            ),
+            method=(
+                "MANUFACTURER_TABLE"
+                if data.upstreamProtection and data.upstreamProtection.selectivityLimitA
+                else "NOT_AVAILABLE"
+            ),
+            reason="Résultat agrégé des vérifications par circuit.",
+            calculatedShortCircuitCurrentA=max(
+                result.shortCircuitCurrentAtEnd for result in circuit_results
+            ),
+            manufacturerLimitA=(
+                data.upstreamProtection.selectivityLimitA
+                if data.upstreamProtection
+                else None
+            ),
+            upstreamProtection=(
+                data.upstreamProtection.model_dump(exclude_none=True)
+                if data.upstreamProtection
+                else None
+            ),
         ),
         standard=data.powerSupply.standard,
         perCircuit=circuit_results,

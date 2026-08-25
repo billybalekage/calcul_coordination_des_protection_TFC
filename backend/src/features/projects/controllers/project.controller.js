@@ -89,6 +89,16 @@ async function addProtection(req, res) {
   res.status(200).json({ success: true, protection });
 }
 
+async function addUpstreamProtection(req, res) {
+  const data = validate(protectionSchema, req.body);
+  const upstreamProtection = await projectService.saveUpstreamProtection(
+    projectId(req),
+    req.user.id,
+    data,
+  );
+  res.status(200).json({ success: true, upstreamProtection });
+}
+
 async function addFurthestLoadDistance(req, res) {
   const data = validate(furthestLoadDistanceSchema, req.body);
   const furthestLoadDistance = await projectService.saveFurthestLoadDistance(
@@ -100,7 +110,11 @@ async function addFurthestLoadDistance(req, res) {
 }
 
 async function launchCalculation(req, res) {
-  const result = await calculService.calculate(projectId(req), req.user.id);
+  const result = await calculService.calculate(
+    projectId(req),
+    req.user.id,
+    req.body,
+  );
   res.status(200).json({ success: true, result });
 }
 
@@ -113,6 +127,7 @@ async function getProject(req, res) {
       circuits: true,
       cableData: true,
       protection: true,
+      upstreamProtection: true,
       furthestLoadDistance: true,
       result: true,
     },
@@ -129,6 +144,7 @@ module.exports = {
   deleteCircuit,
   addCableData,
   addProtection,
+  addUpstreamProtection,
   addFurthestLoadDistance,
   launchCalculation,
   getProject,

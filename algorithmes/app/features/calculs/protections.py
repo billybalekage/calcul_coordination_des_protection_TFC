@@ -1,4 +1,9 @@
-from app.features.calculs.schemas import CircuitInput, ProtectionInput, RecommendedProtection
+from app.features.calculs.schemas import (
+    CircuitInput,
+    CoordinationResult,
+    ProtectionInput,
+    RecommendedProtection,
+)
 from app.features.calculs.rules import get_standard_rules
 from app.features.calculs.schemas import CircuitInput, ProtectionInput
 
@@ -63,6 +68,44 @@ def recommend_protection(
             "startingCurrentA": i_start,
             "standard": standard,
         },
+    )
+
+
+def evaluate_coordination(
+    downstream: RecommendedProtection,
+    upstream: ProtectionInput | RecommendedProtection | None,
+    i_cc: float,
+) -> CoordinationResult:
+    if upstream is None:
+        return CoordinationResult(
+            status="TO_VERIFY_WITH_MANUFACTURER",
+            method="NOT_AVAILABLE",
+            reason="Protection amont et tableau constructeur absents.",
+            calculatedShortCircuitCurrentA=i_cc,
+        )
+
+    limit = getattr(upstream, "selectivityLimitA", None)
+    if limit is None:
+        return CoordinationResult(
+            status="TO_VERIFY_WITH_MANUFACTURER",
+            method="GENERIC_CHECK",
+            reason="La limite de sélectivité du couple amont/aval n'est pas renseignée.",
+            calculatedShortCircuitCurrentA=i_cc,
+            upstreamProtection=upstream.model_dump(exclude_none=True),
+        )
+
+    status = "PASS" if i_cc <= limit and upstream.ratedCurrent > downstream.ratedCurrent else "FAIL"
+    return CoordinationResult(
+        status=status,
+        method="MANUFACTURER_TABLE",
+        reason=(
+            "Sélectivité validée dans la limite constructeur renseignée."
+            if status == "PASS"
+            else "Le courant de défaut dépasse la limite ou le calibre amont n'est pas supérieur."
+        ),
+        calculatedShortCircuitCurrentA=i_cc,
+        manufacturerLimitA=limit,
+        upstreamProtection=upstream.model_dump(exclude_none=True),
     )
 
 
