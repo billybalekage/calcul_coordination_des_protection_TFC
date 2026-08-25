@@ -7,6 +7,7 @@ from app.features.calculs.current import calculate_currents, phase_factor
 from app.features.calculs.protections import (
     check_protection,
     next_breaker,
+    recommend_protection,
     short_circuit_current,
 )
 from app.features.calculs.rules import get_standard_rules
@@ -86,11 +87,18 @@ def calculate_circuit(data: CalculationInput, circuit) -> CircuitCalculationResu
         selected_section,
         rules["resistivity"],
     )
-    breaker = next_breaker(
+    recommended_protection = recommend_protection(
         i_design,
+        i_start,
+        iz_corrected,
+        i_cc,
         circuit.type,
+        data.powerSupply.type,
         data.powerSupply.standard,
     )
+    protection = circuit.protection or recommended_protection
+    selectivity_verified = getattr(protection, "selectivityVerified", False)
+    breaker = recommended_protection.ratedCurrent
     overload, breaking, coordination, _ = check_protection(
         i_design,
         iz_corrected,
@@ -116,16 +124,17 @@ def calculate_circuit(data: CalculationInput, circuit) -> CircuitCalculationResu
         shortCircuitCurrentAtEnd=i_cc,
         recommendedBreaker=breaker,
         requiredBreakingCapacity=i_cc,
+        recommendedProtection=recommended_protection,
         overloadCheck=overload,
         voltageDropCheck="PASS" if selected_drop[1] <= limit else "FAIL",
         breakingCapacityCheck=(
             breaking
-            if protection.selectivityVerified
+            if selectivity_verified
             else "TO_VERIFY_WITH_MANUFACTURER"
         ),
         coordinationCheck=(
             coordination
-            if protection.selectivityVerified
+            if selectivity_verified
             else "TO_VERIFY_WITH_MANUFACTURER"
         ),
         assumptions={
@@ -133,7 +142,7 @@ def calculate_circuit(data: CalculationInput, circuit) -> CircuitCalculationResu
             "correctionFactor": k_total,
             "cableDataProvidedPerCircuit": True,
             "protectionDataProvidedPerCircuit": True,
-            "selectivityVerified": protection.selectivityVerified,
+            "selectivityVerified": selectivity_verified,
             "shortCircuitMethod": "SIMPLIFIED_LOOP_IMPEDANCE",
         },
     )
@@ -148,13 +157,17 @@ def calculate_result(data: CalculationInput) -> CalculationResult:
         recommendedCableSection=max(result.recommendedSection for result in circuit_results),
         correctedCableCapacity=min(result.izCorrected for result in circuit_results),
         recommendedBreaker=max(result.recommendedBreaker for result in circuit_results),
+        recommendedProtections=[
+            result.recommendedProtection for result in circuit_results
+        ],
         voltageDropVolts=furthest.voltageDropVolts,
         voltageDropPercent=furthest.voltageDropPercent,
         shortCircuitCurrentAtEnd=max(
             result.shortCircuitCurrentAtEnd for result in circuit_results
         ),
         breakerBreakingCapacity=min(
-            circuit.protection.breakingCapacity for circuit in data.circuits
+            result.recommendedProtection.breakingCapacity
+            for result in circuit_results
         ),
         overloadCheck=(
             "PASS"

@@ -73,6 +73,15 @@ class ProtectionInput(BaseModel):
     curveType: Literal["B", "C", "D", "K", "Z"]
     breakingCapacity: float = Field(gt=0)
     selectivityVerified: bool = False
+    
+class RecommendedProtection(BaseModel):
+    type: Literal["DISJONCTEUR"] = "DISJONCTEUR"
+    ratedCurrent: float
+    numberOfPoles: Literal[1, 2, 3, 4]
+    curveType: Literal["B", "C", "D", "K", "Z"]
+    breakingCapacity: float
+    differential: dict[str, object]
+    selectionBasis: dict[str, object] = Field(default_factory=dict)
 
 
 class FurthestLoadDistanceInput(BaseModel):
@@ -101,10 +110,8 @@ class CalculationInput(BaseModel):
                 circuit.cableData = self.cableData
             if circuit.protection is None:
                 circuit.protection = self.protection
-            if circuit.cableData is None or circuit.protection is None:
-                raise ValueError(
-                    f"Circuit '{circuit.name}' must define cableData and protection"
-                )
+            if circuit.cableData is None:
+                raise ValueError(f"Circuit '{circuit.name}' must define cableData")
             if circuit.distance is None and self.furthestLoadDistance:
                 if circuit.name == self.furthestLoadDistance.circuitName:
                     circuit.distance = self.furthestLoadDistance.distance
@@ -132,6 +139,7 @@ class CircuitCalculationResult(BaseModel):
     shortCircuitCurrentAtEnd: float
     recommendedBreaker: float
     requiredBreakingCapacity: float
+    recommendedProtection: RecommendedProtection
     overloadCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
     voltageDropCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
     breakingCapacityCheck: Literal["PASS", "FAIL", "TO_VERIFY_WITH_MANUFACTURER"]
@@ -145,6 +153,7 @@ class CalculationResult(BaseModel):
     recommendedCableSection: float
     correctedCableCapacity: float
     recommendedBreaker: float
+    recommendedProtections: list[RecommendedProtection]
     voltageDropVolts: float
     voltageDropPercent: float
     shortCircuitCurrentAtEnd: float

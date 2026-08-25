@@ -6,6 +6,44 @@ from app.features.calculs.services import calculate_result
 
 
 class CalculationServiceTests(unittest.TestCase):
+    def test_protection_is_recommended_after_physical_calculation(self):
+        payload = {
+            "project": {"id": "project-1", "name": "Atelier"},
+            "powerSupply": {
+                "type": "MONOPHASE",
+                "nominalVoltage": 230,
+                "frequency": 50,
+                "regimeNeutre": "TT",
+                "distanceSourceToTGBT": 10,
+            },
+            "circuits": [
+                {
+                    "name": "Prises",
+                    "type": "PRISE_COURANT",
+                    "totalPower": 2300,
+                    "distance": 20,
+                }
+            ],
+            "cableData": {
+                "material": "CUIVRE",
+                "isolation": "PVC",
+                "modePose": "ENCASTRE_DANS_MUR",
+            },
+        }
+
+        result = calculate_result(CalculationInput.model_validate(payload))
+        recommendation = result.perCircuit[0].recommendedProtection
+
+        self.assertEqual(recommendation.type, "DISJONCTEUR")
+        self.assertEqual(recommendation.ratedCurrent, 16)
+        self.assertEqual(recommendation.numberOfPoles, 2)
+        self.assertEqual(recommendation.curveType, "C")
+        self.assertGreaterEqual(
+            recommendation.breakingCapacity,
+            result.perCircuit[0].shortCircuitCurrentAtEnd,
+        )
+        self.assertTrue(recommendation.differential["required"])
+
     def test_each_circuit_uses_its_own_cable_and_protection(self):
         payload = {
             "project": {"id": "project-1", "name": "Maison"},

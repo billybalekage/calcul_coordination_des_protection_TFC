@@ -91,7 +91,7 @@ export default function ProfilePage() {
           </div>
 
           <div>
-            <p className="text-xl font-semibold">
+            <p className="text-xl font-semibold text-slate-600">
               {user?.name || "Utilisateur"}
             </p>
             <p className="text-slate-600">

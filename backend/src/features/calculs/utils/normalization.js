@@ -165,6 +165,9 @@ function normalizeCalculationResult(physicalResult, standard, input = null) {
 
   if (Array.isArray(physicalResult.perCircuit)) {
     result.perCircuit = physicalResult.perCircuit;
+    result.recommendedProtections =
+      physicalResult.recommendedProtections ||
+      physicalResult.perCircuit.map((circuit) => circuit.recommendedProtection);
     result.standard = physicalResult.standard || standard;
     result.assumptions = {
       source: "FastAPI",

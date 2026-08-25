@@ -68,7 +68,7 @@ const Darshboard = () => {
   }
 
   return (
-    <main className="min-h-screen w-full max-w-5xl px-6 py-12">
+    <main className="min-h-screen w-full max-w-5xl px-6 py-12 gap-6 ">
       <header className="mb-8">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
           Calculs électriques
@@ -189,6 +189,12 @@ const Darshboard = () => {
           ))}
         </section>
       )}
+
+      <div min-h-screen w-full max-w-5xl px-6 py-12 gap-6>
+        <button className="bg-cyan-700 text-white hover:bg-cyan-800 px-16 py-3 flex items-center rounded-4xl">
+          Profile
+        </button>
+      </div>
     </main>
   );
 };

@@ -55,7 +55,6 @@ async function getCalculationInput(projectId, userId) {
         project.furthestLoadDistance.distance != null);
     return (
       (!hasCable && !project.cableData) ||
-      (!hasProtection && !project.protection) ||
       !hasDistance
     );
   });
